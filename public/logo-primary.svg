@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 120" width="460" height="120">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;display=swap');
+      .brand-title {
+        font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-weight: 800;
+        font-size: 56px;
+        letter-spacing: -0.04em;
+        fill: #1F1612;
+      }
+      .brand-sub {
+        font-family: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-weight: 600;
+        font-size: 12.5px;
+        letter-spacing: 0.38em;
+        fill: #1F1612;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="100%" height="100%" fill="#FAF6F1" rx="8" />
+
+  <!-- Coffee Bean Symbol -->
+  <g id="bean-symbol" transform="translate(68, 60) rotate(30)">
+    <!-- Solid smooth bean oval -->
+    <ellipse cx="0" cy="0" rx="27" ry="44" fill="#1F1612" />
+    <!-- S-shaped glowing ember crease line -->
+    <path d="M 0 -36 C 13 -16 -13 16 0 36" fill="none" stroke="#E4572E" stroke-width="6.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Wordmark -->
+  <g id="brand-wordmark" transform="translate(136, 0)">
+    <!-- ember -->
+    <text x="0" y="67" class="brand-title">ember</text>
+    <!-- ROASTERY -->
+    <text x="2" y="92" class="brand-sub">ROASTERY</text>
+  </g>
+</svg>

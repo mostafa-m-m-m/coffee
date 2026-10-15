@@ -1,0 +1,1331 @@
+<!doctype html>
+
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Dashboard Shell — Arabic Light Desktop</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              crema: "#FAF6F1",
+              accent: "#C2410C",
+              "accent-hover": "#9A3412",
+              border: "#E6DCD1",
+              espresso: "#1C1612",
+              muted: "#6B5748",
+            },
+            fontFamily: {
+              sans: ['"IBM Plex Sans Arabic"', "sans-serif"],
+              display: ['"Bricolage Grotesque"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #faf6f1;
+        font-family: "IBM Plex Sans Arabic", sans-serif;
+        color: #1c1612;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+      }
+      .brand-heading {
+        font-family: "Bricolage Grotesque", "IBM Plex Sans Arabic", sans-serif;
+        letter-spacing: -0.02em;
+      }
+      .badge-viewer {
+        border: 1px solid #b45309;
+        color: #b45309;
+        background-color: #fffbeb;
+      }
+    </style>
+    <meta content="web_dashboard" name="shell-type" />
+  </head>
+  <body class="bg-crema text-espresso">
+    <!-- FRAME 1: DEFAULT ADMIN ROLE (Overview active, no viewer pill) -->
+    <section class="border-b-4 border-dashed border-[#E6DCD1] pb-12 mb-12">
+      <div
+        class="px-8 py-3 bg-[#E6DCD1]/40 border-b border-[#E6DCD1] text-xs font-semibold text-muted flex items-center justify-between"
+      >
+        <span
+          >إطار لوحة التحكم (ADMIN DASHBOARD SHELL) — الحالة 1: دور المدير (ADMIN) — "نظرة عامة"
+          نشطة</span
+        >
+        <span class="font-mono text-[11px]">1360 × 900 · Arabic RTL Light</span>
+      </div>
+      <div class="w-[1360px] h-[900px] mx-auto bg-crema flex overflow-hidden shadow-sm relative">
+        <!-- FIXED SIDEBAR (224px at START edge / Right in RTL) -->
+        <aside
+          class="w-[224px] h-full bg-white border-l border-border flex flex-col justify-between shrink-0 z-20"
+        >
+          <!-- Top Section: Logo & Nav -->
+          <div>
+            <!-- Logo Header -->
+            <div class="h-14 px-5 flex items-center border-b border-border">
+              <a class="flex items-center gap-2.5" href="/">
+                <!-- Flat Bean Vector -->
+                <svg class="shrink-0" fill="none" height="24" viewbox="0 0 24 24" width="24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                    fill="#C2410C"
+                  ></path>
+                  <path
+                    d="M12 4c-1.8 3.5-1.8 12.5 0 16 1.8-3.5 1.8-12.5 0-16z"
+                    fill="#C2410C"
+                  ></path>
+                </svg>
+                <div class="flex flex-col">
+                  <span
+                    class="text-base font-bold leading-tight tracking-tight text-espresso font-display lowercase"
+                    >ember</span
+                  >
+                  <span class="text-[8px] tracking-[0.2em] font-bold text-muted -mt-0.5"
+                    >ROASTERY</span
+                  >
+                </div>
+              </a>
+            </div>
+            <!-- Navigation Items -->
+            <nav class="p-3 space-y-1">
+              <!-- نظرة عامة (Active) -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg bg-accent text-white font-medium text-sm transition-colors"
+                href="#overview"
+              >
+                <span class="text-base leading-none">📊</span>
+                <span>نظرة عامة</span>
+              </a>
+              <!-- الأوردرات -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#orders"
+              >
+                <span class="text-base leading-none">🧾</span>
+                <span>الأوردرات</span>
+              </a>
+              <!-- المنتجات -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#products"
+              >
+                <span class="text-base leading-none">☕</span>
+                <span>المنتجات</span>
+              </a>
+              <!-- العملاء -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#customers"
+              >
+                <span class="text-base leading-none">👥</span>
+                <span>العملاء</span>
+              </a>
+              <!-- التحليلات -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#analytics"
+              >
+                <span class="text-base leading-none">📈</span>
+                <span>التحليلات</span>
+              </a>
+            </nav>
+          </div>
+          <!-- Bottom Section: Back to Store Link -->
+          <div class="p-4 border-t border-border">
+            <a
+              class="flex items-center gap-2 text-xs font-medium text-muted hover:text-espresso transition-colors"
+              href="/"
+            >
+              <span>←</span>
+              <span>العودة للمتجر</span>
+            </a>
+          </div>
+        </aside>
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden">
+          <!-- TOP BAR (56px high, white, 1px bottom border) -->
+          <header
+            class="h-14 bg-white border-b border-border px-8 flex items-center justify-between shrink-0"
+          >
+            <!-- Start side (Visually Right): empty for Admin -->
+            <div class="flex items-center">
+              <!-- No viewer pill for Admin -->
+            </div>
+            <!-- End side (Visually Left in RTL): user name, theme toggle, AR|EN, خروج -->
+            <div class="flex items-center gap-5 text-sm">
+              <span class="font-medium text-espresso">Demo Viewer</span>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <!-- Theme toggle -->
+              <button
+                class="text-muted hover:text-espresso text-sm p-1 transition-colors"
+                title="تبديل المظهر"
+                type="button"
+              >
+                ☾
+              </button>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <!-- AR|EN switch -->
+              <div class="flex items-center text-xs font-semibold">
+                <span class="text-espresso">AR</span>
+                <span class="mx-1 text-border">|</span>
+                <span class="text-muted hover:text-espresso cursor-pointer">EN</span>
+              </div>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <!-- Logout link -->
+              <a
+                class="text-xs font-medium text-muted hover:text-accent transition-colors"
+                href="/logout"
+                >خروج</a
+              >
+            </div>
+          </header>
+          <!-- CONTENT AREA (Crema background, 24-32px padding) -->
+          <main class="flex-1 overflow-y-auto p-8 bg-crema">
+            <div class="flex flex-col w-full font-sans text-espresso pb-12">
+              <!-- 1. Header Row -->
+              <div class="flex items-center justify-between mb-6">
+                <h1
+                  class="font-headline-lg text-headline-lg font-bold text-espresso tracking-tight"
+                >
+                  التحليلات
+                </h1>
+              </div>
+              <!-- 2. Controls Card -->
+              <div
+                class="bg-white border border-border rounded-lg p-4 mb-6 flex flex-wrap items-center justify-between gap-4 shadow-sm"
+              >
+                <!-- Start side group: Dates, Presets, Granularity -->
+                <div class="flex flex-wrap items-center gap-3">
+                  <!-- Date Inputs -->
+                  <div class="flex items-center gap-2 text-sm text-espresso">
+                    <label class="text-xs text-muted font-medium">من</label>
+                    <input
+                      class="h-10 px-3 bg-crema border border-border rounded-lg text-xs font-mono text-espresso focus:outline-none focus:border-accent"
+                      type="date"
+                      value="2026-09-13"
+                    />
+                    <label class="text-xs text-muted font-medium">إلى</label>
+                    <input
+                      class="h-10 px-3 bg-crema border border-border rounded-lg text-xs font-mono text-espresso focus:outline-none focus:border-accent"
+                      type="date"
+                      value="2026-10-12"
+                    />
+                  </div>
+                  <div class="h-6 w-px bg-border hidden sm:block"></div>
+                  <!-- Presets -->
+                  <div class="flex items-center gap-1.5">
+                    <button
+                      class="px-3 h-9 rounded-lg text-xs font-medium border border-border bg-white hover:bg-crema text-muted transition-colors"
+                      type="button"
+                    >
+                      7 أيام
+                    </button>
+                    <button
+                      class="px-3 h-9 rounded-lg text-xs font-semibold border border-accent bg-accent text-white shadow-sm"
+                      type="button"
+                    >
+                      30 يوم
+                    </button>
+                    <button
+                      class="px-3 h-9 rounded-lg text-xs font-medium border border-border bg-white hover:bg-crema text-muted transition-colors"
+                      type="button"
+                    >
+                      3 شهور
+                    </button>
+                    <button
+                      class="px-3 h-9 rounded-lg text-xs font-medium border border-border bg-white hover:bg-crema text-muted transition-colors"
+                      type="button"
+                    >
+                      12 شهر
+                    </button>
+                  </div>
+                  <div class="h-6 w-px bg-border hidden sm:block"></div>
+                  <!-- Aggregation Select -->
+                  <div class="flex items-center gap-2">
+                    <label class="text-xs text-muted font-medium">التجميع</label>
+                    <select
+                      class="h-9 px-3 bg-white border border-border rounded-lg text-xs font-medium text-espresso focus:outline-none focus:border-accent"
+                    >
+                      <option selected="" value="auto">تلقائي</option>
+                      <option value="daily">يومي</option>
+                      <option value="weekly">أسبوعي</option>
+                      <option value="monthly">شهري</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- End side buttons -->
+                <div class="flex items-center gap-2.5">
+                  <button
+                    class="flex items-center gap-1.5 px-4 h-10 rounded-lg border border-border bg-white hover:bg-crema text-xs font-medium text-[#261914] transition-colors"
+                    type="button"
+                  >
+                    <span>⬇</span>
+                    <span>CSV أوردرات الفترة</span>
+                  </button>
+                  <button
+                    class="flex items-center gap-1.5 px-4 h-10 rounded-lg bg-accent hover:bg-accent-hover text-xs font-semibold text-white transition-colors shadow-sm"
+                    type="button"
+                  >
+                    <span>⬇</span>
+                    <span>تقرير PDF</span>
+                  </button>
+                </div>
+              </div>
+              <!-- 3. KPI Row (4 Cards) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <!-- Card 1 -->
+                <div class="bg-white border border-border rounded-lg p-5">
+                  <p class="text-xs font-medium text-muted mb-1.5">المبيعات</p>
+                  <p class="text-2xl font-bold font-mono tracking-tight text-espresso mb-2">
+                    $1,300,420.28
+                  </p>
+                  <div class="flex items-center gap-1.5 text-[11px] font-medium text-[#008300]">
+                    <span>↑</span>
+                    <span>+48.9% مقارنة بالفترة السابقة</span>
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white border border-border rounded-lg p-5">
+                  <p class="text-xs font-medium text-muted mb-1.5">الأوردرات</p>
+                  <p class="text-2xl font-bold font-mono tracking-tight text-espresso mb-2">
+                    6,920
+                  </p>
+                  <div class="flex items-center gap-1.5 text-[11px] font-medium text-[#008300]">
+                    <span>↑</span>
+                    <span>+18.2% مقارنة بالفترة السابقة</span>
+                  </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white border border-border rounded-lg p-5">
+                  <p class="text-xs font-medium text-muted mb-1.5">متوسط قيمة الأوردر</p>
+                  <p class="text-2xl font-bold font-mono tracking-tight text-espresso mb-2">
+                    $187.92
+                  </p>
+                  <div class="flex items-center gap-1.5 text-[11px] font-medium text-[#008300]">
+                    <span>↑</span>
+                    <span>+6.5% مقارنة بالفترة السابقة</span>
+                  </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white border border-border rounded-lg p-5">
+                  <p class="text-xs font-medium text-muted mb-1.5">عملاء جدد</p>
+                  <p class="text-2xl font-bold font-mono tracking-tight text-espresso mb-2">43</p>
+                  <div class="flex items-center gap-1.5 text-[11px] font-medium text-[#BA1A1A]">
+                    <span>↓</span>
+                    <span>-4.1% مقارنة بالفترة السابقة</span>
+                  </div>
+                </div>
+              </div>
+              <!-- 4. Chart 1: Sales Over Time (Full-Width Card) -->
+              <div class="bg-white border border-border rounded-lg p-6 mb-6">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-5">
+                  <div>
+                    <h2 class="text-base font-bold text-espresso">المبيعات عبر الزمن</h2>
+                    <p class="text-xs text-muted mt-0.5">اضغط على نقطة لعرض أوردرات هذه الفترة</p>
+                  </div>
+                  <!-- Legend -->
+                  <div class="flex items-center gap-5 text-xs">
+                    <div class="flex items-center gap-2">
+                      <span class="w-4 h-0.5 bg-accent inline-block"></span>
+                      <span class="text-espresso font-medium">الفترة الحالية</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span
+                        class="w-4 h-0.5 border-t border-dashed border-[#6B5748] inline-block"
+                      ></span>
+                      <span class="text-muted">الفترة السابقة</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Chart Canvas / Visualization -->
+                <div class="relative w-full h-[280px]">
+                  <svg
+                    class="w-full h-full overflow-visible"
+                    preserveaspectratio="none"
+                    viewbox="0 0 1000 240"
+                  >
+                    <defs>
+                      <lineargradient id="currentGradient" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0%" stop-color="#C2410C" stop-opacity="0.12"></stop>
+                        <stop offset="100%" stop-color="#C2410C" stop-opacity="0.0"></stop>
+                      </lineargradient>
+                    </defs>
+                    <!-- Dashed Horizontal Gridlines -->
+                    <g stroke="#E6DCD1" stroke-dasharray="4 4" stroke-width="1">
+                      <line x1="60" x2="1000" y1="20" y2="20"></line>
+                      <line x1="60" x2="1000" y1="70" y2="70"></line>
+                      <line x1="60" x2="1000" y1="120" y2="120"></line>
+                      <line x1="60" x2="1000" y1="170" y2="170"></line>
+                      <line x1="60" x2="1000" y1="220" y2="220"></line>
+                    </g>
+                    <!-- Y Axis Labels -->
+                    <g class="text-[11px] font-mono fill-[#6B5748]" text-anchor="end">
+                      <text x="50" y="24">$80,000</text>
+                      <text x="50" y="74">$60,000</text>
+                      <text x="50" y="124">$40,000</text>
+                      <text x="50" y="174">$20,000</text>
+                      <text x="50" y="224">$0</text>
+                    </g>
+                    <!-- Previous Period Line (Dashed flat around $30k ~ y=145) -->
+                    <path
+                      d="M 60 148 L 120 142 L 180 146 L 240 140 L 300 145 L 360 142 L 420 147 L 480 144 L 540 143 L 600 141 L 660 146 L 720 142 L 780 144 L 840 139 L 900 142 L 960 140 L 1000 142"
+                      fill="none"
+                      stroke="#6B5748"
+                      stroke-dasharray="5 5"
+                      stroke-width="1.75"
+                    ></path>
+                    <!-- Current Period Area -->
+                    <path
+                      d="M 60 130 L 120 125 L 180 128 L 240 118 L 300 110 L 360 115 L 420 105 L 480 98 L 540 85 L 600 90 L 660 72 L 720 60 L 780 50 L 840 45 L 900 35 L 960 25 L 1000 20 L 1000 220 L 60 220 Z"
+                      fill="url(#currentGradient)"
+                    ></path>
+                    <!-- Current Period Line (Rising ~$40k to ~$80k) -->
+                    <path
+                      d="M 60 130 L 120 125 L 180 128 L 240 118 L 300 110 L 360 115 L 420 105 L 480 98 L 540 85 L 600 90 L 660 72 L 720 60 L 780 50 L 840 45 L 900 35 L 960 25 L 1000 20"
+                      fill="none"
+                      stroke="#C2410C"
+                      stroke-width="2.5"
+                    ></path>
+                    <!-- Interactive Point Circle at index (600, 90) representing Sept 28 -->
+                    <circle
+                      cx="600"
+                      cy="90"
+                      fill="#FFFFFF"
+                      r="5"
+                      stroke="#C2410C"
+                      stroke-width="3"
+                    ></circle>
+                  </svg>
+                  <!-- Interactive Tooltip Overlay Frame -->
+                  <div
+                    class="absolute top-8 left-[38%] -translate-x-1/2 bg-white border border-border rounded-lg shadow-md p-3 text-xs pointer-events-none z-10 w-48"
+                  >
+                    <p class="font-bold text-espresso border-b border-border pb-1.5 mb-1.5">
+                      28 سبتمبر 2026
+                    </p>
+                    <div class="flex justify-between items-center text-accent font-semibold mb-1">
+                      <span>المبيعات</span>
+                      <span class="font-mono">$53,200</span>
+                    </div>
+                    <div class="flex justify-between items-center text-muted mb-1 text-[11px]">
+                      <span>الأوردرات</span>
+                      <span class="font-mono text-espresso font-medium">210</span>
+                    </div>
+                    <div
+                      class="flex justify-between items-center text-[#6B5748] text-[11px] border-t border-border pt-1"
+                    >
+                      <span>الفترة السابقة (…)</span>
+                      <span class="font-mono">$31,400</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- X-Axis Dates -->
+                <div class="flex justify-between text-[11px] font-mono text-muted mt-3 mr-12 px-1">
+                  <span>13 سبتمبر</span>
+                  <span>18 سبتمبر</span>
+                  <span>23 سبتمبر</span>
+                  <span>28 سبتمبر</span>
+                  <span>03 أكتوبر</span>
+                  <span>08 أكتوبر</span>
+                  <span>12 أكتوبر</span>
+                </div>
+              </div>
+              <!-- 5. Row of Two Half-Width Cards -->
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <!-- Chart 2: Sales by Category -->
+                <div
+                  class="bg-white border border-border rounded-lg p-6 flex flex-col justify-between"
+                >
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <h2 class="text-base font-bold text-espresso">المبيعات حسب التصنيف</h2>
+                    </div>
+                    <p class="text-xs text-muted mb-5">اضغط على عمود لعرض أوردرات التصنيف</p>
+                    <!-- Vertical Bars Chart -->
+                    <div
+                      class="relative w-full h-[220px] flex items-end justify-between px-6 pb-6 border-b border-border"
+                    >
+                      <!-- Background Grid lines -->
+                      <div
+                        class="absolute inset-x-0 top-0 h-full flex flex-col justify-between pointer-events-none pb-6"
+                      >
+                        <div class="border-b border-dashed border-[#E6DCD1] w-full"></div>
+                        <div class="border-b border-dashed border-[#E6DCD1] w-full"></div>
+                        <div class="border-b border-dashed border-[#E6DCD1] w-full"></div>
+                        <div class="border-b border-dashed border-[#E6DCD1] w-full"></div>
+                      </div>
+                      <!-- Bar 1: Whole Bean (Tallest ~$650k) -->
+                      <div
+                        class="relative flex flex-col items-center flex-1 group cursor-pointer z-10"
+                      >
+                        <!-- Tooltip (Frame a active/hover representation) -->
+                        <div
+                          class="absolute -top-12 bg-white border border-border shadow-md rounded px-2.5 py-1 text-[11px] text-espresso whitespace-nowrap z-20"
+                        >
+                          <span class="font-medium text-accent">Whole Bean Coffee:</span> $650,400
+                          <span class="text-muted">(4,120 أوردر)</span>
+                        </div>
+                        <div
+                          class="w-12 bg-accent rounded-t-[4px] h-[160px] transition-all group-hover:opacity-90"
+                        ></div>
+                        <span
+                          class="text-xs font-medium text-espresso mt-2 text-center truncate max-w-[90px]"
+                          >Whole Bean</span
+                        >
+                      </div>
+                      <!-- Bar 2: Brewing Equipment (~$280k) -->
+                      <div
+                        class="relative flex flex-col items-center flex-1 group cursor-pointer z-10"
+                      >
+                        <div
+                          class="w-12 bg-accent rounded-t-[4px] h-[75px] transition-all group-hover:opacity-90"
+                        ></div>
+                        <span
+                          class="text-xs font-medium text-espresso mt-2 text-center truncate max-w-[90px]"
+                          >Equipment</span
+                        >
+                      </div>
+                      <!-- Bar 3: Subscriptions (~$220k) -->
+                      <div
+                        class="relative flex flex-col items-center flex-1 group cursor-pointer z-10"
+                      >
+                        <div
+                          class="w-12 bg-accent rounded-t-[4px] h-[58px] transition-all group-hover:opacity-90"
+                        ></div>
+                        <span
+                          class="text-xs font-medium text-espresso mt-2 text-center truncate max-w-[90px]"
+                          >Subscriptions</span
+                        >
+                      </div>
+                      <!-- Bar 4: Ground Coffee (~$150k) -->
+                      <div
+                        class="relative flex flex-col items-center flex-1 group cursor-pointer z-10"
+                      >
+                        <div
+                          class="w-12 bg-accent rounded-t-[4px] h-[40px] transition-all group-hover:opacity-90"
+                        ></div>
+                        <span
+                          class="text-xs font-medium text-espresso mt-2 text-center truncate max-w-[90px]"
+                          >Ground Coffee</span
+                        >
+                      </div>
+                    </div>
+                    <!-- Frame (e) Expanded Disclosure Table -->
+                    <div class="mt-4 pt-2">
+                      <details class="group" open="">
+                        <summary
+                          class="text-xs font-semibold text-accent cursor-pointer hover:underline list-none flex items-center gap-1 select-none"
+                        >
+                          <span>عرض كجدول</span>
+                          <span class="transition-transform group-open:rotate-90">◂</span>
+                        </summary>
+                        <div class="mt-3 space-y-2 text-xs">
+                          <div
+                            class="flex items-center justify-between pb-1 border-b border-border/50"
+                          >
+                            <a
+                              class="underline text-espresso hover:text-accent"
+                              href="#category-whole-bean"
+                              >Whole Bean Coffee</a
+                            >
+                            <span class="font-mono font-medium text-espresso">$650,400</span>
+                          </div>
+                          <div
+                            class="flex items-center justify-between pb-1 border-b border-border/50"
+                          >
+                            <a
+                              class="underline text-espresso hover:text-accent"
+                              href="#category-brewing"
+                              >Brewing Equipment</a
+                            >
+                            <span class="font-mono font-medium text-espresso">$280,120</span>
+                          </div>
+                          <div
+                            class="flex items-center justify-between pb-1 border-b border-border/50"
+                          >
+                            <a
+                              class="underline text-espresso hover:text-accent"
+                              href="#category-subscriptions"
+                              >Subscriptions</a
+                            >
+                            <span class="font-mono font-medium text-espresso">$220,500</span>
+                          </div>
+                          <div
+                            class="flex items-center justify-between pb-1 border-b border-border/50"
+                          >
+                            <a
+                              class="underline text-espresso hover:text-accent"
+                              href="#category-ground"
+                              >Ground Coffee</a
+                            >
+                            <span class="font-mono font-medium text-espresso">$149,400</span>
+                          </div>
+                        </div>
+                      </details>
+                    </div>
+                  </div>
+                </div>
+                <!-- Chart 3: Top 10 Best Sellers -->
+                <div
+                  class="bg-white border border-border rounded-lg p-6 flex flex-col justify-between"
+                >
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <h2 class="text-base font-bold text-espresso">الأكثر مبيعًا (أعلى 10)</h2>
+                    </div>
+                    <p class="text-xs text-muted mb-4">اضغط على عمود لعرض أوردرات المنتج</p>
+                    <!-- 10 Horizontal Bars -->
+                    <div class="space-y-2 text-xs">
+                      <!-- 1 -->
+                      <div class="flex items-center gap-3">
+                        <span
+                          class="w-36 truncate text-muted font-mono text-[11px]"
+                          title="Ethiopia Yirgacheffe G1"
+                          >Ethiopia Yirgacheffe...</span
+                        >
+                        <div class="flex-1 bg-crema rounded h-4 overflow-hidden flex items-center">
+                          <div class="bg-accent h-full rounded-l" style="width: 95%"></div>
+                        </div>
+                        <span class="w-14 text-left font-mono text-[11px] text-espresso"
+                          >$142k</span
+                        >
+                      </div>
+                      <!-- 2 -->
+                      <div class="flex items-center gap-3">
+                        <span
+                          class="w-36 truncate text-muted font-mono text-[11px]"
+                          title="Colombia Huila San Agustin"
+                          >Colombia Huila...</span
+                        >
+                        <div class="flex-1 bg-crema rounded h-4 overflow-hidden flex items-center">
+                          <div class="bg-accent h-full rounded-l" style="width: 82%"></div>
+                        </div>
+                        <span class="w-14 text-left font-mono text-[11px] text-espresso"
+                          >$124k</span
+                        >
+                      </div>
+                      <!-- 3 -->
+                      <div class="flex items-center gap-3">
+                        <span
+                          class="w-36 truncate text-muted font-mono text-[11px]"
+                          title="Guatemala Antigua Bourbon"
+                          >Guatemala Antigua...</span
+                        >
+                        <div class="flex-1 bg-crema rounded h-4 overflow-hidden flex items-center">
+                          <div class="bg-accent h-full rounded-l" style="width: 76%"></div>
+                        </div>
+                        <span class="w-14 text-left font-mono text-[11px] text-espresso"
+                          >$115k</span
+                        >
+                      </div>
+                      <!-- 4 -->
+                      <div class="flex items-center gap-3">
+                        <span
+                          class="w-36 truncate text-muted font-mono text-[11px]"
+                          title="V60 Dripper Standard 02"
+                          >V60 Dripper Standard...</span
+                        >
+                        <div class="flex-1 bg-crema rounded h-4 overflow-hidden flex items-center">
+                          <div class="bg-accent h-full rounded-l" style="width: 68%"></div>
+                        </div>
+                        <span class="w-14 text-left font-mono text-[11px] text-espresso">$98k</span>
+                      </div>
+                      <!-- 5 -->
+                      <div class="flex items-center gap-3">
+                        <span
+                          class="w-36 truncate text-muted font-mono text-[11px]"
+                          title="Gooseneck Kettle Matt Black"
+                          >Gooseneck Kettle...</span
+                        >
+                        <div class="flex-1 bg-crema rounded h-4 overflow-hidden flex items-center">
+                          <div class="bg-accent h-full rounded-l" style="width: 60%"></div>
+                        </div>
+                        <span class="w-14 text-left font-mono text-[11px] text-espresso">$86k</span>
+                      </div>
+                      <!-- 6 -->
+                      <div class="flex items-center gap-3">
+                        <span
+                          class="w-36 truncate text-muted font-mono text-[11px]"
+                          title="Burr Grinder Pro Electric"
+                          >Burr Grinder Pro...</span
+                        >
+                        <div class="flex-1 bg-crema rounded h-4 overflow-hidden flex items-center">
+                          <div class="bg-accent h-full rounded-l" style="width: 54%"></div>
+                        </div>
+                        <span class="w-14 text-left font-mono text-[11px] text-espresso">$77k</span>
+                      </div>
+                      <!-- 7 -->
+                      <div class="flex items-center gap-3">
+                        <span
+                          class="w-36 truncate text-muted font-mono text-[11px]"
+                          title="House Blend Dark Roast"
+                          >House Blend Dark...</span
+                        >
+                        <div class="flex-1 bg-crema rounded h-4 overflow-hidden flex items-center">
+                          <div class="bg-accent h-full rounded-l" style="width: 46%"></div>
+                        </div>
+                        <span class="w-14 text-left font-mono text-[11px] text-espresso">$65k</span>
+                      </div>
+                      <!-- 8 -->
+                      <div class="flex items-center gap-3">
+                        <span
+                          class="w-36 truncate text-muted font-mono text-[11px]"
+                          title="Kenya AA Nyeri Hill"
+                          >Kenya AA Nyeri...</span
+                        >
+                        <div class="flex-1 bg-crema rounded h-4 overflow-hidden flex items-center">
+                          <div class="bg-accent h-full rounded-l" style="width: 39%"></div>
+                        </div>
+                        <span class="w-14 text-left font-mono text-[11px] text-espresso">$56k</span>
+                      </div>
+                      <!-- 9 -->
+                      <div class="flex items-center gap-3">
+                        <span
+                          class="w-36 truncate text-muted font-mono text-[11px]"
+                          title="Sumatra Mandheling Grade 1"
+                          >Sumatra Mandheling...</span
+                        >
+                        <div class="flex-1 bg-crema rounded h-4 overflow-hidden flex items-center">
+                          <div class="bg-accent h-full rounded-l" style="width: 31%"></div>
+                        </div>
+                        <span class="w-14 text-left font-mono text-[11px] text-espresso">$44k</span>
+                      </div>
+                      <!-- 10 -->
+                      <div class="flex items-center gap-3">
+                        <span
+                          class="w-36 truncate text-muted font-mono text-[11px]"
+                          title="Cold Brew Blend Coarse"
+                          >Cold Brew Blend...</span
+                        >
+                        <div class="flex-1 bg-crema rounded h-4 overflow-hidden flex items-center">
+                          <div class="bg-accent h-full rounded-l" style="width: 25%"></div>
+                        </div>
+                        <span class="w-14 text-left font-mono text-[11px] text-espresso">$35k</span>
+                      </div>
+                    </div>
+                    <!-- Disclosure under chart -->
+                    <div class="mt-4 pt-2">
+                      <details class="group">
+                        <summary
+                          class="text-xs font-semibold text-accent cursor-pointer hover:underline list-none flex items-center gap-1 select-none"
+                        >
+                          <span>عرض كجدول</span>
+                          <span class="transition-transform group-open:rotate-90">◂</span>
+                        </summary>
+                        <div class="mt-3 space-y-2 text-xs">
+                          <div class="flex justify-between border-b border-border/40 pb-1">
+                            <a class="underline text-espresso" href="#product-1"
+                              >Ethiopia Yirgacheffe G1</a
+                            >
+                            <span class="font-mono text-espresso">$142,300</span>
+                          </div>
+                          <div class="flex justify-between border-b border-border/40 pb-1">
+                            <a class="underline text-espresso" href="#product-2"
+                              >Colombia Huila San Agustin</a
+                            >
+                            <span class="font-mono text-espresso">$124,100</span>
+                          </div>
+                          <div class="flex justify-between border-b border-border/40 pb-1">
+                            <a class="underline text-espresso" href="#product-3"
+                              >Guatemala Antigua Bourbon</a
+                            >
+                            <span class="font-mono text-espresso">$115,000</span>
+                          </div>
+                        </div>
+                      </details>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 6. Chart 4: Order Status Distribution (Full-Width Card) -->
+              <div class="bg-white border border-border rounded-lg p-6 mb-8">
+                <div class="flex flex-wrap items-center justify-between gap-4 mb-3">
+                  <div>
+                    <h2 class="text-base font-bold text-espresso">
+                      توزيع حالات الأوردرات أسبوعيًا
+                    </h2>
+                    <p class="text-xs text-muted mt-0.5">
+                      اضغط على جزء لعرض أوردرات هذه الحالة في هذا الأسبوع
+                    </p>
+                  </div>
+                  <!-- Exact 6 Arabic Status Legend -->
+                  <div class="flex flex-wrap items-center gap-4 text-xs font-medium">
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-3 h-3 rounded-full bg-[#2A78D6]"></span>
+                      <span class="text-espresso">قيد الانتظار</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-3 h-3 rounded-full bg-[#EB6834]"></span>
+                      <span class="text-espresso">مدفوع</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-3 h-3 rounded-full bg-[#1BAF7A]"></span>
+                      <span class="text-espresso">تم الشحن</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-3 h-3 rounded-full bg-[#EDA100]"></span>
+                      <span class="text-espresso">تم التوصيل</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-3 h-3 rounded-full bg-[#E87BA4]"></span>
+                      <span class="text-espresso">ملغي</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-3 h-3 rounded-full bg-[#008300]"></span>
+                      <span class="text-espresso">مُسترد</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- 6 Stacked Columns (Weeks 1 to 6) -->
+                <div
+                  class="w-full h-56 flex items-end justify-between gap-6 px-4 pt-6 border-b border-border"
+                >
+                  <!-- Week 1 -->
+                  <div
+                    class="flex-1 flex flex-col items-center h-full justify-end cursor-pointer group"
+                  >
+                    <div class="w-full max-w-[56px] flex flex-col gap-[2px]">
+                      <div class="bg-[#2A78D6] h-7 rounded-t-sm" title="قيد الانتظار: 24"></div>
+                      <div class="bg-[#EB6834] h-14" title="مدفوع: 72"></div>
+                      <div class="bg-[#1BAF7A] h-10" title="تم الشحن: 50"></div>
+                      <div class="bg-[#EDA100] h-6" title="تم التوصيل: 28"></div>
+                      <div class="bg-[#E87BA4] h-3" title="ملغي: 6"></div>
+                      <div class="bg-[#008300] h-2 rounded-b-sm" title="مُسترد: 3"></div>
+                    </div>
+                    <span class="text-xs text-muted font-mono mt-3">الأسبوع 1</span>
+                  </div>
+                  <!-- Week 2 -->
+                  <div
+                    class="flex-1 flex flex-col items-center h-full justify-end cursor-pointer group"
+                  >
+                    <div class="w-full max-w-[56px] flex flex-col gap-[2px]">
+                      <div class="bg-[#2A78D6] h-6 rounded-t-sm" title="قيد الانتظار: 20"></div>
+                      <div class="bg-[#EB6834] h-16" title="مدفوع: 85"></div>
+                      <div class="bg-[#1BAF7A] h-12" title="تم الشحن: 64"></div>
+                      <div class="bg-[#EDA100] h-8" title="تم التوصيل: 40"></div>
+                      <div class="bg-[#E87BA4] h-2" title="ملغي: 4"></div>
+                      <div class="bg-[#008300] h-2 rounded-b-sm" title="مُسترد: 2"></div>
+                    </div>
+                    <span class="text-xs text-muted font-mono mt-3">الأسبوع 2</span>
+                  </div>
+                  <!-- Week 3 -->
+                  <div
+                    class="flex-1 flex flex-col items-center h-full justify-end cursor-pointer group"
+                  >
+                    <div class="w-full max-w-[56px] flex flex-col gap-[2px]">
+                      <div class="bg-[#2A78D6] h-8 rounded-t-sm" title="قيد الانتظار: 30"></div>
+                      <div class="bg-[#EB6834] h-12" title="مدفوع: 60"></div>
+                      <div class="bg-[#1BAF7A] h-14" title="تم الشحن: 70"></div>
+                      <div class="bg-[#EDA100] h-12" title="تم التوصيل: 60"></div>
+                      <div class="bg-[#E87BA4] h-4" title="ملغي: 8"></div>
+                      <div class="bg-[#008300] h-3 rounded-b-sm" title="مُسترد: 4"></div>
+                    </div>
+                    <span class="text-xs text-muted font-mono mt-3">الأسبوع 3</span>
+                  </div>
+                  <!-- Week 4 -->
+                  <div
+                    class="flex-1 flex flex-col items-center h-full justify-end cursor-pointer group"
+                  >
+                    <div class="w-full max-w-[56px] flex flex-col gap-[2px]">
+                      <div class="bg-[#2A78D6] h-5 rounded-t-sm" title="قيد الانتظار: 18"></div>
+                      <div class="bg-[#EB6834] h-14" title="مدفوع: 74"></div>
+                      <div class="bg-[#1BAF7A] h-16" title="تم الشحن: 80"></div>
+                      <div class="bg-[#EDA100] h-16" title="تم التوصيل: 80"></div>
+                      <div class="bg-[#E87BA4] h-3" title="ملغي: 5"></div>
+                      <div class="bg-[#008300] h-2 rounded-b-sm" title="مُسترد: 2"></div>
+                    </div>
+                    <span class="text-xs text-muted font-mono mt-3">الأسبوع 4</span>
+                  </div>
+                  <!-- Week 5 -->
+                  <div
+                    class="flex-1 flex flex-col items-center h-full justify-end cursor-pointer group"
+                  >
+                    <div class="w-full max-w-[56px] flex flex-col gap-[2px]">
+                      <div class="bg-[#2A78D6] h-9 rounded-t-sm" title="قيد الانتظار: 35"></div>
+                      <div class="bg-[#EB6834] h-18" title="مدفوع: 90"></div>
+                      <div class="bg-[#1BAF7A] h-14" title="تم الشحن: 72"></div>
+                      <div class="bg-[#EDA100] h-14" title="تم التوصيل: 70"></div>
+                      <div class="bg-[#E87BA4] h-4" title="ملغي: 7"></div>
+                      <div class="bg-[#008300] h-2 rounded-b-sm" title="مُسترد: 3"></div>
+                    </div>
+                    <span class="text-xs text-muted font-mono mt-3">الأسبوع 5</span>
+                  </div>
+                  <!-- Week 6 -->
+                  <div
+                    class="flex-1 flex flex-col items-center h-full justify-end cursor-pointer group"
+                  >
+                    <div class="w-full max-w-[56px] flex flex-col gap-[2px]">
+                      <div class="bg-[#2A78D6] h-10 rounded-t-sm" title="قيد الانتظار: 42"></div>
+                      <div class="bg-[#EB6834] h-20" title="مدفوع: 104"></div>
+                      <div class="bg-[#1BAF7A] h-10" title="تم الشحن: 52"></div>
+                      <div class="bg-[#EDA100] h-10" title="تم التوصيل: 50"></div>
+                      <div class="bg-[#E87BA4] h-3" title="ملغي: 6"></div>
+                      <div class="bg-[#008300] h-2 rounded-b-sm" title="مُسترد: 2"></div>
+                    </div>
+                    <span class="text-xs text-muted font-mono mt-3">الأسبوع 6</span>
+                  </div>
+                </div>
+                <!-- Table Disclosure under chart -->
+                <div class="mt-4 pt-1">
+                  <details class="group">
+                    <summary
+                      class="text-xs font-semibold text-accent cursor-pointer hover:underline list-none flex items-center gap-1 select-none"
+                    >
+                      <span>عرض كجدول</span>
+                      <span class="transition-transform group-open:rotate-90">◂</span>
+                    </summary>
+                    <div class="mt-3 overflow-x-auto text-xs">
+                      <table class="w-full text-right border-collapse">
+                        <thead>
+                          <tr class="border-b border-border text-muted">
+                            <th class="py-2 px-3 font-medium">الأسبوع</th>
+                            <th class="py-2 px-3 font-medium">قيد الانتظار</th>
+                            <th class="py-2 px-3 font-medium">مدفوع</th>
+                            <th class="py-2 px-3 font-medium">تم الشحن</th>
+                            <th class="py-2 px-3 font-medium">تم التوصيل</th>
+                            <th class="py-2 px-3 font-medium">ملغي</th>
+                            <th class="py-2 px-3 font-medium">مُسترد</th>
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-border/40 font-mono text-[11px]">
+                          <tr>
+                            <td class="py-2 px-3 font-sans text-espresso font-medium">الأسبوع 1</td>
+                            <td class="py-2 px-3 text-[#2A78D6]">24</td>
+                            <td class="py-2 px-3 text-[#EB6834]">72</td>
+                            <td class="py-2 px-3 text-[#1BAF7A]">50</td>
+                            <td class="py-2 px-3 text-[#EDA100]">28</td>
+                            <td class="py-2 px-3 text-[#E87BA4]">6</td>
+                            <td class="py-2 px-3 text-[#008300]">3</td>
+                          </tr>
+                          <tr>
+                            <td class="py-2 px-3 font-sans text-espresso font-medium">الأسبوع 6</td>
+                            <td class="py-2 px-3 text-[#2A78D6]">42</td>
+                            <td class="py-2 px-3 text-[#EB6834]">104</td>
+                            <td class="py-2 px-3 text-[#1BAF7A]">52</td>
+                            <td class="py-2 px-3 text-[#EDA100]">50</td>
+                            <td class="py-2 px-3 text-[#E87BA4]">6</td>
+                            <td class="py-2 px-3 text-[#008300]">2</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </details>
+                </div>
+              </div>
+              <!-- 7. State Frames Section (Loading, Empty, Error) -->
+              <div class="border-t border-dashed border-border pt-8 mt-4">
+                <div class="flex items-center gap-2 mb-4">
+                  <span class="text-xs font-bold text-muted uppercase tracking-wider"
+                    >حالات المكونات التفاعلية (State Frames)</span
+                  >
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <!-- Frame (b) LOADING Chart Card -->
+                  <div
+                    class="bg-white border border-border rounded-lg p-5 flex flex-col justify-between"
+                  >
+                    <div>
+                      <h3 class="text-sm font-bold text-espresso mb-1">
+                        المبيعات حسب التصنيف (تحميل)
+                      </h3>
+                      <p class="text-xs text-muted mb-6">جاري مزامنة مؤشرات الأداء...</p>
+                      <!-- Skeleton pulsing bars -->
+                      <div class="space-y-3 animate-pulse">
+                        <div class="h-4 bg-crema rounded-lg w-full"></div>
+                        <div class="h-4 bg-crema rounded-lg w-5/6"></div>
+                        <div class="h-4 bg-crema rounded-lg w-4/6"></div>
+                        <div class="h-4 bg-crema rounded-lg w-2/3"></div>
+                        <div class="h-20 bg-crema rounded-lg w-full mt-4"></div>
+                      </div>
+                    </div>
+                    <span
+                      class="text-[10px] text-muted font-mono mt-6 border-t border-border/50 pt-2 block"
+                      >حالة التحميل: Skeleton Loading</span
+                    >
+                  </div>
+                  <!-- Frame (c) EMPTY Chart Card -->
+                  <div
+                    class="bg-white border border-border rounded-lg p-5 flex flex-col justify-between text-center"
+                  >
+                    <div>
+                      <h3 class="text-sm font-bold text-espresso text-right mb-4">
+                        المبيعات عبر الزمن (فارغ)
+                      </h3>
+                      <div class="h-44 flex flex-col items-center justify-center">
+                        <div
+                          class="w-10 h-10 rounded-full bg-crema flex items-center justify-center text-muted mb-2 border border-border"
+                        >
+                          ∅
+                        </div>
+                        <p class="text-xs font-medium text-muted">مفيش بيانات في الفترة دي.</p>
+                        <p class="text-[11px] text-muted/70 mt-1">
+                          جرّب اختيار نطاق تواريخ أوسع من عناصر التحكم بالأعلى.
+                        </p>
+                      </div>
+                    </div>
+                    <span
+                      class="text-[10px] text-muted font-mono border-t border-border/50 pt-2 block text-right"
+                      >حالة عدم توفر بيانات: Empty State</span
+                    >
+                  </div>
+                  <!-- Frame (d) ERROR Chart Card -->
+                  <div
+                    class="bg-white border border-border rounded-lg p-5 flex flex-col justify-between text-center"
+                  >
+                    <div>
+                      <h3 class="text-sm font-bold text-espresso text-right mb-4">
+                        الأكثر مبيعًا (خطأ)
+                      </h3>
+                      <div class="h-44 flex flex-col items-center justify-center">
+                        <div
+                          class="w-10 h-10 rounded-full bg-[#FFDAD6] text-[#BA1A1A] flex items-center justify-center text-sm font-bold mb-2"
+                        >
+                          !
+                        </div>
+                        <p class="text-xs font-semibold text-espresso mb-3">
+                          تعذّر تحميل البيانات.
+                        </p>
+                        <button
+                          class="px-4 h-8 bg-accent hover:bg-accent-hover text-white text-xs font-medium rounded-lg transition-colors shadow-sm"
+                          type="button"
+                        >
+                          حاول تاني
+                        </button>
+                      </div>
+                    </div>
+                    <span
+                      class="text-[10px] text-muted font-mono border-t border-border/50 pt-2 block text-right"
+                      >حالة الخطأ: Network / Server Error</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+    <!-- FRAME 2: VIEWER ROLE (With amber-outlined viewer pill) -->
+    <section class="border-b-4 border-dashed border-[#E6DCD1] pb-12 mb-12">
+      <div
+        class="px-8 py-3 bg-[#E6DCD1]/40 border-b border-[#E6DCD1] text-xs font-semibold text-muted flex items-center justify-between"
+      >
+        <span
+          >إطار لوحة التحكم (ADMIN DASHBOARD SHELL) — الحالة 2: دور المشاهد (VIEWER) — شارة "وضع
+          المشاهدة — التعديل غير متاح"</span
+        >
+        <span class="font-mono text-[11px]">1360 × 900 · Arabic RTL Light</span>
+      </div>
+      <div class="w-[1360px] h-[900px] mx-auto bg-crema flex overflow-hidden shadow-sm relative">
+        <!-- FIXED SIDEBAR (224px at START edge / Right in RTL) -->
+        <aside
+          class="w-[224px] h-full bg-white border-l border-border flex flex-col justify-between shrink-0 z-20"
+        >
+          <div>
+            <!-- Logo Header -->
+            <div class="h-14 px-5 flex items-center border-b border-border">
+              <a class="flex items-center gap-2.5" href="/">
+                <svg class="shrink-0" fill="none" height="24" viewbox="0 0 24 24" width="24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                    fill="#C2410C"
+                  ></path>
+                  <path
+                    d="M12 4c-1.8 3.5-1.8 12.5 0 16 1.8-3.5 1.8-12.5 0-16z"
+                    fill="#C2410C"
+                  ></path>
+                </svg>
+                <div class="flex flex-col">
+                  <span
+                    class="text-base font-bold leading-tight tracking-tight text-espresso font-display lowercase"
+                    >ember</span
+                  >
+                  <span class="text-[8px] tracking-[0.2em] font-bold text-muted -mt-0.5"
+                    >ROASTERY</span
+                  >
+                </div>
+              </a>
+            </div>
+            <!-- Navigation Items -->
+            <nav class="p-3 space-y-1">
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg bg-accent text-white font-medium text-sm transition-colors"
+                href="#overview"
+              >
+                <span class="text-base leading-none">📊</span>
+                <span>نظرة عامة</span>
+              </a>
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#orders"
+              >
+                <span class="text-base leading-none">🧾</span>
+                <span>الأوردرات</span>
+              </a>
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#products"
+              >
+                <span class="text-base leading-none">☕</span>
+                <span>المنتجات</span>
+              </a>
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#customers"
+              >
+                <span class="text-base leading-none">👥</span>
+                <span>العملاء</span>
+              </a>
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#analytics"
+              >
+                <span class="text-base leading-none">📈</span>
+                <span>التحليلات</span>
+              </a>
+            </nav>
+          </div>
+          <div class="p-4 border-t border-border">
+            <a
+              class="flex items-center gap-2 text-xs font-medium text-muted hover:text-espresso transition-colors"
+              href="/"
+            >
+              <span>←</span>
+              <span>العودة للمتجر</span>
+            </a>
+          </div>
+        </aside>
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden">
+          <!-- TOP BAR (56px high, white, 1px bottom border) -->
+          <header
+            class="h-14 bg-white border-b border-border px-8 flex items-center justify-between shrink-0"
+          >
+            <!-- Start side (Visually Right): VIEWER PILL -->
+            <div class="flex items-center">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium badge-viewer"
+              >
+                وضع المشاهدة — التعديل غير متاح
+              </span>
+            </div>
+            <!-- End side (Visually Left in RTL): user name, theme toggle, AR|EN, خروج -->
+            <div class="flex items-center gap-5 text-sm">
+              <span class="font-medium text-espresso">Demo Viewer</span>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <button
+                class="text-muted hover:text-espresso text-sm p-1 transition-colors"
+                title="تبديل المظهر"
+                type="button"
+              >
+                ☾
+              </button>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <div class="flex items-center text-xs font-semibold">
+                <span class="text-espresso">AR</span>
+                <span class="mx-1 text-border">|</span>
+                <span class="text-muted hover:text-espresso cursor-pointer">EN</span>
+              </div>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <a
+                class="text-xs font-medium text-muted hover:text-accent transition-colors"
+                href="/logout"
+                >خروج</a
+              >
+            </div>
+          </header>
+          <!-- CONTENT AREA -->
+          <main class="flex-1 overflow-y-auto p-8 bg-crema">
+            <div class="max-w-[1080px] mx-auto space-y-6">
+              <h1 class="text-2xl font-bold brand-heading text-espresso">نظرة عامة</h1>
+              <div
+                class="bg-white border border-border rounded-xl p-8 min-h-[360px] flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-crema flex items-center justify-center text-xl mb-3 text-accent border border-border"
+                >
+                  📊
+                </div>
+                <p class="text-sm font-medium text-espresso mb-1">مساحة محتوى نظرة عامة</p>
+                <p class="text-xs text-muted max-w-sm">
+                  سيتم عرض مؤشرات الأداء، الأوردرات الحديثة، وموجز العمليات هنا.
+                </p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+    <!-- FRAME 3: ACTIVE ITEM = ORDERS (Showing active state styling on S2) -->
+    <section class="pb-12">
+      <div
+        class="px-8 py-3 bg-[#E6DCD1]/40 border-b border-[#E6DCD1] text-xs font-semibold text-muted flex items-center justify-between"
+      >
+        <span
+          >إطار لوحة التحكم (ADMIN DASHBOARD SHELL) — الحالة 3: التحديد النشط = الأوردرات (Active =
+          Orders)</span
+        >
+        <span class="font-mono text-[11px]">1360 × 900 · Arabic RTL Light</span>
+      </div>
+      <div class="w-[1360px] h-[900px] mx-auto bg-crema flex overflow-hidden shadow-sm relative">
+        <!-- FIXED SIDEBAR (224px at START edge / Right in RTL) -->
+        <aside
+          class="w-[224px] h-full bg-white border-l border-border flex flex-col justify-between shrink-0 z-20"
+        >
+          <div>
+            <!-- Logo Header -->
+            <div class="h-14 px-5 flex items-center border-b border-border">
+              <a class="flex items-center gap-2.5" href="/">
+                <svg class="shrink-0" fill="none" height="24" viewbox="0 0 24 24" width="24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                    fill="#C2410C"
+                  ></path>
+                  <path
+                    d="M12 4c-1.8 3.5-1.8 12.5 0 16 1.8-3.5 1.8-12.5 0-16z"
+                    fill="#C2410C"
+                  ></path>
+                </svg>
+                <div class="flex flex-col">
+                  <span
+                    class="text-base font-bold leading-tight tracking-tight text-espresso font-display lowercase"
+                    >ember</span
+                  >
+                  <span class="text-[8px] tracking-[0.2em] font-bold text-muted -mt-0.5"
+                    >ROASTERY</span
+                  >
+                </div>
+              </a>
+            </div>
+            <!-- Navigation Items: Orders Active -->
+            <nav class="p-3 space-y-1">
+              <!-- نظرة عامة (Inactive) -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#overview"
+              >
+                <span class="text-base leading-none">📊</span>
+                <span>نظرة عامة</span>
+              </a>
+              <!-- الأوردرات (Active) -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg bg-accent text-white font-medium text-sm transition-colors"
+                href="#orders"
+              >
+                <span class="text-base leading-none">🧾</span>
+                <span>الأوردرات</span>
+              </a>
+              <!-- المنتجات -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#products"
+              >
+                <span class="text-base leading-none">☕</span>
+                <span>المنتجات</span>
+              </a>
+              <!-- العملاء -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#customers"
+              >
+                <span class="text-base leading-none">👥</span>
+                <span>العملاء</span>
+              </a>
+              <!-- التحليلات -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#analytics"
+              >
+                <span class="text-base leading-none">📈</span>
+                <span>التحليلات</span>
+              </a>
+            </nav>
+          </div>
+          <div class="p-4 border-t border-border">
+            <a
+              class="flex items-center gap-2 text-xs font-medium text-muted hover:text-espresso transition-colors"
+              href="/"
+            >
+              <span>←</span>
+              <span>العودة للمتجر</span>
+            </a>
+          </div>
+        </aside>
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden">
+          <!-- TOP BAR (56px high, white, 1px bottom border) -->
+          <header
+            class="h-14 bg-white border-b border-border px-8 flex items-center justify-between shrink-0"
+          >
+            <!-- Start side (Visually Right): VIEWER PILL -->
+            <div class="flex items-center">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium badge-viewer"
+              >
+                وضع المشاهدة — التعديل غير متاح
+              </span>
+            </div>
+            <!-- End side (Visually Left in RTL): user name, theme toggle, AR|EN, خروج -->
+            <div class="flex items-center gap-5 text-sm">
+              <span class="font-medium text-espresso">Demo Viewer</span>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <button
+                class="text-muted hover:text-espresso text-sm p-1 transition-colors"
+                title="تبديل المظهر"
+                type="button"
+              >
+                ☾
+              </button>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <div class="flex items-center text-xs font-semibold">
+                <span class="text-espresso">AR</span>
+                <span class="mx-1 text-border">|</span>
+                <span class="text-muted hover:text-espresso cursor-pointer">EN</span>
+              </div>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <a
+                class="text-xs font-medium text-muted hover:text-accent transition-colors"
+                href="/logout"
+                >خروج</a
+              >
+            </div>
+          </header>
+          <!-- CONTENT AREA -->
+          <main class="flex-1 overflow-y-auto p-8 bg-crema">
+            <div class="max-w-[1080px] mx-auto space-y-6">
+              <h1 class="text-2xl font-bold brand-heading text-espresso">الأوردرات</h1>
+              <div
+                class="bg-white border border-border rounded-xl p-8 min-h-[360px] flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-crema flex items-center justify-center text-xl mb-3 text-accent border border-border"
+                >
+                  🧾
+                </div>
+                <p class="text-sm font-medium text-espresso mb-1">مساحة محتوى الأوردرات</p>
+                <p class="text-xs text-muted max-w-sm">
+                  سيتم عرض قائمة طلبات العملاء وحالات الدفع والشحن هنا.
+                </p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

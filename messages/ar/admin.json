@@ -1,0 +1,518 @@
+{
+  "shell": {
+    "navLabel": "قائمة لوحة التحكم",
+    "nav": {
+      "overview": "نظرة عامة",
+      "orders": "الأوردرات",
+      "products": "المنتجات",
+      "customers": "العملاء",
+      "analytics": "التحليلات",
+      "emails": "الإيميلات",
+      "shipping": "الشحن",
+      "inventory": "المخزون",
+      "activity": "النشاط"
+    },
+    "backToStore": "← العودة للمتجر",
+    "skip": "تخطي إلى المحتوى",
+    "menu": "القائمة",
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة",
+    "viewerMode": "وضع المشاهدة — التعديل غير متاح",
+    "logout": "خروج",
+    "roleAdmin": "أدمن",
+    "roleViewer": "مشاهد"
+  },
+  "overview": {
+    "metaTitle": "لوحة التحكم",
+    "title": "نظرة عامة",
+    "period": "الفترة",
+    "ranges": {
+      "7d": "آخر 7 أيام",
+      "30d": "آخر 30 يوم",
+      "90d": "آخر 3 شهور"
+    },
+    "kpiLabel": "المؤشرات",
+    "kpi": {
+      "sales": "المبيعات",
+      "orders": "الأوردرات",
+      "aov": "متوسط قيمة الأوردر",
+      "newCustomers": "عملاء جدد",
+      "noPrevious": "لا توجد بيانات للفترة السابقة",
+      "percent": "{value}%",
+      "vsPrevious": "عن الفترة السابقة",
+      "increase": "زيادة",
+      "decrease": "انخفاض"
+    },
+    "dailySales": "المبيعات اليومية",
+    "recentOrders": "آخر الأوردرات",
+    "viewAll": "عرض الكل",
+    "stockAlerts": "تنبيهات المخزون",
+    "stockOk": "كل الأصناف مخزونها كافٍ ✓",
+    "soldOut": "✕ نفذ",
+    "left": "⚠ باقي {count, number, integer}",
+    "codOutstanding": "فلوس الدفع عند الاستلام اللي لسه ما اتحصلتش: <amount></amount> ({orders, number, integer} أوردر)"
+  },
+  "orders": {
+    "title": "الأوردرات",
+    "columns": {
+      "orderNumber": "رقم",
+      "createdAt": "التاريخ",
+      "customer": "العميل",
+      "items": "الأصناف",
+      "status": "الحالة",
+      "totalCents": "الإجمالي",
+      "payment": "الدفع",
+      "governorate": "المحافظة"
+    },
+    "presets": {
+      "last7": "آخر 7 أيام",
+      "thisMonth": "الشهر ده",
+      "last90": "آخر 3 شهور"
+    },
+    "filters": {
+      "show": "عرض الفلاتر",
+      "toggle": "⚙ الفلاتر",
+      "active": "(مفعّلة)",
+      "label": "فلاتر الأوردرات",
+      "search": "بحث (رقم، اسم، إيميل)",
+      "from": "من",
+      "to": "إلى",
+      "presets": "فترات جاهزة",
+      "minTotal": "الإجمالي من (ج.م.)",
+      "maxTotal": "إلى (ج.م.)",
+      "clear": "مسح الفلاتر",
+      "activeLabel": "فلاتر نشطة",
+      "category": "التصنيف",
+      "product": "المنتج",
+      "payment": "حالة الدفع",
+      "method": "طريقة الدفع",
+      "governorate": "المحافظة",
+      "removeChip": "شيل الفلتر {name}",
+      "clearAll": "مسح الكل"
+    },
+    "bulk": {
+      "confirmTitle": "تغيير حالة أوردرات",
+      "confirmMessage": "تغيير حالة {count, number, integer} أوردر إلى «{status}»؟",
+      "apply": "تطبيق",
+      "updated": "تم تحديث {count, number, integer} أوردر",
+      "noneUpdated": "لم يتم تحديث أي أوردر",
+      "label": "إجراءات جماعية",
+      "selected": "{count, number, integer} محدد",
+      "newStatus": "الحالة الجديدة",
+      "applying": "جاري التطبيق...",
+      "applySelected": "تطبيق على المحدد",
+      "clearSelection": "إلغاء التحديد",
+      "result": "تم تحديث {count, number, integer}",
+      "skipped": "تم تخطي {count, number, integer}: {reasons}"
+    },
+    "lastUpdated": "آخر تحديث {time}",
+    "columnsMenu": "الأعمدة",
+    "exportCsv": "⬇ تصدير CSV",
+    "caption": "قائمة الأوردرات",
+    "selectAll": "تحديد كل أوردرات الصفحة",
+    "selectOne": "تحديد الأوردر {number}",
+    "loadError": "تعذّر تحميل الأوردرات.",
+    "empty": "مفيش أوردرات مطابقة.",
+    "pagination": {
+      "summary": "عرض {from, number, integer}–{to, number, integer} من {total, number, integer} أوردر",
+      "rows": "الصفوف",
+      "prev": "السابق",
+      "next": "التالي"
+    }
+  },
+  "orderDetail": {
+    "title": "تفاصيل الأوردر",
+    "heading": "أوردر #{number}",
+    "timeline": "مراحل الأوردر",
+    "items": "الأصناف",
+    "status": "الحالة",
+    "viewerNotice": "وضع المشاهدة: التعديل غير متاح.",
+    "customer": "العميل",
+    "shippingAddress": "عنوان الشحن",
+    "back": "← كل الأوردرات",
+    "noTransitions": "لا توجد تغييرات متاحة على هذه الحالة ({status}).",
+    "confirmTitle": "تأكيد تغيير الحالة",
+    "confirmMessage": "تأكيد تغيير الحالة إلى «{status}»؟ سيتم إرجاع المخزون.",
+    "confirmLabel": "تأكيد",
+    "updated": "اتحدّثت الحالة ✓",
+    "updatedToast": "تم تغيير حالة الأوردر إلى «{status}»",
+    "changeTo": "تغيير الحالة إلى",
+    "saving": "جاري الحفظ...",
+    "apply": "تطبيق",
+    "vatIncluded": "ضريبة القيمة المضافة (مشمولة)",
+    "history": "سجل الأوردر",
+    "system": "النظام",
+    "payment": "الدفع",
+    "events": {
+      "created": "تم إنشاء الأوردر",
+      "status_changed": "تغيّرت الحالة من «{from}» إلى «{to}»",
+      "payment_succeeded": "تم الدفع",
+      "payment_failed": "فشلت محاولة الدفع",
+      "refunded": "تم استرداد المبلغ",
+      "expired": "انتهت جلسة الدفع وتم إلغاء الأوردر"
+    },
+    "eventNotes": {
+      "CARD": "بطاقة",
+      "COD": "الدفع عند الاستلام",
+      "cod_collected": "تم تحصيل المبلغ عند التسليم",
+      "out_of_stock": "المخزون خلص أثناء الدفع"
+    },
+    "refund": {
+      "button": "استرداد المبلغ",
+      "working": "جاري الاسترداد...",
+      "done": "تم استرداد المبلغ",
+      "confirmTitle": "استرداد المبلغ",
+      "confirmMessage": "هيتم استرداد المبلغ للعميل. لو الأوردر لسه ما اتشحنش هيتلغي والمخزون هيرجع، ولو اتشحن المخزون ما بيرجعش. الخطوة دي ملهاش رجوع.",
+      "confirmLabel": "استرداد"
+    }
+  },
+  "analytics": {
+    "title": "التحليلات",
+    "loadError": "تعذّر تحميل البيانات.",
+    "retry": "حاول تاني",
+    "empty": "مفيش بيانات في الفترة دي.",
+    "filtersLabel": "فلاتر التحليلات",
+    "from": "من",
+    "to": "إلى",
+    "presetsLabel": "فترات جاهزة",
+    "presets": {
+      "d7": "7 أيام",
+      "d30": "30 يوم",
+      "m3": "3 شهور",
+      "m12": "12 شهر"
+    },
+    "granularity": "التجميع",
+    "granularities": {
+      "auto": "تلقائي",
+      "day": "يومي",
+      "week": "أسبوعي",
+      "month": "شهري"
+    },
+    "exportCsv": "⬇ CSV أوردرات الفترة",
+    "exportPdf": "⬇ تقرير PDF",
+    "kpiLabel": "المؤشرات",
+    "kpi": {
+      "sales": "المبيعات",
+      "orders": "الأوردرات",
+      "aov": "متوسط قيمة الأوردر",
+      "newCustomers": "عملاء جدد"
+    },
+    "sales": {
+      "title": "المبيعات عبر الزمن",
+      "hint": "اضغط على نقطة لعرض أوردرات هذه الفترة",
+      "chartLabel": "رسم خطي للمبيعات مقارنة بالفترة السابقة",
+      "dailyChartLabel": "رسم بياني للمبيعات اليومية",
+      "current": "الفترة الحالية",
+      "previous": "الفترة السابقة"
+    },
+    "tooltip": {
+      "sales": "المبيعات",
+      "orders": "الأوردرات",
+      "units": "الوحدات",
+      "previous": "الفترة السابقة ({date})"
+    },
+    "categories": {
+      "title": "المبيعات حسب التصنيف",
+      "hint": "اضغط على عمود لعرض أوردرات التصنيف",
+      "chartLabel": "أعمدة المبيعات حسب التصنيف"
+    },
+    "top": {
+      "title": "الأكثر مبيعًا (أعلى 10)",
+      "hint": "اضغط على عمود لعرض أوردرات المنتج",
+      "chartLabel": "أعمدة أفقية لأعلى المنتجات مبيعًا"
+    },
+    "statuses": {
+      "title": "توزيع حالات الأوردرات أسبوعيًا",
+      "hint": "اضغط على جزء لعرض أوردرات هذه الحالة في هذا الأسبوع",
+      "chartLabel": "أعمدة مكدّسة لحالات الأوردرات لكل أسبوع",
+      "week": "أسبوع {date}"
+    },
+    "asTable": "عرض كجدول",
+    "tableDate": "التاريخ",
+    "funnel": {
+      "title": "قمع الشراء",
+      "hint": "الزيارات اللي وصلت لكل خطوة في الفترة دي (كل زيارة بتتحسب مرة).",
+      "stages": {
+        "PRODUCT_VIEW": "شاف منتج",
+        "ADD_TO_CART": "ضاف للعربة",
+        "CHECKOUT_START": "بدأ الدفع",
+        "ORDER_PLACED": "عمل أوردر"
+      },
+      "ofPrevious": "{value} من الخطوة اللي قبلها",
+      "overall": "{value} من الزيارات خلصت بأوردر",
+      "visits": "{count, plural, one {زيارة} two {زيارتين} few {{count, number, integer} زيارات} other {{count, number, integer} زيارة}}"
+    },
+    "abandoned": {
+      "title": "العربات المتروكة",
+      "hint": "عربات فيها منتجات ومحدش لمسها بقالها {minutes, number, integer} دقيقة.",
+      "carts": "العربات",
+      "value": "قيمة اللي اتساب"
+    },
+    "governorates": {
+      "title": "المبيعات حسب المحافظة",
+      "hint": "الأوردرات اتوصّلت لفين.",
+      "orders": "{count, plural, one {أوردر} two {أوردرين} few {{count, number, integer} أوردرات} other {{count, number, integer} أوردر}}",
+      "unknown": "غير مسجّل"
+    },
+    "payments": {
+      "title": "كارت ولا دفع عند الاستلام",
+      "hint": "العملاء دفعوا إزاي في الفترة دي.",
+      "share": "{value} من المبيعات"
+    },
+    "compare": "قارن بالفترة السابقة"
+  },
+  "products": {
+    "title": "المنتجات",
+    "empty": "لسه مفيش منتجات.",
+    "addFirst": "أضف أول منتج",
+    "columns": {
+      "product": "المنتج",
+      "category": "التصنيف",
+      "price": "السعر",
+      "stock": "المخزون",
+      "status": "الحالة",
+      "actions": "إجراءات"
+    },
+    "variantCount": "{count, plural, one {نوع واحد} two {نوعان} few {{count, number, integer} أنواع} other {{count, number, integer} نوعًا}}",
+    "low": "⚠ منخفض",
+    "visible": "ظاهر",
+    "hidden": "مخفي",
+    "edit": "تعديل",
+    "view": "عرض",
+    "new": "+ منتج جديد",
+    "filterLabel": "عرض",
+    "filters": {
+      "all": "الكل",
+      "visible": "الظاهر",
+      "hidden": "المخفي"
+    },
+    "noMatch": "مفيش منتجات في العرض ده.",
+    "lowStock": "مخزون قليل",
+    "visibilityOf": "إظهار {name} في المتجر",
+    "shownToast": "المنتج ظاهر في المتجر",
+    "hiddenToast": "المنتج اتخفى من المتجر"
+  },
+  "productForm": {
+    "newTitle": "منتج جديد",
+    "editTitle": "تعديل منتج",
+    "inventoryTitle": "تعديل المخزون",
+    "inventoryHint": "كل تعديل يتسجل في سجل المخزون مع السبب.",
+    "name": "اسم المنتج",
+    "slug": "الرابط (slug)",
+    "description": "الوصف",
+    "category": "التصنيف",
+    "visible": "ظاهر في المتجر",
+    "images": "روابط الصور (رابط في كل سطر)",
+    "variants": "الأنواع (Variants)",
+    "addVariant": "+ إضافة نوع",
+    "variantName": "الاسم",
+    "variantNamePlaceholder": "250 جم - طحن إسبريسو",
+    "price": "السعر (ج.م.)",
+    "stockReadOnly": "المخزون (للقراءة)",
+    "stockInitial": "المخزون الافتتاحي",
+    "threshold": "حد التنبيه",
+    "removeVariant": "حذف النوع {number}",
+    "saving": "جاري الحفظ...",
+    "saveChanges": "حفظ التغييرات",
+    "create": "إنشاء المنتج",
+    "hide": "إخفاء المنتج",
+    "saved": "اتحفظ ✓",
+    "savedToast": "اتحفظت التغييرات",
+    "createdToast": "تم إنشاء المنتج",
+    "hideTitle": "إخفاء المنتج",
+    "hideMessage": "إخفاء المنتج من المتجر؟ الأوردرات القديمة هتفضل زي ما هي.",
+    "hideConfirm": "إخفاء",
+    "hiddenToast": "تم إخفاء المنتج من المتجر",
+    "hideFailed": "تعذّر إخفاء المنتج",
+    "languages": "لغة المحتوى",
+    "tabHasErrors": "فيه أخطاء في اللغة دي",
+    "origin": "بلد المنشأ",
+    "roast": "درجة التحميص",
+    "roastNone": "غير محدد",
+    "tastingNotes": "ملاحظات التذوق",
+    "archived": "مؤرشف",
+    "uploadImages": "ارفع صور",
+    "uploading": "جاري الرفع…",
+    "removeImage": "احذف الصورة {n}",
+    "imagesCount": "{count} من {max} صور",
+    "imageTooLarge": "{name} أكبر من {mb} ميجا",
+    "imageType": "{name} لازم تكون صورة JPG أو PNG أو WebP",
+    "maxImages": "المنتج ممكن يكون فيه {max} صور بحد أقصى",
+    "uploadFailed": "الرفع فشل. جرّب تاني.",
+    "uploadsOff": "الرفع محتاج حساب Cloudinary (شوف .env.example). الصق روابط الصور تحت بدل كده.",
+    "imageUrls": "روابط الصور (رابط في كل سطر)"
+  },
+  "inventory": {
+    "current": "الحالي: {stock, number, integer}",
+    "newStock": "المخزون الجديد",
+    "reason": "السبب",
+    "reasonPlaceholder": "مثلًا: جرد، تالف",
+    "save": "حفظ",
+    "noChange": "لا تغيير",
+    "recorded": "اتسجل {delta} ✓"
+  },
+  "customers": {
+    "title": "العملاء",
+    "search": "بحث (اسم أو إيميل)",
+    "clear": "مسح",
+    "columns": {
+      "name": "العميل",
+      "orders": "الأوردرات",
+      "spent": "إجمالي الإنفاق",
+      "last": "آخر شراء",
+      "joined": "انضم في",
+      "governorate": "المحافظة"
+    },
+    "loadError": "تعذّر تحميل العملاء.",
+    "empty": "مفيش عملاء مطابقين.",
+    "clearSearch": "مسح البحث",
+    "pagination": {
+      "summary": "{total, number, integer} عميل — صفحة {page, number, integer} من {pages, number, integer}",
+      "prev": "السابق",
+      "next": "التالي"
+    },
+    "panel": {
+      "title": "بيانات العميل",
+      "loadError": "ماقدرناش نحمّل بيانات العميل.",
+      "email": "الإيميل",
+      "unverified": "مش متفعّل",
+      "phone": "الموبايل",
+      "joined": "تاريخ الانضمام",
+      "orders": "الأوردرات",
+      "spent": "إجمالي المشتريات",
+      "addresses": "العناوين",
+      "noAddresses": "مفيش عناوين محفوظة.",
+      "default": "افتراضي",
+      "history": "تاريخ الأوردرات",
+      "noOrders": "لسه مفيش أوردرات."
+    }
+  },
+  "emails": {
+    "title": "الإيميلات",
+    "intro": "كل إيميل المتجر بعته أو كان هيبعته. من غير خدمة بريد متظبطة بتتسجل هنا بس.",
+    "columns": {
+      "time": "الوقت",
+      "type": "النوع",
+      "to": "إلى",
+      "status": "الحالة",
+      "order": "الأوردر"
+    },
+    "types": {
+      "verify": "تأكيد الإيميل",
+      "reset": "إعادة تعيين كلمة المرور",
+      "order_confirmed": "تأكيد الأوردر",
+      "shipped": "شحن الأوردر",
+      "apology": "اعتذار عن نفاد صنف",
+      "back_in_stock": "المنتج رجع"
+    },
+    "statuses": {
+      "sent": "اتبعت",
+      "failed": "فشل",
+      "logged_only": "اتسجل بس"
+    },
+    "empty": "مفيش إيميلات لسه.",
+    "summary": "{total, number, integer} إيميل — صفحة {page, number, integer} من {pages, number, integer}",
+    "preview": "معاينة",
+    "previewTitle": "معاينة الإيميل",
+    "back": "← كل الإيميلات",
+    "previous": "السابق",
+    "next": "التالي",
+    "frameLabel": "الإيميل زي ما العميل شايفه",
+    "previewPane": "معاينة الإيميل"
+  },
+  "shipping": {
+    "title": "مناطق الشحن",
+    "intro": "سعر الشحن ومدة التوصيل لكل منطقة. السعر بيتضاف على الأوردر عند الدفع، والأوردرات فوق حد الشحن المجاني بتتشحن مجانًا.",
+    "columns": {
+      "zone": "المنطقة",
+      "fee": "السعر",
+      "eta": "التوصيل",
+      "governorates": "المحافظات",
+      "actions": "إجراءات"
+    },
+    "eta": "{days, plural, one {يوم} two {يومين} few {# أيام} other {# يوم}}",
+    "empty": "لسه مفيش مناطق شحن.",
+    "freeNote": "الشحن مجاني للأوردرات فوق {amount}.",
+    "edit": "تعديل",
+    "editZone": "تعديل منطقة الشحن {name}",
+    "feeLabel": "سعر الشحن (ج.م)",
+    "daysLabel": "مدة التوصيل (أيام)",
+    "governoratesLabel": "المحافظات",
+    "governoratesHint": "المحافظة بتتبع منطقة واحدة. لو علّمت محافظة هنا هتتنقل من منطقتها الحالية.",
+    "save": "حفظ",
+    "saved": "اتعدلت منطقة الشحن"
+  },
+  "inventoryHistory": {
+    "title": "تاريخ المخزون",
+    "intro": "كل حركة في المخزون: مبيعات وإلغاءات وتوريد وتعديلات يدوية، من الأحدث للأقدم.",
+    "columns": {
+      "time": "الوقت",
+      "product": "المنتج",
+      "change": "التغيير",
+      "reason": "السبب",
+      "order": "الأوردر",
+      "note": "ملاحظة"
+    },
+    "reasons": {
+      "SALE": "بيع",
+      "CANCELLATION": "إلغاء",
+      "MANUAL_ADJUSTMENT": "تعديل يدوي",
+      "RESTOCK": "توريد"
+    },
+    "allReasons": "كل الأسباب",
+    "filterLabel": "فلترة بالسبب",
+    "empty": "لسه مفيش حركات مخزون.",
+    "openingStock": "رصيد افتتاحي",
+    "summary": "صفحة {page} من {pages} · {total} حركة",
+    "previous": "السابق",
+    "next": "التالي"
+  },
+  "activity": {
+    "title": "سجل النشاط",
+    "intro": "كل اللي اتغيّر في المتجر: حالة الأوردرات والمخزون والمنتجات والأسعار والشحن.",
+    "system": "النظام",
+    "filters": {
+      "actor": "مين",
+      "allActors": "الكل",
+      "kind": "النوع",
+      "allKinds": "كل الأنواع",
+      "from": "من",
+      "to": "إلى",
+      "apply": "تطبيق",
+      "clear": "مسح"
+    },
+    "kinds": {
+      "order": "الأوردرات",
+      "stock": "المخزون",
+      "product": "المنتجات",
+      "shipping": "الشحن"
+    },
+    "columns": {
+      "time": "الوقت",
+      "who": "مين",
+      "what": "إيه اللي حصل",
+      "link": "العنصر"
+    },
+    "view": "عرض",
+    "empty": "مفيش نشاط مطابق للفلاتر دي.",
+    "summary": "صفحة {page} من {pages} · {total} حركة",
+    "previous": "السابق",
+    "next": "التالي",
+    "actions": {
+      "status_changed": "غيّر الأوردر #{order} من {from} إلى {to}",
+      "refunded": "رجّع فلوس الأوردر #{order}",
+      "payment_succeeded": "سجّل دفع للأوردر #{order}",
+      "payment_failed": "سجّل فشل دفع للأوردر #{order}",
+      "expired": "الأوردر #{order} انتهت مهلة دفعه",
+      "MANUAL_ADJUSTMENT": "عدّل مخزون {product} بمقدار {change}",
+      "RESTOCK": "ورّد {product} بمقدار {change}",
+      "product_created": "أضاف المنتج {label}",
+      "product_updated": "عدّل المنتج {label}",
+      "product_archived": "أخفى المنتج {label}",
+      "product_restored": "رجّع المنتج {label}",
+      "price_changed": "غيّر سعر {label} من {from} إلى {to}",
+      "shipping_zone_updated": "عدّل شحن {label}: السعر من {feeFrom} إلى {feeTo}، {etaTo, plural, one {يوم} two {يومين} few {# أيام} other {# يوم}}",
+      "unknown": "عمل تغيير"
+    }
+  }
+}

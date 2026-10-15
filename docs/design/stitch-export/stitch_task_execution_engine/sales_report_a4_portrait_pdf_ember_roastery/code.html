@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Report — Ember Roastery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @page {
+        size: A4 portrait;
+        margin: 15mm;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #f3f4f6;
+        color: #2d241e;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .a4-page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 20px auto;
+        background: #ffffff;
+        padding: 16mm 18mm;
+        box-sizing: border-box;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      @media print {
+        body {
+          background: #ffffff;
+        }
+        .a4-page {
+          width: 100%;
+          min-height: auto;
+          margin: 0;
+          padding: 0;
+          box-shadow: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="p-6 flex justify-center items-start min-h-screen">
+    <div class="a4-page text-[#2D241E]">
+      <div>
+        <!-- Header Row -->
+        <div class="flex justify-between items-start pb-5 border-b border-[#E6DCD1]">
+          <!-- Brand Lockup: Top-Left -->
+          <div class="flex items-center gap-3">
+            <!-- Bean Mark SVG -->
+            <div
+              class="w-9 h-9 flex items-center justify-center rounded-lg bg-[#FAF6F1] border border-[#E6DCD1]"
+            >
+              <svg class="w-5 h-5 text-[#C2410C]" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2C7.5 2 4 6 4 11c0 6.5 5 11 8 11s8-4.5 8-11c0-5-3.5-9-8-9zm0 2.2c2.2 0 4.2 1.4 5.2 3.6-1.5 2.2-3.8 3.7-6.2 3.7-1.4 0-2.8-.5-3.8-1.4.7-3.4 2.6-5.9 4.8-5.9zm-5.8 8.1c1.2 1 2.8 1.6 4.6 1.6 3.1 0 6-1.8 7.7-4.5.1.7.2 1.4.2 2.1 0 4.6-3.4 8.5-6.7 8.5-3 0-5.8-3.4-5.8-7.7z"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="text-[22px] font-bold tracking-tight text-[#2D241E] leading-none">
+                ember
+              </div>
+              <div
+                class="text-[8px] font-semibold tracking-[0.25em] text-[#6B5748] leading-tight mt-1 uppercase"
+              >
+                ROASTERY
+              </div>
+            </div>
+          </div>
+
+          <!-- Report Title & Date Subtitle: Top-Right -->
+          <div class="text-right">
+            <h1 class="text-[24px] font-bold tracking-tight text-[#C2410C] leading-none">
+              Sales report
+            </h1>
+            <p class="text-[11px] font-medium text-[#6B5748] mt-1.5">2026-09-13 to 2026-10-12</p>
+          </div>
+        </div>
+
+        <!-- KPI Row (4 boxes in a row) -->
+        <div class="grid grid-cols-4 gap-3 my-5">
+          <!-- KPI 1 -->
+          <div class="border border-[#E6DCD1] rounded-md p-3 bg-white">
+            <div class="text-[10px] font-semibold text-[#6B5748] uppercase tracking-wider">
+              Sales
+            </div>
+            <div class="text-[17px] font-bold text-[#2D241E] mt-1 leading-tight">$1,300,420.28</div>
+            <div class="text-[10px] font-semibold text-[#15803D] mt-1.5">
+              +48.9% vs previous period
+            </div>
+          </div>
+
+          <!-- KPI 2 -->
+          <div class="border border-[#E6DCD1] rounded-md p-3 bg-white">
+            <div class="text-[10px] font-semibold text-[#6B5748] uppercase tracking-wider">
+              Orders
+            </div>
+            <div class="text-[17px] font-bold text-[#2D241E] mt-1 leading-tight">6,920</div>
+            <div class="text-[10px] font-semibold text-[#15803D] mt-1.5">
+              +48.9% vs previous period
+            </div>
+          </div>
+
+          <!-- KPI 3 -->
+          <div class="border border-[#E6DCD1] rounded-md p-3 bg-white">
+            <div class="text-[10px] font-semibold text-[#6B5748] uppercase tracking-wider">
+              Avg. order value
+            </div>
+            <div class="text-[17px] font-bold text-[#2D241E] mt-1 leading-tight">$187.92</div>
+            <div class="text-[10px] font-semibold text-[#B91C1C] mt-1.5">
+              -2.4% vs previous period
+            </div>
+          </div>
+
+          <!-- KPI 4 -->
+          <div class="border border-[#E6DCD1] rounded-md p-3 bg-white">
+            <div class="text-[10px] font-semibold text-[#6B5748] uppercase tracking-wider">
+              New customers
+            </div>
+            <div class="text-[17px] font-bold text-[#2D241E] mt-1 leading-tight">43</div>
+            <div class="text-[10px] font-semibold text-[#15803D] mt-1.5">
+              +12.8% vs previous period
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Sales over time -->
+        <div class="border border-[#E6DCD1] rounded-md p-3.5 mb-5 bg-white">
+          <div class="flex justify-between items-center mb-2.5">
+            <h2 class="text-[12px] font-bold tracking-tight uppercase text-[#2D241E]">
+              Sales over time
+            </h2>
+            <span class="text-[9px] text-[#6B5748]">Daily aggregation (30 days)</span>
+          </div>
+
+          <!-- Compact Daily Sales Bar Chart -->
+          <div class="h-[74px] flex items-end gap-[3px] pt-2 pb-1 border-b border-[#E6DCD1]">
+            <!-- 30 Daily bars in Ember #C2410C -->
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 38%"
+              title="Day 1"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 44%"
+              title="Day 2"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 52%"
+              title="Day 3"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 48%"
+              title="Day 4"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 61%"
+              title="Day 5"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 70%"
+              title="Day 6"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 58%"
+              title="Day 7"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 64%"
+              title="Day 8"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 59%"
+              title="Day 9"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 68%"
+              title="Day 10"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 75%"
+              title="Day 11"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 82%"
+              title="Day 12"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 71%"
+              title="Day 13"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 79%"
+              title="Day 14"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 85%"
+              title="Day 15"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 66%"
+              title="Day 16"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 72%"
+              title="Day 17"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 80%"
+              title="Day 18"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 88%"
+              title="Day 19"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 94%"
+              title="Day 20"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 78%"
+              title="Day 21"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 84%"
+              title="Day 22"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 89%"
+              title="Day 23"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 92%"
+              title="Day 24"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 86%"
+              title="Day 25"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 90%"
+              title="Day 26"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 96%"
+              title="Day 27"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 89%"
+              title="Day 28"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 95%"
+              title="Day 29"
+            ></div>
+            <div
+              class="flex-1 bg-[#C2410C] rounded-t-[1px]"
+              style="height: 100%"
+              title="Day 30"
+            ></div>
+          </div>
+          <div class="flex justify-between items-center text-[8px] text-[#6B5748] mt-1 font-mono">
+            <span>2026-09-13</span>
+            <span>Mid-period (Day 15)</span>
+            <span>2026-10-12</span>
+          </div>
+        </div>
+
+        <!-- Section: Sales by category (3-column table) -->
+        <div class="border border-[#E6DCD1] rounded-md overflow-hidden mb-5 bg-white">
+          <div class="px-3.5 py-2.5 bg-[#FAF6F1] border-b border-[#E6DCD1]">
+            <h2 class="text-[12px] font-bold tracking-tight uppercase text-[#2D241E]">
+              Sales by category
+            </h2>
+          </div>
+          <table class="w-full text-left text-[11px] border-collapse">
+            <thead>
+              <tr
+                class="border-b border-[#E6DCD1] text-[10px] uppercase font-semibold text-[#6B5748]"
+              >
+                <th class="py-1.5 px-3.5">Category</th>
+                <th class="py-1.5 px-3.5 text-right">Units</th>
+                <th class="py-1.5 px-3.5 text-right">Sales</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#E6DCD1]">
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">Whole Bean Coffee</td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">5,120</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$984,210.50</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">Brewing Equipment</td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">1,080</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$186,419.00</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">Subscriptions</td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">540</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$98,120.78</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">Ground Coffee</td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">180</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$31,670.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Section: Top products (3-column table with 10 rows) -->
+        <div class="border border-[#E6DCD1] rounded-md overflow-hidden bg-white">
+          <div class="px-3.5 py-2.5 bg-[#FAF6F1] border-b border-[#E6DCD1]">
+            <h2 class="text-[12px] font-bold tracking-tight uppercase text-[#2D241E]">
+              Top products
+            </h2>
+          </div>
+          <table class="w-full text-left text-[11px] border-collapse">
+            <thead>
+              <tr
+                class="border-b border-[#E6DCD1] text-[10px] uppercase font-semibold text-[#6B5748]"
+              >
+                <th class="py-1.5 px-3.5">Product</th>
+                <th class="py-1.5 px-3.5 text-right">Units</th>
+                <th class="py-1.5 px-3.5 text-right">Sales</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#E6DCD1]">
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">
+                  Ethiopia Yirgacheffe – Light Roast
+                </td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">1,420</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$284,000.00</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">
+                  Colombia Huila – Medium Roast
+                </td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">1,180</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$224,200.00</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">
+                  Guatemala Antigua – Medium Roast
+                </td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">890</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$169,100.00</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">Kenya Nyeri – Light Roast</td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">740</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$155,400.00</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">Ember House Espresso Blend</td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">620</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$111,600.00</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">
+                  V60 Ceramic Dripper (02 White)
+                </td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">480</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$86,400.00</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">
+                  Monthly Roaster's Choice Subscription
+                </td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">410</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$77,900.00</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">
+                  Gooseneck Temperature Kettle
+                </td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">320</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$64,000.00</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">
+                  Precision Conical Burr Grinder
+                </td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">210</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$58,800.00</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 px-3.5 font-medium text-[#2D241E]">
+                  Sumatra Mandheling – Dark Roast
+                </td>
+                <td class="py-1.5 px-3.5 text-right font-mono text-[#6B5748]">280</td>
+                <td class="py-1.5 px-3.5 text-right font-medium text-[#2D241E]">$49,020.28</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Footer: Centered Page Number -->
+      <div
+        class="pt-4 border-t border-[#E6DCD1] text-center text-[10px] text-[#6B5748] font-medium tracking-wide"
+      >
+        Page 1 of 1
+      </div>
+    </div>
+  </body>
+</html>

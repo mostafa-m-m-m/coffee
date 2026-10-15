@@ -1,0 +1,136 @@
+{
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "close": "Close",
+  "retry": "Try again",
+  "dismissNotification": "Dismiss notification",
+  "listSeparator": ", ",
+  "meta": {
+    "tagline": "Specialty coffee",
+    "description": "Carefully roasted specialty beans, brewing gear and coffee subscriptions delivered to your door."
+  },
+  "theme": {
+    "toggle": "Toggle dark mode",
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "language": {
+    "label": "Language"
+  },
+  "status": {
+    "PENDING": "Awaiting payment",
+    "CONFIRMED": "Confirmed",
+    "SHIPPED": "Shipped",
+    "DELIVERED": "Delivered",
+    "CANCELLED": "Cancelled"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "hint": "Try again, and if the problem persists head back to the home page.",
+    "code": "Error code: {code}",
+    "retry": "Try again",
+    "home": "Home"
+  },
+  "notFound": {
+    "title": "This page doesn't exist",
+    "hint": "The link may have changed, or the product was removed from the store.",
+    "browse": "Browse products",
+    "home": "Home"
+  },
+  "paymentStatus": {
+    "UNPAID": "Unpaid",
+    "PAID": "Paid",
+    "FAILED": "Payment failed",
+    "REFUNDED": "Refunded"
+  },
+  "paymentMethod": {
+    "CARD": "Card (test payment)",
+    "COD": "Cash on delivery"
+  },
+  "roast": {
+    "LIGHT": "Light roast",
+    "MEDIUM": "Medium roast",
+    "DARK": "Dark roast"
+  },
+  "governorates": {
+    "ALX": "Alexandria",
+    "ASN": "Aswan",
+    "AST": "Asyut",
+    "BA": "Red Sea",
+    "BH": "Beheira",
+    "BNS": "Beni Suef",
+    "C": "Cairo",
+    "DK": "Dakahlia",
+    "DT": "Damietta",
+    "FYM": "Faiyum",
+    "GH": "Gharbia",
+    "GZ": "Giza",
+    "IS": "Ismailia",
+    "JS": "South Sinai",
+    "KB": "Qalyubia",
+    "KFS": "Kafr el-Sheikh",
+    "KN": "Qena",
+    "LX": "Luxor",
+    "MN": "Minya",
+    "MNF": "Monufia",
+    "MT": "Matrouh",
+    "PTS": "Port Said",
+    "SHG": "Sohag",
+    "SHR": "Sharqia",
+    "SIN": "North Sinai",
+    "SUZ": "Suez",
+    "WAD": "New Valley"
+  },
+  "tastingNotes": {
+    "floral": "Floral",
+    "citrus": "Citrus",
+    "berry": "Berry",
+    "red-berry": "Red berry",
+    "tropical": "Tropical fruit",
+    "winey": "Winey",
+    "caramel": "Caramel",
+    "apple": "Apple",
+    "cocoa": "Cocoa",
+    "chocolate": "Chocolate",
+    "dark-chocolate": "Dark chocolate",
+    "nutty": "Nutty",
+    "blackcurrant": "Blackcurrant",
+    "spice": "Spice",
+    "orange": "Orange",
+    "honey": "Honey",
+    "apricot": "Apricot",
+    "almond": "Almond",
+    "plum": "Plum",
+    "tea": "Black tea",
+    "earthy": "Earthy",
+    "cedar": "Cedar",
+    "peach": "Peach",
+    "jasmine": "Jasmine",
+    "bergamot": "Bergamot",
+    "maple": "Maple"
+  },
+  "metaDemo": "Demo store",
+  "invoice": {
+    "title": "Invoice",
+    "number": "Invoice no.",
+    "date": "Date",
+    "billTo": "Billed to",
+    "shipTo": "Ship to",
+    "payment": "Payment",
+    "item": "Item",
+    "quantity": "Qty",
+    "unitPrice": "Unit price",
+    "lineTotal": "Total",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "freeShipping": "Free",
+    "vatIncluded": "Includes {rate, number, percent} VAT",
+    "total": "Total",
+    "paid": "Paid",
+    "codDue": "Cash on delivery: pay the courier {amount}",
+    "thanks": "Thank you for your order.",
+    "demoNote": "Demo store: this invoice is a sample, no real sale took place.",
+    "download": "Invoice (PDF)"
+  }
+}

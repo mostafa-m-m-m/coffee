@@ -1,0 +1,425 @@
+<!doctype html>
+<html dir="rtl" lang="ar" style="">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+      name="viewport"
+    />
+    <meta content="mobile_stack" name="shell-type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#ffffff",
+              "on-error": "#ffffff",
+              "on-tertiary": "#ffffff",
+              surface: "#FAF6F1",
+              "on-surface": "#231a15",
+              "error-container": "#ffdad6",
+              error: "#ba1a1a",
+              "secondary-fixed-dim": "#f0bd8b",
+              "on-secondary": "#ffffff",
+              "primary-fixed-dim": "#ffb59d",
+              "outline-variant": "#e1bfb5",
+              "surface-bright": "#FAF6F1",
+              outline: "#8d7168",
+              "on-primary-fixed-variant": "#832600",
+              "surface-variant": "#f1dfd8",
+              "on-background": "#231a15",
+              "on-tertiary-fixed": "#001a41",
+              "on-secondary-container": "#7a532a",
+              "on-tertiary-container": "#ecf0ff",
+              "tertiary-container": "#0069de",
+              "surface-container-highest": "#f1dfd8",
+              primary: "#9b2f00",
+              "on-primary-fixed": "#390c00",
+              "on-secondary-fixed-variant": "#623f18",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-primary-container": "#ffece7",
+              "secondary-fixed": "#ffdcbd",
+              background: "#FAF6F1",
+              "inverse-primary": "#ffb59d",
+              "surface-dim": "#e8d6cf",
+              "secondary-container": "#ffca98",
+              tertiary: "#0051af",
+              "on-secondary-fixed": "#2c1600",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#c2410c",
+              "surface-tint": "#ac3400",
+              "inverse-surface": "#392e2a",
+              "tertiary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#004494",
+              "surface-container-high": "#f7e4dd",
+              "surface-container-low": "#fff1eb",
+              secondary: "#7d562d",
+              "primary-fixed": "#ffdbd0",
+              "surface-container": "#fdeae3",
+              "on-surface-variant": "#59413a",
+              "inverse-on-surface": "#ffede6",
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+            spacing: {
+              gutter: "1.5rem",
+              "space-lg": "1.5rem",
+              "space-xs": "0.25rem",
+              "gutter-mobile": "1rem",
+              "space-sm": "0.5rem",
+              "space-md": "1rem",
+              "space-xl": "2.5rem",
+              margin: "3rem",
+              "margin-mobile": "1.25rem",
+            },
+            fontFamily: {
+              "headline-sm": ["Bricolage Grotesque"],
+              "display-hero-mobile": ["Bricolage Grotesque"],
+              "headline-md": ["Bricolage Grotesque"],
+              "body-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans"],
+              "body-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans"],
+              "display-hero": ["Bricolage Grotesque"],
+              "body-md": ["IBM Plex Sans Arabic", "IBM Plex Sans"],
+              "label-data-sm": ["IBM Plex Mono"],
+              "headline-lg": ["Bricolage Grotesque"],
+              "label-data-md": ["IBM Plex Mono"],
+              "label-data-lg": ["IBM Plex Mono"],
+              "headline-lg-mobile": ["Bricolage Grotesque"],
+            },
+            fontSize: {
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "display-hero-mobile": [
+                "36px",
+                { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "body-sm": [
+                "13px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "400" },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "400" }],
+              "display-hero": [
+                "56px",
+                { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "700" },
+              ],
+              "body-md": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+              "label-data-sm": [
+                "12px",
+                { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "headline-lg": [
+                "40px",
+                { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600" },
+              ],
+              "label-data-md": [
+                "14px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" },
+              ],
+              "label-data-lg": [
+                "16px",
+                { lineHeight: "24px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @layer base {
+        html,
+        body {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          background-color: #faf6f1;
+        }
+        body {
+          overscroll-behavior: none;
+          font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", sans-serif;
+        }
+        .pb-safe {
+          padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+        .pt-safe {
+          padding-top: env(safe-area-inset-top, 0px);
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface flex flex-col min-h-screen selection:bg-secondary-fixed selection:text-on-secondary-fixed"
+  >
+    <header
+      class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)] pt-safe"
+    >
+      <div class="h-16 px-gutter-mobile flex items-center justify-between">
+        <a
+          class="flex items-center gap-space-sm min-h-[44px] select-none text-right"
+          data-path="store-catalog"
+          href="#"
+          ><div
+            class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 text-primary"
+          >
+            <span class="material-symbols-outlined text-[20px]">local_fire_department</span>
+          </div>
+          <div class="flex flex-col justify-center leading-none text-right">
+            <span
+              class="font-headline-md text-headline-md tracking-tight text-on-surface lowercase leading-none"
+              >ember</span
+            ><span
+              class="font-label-data-sm text-[9px] tracking-[0.25em] text-secondary font-medium uppercase mt-0.5 leading-none"
+              >ROASTERY</span
+            >
+          </div></a
+        >
+        <div class="flex items-center gap-space-xs">
+          <a
+            aria-label="سلة التسوق"
+            class="relative w-11 h-11 flex items-center justify-center text-on-surface rounded-full hover:bg-surface-container-high transition-colors"
+            data-path="shopping-cart"
+            href="#"
+            ><span class="material-symbols-outlined text-[22px]">shopping_bag</span
+            ><span
+              class="absolute top-1.5 left-1.5 bg-primary text-on-primary font-label-data-sm text-[10px] w-4 h-4 rounded-full flex items-center justify-center leading-none font-semibold"
+              >2</span
+            ></a
+          ><button
+            aria-label="القائمة الرئيسية"
+            class="w-11 h-11 flex items-center justify-center text-on-surface rounded-full hover:bg-surface-container-high transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[24px]">menu</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="flex flex-col relative w-full pt-16 bg-surface flex-grow">
+      <div class="flex flex-col w-full px-gutter-mobile pb-space-lg select-none">
+        <!-- Title & Counter Header -->
+        <header class="pt-space-md pb-space-sm flex flex-col items-start gap-space-xs">
+          <div class="flex items-baseline justify-between w-full">
+            <h1
+              class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold tracking-tight"
+            >
+              المنتجات
+            </h1>
+            <span
+              class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container font-label-data-sm text-label-data-sm text-secondary"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-outline opacity-60"></span>
+              <span class="">0 منتج</span>
+            </span>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
+            محاصيل مميزة ومحمصة بعناية فائقة
+          </p>
+        </header>
+        <!-- Filter & Sort Bar -->
+        <div class="w-full mt-space-sm">
+          <button
+            aria-label="فتح خيارات الفرز والتصفية"
+            class="w-full h-12 bg-surface-container-lowest rounded-xl flex items-center justify-between px-space-md shadow-sm active:bg-surface-container-high transition-all"
+            type="button"
+          >
+            <div class="flex items-center gap-2 text-on-surface">
+              <span
+                class="material-symbols-outlined text-primary text-[20px]"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >tune</span
+              >
+              <span class="font-body-md text-body-md font-medium">الفلاتر والترتيب</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <span
+                class="font-label-data-sm text-label-data-sm text-primary font-semibold bg-primary/10 px-2 py-0.5 rounded-full"
+                >نشط</span
+              >
+              <span class="material-symbols-outlined text-outline text-[18px]">expand_more</span>
+            </div>
+          </button>
+        </div>
+        <!-- Active Filter Badges Ribbon -->
+
+        <!-- Empty State Panel -->
+        <section
+          class="mt-space-md w-full bg-[#FFFFFF] border-2 border-dashed border-[#E6DCD1] rounded-xl px-5 py-8 flex flex-col items-center justify-center text-center shadow-sm relative overflow-hidden"
+          style="min-height: 290px"
+        >
+          <!-- Subtle Warm Ember Glow (Centric & Non-Pink) -->
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-[#c2410c]/5 rounded-full blur-2xl pointer-events-none"
+          ></div>
+          <!-- Centered Crease Bean Emblem -->
+          <div
+            class="relative w-20 h-20 flex items-center justify-center rounded-full bg-[#FAF6F1] border border-[#E6DCD1]/60 mb-space-sm"
+          >
+            <div
+              class="w-14 h-14 rounded-full bg-[#f3ece2] flex items-center justify-center text-primary shadow-[inset_0_1px_3px_rgba(0,0,0,0.04)]"
+            >
+              <!-- Stylized Roasted Bean SVG with Ember Crease -->
+              <svg
+                aria-hidden="true"
+                class="w-8 h-8 text-primary drop-shadow-[0_2px_4px_rgba(155,47,0,0.15)] transform rotate-[28deg]"
+                fill="currentColor"
+                viewBox="0 0 36 36"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Bean Shell Body -->
+                <path
+                  d="M18 3.5C9.5 3.5 3.5 9.8 3.5 18C3.5 26.2 9.5 32.5 18 32.5C26.5 32.5 32.5 26.2 32.5 18C32.5 9.8 26.5 3.5 18 3.5Z"
+                  fill="#7D562D"
+                ></path>
+                <!-- Roast Depth Vignette -->
+                <path
+                  d="M18 4.5C10.2 4.5 4.8 10.4 4.8 18C4.8 25.6 10.2 31.5 18 31.5C25.8 31.5 31.2 25.6 31.2 18C31.2 10.4 25.8 4.5 18 4.5Z"
+                  fill="#59413A"
+                ></path>
+                <!-- Ember Center Crease -->
+                <path
+                  d="M18 6C15.2 10 14.8 13.5 18 18C21.2 22.5 20.8 26 18 30"
+                  stroke="#FAF6F1"
+                  stroke-linecap="round"
+                  stroke-width="2.2"
+                ></path>
+                <path
+                  d="M18 10C16.8 12.8 16.5 15.2 18 18C19.5 20.8 19.2 23.2 18 26"
+                  stroke="#C2410C"
+                  stroke-linecap="round"
+                  stroke-width="1.2"
+                ></path>
+              </svg>
+            </div>
+            <!-- Tiny Animated Roast Sparkle -->
+            <span class="absolute top-1 right-2 text-primary font-bold text-xs select-none">✦</span>
+          </div>
+          <!-- Empty Message -->
+          <h2
+            class="font-headline-sm text-headline-sm text-on-surface font-semibold mt-space-sm mb-space-xs tracking-tight"
+          >
+            مفيش منتجات مطابقة للبحث.
+          </h2>
+          <!-- Clear Filters Button -->
+          <button
+            aria-label="مسح الفلاتر وإعادة عرض المنتجات"
+            class="mt-space-md h-11 px-space-lg bg-primary-container text-on-primary rounded-lg font-body-md text-body-md font-semibold inline-flex items-center justify-center gap-2 active:opacity-90 shadow-sm transition-all focus:outline-none"
+            id="clearFiltersBtn"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[18px]">filter_alt_off</span>
+            <span class="">مسح الفلاتر</span>
+          </button>
+        </section>
+        <!-- Helpful Coffee Tips Card -->
+      </div>
+      <script>
+        (function () {
+          const btn = document.getElementById("clearFiltersBtn");
+          if (btn) {
+            btn.addEventListener("click", function () {
+              btn.classList.add("scale-95");
+              setTimeout(function () {
+                btn.classList.remove("scale-95");
+                const toast = document.createElement("div");
+                toast.className =
+                  "fixed bottom-6 right-1/2 transform translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-body-sm text-body-sm px-4 py-2 rounded-full shadow-lg z-50 transition-opacity duration-300";
+                toast.textContent = "تمت استعادة الفلاتر الافتراضية";
+                document.body.appendChild(toast);
+                setTimeout(function () {
+                  toast.style.opacity = "0";
+                  setTimeout(function () {
+                    if (toast.parentNode) toast.parentNode.removeChild(toast);
+                  }, 300);
+                }, 2000);
+              }, 150);
+            });
+          }
+        })();
+      </script>
+    </main>
+    <footer class="w-full bg-[#FAF6F1] px-gutter-mobile pt-space-xl pb-safe mt-space-xl">
+      <div class="max-w-[390px] mx-auto flex flex-col items-center text-center">
+        <div
+          class="w-12 h-12 rounded-full bg-[#f3ece2] flex items-center justify-center text-primary mb-space-sm shadow-[0_1px_4px_rgba(0,0,0,0.03)]"
+        >
+          <span class="material-symbols-outlined text-[24px]">coffee</span>
+        </div>
+        <div class="flex flex-col items-center justify-center leading-none mb-space-md">
+          <span
+            class="font-headline-md text-headline-md tracking-tight text-on-surface lowercase leading-none"
+            >ember</span
+          ><span
+            class="font-label-data-sm text-[10px] tracking-[0.3em] text-secondary font-medium uppercase mt-1 leading-none"
+            >ROASTERY</span
+          >
+        </div>
+        <div class="bg-[#FAF6F1] px-space-md py-space-xs rounded-full mb-space-lg">
+          <p class="font-body-sm text-body-sm text-outline">
+            الدفع في هذا المتجر تجريبي (Stripe test mode)
+          </p>
+        </div>
+        <nav
+          class="flex items-center justify-center gap-space-lg mb-space-lg"
+          data-active-classes="text-primary font-medium"
+        >
+          <a
+            aria-current="page"
+            class="transition-colors min-h-[44px] flex items-center text-primary font-medium"
+            data-path="store-catalog"
+            href="#"
+            >المنتجات</a
+          ><a
+            class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors min-h-[44px] flex items-center"
+            data-path="language-select"
+            href="#"
+            >العربية</a
+          ><a
+            class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors min-h-[44px] flex items-center"
+            data-path="user-profile"
+            href="#"
+            >حسابي</a
+          >
+        </nav>
+        <div class="pt-space-md pb-space-lg text-center">
+          <p class="font-body-sm text-body-sm text-on-surface-variant/80 dir-ltr text-center">
+            .Ember Roastery 2025 ©. جميع الحقوق محفوظة
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

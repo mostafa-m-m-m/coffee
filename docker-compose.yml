@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:16
+    ports:
+      - "5440:5432"
+    environment:
+      POSTGRES_USER: coffee
+      POSTGRES_PASSWORD: coffee
+      POSTGRES_DB: coffee
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:

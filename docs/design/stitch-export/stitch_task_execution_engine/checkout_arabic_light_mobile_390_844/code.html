@@ -1,0 +1,1239 @@
+<!doctype html>
+
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+      name="viewport"
+    />
+    <meta content="mobile_stack" name="shell-type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@100..900&family=IBM+Plex+Mono:wght@100..900&family=IBM+Plex+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          width: 100vw;
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        .pb-safe {
+          padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+        .pt-safe {
+          padding-top: env(safe-area-inset-top, 0px);
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#832600",
+              "primary-container": "#c2410c",
+              "on-tertiary-container": "#ecf0ff",
+              "on-primary-container": "#ffece7",
+              "on-background": "#231a15",
+              "error-container": "#ffdad6",
+              "surface-variant": "#f1dfd8",
+              "surface-container": "#fdeae3",
+              "on-primary": "#ffffff",
+              "surface-tint": "#ac3400",
+              "on-tertiary-fixed-variant": "#004494",
+              "tertiary-fixed": "#d8e2ff",
+              "surface-bright": "#fff8f6",
+              "inverse-surface": "#392e2a",
+              tertiary: "#0051af",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-secondary-fixed-variant": "#623f18",
+              "tertiary-container": "#0069de",
+              "on-primary-fixed": "#390c00",
+              secondary: "#7d562d",
+              "on-tertiary-fixed": "#001a41",
+              "on-surface": "#231a15",
+              "on-surface-variant": "#59413a",
+              "on-tertiary": "#ffffff",
+              "surface-container-low": "#fff1eb",
+              primary: "#9b2f00",
+              "surface-container-highest": "#f1dfd8",
+              "inverse-primary": "#ffb59d",
+              error: "#ba1a1a",
+              "primary-fixed": "#ffdbd0",
+              "secondary-fixed-dim": "#f0bd8b",
+              "on-secondary-container": "#7a532a",
+              "outline-variant": "#e1bfb5",
+              outline: "#8d7168",
+              surface: "#fff8f6",
+              "on-secondary-fixed": "#2c1600",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#ffede6",
+              "surface-container-lowest": "#ffffff",
+              "surface-dim": "#e8d6cf",
+              "on-error-container": "#93000a",
+              "on-error": "#ffffff",
+              "surface-container-high": "#f7e4dd",
+              "secondary-container": "#ffca98",
+              "primary-fixed-dim": "#ffb59d",
+              "secondary-fixed": "#ffdcbd",
+              background: "#fff8f6",
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+            spacing: {
+              "margin-mobile": "1.25rem",
+              "gutter-mobile": "1rem",
+              "space-sm": "0.5rem",
+              gutter: "1.5rem",
+              "space-xs": "0.25rem",
+              "space-xl": "2.5rem",
+              "space-lg": "1.5rem",
+              "space-md": "1rem",
+              margin: "3rem",
+            },
+            fontFamily: {
+              "display-hero": ["Bricolage Grotesque"],
+              "label-data-md": ["IBM Plex Mono"],
+              "label-data-sm": ["IBM Plex Mono"],
+              "headline-lg-mobile": ["Bricolage Grotesque"],
+              "body-lg": ["IBM Plex Sans"],
+              "headline-lg": ["Bricolage Grotesque"],
+              "body-sm": ["IBM Plex Sans"],
+              "display-hero-mobile": ["Bricolage Grotesque"],
+              "headline-md": ["Bricolage Grotesque"],
+              "label-data-lg": ["IBM Plex Mono"],
+              "headline-sm": ["Bricolage Grotesque"],
+              "body-md": ["IBM Plex Sans"],
+            },
+            fontSize: {
+              "display-hero": [
+                "56px",
+                { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "700" },
+              ],
+              "label-data-md": [
+                "14px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" },
+              ],
+              "label-data-sm": [
+                "12px",
+                { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "400" }],
+              "headline-lg": [
+                "40px",
+                { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600" },
+              ],
+              "body-sm": [
+                "13px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "400" },
+              ],
+              "display-hero-mobile": [
+                "36px",
+                { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "label-data-lg": [
+                "16px",
+                { lineHeight: "24px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "body-md": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen selection:bg-secondary-container selection:text-on-secondary-container"
+  >
+    <header
+      class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] pt-safe"
+    >
+      <div class="h-16 px-margin-mobile flex items-center justify-between">
+        <a
+          class="flex items-center gap-space-sm min-h-[44px] text-right"
+          data-path="catalog"
+          href="#"
+          ><span class="material-symbols-outlined text-primary text-[22px]">coffee</span>
+          <div class="flex flex-col leading-none">
+            <span
+              class="font-display-hero text-headline-sm lowercase tracking-tight text-on-surface leading-none"
+              >ember</span
+            ><span
+              class="font-label-data-sm text-[9px] tracking-widest uppercase text-on-surface-variant font-semibold mt-0.5"
+              >ROASTERY</span
+            >
+          </div></a
+        >
+        <div class="flex items-center gap-space-xs">
+          <a
+            aria-label="سلة المشتريات"
+            class="relative w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"
+            data-path="cart-checkout"
+            href="#"
+            ><span class="material-symbols-outlined text-[24px]">shopping_bag</span
+            ><span
+              class="absolute top-1.5 left-1.5 w-4 h-4 bg-primary text-on-primary rounded-full font-label-data-sm text-[10px] flex items-center justify-center font-bold"
+              >2</span
+            ></a
+          ><button
+            aria-label="القائمة الرئيسية"
+            class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[24px]">menu</span>
+          </button>
+          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center mr-space-xs">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="flex-1 flex flex-col relative w-full pt-16 bg-surface">
+      <div class="flex flex-col w-full bg-[#FAF6F1] text-[#1C1612] antialiased pb-12">
+        <!-- ========================================== -->
+        <!-- MAIN CHECKOUT SCREEN (DEFAULT STATE) -->
+        <!-- ========================================== -->
+        <section class="w-full max-w-[390px] mx-auto px-4 pt-4 pb-24 relative">
+          <!-- H1 Directly followed by content -->
+          <h1
+            class="font-headline-lg-mobile text-headline-lg-mobile text-[#1C1612] font-bold mb-4 tracking-tight"
+          >
+            إتمام الشراء
+          </h1>
+          <!-- 3. Collapsed Accordion Bar -->
+          <div class="w-full mb-6">
+            <button
+              aria-expanded="false"
+              class="w-full bg-[#FFFFFF] rounded-lg px-4 h-12 flex items-center justify-between text-right cursor-pointer shadow-sm transition-colors hover:bg-surface-container-low"
+              id="summary-toggle-btn"
+              onclick="toggleSummaryState()"
+              style="border: 1px solid #e6dcd1"
+              type="button"
+            >
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-body-md text-body-md text-[#1C1612] font-medium"
+                  id="toggle-label-text"
+                  >عرض ملخص الطلب</span
+                >
+                <span
+                  class="material-symbols-outlined text-[#1C1612] text-[20px] transition-transform duration-200"
+                  id="summary-chevron"
+                  >keyboard_arrow_down</span
+                >
+              </div>
+              <span class="font-label-data-lg text-label-data-lg text-[#1C1612] font-bold dir-ltr"
+                >$97.00</span
+              >
+            </button>
+            <!-- Expandable Drawer Panel -->
+            <div
+              class="hidden bg-[#FFFFFF] rounded-b-lg p-4 -mt-1 shadow-sm flex flex-col gap-3"
+              id="summary-drawer"
+              style="border: 1px solid #e6dcd1; border-top: none"
+            >
+              <div class="flex flex-col gap-2.5 text-body-sm">
+                <div class="flex justify-between items-start gap-2">
+                  <span class="text-[#1C1612]"
+                    >Ethiopia Yirgacheffe – Light Roast — 250g – Whole bean
+                    <span class="font-label-data-sm font-semibold">×2</span></span
+                  >
+                  <span class="font-label-data-md font-medium text-[#1C1612] shrink-0">$36.00</span>
+                </div>
+                <div class="flex justify-between items-start gap-2">
+                  <span class="text-[#1C1612]"
+                    >Colombia Huila – Medium Roast — 500g – Medium grind
+                    <span class="font-label-data-sm font-semibold">×1</span></span
+                  >
+                  <span class="font-label-data-md font-medium text-[#1C1612] shrink-0">$33.00</span>
+                </div>
+                <div class="flex justify-between items-start gap-2">
+                  <span class="text-[#1C1612]"
+                    >V60 Dripper — Standard
+                    <span class="font-label-data-sm font-semibold">×1</span></span
+                  >
+                  <span class="font-label-data-md font-medium text-[#1C1612] shrink-0">$28.00</span>
+                </div>
+              </div>
+              <div class="w-full h-px bg-[#E6DCD1] my-1"></div>
+              <div class="flex justify-between items-center text-body-sm text-[#1C1612]">
+                <span>الشحن</span>
+                <span class="font-medium">مجاني</span>
+              </div>
+              <div class="flex justify-between items-center text-body-md font-bold text-[#1C1612]">
+                <span>الإجمالي</span>
+                <span class="font-label-data-lg text-label-data-lg text-[#1C1612]">$97.00</span>
+              </div>
+              <div
+                class="mt-2 bg-[#F2EAE0] rounded-lg p-3 text-body-sm text-[#1C1612] leading-relaxed"
+              >
+                <span>وضع تجريبي: استخدم كارت Stripe </span>
+                <span class="font-label-data-sm font-semibold dir-ltr inline-block tracking-wider"
+                  >4242 4242 4242 4242</span
+                >
+                <span> وأي تاريخ مستقبلي وأي CVC.</span>
+              </div>
+            </div>
+          </div>
+          <!-- 4. Form Fields Stacked in ONE Column -->
+          <div class="w-full">
+            <h2 class="font-headline-sm text-headline-sm font-semibold text-[#1C1612] mb-4">
+              عنوان الشحن
+            </h2>
+            <form class="flex flex-col gap-4.5" onsubmit="event.preventDefault()">
+              <!-- Field 1 -->
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium" for="full-name"
+                  >الاسم الكامل</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] font-body-md text-body-md outline-none transition-colors focus:border-[#C2410C]"
+                  id="full-name"
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                  value="Sarah Ahmed"
+                />
+              </div>
+              <!-- Field 2 -->
+              <div class="flex flex-col gap-1.5">
+                <label
+                  class="font-body-sm text-body-sm text-[#1C1612] font-medium"
+                  for="phone-number"
+                  >الهاتف</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] font-label-data-md text-label-data-md text-right outline-none transition-colors focus:border-[#C2410C]"
+                  dir="ltr"
+                  id="phone-number"
+                  style="border: 1px solid #e6dcd1"
+                  type="tel"
+                  value="01012345678"
+                />
+              </div>
+              <!-- Field 3 -->
+              <div class="flex flex-col gap-1.5">
+                <label
+                  class="font-body-sm text-body-sm text-[#1C1612] font-medium"
+                  for="address-line"
+                  >العنوان</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] font-body-md text-body-md outline-none transition-colors focus:border-[#C2410C]"
+                  id="address-line"
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                  value="12 Tahrir Square"
+                />
+              </div>
+              <!-- Field 4 -->
+              <div class="flex flex-col gap-1.5">
+                <label
+                  class="font-body-sm text-body-sm text-[#1C1612] font-medium"
+                  for="address-notes"
+                  >تفاصيل إضافية (اختياري)</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] font-body-md text-body-md placeholder-[#8D7168] outline-none transition-colors focus:border-[#C2410C]"
+                  id="address-notes"
+                  placeholder="رقم الشقة، علامة مميزة…"
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                />
+              </div>
+              <!-- Field 5 -->
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium" for="city-name"
+                  >المدينة</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] font-body-md text-body-md outline-none transition-colors focus:border-[#C2410C]"
+                  id="city-name"
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                  value="Cairo"
+                />
+              </div>
+              <!-- Field 6 -->
+              <div class="flex flex-col gap-1.5">
+                <label
+                  class="font-body-sm text-body-sm text-[#1C1612] font-medium"
+                  for="postal-code"
+                  >الرمز البريدي</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] font-label-data-md text-label-data-md text-right outline-none transition-colors focus:border-[#C2410C]"
+                  dir="ltr"
+                  id="postal-code"
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                  value="11511"
+                />
+              </div>
+            </form>
+          </div>
+          <!-- 5. Sticky Bottom Bar inside mobile frame viewport simulator -->
+          <div
+            class="fixed bottom-0 inset-x-0 max-w-[390px] mx-auto bg-[#FFFFFF] p-4 shadow-sm z-40"
+            style="border-top: 1px solid #e6dcd1"
+          >
+            <button
+              class="w-full h-11 bg-[#C2410C] hover:bg-[#9B2F00] active:scale-[0.99] text-white font-medium rounded-lg text-body-md transition-all flex items-center justify-center cursor-pointer"
+              type="button"
+            >
+              الدفع
+            </button>
+          </div>
+        </section>
+        <!-- ========================================== -->
+        <!-- SEPARATOR FOR DETAILED STATE SHOWCASES -->
+        <!-- ========================================== -->
+        <div class="w-full max-w-2xl mx-auto my-12 px-4 flex items-center gap-4">
+          <div class="flex-1 h-px bg-[#E6DCD1]"></div>
+          <span
+            class="font-label-data-sm text-label-data-sm text-secondary font-semibold uppercase tracking-widest px-3 py-1 bg-surface-container rounded-full"
+          >
+            حالات الواجهة التفاعلية (Detailed States)
+          </span>
+          <div class="flex-1 h-px bg-[#E6DCD1]"></div>
+        </div>
+        <div class="flex flex-col gap-16 w-full max-w-[390px] mx-auto px-4">
+          <!-- ========================================== -->
+          <!-- (1) EXPANDED ORDER SUMMARY FRAME -->
+          <!-- ========================================== -->
+          <div
+            class="flex flex-col bg-[#FAF6F1] rounded-2xl p-4 relative"
+            style="border: 1px solid #e6dcd1"
+          >
+            <div
+              class="mb-3 flex items-center justify-between pb-2"
+              style="border-bottom: 1px solid #e6dcd1"
+            >
+              <span class="font-label-data-sm text-label-data-sm font-semibold text-secondary"
+                >الحالة 1: ملخص الطلب مفتوح</span
+              >
+              <span class="font-label-data-sm text-[11px] text-on-surface-variant font-mono"
+                >Expanded</span
+              >
+            </div>
+            <h1
+              class="font-headline-lg-mobile text-headline-lg-mobile text-[#1C1612] font-bold mb-4 tracking-tight"
+            >
+              إتمام الشراء
+            </h1>
+            <!-- Open Accordion Bar -->
+            <div class="w-full mb-6">
+              <div
+                class="w-full bg-[#FFFFFF] rounded-t-lg px-4 h-12 flex items-center justify-between shadow-sm"
+                style="border: 1px solid #e6dcd1"
+              >
+                <div class="flex items-center gap-2">
+                  <span class="font-body-md text-body-md text-[#1C1612] font-medium"
+                    >إخفاء ملخص الطلب</span
+                  >
+                  <span class="material-symbols-outlined text-[#1C1612] text-[20px]"
+                    >keyboard_arrow_up</span
+                  >
+                </div>
+                <span class="font-label-data-lg text-label-data-lg text-[#1C1612] font-bold dir-ltr"
+                  >$97.00</span
+                >
+              </div>
+              <!-- Inside Expanded Panel -->
+              <div
+                class="bg-[#FFFFFF] rounded-b-lg p-4 shadow-sm flex flex-col gap-3"
+                style="border: 1px solid #e6dcd1; border-top: none"
+              >
+                <!-- 3 Compact Lines -->
+                <div class="flex flex-col gap-2.5 text-body-sm">
+                  <div class="flex justify-between items-start gap-2">
+                    <span class="text-[#1C1612] leading-snug"
+                      >Ethiopia Yirgacheffe – Light Roast — 250g – Whole bean
+                      <span class="font-label-data-sm font-semibold">×2</span></span
+                    >
+                    <span class="font-label-data-md font-medium text-[#1C1612] shrink-0"
+                      >$36.00</span
+                    >
+                  </div>
+                  <div class="flex justify-between items-start gap-2">
+                    <span class="text-[#1C1612] leading-snug"
+                      >Colombia Huila – Medium Roast — 500g – Medium grind
+                      <span class="font-label-data-sm font-semibold">×1</span></span
+                    >
+                    <span class="font-label-data-md font-medium text-[#1C1612] shrink-0"
+                      >$33.00</span
+                    >
+                  </div>
+                  <div class="flex justify-between items-start gap-2">
+                    <span class="text-[#1C1612] leading-snug"
+                      >V60 Dripper — Standard
+                      <span class="font-label-data-sm font-semibold">×1</span></span
+                    >
+                    <span class="font-label-data-md font-medium text-[#1C1612] shrink-0"
+                      >$28.00</span
+                    >
+                  </div>
+                </div>
+                <!-- 1px Divider -->
+                <div class="w-full h-px bg-[#E6DCD1] my-1"></div>
+                <!-- Free Shipping Row -->
+                <div class="flex justify-between items-center text-body-sm text-[#1C1612]">
+                  <span>الشحن</span>
+                  <span class="font-medium text-[#1C1612]">مجاني</span>
+                </div>
+                <!-- Bold Total Row -->
+                <div
+                  class="flex justify-between items-center text-body-md font-bold text-[#1C1612]"
+                >
+                  <span>الإجمالي</span>
+                  <span class="font-label-data-lg text-label-data-lg text-[#1C1612]">$97.00</span>
+                </div>
+                <!-- Bottom Tinted Test Note -->
+                <div
+                  class="mt-2 bg-[#F2EAE0] rounded-lg p-3 text-body-sm text-[#1C1612] leading-relaxed"
+                >
+                  <span>وضع تجريبي: استخدم كارت Stripe </span>
+                  <span
+                    class="font-label-data-sm font-semibold dir-ltr inline-block tracking-wider font-mono"
+                    >4242 4242 4242 4242</span
+                  >
+                  <span> وأي تاريخ مستقبلي وأي CVC.</span>
+                </div>
+              </div>
+            </div>
+            <!-- Followed by the same single-column form -->
+            <h2 class="font-headline-sm text-headline-sm font-semibold text-[#1C1612] mb-4">
+              عنوان الشحن
+            </h2>
+            <div class="flex flex-col gap-3 opacity-90 mb-6">
+              <div class="flex flex-col gap-1">
+                <span class="text-body-sm text-[#1C1612] font-medium">الاسم الكامل</span>
+                <div
+                  class="h-11 px-3 bg-[#FFFFFF] rounded-lg flex items-center text-body-md"
+                  style="border: 1px solid #e6dcd1"
+                >
+                  Sarah Ahmed
+                </div>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-body-sm text-[#1C1612] font-medium">الهاتف</span>
+                <div
+                  class="h-11 px-3 bg-[#FFFFFF] rounded-lg flex items-center font-label-data-md text-right justify-end"
+                  dir="ltr"
+                  style="border: 1px solid #e6dcd1"
+                >
+                  01012345678
+                </div>
+              </div>
+            </div>
+            <!-- Simulated Bottom Bar -->
+            <div
+              class="w-full bg-[#FFFFFF] p-4 shadow-sm rounded-lg"
+              style="border: 1px solid #e6dcd1"
+            >
+              <button
+                class="w-full h-11 bg-[#C2410C] text-white font-medium rounded-lg text-body-md"
+                type="button"
+              >
+                الدفع
+              </button>
+            </div>
+          </div>
+          <!-- ========================================== -->
+          <!-- (2) VALIDATION ERRORS FRAME -->
+          <!-- ========================================== -->
+          <div
+            class="flex flex-col bg-[#FAF6F1] rounded-2xl p-4 relative"
+            style="border: 1px solid #e6dcd1"
+          >
+            <div
+              class="mb-3 flex items-center justify-between pb-2"
+              style="border-bottom: 1px solid #e6dcd1"
+            >
+              <span class="font-label-data-sm text-label-data-sm font-semibold text-error"
+                >الحالة 2: أخطاء التحقق</span
+              >
+              <span class="font-label-data-sm text-[11px] text-error font-mono"
+                >Validation Errors</span
+              >
+            </div>
+            <h1
+              class="font-headline-lg-mobile text-headline-lg-mobile text-[#1C1612] font-bold mb-4 tracking-tight"
+            >
+              إتمام الشراء
+            </h1>
+            <!-- Collapsed Summary -->
+            <div
+              class="w-full bg-[#FFFFFF] rounded-lg px-4 h-12 flex items-center justify-between mb-6 shadow-sm"
+              style="border: 1px solid #e6dcd1"
+            >
+              <div class="flex items-center gap-2">
+                <span class="font-body-md text-body-md text-[#1C1612] font-medium"
+                  >عرض ملخص الطلب</span
+                >
+                <span class="material-symbols-outlined text-[#1C1612] text-[20px]"
+                  >keyboard_arrow_down</span
+                >
+              </div>
+              <span class="font-label-data-lg text-label-data-lg text-[#1C1612] font-bold dir-ltr"
+                >$97.00</span
+              >
+            </div>
+            <h2 class="font-headline-sm text-headline-sm font-semibold text-[#1C1612] mb-4">
+              عنوان الشحن
+            </h2>
+            <div class="flex flex-col gap-4 mb-6">
+              <!-- Field 1: Valid -->
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium"
+                  >الاسم الكامل</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] font-body-md"
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                  value="Sarah Ahmed"
+                />
+              </div>
+              <!-- Field 2: Error Phone -->
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium">الهاتف</label>
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] font-label-data-md text-right outline-none"
+                  dir="ltr"
+                  style="border: 1px solid #b91c1c"
+                  type="tel"
+                  value="010123"
+                />
+                <div class="flex items-center gap-1.5 text-error text-body-sm mt-0.5">
+                  <span class="material-symbols-outlined text-[16px] text-[#B91C1C]">error</span>
+                  <span class="text-[#B91C1C] font-medium">رقم الهاتف غير صحيح</span>
+                </div>
+              </div>
+              <!-- Field 3: Error Address -->
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium">العنوان</label>
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] font-body-md outline-none"
+                  style="border: 1px solid #b91c1c"
+                  type="text"
+                  value="شارع"
+                />
+                <div class="flex items-center gap-1.5 text-error text-body-sm mt-0.5">
+                  <span class="material-symbols-outlined text-[16px] text-[#B91C1C]">error</span>
+                  <span class="text-[#B91C1C] font-medium">اكتب العنوان بالتفصيل</span>
+                </div>
+              </div>
+              <!-- Field 4: Valid optional -->
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium"
+                  >تفاصيل إضافية (اختياري)</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612]"
+                  placeholder="رقم الشقة، علامة مميزة…"
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                />
+              </div>
+              <!-- Field 5: Valid City -->
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium">المدينة</label>
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] font-body-md"
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                  value="Cairo"
+                />
+              </div>
+              <!-- Field 6: Error Postal Code -->
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium"
+                  >الرمز البريدي</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] font-label-data-md text-right outline-none"
+                  dir="ltr"
+                  style="border: 1px solid #b91c1c"
+                  type="text"
+                  value="abc"
+                />
+                <div class="flex items-center gap-1.5 text-error text-body-sm mt-0.5">
+                  <span class="material-symbols-outlined text-[16px] text-[#B91C1C]">error</span>
+                  <span class="text-[#B91C1C] font-medium">الرمز البريدي غير صحيح</span>
+                </div>
+              </div>
+            </div>
+            <!-- Button "الدفع" in bottom bar -->
+            <div
+              class="w-full bg-[#FFFFFF] p-4 shadow-sm rounded-lg"
+              style="border: 1px solid #e6dcd1"
+            >
+              <button
+                class="w-full h-11 bg-[#C2410C] text-white font-medium rounded-lg text-body-md"
+                type="button"
+              >
+                الدفع
+              </button>
+            </div>
+          </div>
+          <!-- ========================================== -->
+          <!-- (3) SUBMITTING FRAME -->
+          <!-- ========================================== -->
+          <div
+            class="flex flex-col bg-[#FAF6F1] rounded-2xl p-4 relative"
+            style="border: 1px solid #e6dcd1"
+          >
+            <div
+              class="mb-3 flex items-center justify-between pb-2"
+              style="border-bottom: 1px solid #e6dcd1"
+            >
+              <span class="font-label-data-sm text-label-data-sm font-semibold text-primary"
+                >الحالة 3: جاري الإرسال</span
+              >
+              <span class="font-label-data-sm text-[11px] text-on-surface-variant font-mono"
+                >Submitting...</span
+              >
+            </div>
+            <h1
+              class="font-headline-lg-mobile text-headline-lg-mobile text-[#1C1612] font-bold mb-4 tracking-tight"
+            >
+              إتمام الشراء
+            </h1>
+            <div
+              class="w-full bg-[#FFFFFF] rounded-lg px-4 h-12 flex items-center justify-between mb-6 shadow-sm opacity-60"
+              style="border: 1px solid #e6dcd1"
+            >
+              <div class="flex items-center gap-2">
+                <span class="font-body-md text-body-md text-[#1C1612] font-medium"
+                  >عرض ملخص الطلب</span
+                >
+                <span class="material-symbols-outlined text-[#1C1612] text-[20px]"
+                  >keyboard_arrow_down</span
+                >
+              </div>
+              <span class="font-label-data-lg text-label-data-lg text-[#1C1612] font-bold dir-ltr"
+                >$97.00</span
+              >
+            </div>
+            <h2
+              class="font-headline-sm text-headline-sm font-semibold text-[#1C1612] mb-4 opacity-60"
+            >
+              عنوان الشحن
+            </h2>
+            <!-- Exact same 6 fields disabled at 60% opacity -->
+            <div class="flex flex-col gap-4 opacity-60 mb-6 pointer-events-none select-none">
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium"
+                  >الاسم الكامل</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612]"
+                  disabled=""
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                  value="Sarah Ahmed"
+                />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium">الهاتف</label>
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] text-right font-label-data-md"
+                  dir="ltr"
+                  disabled=""
+                  style="border: 1px solid #e6dcd1"
+                  type="tel"
+                  value="01012345678"
+                />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium">العنوان</label>
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612]"
+                  disabled=""
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                  value="12 Tahrir Square"
+                />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium"
+                  >تفاصيل إضافية (اختياري)</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612]"
+                  disabled=""
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium">المدينة</label>
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612]"
+                  disabled=""
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                  value="Cairo"
+                />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-body-sm text-body-sm text-[#1C1612] font-medium"
+                  >الرمز البريدي</label
+                >
+                <input
+                  class="w-full h-11 px-3.5 bg-[#FFFFFF] rounded-lg text-[#1C1612] text-right font-label-data-md"
+                  dir="ltr"
+                  disabled=""
+                  style="border: 1px solid #e6dcd1"
+                  type="text"
+                  value="11511"
+                />
+              </div>
+            </div>
+            <!-- Disabled button with spinner -->
+            <div
+              class="w-full bg-[#FFFFFF] p-4 shadow-sm rounded-lg"
+              style="border: 1px solid #e6dcd1"
+            >
+              <button
+                class="w-full h-11 bg-[#C2410C]/80 text-white font-medium rounded-lg text-body-md flex items-center justify-center gap-2.5 cursor-not-allowed"
+                disabled=""
+                type="button"
+              >
+                <!-- Circular CSS Spinner -->
+                <svg
+                  class="animate-spin h-5 w-5 text-white"
+                  fill="none"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    class="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  ></circle>
+                  <path
+                    class="opacity-75"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+                <span>جاري التحويل للدفع…</span>
+              </button>
+            </div>
+          </div>
+          <!-- ========================================== -->
+          <!-- (4) SERVER ERROR FRAME -->
+          <!-- ========================================== -->
+          <div
+            class="flex flex-col bg-[#FAF6F1] rounded-2xl p-4 relative"
+            style="border: 1px solid #e6dcd1"
+          >
+            <div
+              class="mb-3 flex items-center justify-between pb-2"
+              style="border-bottom: 1px solid #e6dcd1"
+            >
+              <span class="font-label-data-sm text-label-data-sm font-semibold text-error"
+                >الحالة 4: خطأ من الخادم</span
+              >
+              <span class="font-label-data-sm text-[11px] text-error font-mono">Server Error</span>
+            </div>
+            <h1
+              class="font-headline-lg-mobile text-headline-lg-mobile text-[#1C1612] font-bold mb-4 tracking-tight"
+            >
+              إتمام الشراء
+            </h1>
+            <div
+              class="w-full bg-[#FFFFFF] rounded-lg px-4 h-12 flex items-center justify-between mb-6 shadow-sm"
+              style="border: 1px solid #e6dcd1"
+            >
+              <div class="flex items-center gap-2">
+                <span class="font-body-md text-body-md text-[#1C1612] font-medium"
+                  >عرض ملخص الطلب</span
+                >
+                <span class="material-symbols-outlined text-[#1C1612] text-[20px]"
+                  >keyboard_arrow_down</span
+                >
+              </div>
+              <span class="font-label-data-lg text-label-data-lg text-[#1C1612] font-bold dir-ltr"
+                >$97.00</span
+              >
+            </div>
+            <h2 class="font-headline-sm text-headline-sm font-semibold text-[#1C1612] mb-4">
+              عنوان الشحن
+            </h2>
+            <!-- Form Inputs -->
+            <div class="flex flex-col gap-3.5 mb-5">
+              <div class="flex flex-col gap-1">
+                <span class="text-body-sm text-[#1C1612] font-medium">الاسم الكامل</span>
+                <div
+                  class="h-11 px-3.5 bg-[#FFFFFF] rounded-lg flex items-center text-body-md text-[#1C1612]"
+                  style="border: 1px solid #e6dcd1"
+                >
+                  Sarah Ahmed
+                </div>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-body-sm text-[#1C1612] font-medium">الهاتف</span>
+                <div
+                  class="h-11 px-3.5 bg-[#FFFFFF] rounded-lg flex items-center justify-end font-label-data-md text-[#1C1612]"
+                  dir="ltr"
+                  style="border: 1px solid #e6dcd1"
+                >
+                  01012345678
+                </div>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="text-body-sm text-[#1C1612] font-medium">العنوان</span>
+                <div
+                  class="h-11 px-3.5 bg-[#FFFFFF] rounded-lg flex items-center text-body-md text-[#1C1612]"
+                  style="border: 1px solid #e6dcd1"
+                >
+                  12 Tahrir Square
+                </div>
+              </div>
+            </div>
+            <!-- Danger-bordered inline banner directly above bottom button -->
+            <div
+              class="w-full bg-[#FEF2F2] rounded-lg p-3 flex items-center justify-between mb-3 text-body-sm"
+              style="border: 1px solid #b91c1c"
+            >
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px] text-[#B91C1C]">cancel</span>
+                <span class="text-[#B91C1C] font-semibold">الدفع غير مُفعّل</span>
+              </div>
+              <a class="text-[#B91C1C] underline font-medium hover:opacity-80" href="#"
+                >راجع العربة</a
+              >
+            </div>
+            <!-- Button -->
+            <div
+              class="w-full bg-[#FFFFFF] p-4 shadow-sm rounded-lg"
+              style="border: 1px solid #e6dcd1"
+            >
+              <button
+                class="w-full h-11 bg-[#C2410C] text-white font-medium rounded-lg text-body-md"
+                type="button"
+              >
+                الدفع
+              </button>
+            </div>
+          </div>
+          <!-- ========================================== -->
+          <!-- (5) VIEWER ACCOUNT FRAME -->
+          <!-- ========================================== -->
+          <div
+            class="flex flex-col bg-[#FAF6F1] rounded-2xl p-4 relative"
+            style="border: 1px solid #e6dcd1"
+          >
+            <div
+              class="mb-3 flex items-center justify-between pb-2"
+              style="border-bottom: 1px solid #e6dcd1"
+            >
+              <span class="font-label-data-sm text-label-data-sm font-semibold text-secondary"
+                >الحالة 5: حساب المشاهدة</span
+              >
+              <span class="font-label-data-sm text-[11px] text-on-surface-variant font-mono"
+                >Viewer Account</span
+              >
+            </div>
+            <h1
+              class="font-headline-lg-mobile text-headline-lg-mobile text-[#1C1612] font-bold mb-4 tracking-tight"
+            >
+              إتمام الشراء
+            </h1>
+            <div
+              class="w-full bg-[#FFFFFF] rounded-lg px-4 h-12 flex items-center justify-between mb-6 shadow-sm"
+              style="border: 1px solid #e6dcd1"
+            >
+              <div class="flex items-center gap-2">
+                <span class="font-body-md text-body-md text-[#1C1612] font-medium"
+                  >عرض ملخص الطلب</span
+                >
+                <span class="material-symbols-outlined text-[#1C1612] text-[20px]"
+                  >keyboard_arrow_down</span
+                >
+              </div>
+              <span class="font-label-data-lg text-label-data-lg text-[#1C1612] font-bold dir-ltr"
+                >$97.00</span
+              >
+            </div>
+            <!-- Instead of the form: Bordered white panel (12px radius, p-6, 1px #E6DCD1 border) -->
+            <div
+              class="w-full bg-[#FFFFFF] rounded-xl p-6 shadow-sm text-center flex flex-col items-center justify-center gap-3 my-2"
+              style="border: 1px solid #e6dcd1"
+            >
+              <span class="material-symbols-outlined text-[32px] text-secondary">visibility</span>
+              <p class="font-body-md text-body-md text-[#1C1612] leading-relaxed max-w-[280px]">
+                حساب المشاهدة للاستعراض فقط ولا يمكنه إتمام الشراء. سجّل دخول بحساب عميل أو أنشئ
+                حساب جديد.
+              </p>
+            </div>
+          </div>
+          <!-- ========================================== -->
+          <!-- (6) EMPTY CART FRAME -->
+          <!-- ========================================== -->
+          <div
+            class="flex flex-col bg-[#FAF6F1] rounded-2xl p-4 relative"
+            style="border: 1px solid #e6dcd1"
+          >
+            <div
+              class="mb-3 flex items-center justify-between pb-2"
+              style="border-bottom: 1px solid #e6dcd1"
+            >
+              <span class="font-label-data-sm text-label-data-sm font-semibold text-secondary"
+                >الحالة 6: العربة فارغة</span
+              >
+              <span class="font-label-data-sm text-[11px] text-on-surface-variant font-mono"
+                >Empty Cart</span
+              >
+            </div>
+            <h1
+              class="font-headline-lg-mobile text-headline-lg-mobile text-[#1C1612] font-bold mb-4 tracking-tight"
+            >
+              إتمام الشراء
+            </h1>
+            <!-- Centered dashed-border white panel -->
+            <div
+              class="w-full bg-[#FFFFFF] rounded-xl p-8 text-center flex flex-col items-center justify-center my-4"
+              style="border: 2px dashed #e6dcd1"
+            >
+              <!-- SVG bean mark with ember S-crease (64px) -->
+              <div class="w-16 h-16 mb-4 flex items-center justify-center">
+                <svg
+                  fill="none"
+                  height="64"
+                  viewbox="0 0 64 64"
+                  width="64"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <!-- Coffee Bean Outer Contour -->
+                  <ellipse
+                    cx="32"
+                    cy="32"
+                    fill="#F1E9DF"
+                    rx="24"
+                    ry="29"
+                    stroke="#8D7168"
+                    stroke-width="2.5"
+                  ></ellipse>
+                  <!-- Ember S-Crease -->
+                  <path
+                    d="M32 9C29 17 38 23 32 32C26 41 35 48 32 55"
+                    fill="none"
+                    stroke="#C2410C"
+                    stroke-linecap="round"
+                    stroke-width="3"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="font-headline-md text-headline-md font-bold text-[#1C1612] mb-6">
+                العربة فاضية.
+              </h2>
+              <a
+                class="w-full max-w-[240px] h-11 bg-[#C2410C] hover:bg-[#9B2F00] text-white font-medium rounded-lg text-body-md flex items-center justify-center transition-colors"
+                href="#"
+              >
+                ابدأ التسوق
+              </a>
+            </div>
+          </div>
+          <!-- ========================================== -->
+          <!-- (7) LOADING SKELETON FRAME -->
+          <!-- ========================================== -->
+          <div
+            class="flex flex-col bg-[#FAF6F1] rounded-2xl p-4 relative"
+            style="border: 1px solid #e6dcd1"
+          >
+            <div
+              class="mb-3 flex items-center justify-between pb-2"
+              style="border-bottom: 1px solid #e6dcd1"
+            >
+              <span class="font-label-data-sm text-label-data-sm font-semibold text-secondary"
+                >الحالة 7: جاري التحميل</span
+              >
+              <span class="font-label-data-sm text-[11px] text-on-surface-variant font-mono"
+                >Loading Skeleton</span
+              >
+            </div>
+            <!-- Title skeleton -->
+            <div class="w-36 h-7 bg-[#E6DCD1]/70 rounded-md animate-pulse mb-4"></div>
+            <!-- Accordion skeleton bar -->
+            <div
+              class="w-full h-12 bg-[#FFFFFF] rounded-lg px-4 flex items-center justify-between mb-6 shadow-sm"
+              style="border: 1px solid #e6dcd1"
+            >
+              <div class="w-32 h-4 bg-[#E6DCD1]/80 rounded animate-pulse"></div>
+              <div class="w-16 h-4 bg-[#E6DCD1]/80 rounded animate-pulse"></div>
+            </div>
+            <!-- Section title skeleton -->
+            <div class="w-24 h-5 bg-[#E6DCD1]/70 rounded animate-pulse mb-4"></div>
+            <!-- 6 Input skeleton bars (44px height) -->
+            <div class="flex flex-col gap-4 mb-6">
+              <div class="flex flex-col gap-1.5">
+                <div class="w-20 h-3 bg-[#E6DCD1]/60 rounded animate-pulse"></div>
+                <div
+                  class="w-full h-11 bg-[#FFFFFF] rounded-lg animate-pulse"
+                  style="border: 1px solid #e6dcd1"
+                ></div>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <div class="w-14 h-3 bg-[#E6DCD1]/60 rounded animate-pulse"></div>
+                <div
+                  class="w-full h-11 bg-[#FFFFFF] rounded-lg animate-pulse"
+                  style="border: 1px solid #e6dcd1"
+                ></div>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <div class="w-16 h-3 bg-[#E6DCD1]/60 rounded animate-pulse"></div>
+                <div
+                  class="w-full h-11 bg-[#FFFFFF] rounded-lg animate-pulse"
+                  style="border: 1px solid #e6dcd1"
+                ></div>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <div class="w-32 h-3 bg-[#E6DCD1]/60 rounded animate-pulse"></div>
+                <div
+                  class="w-full h-11 bg-[#FFFFFF] rounded-lg animate-pulse"
+                  style="border: 1px solid #e6dcd1"
+                ></div>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <div class="w-16 h-3 bg-[#E6DCD1]/60 rounded animate-pulse"></div>
+                <div
+                  class="w-full h-11 bg-[#FFFFFF] rounded-lg animate-pulse"
+                  style="border: 1px solid #e6dcd1"
+                ></div>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <div class="w-24 h-3 bg-[#E6DCD1]/60 rounded animate-pulse"></div>
+                <div
+                  class="w-full h-11 bg-[#FFFFFF] rounded-lg animate-pulse"
+                  style="border: 1px solid #e6dcd1"
+                ></div>
+              </div>
+            </div>
+            <!-- Sticky button bar skeleton -->
+            <div
+              class="w-full bg-[#FFFFFF] p-4 shadow-sm rounded-lg"
+              style="border: 1px solid #e6dcd1"
+            >
+              <div class="w-full h-11 bg-[#E6DCD1]/80 rounded-lg animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        function toggleSummaryState() {
+          const drawer = document.getElementById("summary-drawer");
+          const chevron = document.getElementById("summary-chevron");
+          const label = document.getElementById("toggle-label-text");
+          const toggleBtn = document.getElementById("summary-toggle-btn");
+
+          if (drawer.classList.contains("hidden")) {
+            drawer.classList.remove("hidden");
+            toggleBtn.classList.remove("rounded-lg");
+            toggleBtn.classList.add("rounded-t-lg");
+            chevron.innerText = "keyboard_arrow_up";
+            label.innerText = "إخفاء ملخص الطلب";
+            toggleBtn.setAttribute("aria-expanded", "true");
+          } else {
+            drawer.classList.add("hidden");
+            toggleBtn.classList.remove("rounded-t-lg");
+            toggleBtn.classList.add("rounded-lg");
+            chevron.innerText = "keyboard_arrow_down";
+            label.innerText = "عرض ملخص الطلب";
+            toggleBtn.setAttribute("aria-expanded", "false");
+          }
+        }
+      </script>
+      <footer
+        class="w-full bg-surface-container-low px-margin-mobile py-space-xl flex flex-col items-center text-center mt-space-xl"
+      >
+        <div class="flex flex-col items-center mb-space-md">
+          <span class="material-symbols-outlined text-primary text-[28px] mb-space-xs">coffee</span>
+          <div class="font-display-hero text-headline-sm text-on-surface leading-none">ember</div>
+          <span
+            class="font-label-data-sm text-label-data-sm uppercase tracking-widest text-on-surface-variant"
+            >ROASTERY</span
+          >
+        </div>
+        <div
+          class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface border border-outline-variant/60 mb-space-lg"
+        >
+          <span class="w-2 h-2 rounded-full bg-secondary"></span
+          ><span class="font-label-data-sm text-label-data-sm text-on-surface-variant"
+            >Stripe Test Mode</span
+          >
+        </div>
+        <nav
+          class="flex flex-wrap items-center justify-center gap-x-space-md gap-y-space-sm mb-space-lg text-on-surface-variant font-body-sm text-body-sm"
+        >
+          <a
+            class="hover:text-primary transition-colors min-h-[44px] flex items-center px-space-xs"
+            data-path="catalog"
+            href="#"
+            >المحصولات</a
+          ><a
+            class="hover:text-primary transition-colors min-h-[44px] flex items-center px-space-xs"
+            data-path="brewing-guides"
+            href="#"
+            >طرق التحضير</a
+          ><a
+            class="hover:text-primary transition-colors min-h-[44px] flex items-center px-space-xs"
+            data-path="our-story"
+            href="#"
+            >قصتنا</a
+          ><a
+            class="hover:text-primary transition-colors min-h-[44px] flex items-center px-space-xs"
+            data-path="terms-privacy"
+            href="#"
+            >الشروط والخصوصية</a
+          >
+        </nav>
+        <div class="font-label-data-sm text-label-data-sm text-on-surface-variant/80">
+          <p>© 2025 Ember Roastery. جميع الحقوق محفوظة.</p>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

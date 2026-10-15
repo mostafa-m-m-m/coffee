@@ -1,0 +1,1205 @@
+<!doctype html>
+
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: "IBM Plex Sans Arabic", sans-serif;
+          background-color: #faf6f1;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      .font-bean-serif {
+        font-family: "Newsreader", serif;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#0069de",
+              "on-error": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "outline-variant": "#e1bfb5",
+              "tertiary-fixed": "#d8e2ff",
+              "surface-container-low": "#fff1eb",
+              "on-secondary-fixed-variant": "#623f18",
+              "surface-bright": "#fff8f6",
+              "on-error-container": "#93000a",
+              "inverse-surface": "#392e2a",
+              "on-tertiary-fixed": "#001a41",
+              "secondary-container": "#ffca98",
+              "on-surface-variant": "#59413a",
+              "on-surface": "#231a15",
+              "surface-variant": "#f1dfd8",
+              "primary-container": "#c2410c",
+              tertiary: "#0051af",
+              "surface-container-high": "#f7e4dd",
+              "on-primary-fixed": "#390c00",
+              "surface-container": "#fdeae3",
+              "on-secondary-fixed": "#2c1600",
+              "secondary-fixed": "#ffdcbd",
+              "on-background": "#231a15",
+              "surface-dim": "#e8d6cf",
+              "surface-container-highest": "#f1dfd8",
+              "on-tertiary-fixed-variant": "#004494",
+              error: "#ba1a1a",
+              "primary-fixed-dim": "#ffb59d",
+              "on-primary-container": "#ffece7",
+              "primary-fixed": "#ffdbd0",
+              "error-container": "#ffdad6",
+              "surface-tint": "#ac3400",
+              outline: "#8d7168",
+              "on-secondary": "#ffffff",
+              surface: "#fff8f6",
+              "secondary-fixed-dim": "#f0bd8b",
+              "on-primary-fixed-variant": "#832600",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#ffede6",
+              secondary: "#7d562d",
+              primary: "#9b2f00",
+              "tertiary-fixed-dim": "#adc6ff",
+              "on-secondary-container": "#7a532a",
+              "on-tertiary-container": "#ecf0ff",
+              "surface-container-lowest": "#ffffff",
+              background: "#FAF6F1",
+              crema: "#FAF6F1",
+              "inverse-primary": "#ffb59d",
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+            spacing: {
+              "space-xs": "0.25rem",
+              margin: "3rem",
+              "space-xl": "2.5rem",
+              "gutter-mobile": "1rem",
+              gutter: "1.5rem",
+              "space-md": "1rem",
+              "space-sm": "0.5rem",
+              "margin-mobile": "1.25rem",
+              "space-lg": "1.5rem",
+            },
+            fontFamily: {
+              "headline-lg": ["Bricolage Grotesque"],
+              "body-lg": ["IBM Plex Sans"],
+              "body-sm": ["IBM Plex Sans"],
+              "display-hero": ["Bricolage Grotesque"],
+              "label-data-lg": ["IBM Plex Mono"],
+              "body-md": ["IBM Plex Sans"],
+              "headline-sm": ["Bricolage Grotesque"],
+              "label-data-sm": ["IBM Plex Mono"],
+              "label-data-md": ["IBM Plex Mono"],
+              "headline-md": ["Bricolage Grotesque"],
+              "headline-lg-mobile": ["Bricolage Grotesque"],
+              "display-hero-mobile": ["Bricolage Grotesque"],
+            },
+            fontSize: {
+              "headline-lg": [
+                "40px",
+                { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600" },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "400" }],
+              "body-sm": [
+                "13px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "400" },
+              ],
+              "display-hero": [
+                "56px",
+                { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "700" },
+              ],
+              "label-data-lg": [
+                "16px",
+                { lineHeight: "24px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "body-md": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "label-data-sm": [
+                "12px",
+                { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "label-data-md": [
+                "14px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "display-hero-mobile": [
+                "36px",
+                { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-[#FAF6F1] font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"
+  >
+    <header class="fixed top-0 inset-x-0 z-50 px-gutter-mobile lg:px-margin pt-space-sm">
+      <div
+        class="max-w-[1360px] mx-auto bg-surface-container-lowest/95 backdrop-blur-md rounded-xl border border-[#E6DCD1] px-space-lg h-20 flex items-center justify-between shadow-[0_1px_8px_rgba(35,26,21,0.04)]"
+      >
+        <div class="flex items-center gap-space-xl">
+          <a
+            class="flex items-center gap-space-sm text-decoration-none group"
+            data-path="products"
+            href="#"
+            ><div
+              class="w-9 h-9 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container transform -rotate-12 group-hover:rotate-0 transition-transform"
+            >
+              <span class="material-symbols-outlined text-[22px]">coffee</span>
+            </div>
+            <div class="flex flex-col">
+              <span
+                class="font-['Bricolage_Grotesque'] text-[24px] leading-none font-[800] tracking-[-0.04em] text-on-surface lowercase"
+                >ember</span
+              ><span
+                class="font-['Bricolage_Grotesque'] text-[8px] font-[700] tracking-[0.38em] text-outline uppercase mt-0.5 leading-none"
+                >ROASTERY</span
+              >
+            </div></a
+          >
+          <nav class="hidden md:flex items-center gap-space-lg">
+            <a
+              aria-current="page"
+              class="transition-colors py-1 text-primary-container font-semibold relative after:content-[''] after:absolute after:-bottom-2 after:inset-x-0 after:h-[2px] after:bg-primary-container"
+              data-path="products"
+              href="#"
+              >المنتجات</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-space-md">
+          <a
+            class="hidden sm:flex items-center gap-space-xs px-space-md py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-sm text-body-sm"
+            data-path="account"
+            href="#"
+            ><span class="material-symbols-outlined text-[18px]">person</span><span>دخول</span></a
+          >
+          <div class="h-4 w-[1px] bg-outline-variant/60 hidden sm:block"></div>
+          <button
+            class="font-label-data-sm text-label-data-sm text-on-surface-variant hover:text-on-surface transition-colors px-space-xs py-1 rounded"
+            type="button"
+          >
+            AR | EN</button
+          ><button
+            aria-label="Theme toggle"
+            class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[20px]">light_mode</span></button
+          ><a
+            aria-label="Shopping Cart"
+            class="relative w-10 h-10 rounded-xl bg-surface-container-low flex items-center justify-center text-on-surface hover:bg-surface-container hover:text-primary-container transition-colors"
+            data-path="cart"
+            href="#"
+            ><span class="material-symbols-outlined text-[20px]">shopping_bag</span
+            ><span
+              class="absolute -top-1.5 -left-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-primary-container text-on-primary font-label-data-sm text-[11px] leading-none flex items-center justify-center font-bold"
+              >2</span
+            ></a
+          >
+        </div>
+      </div>
+    </header>
+    <main class="w-full pt-28 bg-[#FAF6F1] min-h-screen">
+      <div class="flex flex-col w-full">
+        <div class="max-w-[1360px] mx-auto px-6 lg:px-12 py-6 w-full">
+          <div class="mb-8">
+            <h1
+              class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight"
+            >
+              المنتجات
+            </h1>
+            <p class="font-label-data-sm text-label-data-sm text-outline mt-1.5">12 منتجاً</p>
+          </div>
+          <div class="flex flex-col lg:flex-row items-start gap-8">
+            <!-- Filter Sidebar (220px, Sticky at START edge / right in RTL) -->
+            <aside class="w-full lg:w-[220px] flex-shrink-0">
+              <form
+                class="bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-5 shadow-sm space-y-5 sticky top-28"
+                onsubmit="event.preventDefault()"
+              >
+                <!-- Search -->
+                <div>
+                  <label
+                    class="block font-body-sm text-body-sm font-medium text-on-surface-variant mb-1.5"
+                    for="filter-search"
+                    >بحث</label
+                  >
+                  <div class="relative">
+                    <input
+                      class="w-full h-10 font-body-sm text-body-sm rounded-lg bg-surface-container-low px-3 pr-8 text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest"
+                      id="filter-search"
+                      placeholder="اسم المنتج…"
+                      type="text"
+                    />
+                    <span
+                      class="material-symbols-outlined absolute right-2.5 top-2.5 text-[18px] text-outline pointer-events-none"
+                      >search</span
+                    >
+                  </div>
+                </div>
+                <!-- Category -->
+                <div>
+                  <label
+                    class="block font-body-sm text-body-sm font-medium text-on-surface-variant mb-1.5"
+                    for="filter-category"
+                    >التصنيف</label
+                  >
+                  <div class="relative">
+                    <select
+                      class="w-full h-10 font-body-sm text-body-sm rounded-lg bg-surface-container-low px-3 text-on-surface appearance-none focus:outline-none focus:bg-surface-container-lowest cursor-pointer"
+                      id="filter-category"
+                    >
+                      <option value="all">الكل</option>
+                      <option value="whole-bean">Whole Bean Coffee</option>
+                      <option value="ground">Ground Coffee</option>
+                      <option value="equipment">Brewing Equipment</option>
+                      <option value="subscriptions">Subscriptions</option>
+                    </select>
+                    <span
+                      class="material-symbols-outlined absolute left-2.5 top-2.5 text-[18px] text-outline pointer-events-none"
+                      >expand_more</span
+                    >
+                  </div>
+                </div>
+                <!-- Price Range -->
+                <div>
+                  <span
+                    class="block font-body-sm text-body-sm font-medium text-on-surface-variant mb-1.5"
+                    >نطاق السعر ($)</span
+                  >
+                  <div class="grid grid-cols-2 gap-2">
+                    <div>
+                      <input
+                        aria-label="أقل سعر ($)"
+                        class="w-full h-10 font-label-data-sm text-label-data-sm rounded-lg bg-surface-container-low px-2 text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest text-center"
+                        min="0"
+                        placeholder="0"
+                        type="number"
+                      />
+                      <span class="block text-[11px] text-outline text-center mt-1">الأدنى</span>
+                    </div>
+                    <div>
+                      <input
+                        aria-label="أعلى سعر ($)"
+                        class="w-full h-10 font-label-data-sm text-label-data-sm rounded-lg bg-surface-container-low px-2 text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest text-center"
+                        min="0"
+                        placeholder="100"
+                        type="number"
+                      />
+                      <span class="block text-[11px] text-outline text-center mt-1">الأعلى</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Available Only Checkbox -->
+                <div class="pt-1">
+                  <label class="flex items-center gap-2.5 cursor-pointer select-none">
+                    <input
+                      class="w-4 h-4 rounded text-primary-container accent-primary-container focus:ring-0 focus:outline-none cursor-pointer"
+                      type="checkbox"
+                    />
+                    <span class="font-body-md text-body-md text-on-surface">المتوفر فقط</span>
+                  </label>
+                </div>
+                <!-- Sort -->
+                <div>
+                  <label
+                    class="block font-body-sm text-body-sm font-medium text-on-surface-variant mb-1.5"
+                    for="filter-sort"
+                    >الترتيب</label
+                  >
+                  <div class="relative">
+                    <select
+                      class="w-full h-10 font-body-sm text-body-sm rounded-lg bg-surface-container-low px-3 text-on-surface appearance-none focus:outline-none focus:bg-surface-container-lowest cursor-pointer"
+                      id="filter-sort"
+                    >
+                      <option value="newest">الأحدث</option>
+                      <option value="price-asc">السعر: من الأقل</option>
+                      <option value="price-desc">السعر: من الأعلى</option>
+                      <option value="name">الاسم</option>
+                    </select>
+                    <span
+                      class="material-symbols-outlined absolute left-2.5 top-2.5 text-[18px] text-outline pointer-events-none"
+                      >unfold_more</span
+                    >
+                  </div>
+                </div>
+                <!-- Actions -->
+                <div class="flex items-center gap-2 pt-2">
+                  <button
+                    class="flex-1 h-10 px-4 rounded-lg bg-[#C2410C] hover:bg-[#A8370A] text-on-primary font-body-md text-body-md font-semibold transition-colors flex items-center justify-center shadow-sm"
+                    type="submit"
+                  >
+                    تطبيق
+                  </button>
+                  <button
+                    class="h-10 px-3.5 rounded-lg bg-surface-container-low text-on-surface-variant font-body-md text-body-md hover:bg-surface-container hover:text-on-surface transition-colors flex items-center justify-center"
+                    type="reset"
+                  >
+                    مسح
+                  </button>
+                </div>
+              </form>
+            </aside>
+            <!-- Results Area -->
+            <section class="flex-1 w-full min-w-0">
+              <!-- 3-Column Products Grid -->
+              <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
+                <!-- Card 1: Ethiopia Yirgacheffe -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#2B1F18] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.18)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#2B1F18"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        Ethiopia Yirgacheffe
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Light Roast
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Whole Bean Coffee</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      Ethiopia Yirgacheffe – Light Roast
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                      dir="ltr"
+                    >
+                      $18.00
+                    </p>
+                  </div>
+                </a>
+                <!-- Card 2: Colombia Huila -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#35251D] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.18)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#35251D"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        Colombia Huila
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Medium Roast
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Whole Bean Coffee</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      Colombia Huila – Medium Roast
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                      dir="ltr"
+                    >
+                      $19.50
+                    </p>
+                  </div>
+                </a>
+                <!-- Card 3: Kenya AA -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#402D23] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.18)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#402D23"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        Kenya AA
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Light Roast
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Whole Bean Coffee</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      Kenya AA – Light Roast
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                      dir="ltr"
+                    >
+                      $21.00
+                    </p>
+                  </div>
+                </a>
+                <!-- Card 4: Brazil Cerrado -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#4B362A] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.18)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#4B362A"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        Brazil Cerrado
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Medium Roast
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Whole Bean Coffee</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      Brazil Cerrado – Medium Roast
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                      dir="ltr"
+                    >
+                      $17.50
+                    </p>
+                  </div>
+                </a>
+                <!-- Card 5: Guatemala Antigua -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#30221B] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.18)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#30221B"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        Guatemala Antigua
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Light Roast
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Whole Bean Coffee</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      Guatemala Antigua – Light Roast
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                      dir="ltr"
+                    >
+                      $19.00
+                    </p>
+                  </div>
+                </a>
+                <!-- Card 6: Sumatra Mandheling -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#271C16] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.18)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#271C16"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        Sumatra Mandheling
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Medium Roast
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Whole Bean Coffee</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      Sumatra Mandheling – Medium Roast
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                      dir="ltr"
+                    >
+                      $18.00
+                    </p>
+                  </div>
+                </a>
+                <!-- Card 7: V60 Dripper -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#3D2920] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.18)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#3D2920"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        V60 Dripper
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Pour Over
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Brewing Equipment</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      V60 Dripper
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                      dir="ltr"
+                    >
+                      $28.00
+                    </p>
+                  </div>
+                </a>
+                <!-- Card 8: AeroPress (SOLD OUT) -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#33221B] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute top-2.5 right-2.5 z-20 bg-[#231A15]/90 text-[#FAF6F1] font-label-data-sm text-[11px] font-semibold px-2.5 py-0.5 rounded shadow-sm border border-[#E6DCD1]/30"
+                    >
+                      نفذ
+                    </div>
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.14)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10 opacity-75">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#33221B"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        AeroPress
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Manual Brewer
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Brewing Equipment</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      AeroPress
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                      dir="ltr"
+                    >
+                      $39.95
+                    </p>
+                  </div>
+                </a>
+                <!-- Card 9: Gooseneck Kettle -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#443126] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.18)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#443126"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        Gooseneck Kettle
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Precision Pour
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Brewing Equipment</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      Gooseneck Kettle
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                      dir="ltr"
+                    >
+                      $65.00
+                    </p>
+                  </div>
+                </a>
+                <!-- Card 10: Burr Grinder -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#3A281E] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.18)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#3A281E"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        Burr Grinder
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Electric Flat Burr
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Brewing Equipment</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      Burr Grinder
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                      dir="ltr"
+                    >
+                      $95.00
+                    </p>
+                  </div>
+                </a>
+                <!-- Card 11: Weekly Coffee Subscription -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#4E382C] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.18)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#4E382C"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        Weekly Subscription
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Fresh Roaster Selection
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Subscriptions</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      Weekly Coffee Subscription
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                    >
+                      <span class="font-body-sm text-[13px] text-outline font-normal ml-1">من</span
+                      >$16.00
+                    </p>
+                  </div>
+                </a>
+                <!-- Card 12: Monthly Coffee Subscription (SOLD OUT) -->
+                <a
+                  class="group block bg-[#FFFFFF] border border-[#E6DCD1] rounded-lg p-3.5 shadow-sm hover:shadow-md transition-shadow"
+                  href="#"
+                >
+                  <div
+                    class="w-full aspect-square rounded-lg bg-[#2D201A] relative flex flex-col items-center justify-between p-5 overflow-hidden mb-3 select-none"
+                  >
+                    <div
+                      class="absolute top-2.5 right-2.5 z-20 bg-[#231A15]/90 text-[#FAF6F1] font-label-data-sm text-[11px] font-semibold px-2.5 py-0.5 rounded shadow-sm border border-[#E6DCD1]/30"
+                    >
+                      نفذ
+                    </div>
+                    <div
+                      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(255,161,92,0.14)_0%,transparent_65%)] pointer-events-none"
+                    ></div>
+                    <div class="flex-1 flex items-center justify-center w-full z-10 opacity-75">
+                      <svg
+                        class="w-20 h-20 transform rotate-[28deg] drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] group-hover:scale-105 transition-transform duration-300"
+                        viewbox="0 0 100 100"
+                      >
+                        <ellipse cx="50" cy="50" fill="#F5EBE1" rx="34" ry="44"></ellipse>
+                        <path
+                          d="M 50 14 Q 38 36, 50 50 T 50 86"
+                          fill="none"
+                          stroke="#2D201A"
+                          stroke-linecap="round"
+                          stroke-width="5.5"
+                        ></path>
+                        <path
+                          d="M 50 20 Q 40 37, 50 50 T 50 80"
+                          fill="none"
+                          stroke="#FFA15C"
+                          stroke-linecap="round"
+                          stroke-width="1.8"
+                        ></path>
+                      </svg>
+                    </div>
+                    <div class="z-10 w-full text-center px-2">
+                      <p
+                        class="font-bean-serif text-[15px] leading-tight text-[#FAF6F1] font-medium tracking-wide"
+                      >
+                        Monthly Subscription
+                      </p>
+                      <p class="font-bean-serif text-[12px] text-[#FAF6F1]/70 italic mt-0.5">
+                        Curated Flight Box
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <p class="text-[12px] text-outline font-medium mb-1">Subscriptions</p>
+                    <h2
+                      class="font-body-md text-body-md font-semibold text-on-surface line-clamp-1 mb-2 group-hover:text-primary-container transition-colors"
+                      dir="ltr"
+                    >
+                      Monthly Coffee Subscription
+                    </h2>
+                    <p
+                      class="font-label-data-lg text-label-data-lg text-on-surface tabular-nums font-semibold"
+                    >
+                      <span class="font-body-sm text-[13px] text-outline font-normal ml-1">من</span
+                      >$32.00
+                    </p>
+                  </div>
+                </a>
+              </div>
+              <!-- Centered Pagination -->
+              <nav
+                aria-label="تنقل الصفحات"
+                class="flex items-center justify-center gap-2 mt-8 mb-4"
+              >
+                <button
+                  class="px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container hover:text-on-surface transition-colors flex items-center gap-1"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+                  <span>السابق</span>
+                </button>
+                <div class="flex items-center gap-1.5 mx-1">
+                  <span
+                    aria-current="page"
+                    class="w-9 h-9 rounded-lg bg-[#C2410C] text-on-primary font-label-data-sm text-label-data-sm font-bold flex items-center justify-center shadow-sm"
+                    >1</span
+                  >
+                  <a
+                    class="w-9 h-9 rounded-lg bg-surface-container-lowest border border-[#E6DCD1] text-on-surface-variant font-label-data-sm text-label-data-sm flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors"
+                    href="#"
+                    >2</a
+                  >
+                  <a
+                    class="w-9 h-9 rounded-lg bg-surface-container-lowest border border-[#E6DCD1] text-on-surface-variant font-label-data-sm text-label-data-sm flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors"
+                    href="#"
+                    >3</a
+                  >
+                </div>
+                <button
+                  class="px-3.5 py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm hover:bg-surface-container hover:text-on-surface transition-colors flex items-center gap-1"
+                  type="button"
+                >
+                  <span>التالي</span>
+                  <span class="material-symbols-outlined text-[16px]">chevron_left</span>
+                </button>
+              </nav>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="w-full bg-[#FAF6F1] border-t border-[#E6DCD1] mt-space-xl py-space-xl">
+      <div
+        class="max-w-[1360px] mx-auto px-gutter-mobile lg:px-margin flex flex-col items-center text-center"
+      >
+        <div class="flex flex-col items-center mb-space-md">
+          <div
+            class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary-container transform -rotate-12 mb-2"
+          >
+            <span class="material-symbols-outlined text-[24px]">coffee</span>
+          </div>
+          <span
+            class="font-['Bricolage_Grotesque'] text-[26px] leading-none font-[800] tracking-[-0.04em] text-on-surface lowercase"
+            >ember</span
+          ><span
+            class="font-['Bricolage_Grotesque'] text-[9px] font-[700] tracking-[0.38em] text-outline uppercase mt-1 leading-none"
+            >ROASTERY</span
+          >
+        </div>
+        <div
+          class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-lowest border border-[#E6DCD1] text-secondary font-label-data-sm text-label-data-sm mb-space-lg shadow-sm"
+        >
+          <span class="material-symbols-outlined text-[16px] text-[#C2410C]">credit_card</span
+          ><span>الدفع في هذا المتجر تجريبي (Stripe test mode)</span>
+        </div>
+        <nav
+          class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm mb-space-md"
+        >
+          <a class="hover:text-primary-container transition-colors" data-path="products" href="#"
+            >المنتجات</a
+          ><span class="text-[#E6DCD1]">·</span
+          ><span class="text-on-surface font-medium">العربية</span
+          ><span class="text-[#E6DCD1]">·</span
+          ><a class="hover:text-primary-container transition-colors" data-path="account" href="#"
+            >حسابي</a
+          >
+        </nav>
+        <p class="text-outline font-label-data-sm text-label-data-sm">
+          © 2025 Ember Roastery. جميع الحقوق محفوظة.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

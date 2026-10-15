@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل الدخول — Ember Roastery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "IBM Plex Sans Arabic", sans-serif;
+        background-color: #faf6f1;
+        color: #2d241e;
+      }
+      .brand-font {
+        font-family: "Bricolage Grotesque", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#FAF6F1] text-[#2D241E] min-h-screen py-16 px-4 flex flex-col items-center justify-center"
+  >
+    <!-- Main Container -->
+    <div class="w-full max-w-[384px] mx-auto flex flex-col items-center">
+      <!-- STACKED LOGO linking home -->
+      <a href="/" class="flex flex-col items-center mb-8 group inline-block">
+        <!-- Bean Icon SVG -->
+        <svg
+          width="40"
+          height="40"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="text-[#C2410C]"
+        >
+          <path
+            d="M24 6C15.1634 6 8 13.1634 8 22C8 32 17 42 24 42C31 42 40 32 40 22C40 13.1634 32.8366 6 24 6Z"
+            fill="#C2410C"
+          />
+          <path
+            d="M24 10C21.5 15 20 20 24 24C28 28 26.5 33 24 38"
+            stroke="#FAF6F1"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+        </svg>
+        <!-- Lowercase ember wordmark -->
+        <span
+          class="brand-font font-bold text-2xl tracking-tight text-[#2D241E] lowercase leading-none mt-2"
+          >ember</span
+        >
+        <!-- Spaced ROASTERY -->
+        <span
+          class="brand-font font-semibold text-[10px] tracking-[0.25em] text-[#8C7A6B] uppercase leading-none mt-1"
+          >ROASTERY</span
+        >
+      </a>
+
+      <!-- H1 Title -->
+      <h1 class="text-2xl font-bold text-[#2D241E] mb-6 w-full text-center">تسجيل الدخول</h1>
+
+      <!-- LOGIN FORM (Default State) -->
+      <form class="w-full space-y-4" onsubmit="event.preventDefault()">
+        <!-- Email Field -->
+        <div>
+          <label class="block text-sm font-medium text-[#2D241E] mb-1.5" for="login-email"
+            >الإيميل</label
+          >
+          <input
+            type="email"
+            id="login-email"
+            name="email"
+            placeholder="name@example.com"
+            dir="ltr"
+            class="w-full h-10 px-3 rounded-lg border border-[#E6DCD1] bg-white text-[#2D241E] placeholder-[#B8A394] text-left focus:outline-none focus:border-[#C2410C] transition-colors"
+          />
+        </div>
+
+        <!-- Password Field -->
+        <div>
+          <label class="block text-sm font-medium text-[#2D241E] mb-1.5" for="login-password"
+            >كلمة المرور</label
+          >
+          <input
+            type="password"
+            id="login-password"
+            name="password"
+            dir="ltr"
+            class="w-full h-10 px-3 rounded-lg border border-[#E6DCD1] bg-white text-[#2D241E] text-left focus:outline-none focus:border-[#C2410C] transition-colors"
+          />
+        </div>
+
+        <!-- Primary Button: دخول -->
+        <button
+          type="submit"
+          class="w-full h-11 bg-[#C2410C] hover:bg-[#9A3412] text-white font-medium rounded-lg flex items-center justify-center transition-colors mt-2"
+        >
+          دخول
+        </button>
+
+        <!-- Secondary Button: جرّب الداشبورد (حساب مشاهدة) -->
+        <button
+          type="button"
+          class="w-full h-11 bg-white hover:bg-[#FAF6F1] text-[#2D241E] font-medium rounded-lg border border-[#E6DCD1] flex items-center justify-center transition-colors"
+        >
+          جرّب الداشبورد (حساب مشاهدة)
+        </button>
+
+        <!-- Sign up link -->
+        <div class="text-center text-sm text-[#6B5748] pt-2">
+          معندكش حساب؟
+          <a href="/register" class="text-[#2D241E] underline font-medium hover:text-[#C2410C]"
+            >سجّل دلوقتي</a
+          >
+        </div>
+      </form>
+
+      <!-- ========================================== -->
+      <!-- STATE FRAMES SPECIFICATIONS (BELOW MAIN)   -->
+      <!-- ========================================== -->
+
+      <div class="w-full mt-20 pt-10 border-t border-[#E6DCD1] space-y-16">
+        <!-- Frame Title Indicator -->
+        <div class="text-center">
+          <span
+            class="text-[11px] font-semibold text-[#8C7A6B] tracking-wider uppercase bg-[#EFE7DC] px-3 py-1 rounded-full"
+            >حالات الواجهة (UI States)</span
+          >
+        </div>
+
+        <!-- 1. FIELD ERRORS FRAME -->
+        <div class="w-full">
+          <div class="text-xs font-semibold text-[#8C7A6B] mb-4 text-center">
+            حالة: أخطاء الحقول (Field Validation Errors)
+          </div>
+          <div class="w-full space-y-4">
+            <!-- Email Field with Error -->
+            <div>
+              <label class="block text-sm font-medium text-[#2D241E] mb-1.5">الإيميل</label>
+              <input
+                type="email"
+                value="invalid-email"
+                dir="ltr"
+                class="w-full h-10 px-3 rounded-lg border border-[#B91C1C] bg-white text-[#2D241E] text-left focus:outline-none"
+              />
+              <p class="text-xs text-[#B91C1C] mt-1.5 flex items-center gap-1">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                البريد الإلكتروني غير صحيح
+              </p>
+            </div>
+
+            <!-- Password Field with Error -->
+            <div>
+              <label class="block text-sm font-medium text-[#2D241E] mb-1.5">كلمة المرور</label>
+              <input
+                type="password"
+                value=""
+                dir="ltr"
+                class="w-full h-10 px-3 rounded-lg border border-[#B91C1C] bg-white text-[#2D241E] text-left focus:outline-none"
+              />
+              <p class="text-xs text-[#B91C1C] mt-1.5 flex items-center gap-1">
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="12"></line>
+                  <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                أدخل كلمة المرور
+              </p>
+            </div>
+
+            <button
+              class="w-full h-11 bg-[#C2410C] text-white font-medium rounded-lg flex items-center justify-center mt-2"
+            >
+              دخول
+            </button>
+            <button
+              class="w-full h-11 bg-white text-[#2D241E] font-medium rounded-lg border border-[#E6DCD1] flex items-center justify-center"
+            >
+              جرّب الداشبورد (حساب مشاهدة)
+            </button>
+            <div class="text-center text-sm text-[#6B5748] pt-2">
+              معندكش حساب؟
+              <a href="/register" class="text-[#2D241E] underline font-medium">سجّل دلوقتي</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. WRONG CREDENTIALS FRAME -->
+        <div class="w-full">
+          <div class="text-xs font-semibold text-[#8C7A6B] mb-4 text-center">
+            حالة: بيانات الدخول غير صحيحة (Wrong Credentials)
+          </div>
+          <div class="w-full space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-[#2D241E] mb-1.5">الإيميل</label>
+              <input
+                type="email"
+                value="user@example.com"
+                dir="ltr"
+                class="w-full h-10 px-3 rounded-lg border border-[#E6DCD1] bg-white text-[#2D241E] text-left focus:outline-none"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-[#2D241E] mb-1.5">كلمة المرور</label>
+              <input
+                type="password"
+                value="••••••••"
+                dir="ltr"
+                class="w-full h-10 px-3 rounded-lg border border-[#E6DCD1] bg-white text-[#2D241E] text-left focus:outline-none"
+              />
+            </div>
+
+            <!-- Danger text above the button -->
+            <div
+              class="text-sm font-medium text-[#B91C1C] flex items-center justify-center gap-1 pt-1"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              الإيميل أو كلمة المرور غير صحيحة
+            </div>
+
+            <button
+              class="w-full h-11 bg-[#C2410C] text-white font-medium rounded-lg flex items-center justify-center"
+            >
+              دخول
+            </button>
+            <button
+              class="w-full h-11 bg-white text-[#2D241E] font-medium rounded-lg border border-[#E6DCD1] flex items-center justify-center"
+            >
+              جرّب الداشبورد (حساب مشاهدة)
+            </button>
+            <div class="text-center text-sm text-[#6B5748] pt-2">
+              معندكش حساب؟
+              <a href="/register" class="text-[#2D241E] underline font-medium">سجّل دلوقتي</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. SUBMITTING FRAME -->
+        <div class="w-full">
+          <div class="text-xs font-semibold text-[#8C7A6B] mb-4 text-center">
+            حالة: جاري الإرسال (Submitting)
+          </div>
+          <div class="w-full space-y-4 opacity-90">
+            <div>
+              <label class="block text-sm font-medium text-[#2D241E] mb-1.5">الإيميل</label>
+              <input
+                type="email"
+                value="sarah.ahmed@example.com"
+                disabled
+                dir="ltr"
+                class="w-full h-10 px-3 rounded-lg border border-[#E6DCD1] bg-[#FAF6F1] text-[#2D241E] text-left opacity-75"
+              />
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-[#2D241E] mb-1.5">كلمة المرور</label>
+              <input
+                type="password"
+                value="••••••••"
+                disabled
+                dir="ltr"
+                class="w-full h-10 px-3 rounded-lg border border-[#E6DCD1] bg-[#FAF6F1] text-[#2D241E] text-left opacity-75"
+              />
+            </div>
+
+            <!-- Disabled button with spinner -->
+            <button
+              disabled
+              class="w-full h-11 bg-[#C2410C] text-white font-medium rounded-lg flex items-center justify-center gap-2 opacity-70 cursor-not-allowed mt-2"
+            >
+              <svg
+                class="animate-spin h-4 w-4 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                ></circle>
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+              دخول
+            </button>
+            <button
+              disabled
+              class="w-full h-11 bg-white text-[#2D241E] font-medium rounded-lg border border-[#E6DCD1] flex items-center justify-center opacity-60 cursor-not-allowed"
+            >
+              جرّب الداشبورد (حساب مشاهدة)
+            </button>
+            <div class="text-center text-sm text-[#6B5748] pt-2">
+              معندكش حساب؟ <span class="text-[#2D241E] underline font-medium">سجّل دلوقتي</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

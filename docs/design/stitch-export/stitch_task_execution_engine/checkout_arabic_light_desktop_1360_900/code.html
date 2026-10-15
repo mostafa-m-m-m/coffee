@@ -1,0 +1,937 @@
+<!doctype html>
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#ffffff",
+              "surface-dim": "#e8d6cf",
+              "inverse-primary": "#ffb59d",
+              "surface-container-low": "#fff1eb",
+              "secondary-fixed": "#ffdcbd",
+              "on-surface": "#231a15",
+              "surface-tint": "#ac3400",
+              "inverse-on-surface": "#ffede6",
+              "on-surface-variant": "#59413a",
+              tertiary: "#0051af",
+              "on-tertiary-fixed": "#001a41",
+              "on-primary-fixed-variant": "#832600",
+              "on-secondary-container": "#7a532a",
+              "primary-fixed-dim": "#ffb59d",
+              "tertiary-fixed": "#d8e2ff",
+              "inverse-surface": "#392e2a",
+              "surface-container-highest": "#f1dfd8",
+              "on-background": "#231a15",
+              "secondary-fixed-dim": "#f0bd8b",
+              secondary: "#7d562d",
+              "on-secondary-fixed": "#2c1600",
+              "error-container": "#ffdad6",
+              "on-primary-container": "#ffece7",
+              "tertiary-container": "#0069de",
+              background: "#fff8f6",
+              "on-tertiary-container": "#ecf0ff",
+              "on-tertiary": "#ffffff",
+              "surface-container": "#fdeae3",
+              "on-error": "#ffffff",
+              "surface-bright": "#fff8f6",
+              "tertiary-fixed-dim": "#adc6ff",
+              "outline-variant": "#e1bfb5",
+              "on-error-container": "#93000a",
+              "on-secondary": "#ffffff",
+              primary: "#9b2f00",
+              "secondary-container": "#ffca98",
+              "primary-container": "#c2410c",
+              "surface-container-high": "#f7e4dd",
+              outline: "#8d7168",
+              "surface-container-lowest": "#ffffff",
+              "surface-variant": "#f1dfd8",
+              error: "#ba1a1a",
+              "on-secondary-fixed-variant": "#623f18",
+              surface: "#fff8f6",
+              "primary-fixed": "#ffdbd0",
+              "on-tertiary-fixed-variant": "#004494",
+              "on-primary-fixed": "#390c00",
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+            spacing: {
+              margin: "3rem",
+              "gutter-mobile": "1rem",
+              "space-xl": "2.5rem",
+              "space-md": "1rem",
+              "margin-mobile": "1.25rem",
+              "space-lg": "1.5rem",
+              "space-xs": "0.25rem",
+              gutter: "1.5rem",
+              "space-sm": "0.5rem",
+            },
+            fontFamily: {
+              "display-hero-mobile": ["Bricolage Grotesque"],
+              "label-data-sm": ["IBM Plex Mono"],
+              "display-hero": ["Bricolage Grotesque"],
+              "headline-lg": ["Bricolage Grotesque"],
+              "label-data-lg": ["IBM Plex Mono"],
+              "label-data-md": ["IBM Plex Mono"],
+              "headline-lg-mobile": ["Bricolage Grotesque"],
+              "body-md": ["IBM Plex Sans"],
+              "body-lg": ["IBM Plex Sans"],
+              "body-sm": ["IBM Plex Sans"],
+              "headline-sm": ["Bricolage Grotesque"],
+              "headline-md": ["Bricolage Grotesque"],
+            },
+            fontSize: {
+              "display-hero-mobile": [
+                "36px",
+                { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" },
+              ],
+              "label-data-sm": [
+                "12px",
+                { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "display-hero": [
+                "56px",
+                { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "700" },
+              ],
+              "headline-lg": [
+                "40px",
+                { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600" },
+              ],
+              "label-data-lg": [
+                "16px",
+                { lineHeight: "24px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "label-data-md": [
+                "14px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "body-md": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "400" }],
+              "body-sm": [
+                "13px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "400" },
+              ],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-background font-body-md text-on-surface antialiased min-h-screen"
+    style="background-color: rgb(250, 246, 241)"
+  >
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest border-b border-outline-variant"
+    >
+      <div class="h-16 max-w-[1440px] mx-auto px-margin flex items-center justify-between">
+        <div class="flex items-center gap-space-lg">
+          <a class="flex items-center gap-space-sm group" data-path="products-catalog" href="#"
+            ><span class="material-symbols-outlined text-primary text-[22px]">coffee</span>
+            <div class="flex items-baseline gap-1.5">
+              <span
+                class="font-display-hero-mobile text-headline-sm font-bold tracking-tight lowercase text-on-surface"
+                >ember</span
+              ><span class="font-label-data-sm text-[10px] tracking-[0.2em] uppercase text-outline"
+                >ROASTERY</span
+              >
+            </div></a
+          >
+          <nav class="flex items-center gap-space-md" data-active-classes="text-primary font-bold">
+            <a
+              class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-2"
+              data-path="products-catalog"
+              href="#"
+              >المنتجات</a
+            ><a
+              class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-2"
+              data-path="origins-story"
+              href="#"
+              >محاصيلنا</a
+            ><a
+              class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors py-2"
+              data-path="subscriptions"
+              href="#"
+              >الاشتراكات</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-space-md">
+          <a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors px-space-sm py-1"
+            href="#"
+            >حسابي</a
+          ><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors px-space-sm py-1"
+            href="#"
+            >خروج</a
+          >
+          <div class="h-4 w-[1px] bg-outline-variant"></div>
+          <button
+            class="font-label-data-sm text-label-data-sm text-on-surface-variant hover:text-on-surface transition-colors px-space-xs py-1 cursor-pointer"
+            type="button"
+          >
+            AR | EN
+          </button>
+          <div class="h-4 w-[1px] bg-outline-variant"></div>
+          <button
+            aria-label="تبديل المظهر"
+            class="p-1 text-on-surface-variant hover:text-on-surface transition-colors rounded-lg flex items-center justify-center cursor-pointer"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[20px]">dark_mode</span></button
+          ><a
+            class="relative p-2 text-on-surface-variant hover:text-on-surface transition-colors rounded-lg flex items-center justify-center cursor-pointer"
+            data-path="cart-checkout"
+            href="#"
+            ><span class="material-symbols-outlined text-[22px]">shopping_bag</span
+            ><span
+              class="absolute top-1 start-1 flex items-center justify-center w-4 h-4 rounded-full bg-primary text-on-primary font-label-data-sm text-[10px] font-bold"
+              >2</span
+            ></a
+          >
+        </div>
+      </div>
+    </header>
+    <main
+      class="w-full pt-16 bg-background min-h-screen"
+      style="background-color: rgb(250, 246, 241)"
+    >
+      <div class="flex flex-col w-full">
+        <div class="w-full bg-[#FAF6F1] py-8">
+          <div class="max-w-[1360px] mx-auto px-margin">
+            <h1 class="font-display-hero text-headline-lg font-bold text-[#1C1612] mb-6">
+              إتمام الشراء
+            </h1>
+            <div class="flex flex-col lg:flex-row gap-6 items-start">
+              <div
+                class="flex-1 w-full bg-[#FFFFFF] rounded-[12px] p-6"
+                style="border: 1px solid #e6dcd1"
+              >
+                <h2 class="font-headline-md text-headline-md font-bold text-[#1C1612] mb-6">
+                  عنوان الشحن
+                </h2>
+                <form class="flex flex-col gap-5" onsubmit="event.preventDefault()">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-1.5">
+                      <label
+                        class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                        for="fullName"
+                        >الاسم الكامل</label
+                      >
+                      <input
+                        class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md focus:outline-none transition-colors"
+                        id="fullName"
+                        onblur="this.style.borderColor = '#E6DCD1'"
+                        onfocus="this.style.borderColor = '#C2410C'"
+                        style="border: 1px solid #e6dcd1"
+                        type="text"
+                        value="Sarah Ahmed"
+                      />
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                      <label
+                        class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                        for="phone"
+                        >الهاتف</label
+                      >
+                      <input
+                        class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-label-data-md text-label-data-md focus:outline-none text-left transition-colors"
+                        dir="ltr"
+                        id="phone"
+                        onblur="this.style.borderColor = '#E6DCD1'"
+                        onfocus="this.style.borderColor = '#C2410C'"
+                        style="border: 1px solid #e6dcd1"
+                        type="tel"
+                        value="01012345678"
+                      />
+                    </div>
+                    <div class="flex flex-col gap-1.5 md:col-span-2">
+                      <label
+                        class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                        for="address"
+                        >العنوان</label
+                      >
+                      <input
+                        class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md focus:outline-none transition-colors"
+                        id="address"
+                        onblur="this.style.borderColor = '#E6DCD1'"
+                        onfocus="this.style.borderColor = '#C2410C'"
+                        style="border: 1px solid #e6dcd1"
+                        type="text"
+                        value="12 Tahrir Square"
+                      />
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                      <label
+                        class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                        for="extraDetails"
+                        >تفاصيل إضافية (اختياري)</label
+                      >
+                      <input
+                        class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md focus:outline-none transition-colors"
+                        id="extraDetails"
+                        onblur="this.style.borderColor = '#E6DCD1'"
+                        onfocus="this.style.borderColor = '#C2410C'"
+                        placeholder=""
+                        style="border: 1px solid #e6dcd1"
+                        type="text"
+                      />
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                      <label class="font-body-sm text-body-sm font-medium text-[#1C1612]" for="city"
+                        >المدينة</label
+                      >
+                      <input
+                        class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md focus:outline-none transition-colors"
+                        id="city"
+                        onblur="this.style.borderColor = '#E6DCD1'"
+                        onfocus="this.style.borderColor = '#C2410C'"
+                        style="border: 1px solid #e6dcd1"
+                        type="text"
+                        value="Cairo"
+                      />
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                      <label
+                        class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                        for="postalCode"
+                        >الرمز البريدي</label
+                      >
+                      <input
+                        class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-label-data-md text-label-data-md focus:outline-none text-left transition-colors"
+                        dir="ltr"
+                        id="postalCode"
+                        onblur="this.style.borderColor = '#E6DCD1'"
+                        onfocus="this.style.borderColor = '#C2410C'"
+                        style="border: 1px solid #e6dcd1"
+                        type="text"
+                        value="11511"
+                      />
+                    </div>
+                  </div>
+                  <div class="pt-2">
+                    <button
+                      class="w-full h-[44px] rounded-[8px] bg-[#C2410C] hover:bg-[#9B2F00] text-[#FFFFFF] font-body-md text-body-md font-semibold transition-colors flex items-center justify-center cursor-pointer"
+                      type="submit"
+                    >
+                      الدفع
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div
+                class="w-full lg:w-[340px] shrink-0 bg-[#FFFFFF] rounded-[12px] p-6 lg:sticky lg:top-20"
+                style="border: 1px solid #e6dcd1"
+              >
+                <h2 class="font-headline-md text-headline-sm font-bold text-[#1C1612] mb-5">
+                  ملخص الطلب
+                </h2>
+                <div class="flex flex-col gap-3">
+                  <div class="flex items-start justify-between gap-3 text-start">
+                    <span class="font-body-sm text-body-sm text-[#1C1612] leading-snug"
+                      >Ethiopia Yirgacheffe – Light Roast — 250g – Whole bean ×2</span
+                    >
+                    <span
+                      class="font-label-data-md text-label-data-md font-medium text-[#1C1612] whitespace-nowrap"
+                      >$36.00</span
+                    >
+                  </div>
+                  <div class="flex items-start justify-between gap-3 text-start">
+                    <span class="font-body-sm text-body-sm text-[#1C1612] leading-snug"
+                      >Colombia Huila – Medium Roast — 500g – Medium grind ×1</span
+                    >
+                    <span
+                      class="font-label-data-md text-label-data-md font-medium text-[#1C1612] whitespace-nowrap"
+                      >$33.00</span
+                    >
+                  </div>
+                  <div class="flex items-start justify-between gap-3 text-start">
+                    <span class="font-body-sm text-body-sm text-[#1C1612] leading-snug"
+                      >V60 Dripper — Standard ×1</span
+                    >
+                    <span
+                      class="font-label-data-md text-label-data-md font-medium text-[#1C1612] whitespace-nowrap"
+                      >$28.00</span
+                    >
+                  </div>
+                </div>
+                <div class="my-4 h-[1px] w-full bg-[#E6DCD1]"></div>
+                <div
+                  class="flex items-center justify-between font-body-sm text-body-sm text-[#1C1612] mb-2"
+                >
+                  <span class="">الشحن</span>
+                  <span class="">مجاني</span>
+                </div>
+                <div
+                  class="flex items-center justify-between font-body-md text-body-md font-bold text-[#1C1612] mb-5"
+                >
+                  <span class="">الإجمالي</span>
+                  <span class="font-label-data-lg text-label-data-lg font-bold text-[#1C1612]"
+                    >$97.00</span
+                  >
+                </div>
+                <div class="rounded-[8px] p-3 text-start bg-[#F2EAE0]">
+                  <p class="font-body-sm text-[12px] leading-relaxed text-[#5C4B40]">
+                    وضع تجريبي: استخدم كارت Stripe
+                    <span
+                      class="font-label-data-sm text-[11px] font-semibold tracking-wide"
+                      dir="ltr"
+                      >4242 4242 4242 4242</span
+                    >
+                    وأي تاريخ مستقبلي وأي CVC.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-20 pt-10" style="border-top: 1px dashed #e6dcd1">
+              <div class="flex items-center gap-2 mb-8">
+                <span
+                  class="font-label-data-sm text-label-data-sm font-semibold text-[#8D7168] uppercase tracking-wider"
+                  >حالات النموذج والواجهة</span
+                >
+                <span class="font-label-data-sm text-[11px] text-[#8D7168]"
+                  >/ UI State Specifications</span
+                >
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex flex-col gap-3">
+                  <span class="font-label-data-sm text-label-data-sm font-medium text-[#8D7168]"
+                    >(a) حالة أخطاء الإدخال (VALIDATION ERRORS)</span
+                  >
+                  <div class="bg-[#FFFFFF] rounded-[12px] p-6" style="border: 1px solid #e6dcd1">
+                    <h3 class="font-headline-sm text-headline-sm font-bold text-[#1C1612] mb-5">
+                      عنوان الشحن
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div class="flex flex-col gap-1.5">
+                        <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                          >الاسم الكامل</label
+                        >
+                        <input
+                          class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md"
+                          style="border: 1px solid #e6dcd1"
+                          type="text"
+                          value="Sarah Ahmed"
+                        />
+                      </div>
+                      <div class="flex flex-col gap-1.5">
+                        <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                          >الهاتف</label
+                        >
+                        <input
+                          class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-label-data-md text-label-data-md text-left"
+                          dir="ltr"
+                          style="border: 1px solid #b91c1c"
+                          type="tel"
+                          value="010123"
+                        />
+                        <div class="flex items-center gap-1 mt-0.5 text-[#B91C1C]">
+                          <span class="material-symbols-outlined text-[15px]">error</span>
+                          <span class="font-body-sm text-[12px]">رقم الهاتف غير صحيح</span>
+                        </div>
+                      </div>
+                      <div class="flex flex-col gap-1.5 md:col-span-2">
+                        <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                          >العنوان</label
+                        >
+                        <input
+                          class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md"
+                          style="border: 1px solid #b91c1c"
+                          type="text"
+                          value=""
+                        />
+                        <div class="flex items-center gap-1 mt-0.5 text-[#B91C1C]">
+                          <span class="material-symbols-outlined text-[15px]">error</span>
+                          <span class="font-body-sm text-[12px]">اكتب العنوان بالتفصيل</span>
+                        </div>
+                      </div>
+                      <div class="flex flex-col gap-1.5">
+                        <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                          >تفاصيل إضافية (اختياري)</label
+                        >
+                        <input
+                          class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md"
+                          style="border: 1px solid #e6dcd1"
+                          type="text"
+                        />
+                      </div>
+                      <div class="flex flex-col gap-1.5">
+                        <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                          >المدينة</label
+                        >
+                        <input
+                          class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md"
+                          style="border: 1px solid #e6dcd1"
+                          type="text"
+                          value="Cairo"
+                        />
+                      </div>
+                      <div class="flex flex-col gap-1.5">
+                        <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                          >الرمز البريدي</label
+                        >
+                        <input
+                          class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-label-data-md text-label-data-md text-left"
+                          dir="ltr"
+                          style="border: 1px solid #b91c1c"
+                          type="text"
+                          value="ABC"
+                        />
+                        <div class="flex items-center gap-1 mt-0.5 text-[#B91C1C]">
+                          <span class="material-symbols-outlined text-[15px]">error</span>
+                          <span class="font-body-sm text-[12px]">الرمز البريدي غير صحيح</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pt-4">
+                      <button
+                        class="w-full h-[44px] rounded-[8px] bg-[#C2410C] text-[#FFFFFF] font-body-md text-body-md font-semibold"
+                        type="button"
+                      >
+                        الدفع
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-3">
+                  <span class="font-label-data-sm text-label-data-sm font-medium text-[#8D7168]"
+                    >(b) حالة جاري الإرسال (SUBMITTING)</span
+                  >
+                  <div
+                    class="bg-[#FFFFFF] rounded-[12px] p-6"
+                    style="border: 1px solid rgb(230, 220, 209)"
+                  >
+                    <h3 class="font-headline-sm text-headline-sm font-bold text-[#1C1612] mb-5">
+                      عنوان الشحن
+                    </h3>
+                    <form class="flex flex-col gap-5" onsubmit="event.preventDefault()">
+                      <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-4 opacity-60 pointer-events-none"
+                      >
+                        <div class="flex flex-col gap-1.5">
+                          <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                            >الاسم الكامل</label
+                          ><input
+                            class="h-[40px] rounded-[8px] px-3 bg-[#FAF6F1] text-[#1C1612] font-body-md text-body-md"
+                            disabled=""
+                            style="border: 1px solid #e6dcd1"
+                            type="text"
+                            value="Sarah Ahmed"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                          <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                            >الهاتف</label
+                          ><input
+                            class="h-[40px] rounded-[8px] px-3 bg-[#FAF6F1] text-[#1C1612] font-label-data-md text-label-data-md text-left"
+                            dir="ltr"
+                            disabled=""
+                            style="border: 1px solid #e6dcd1"
+                            type="tel"
+                            value="01012345678"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-1.5 md:col-span-2">
+                          <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                            >العنوان</label
+                          ><input
+                            class="h-[40px] rounded-[8px] px-3 bg-[#FAF6F1] text-[#1C1612] font-body-md text-body-md"
+                            disabled=""
+                            style="border: 1px solid #e6dcd1"
+                            type="text"
+                            value="12 Tahrir Square"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                          <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                            >تفاصيل إضافية (اختياري)</label
+                          ><input
+                            class="h-[40px] rounded-[8px] px-3 bg-[#FAF6F1] text-[#1C1612] font-body-md text-body-md"
+                            disabled=""
+                            style="border: 1px solid #e6dcd1"
+                            type="text"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                          <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                            >المدينة</label
+                          ><input
+                            class="h-[40px] rounded-[8px] px-3 bg-[#FAF6F1] text-[#1C1612] font-body-md text-body-md"
+                            disabled=""
+                            style="border: 1px solid #e6dcd1"
+                            type="text"
+                            value="Cairo"
+                          />
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                          <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                            >الرمز البريدي</label
+                          ><input
+                            class="h-[40px] rounded-[8px] px-3 bg-[#FAF6F1] text-[#1C1612] font-label-data-md text-label-data-md text-left"
+                            dir="ltr"
+                            disabled=""
+                            style="border: 1px solid #e6dcd1"
+                            type="text"
+                            value="11511"
+                          />
+                        </div>
+                      </div>
+                      <div class="pt-2">
+                        <button
+                          class="w-full h-[44px] rounded-[8px] bg-[#C2410C] text-[#FFFFFF] font-body-md text-body-md font-semibold opacity-70 flex items-center justify-center gap-2 cursor-not-allowed"
+                          disabled=""
+                          type="button"
+                        >
+                          <svg
+                            class="animate-spin h-4 w-4 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              class="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              stroke-width="4"
+                            ></circle>
+                            <path
+                              class="opacity-75"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                              fill="currentColor"
+                            ></path></svg
+                          ><span class="">جاري التحويل للدفع…</span>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="flex flex-col gap-3 mt-4">
+                    <span class="font-label-data-sm text-label-data-sm font-medium text-[#8D7168]"
+                      >(c) خطأ في الخادم (SERVER ERROR)</span
+                    >
+                    <div class="bg-[#FFFFFF] rounded-[12px] p-6" style="border: 1px solid #e6dcd1">
+                      <h3 class="font-headline-sm text-headline-sm font-bold text-[#1C1612] mb-5">
+                        عنوان الشحن
+                      </h3>
+                      <form class="flex flex-col gap-5" onsubmit="event.preventDefault()">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div class="flex flex-col gap-1.5">
+                            <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                              >الاسم الكامل</label
+                            ><input
+                              class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md"
+                              style="border: 1px solid #e6dcd1"
+                              type="text"
+                              value="Sarah Ahmed"
+                            />
+                          </div>
+                          <div class="flex flex-col gap-1.5">
+                            <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                              >الهاتف</label
+                            ><input
+                              class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-label-data-md text-label-data-md text-left"
+                              dir="ltr"
+                              style="border: 1px solid #e6dcd1"
+                              type="tel"
+                              value="01012345678"
+                            />
+                          </div>
+                          <div class="flex flex-col gap-1.5 md:col-span-2">
+                            <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                              >العنوان</label
+                            ><input
+                              class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md"
+                              style="border: 1px solid #e6dcd1"
+                              type="text"
+                              value="12 Tahrir Square"
+                            />
+                          </div>
+                          <div class="flex flex-col gap-1.5">
+                            <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                              >تفاصيل إضافية (اختياري)</label
+                            ><input
+                              class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md"
+                              style="border: 1px solid #e6dcd1"
+                              type="text"
+                            />
+                          </div>
+                          <div class="flex flex-col gap-1.5">
+                            <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                              >المدينة</label
+                            ><input
+                              class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-body-md text-body-md"
+                              style="border: 1px solid #e6dcd1"
+                              type="text"
+                              value="Cairo"
+                            />
+                          </div>
+                          <div class="flex flex-col gap-1.5">
+                            <label class="font-body-sm text-body-sm font-medium text-[#1C1612]"
+                              >الرمز البريدي</label
+                            ><input
+                              class="h-[40px] rounded-[8px] px-3 bg-[#FFFFFF] text-[#1C1612] font-label-data-md text-label-data-md text-left"
+                              dir="ltr"
+                              style="border: 1px solid #e6dcd1"
+                              type="text"
+                              value="11511"
+                            />
+                          </div>
+                        </div>
+                        <div
+                          class="rounded-[8px] p-3 flex items-center justify-between bg-[#FEF2F2]"
+                          style="border: 1px solid #b91c1c"
+                        >
+                          <span class="font-body-sm text-body-sm font-semibold text-[#B91C1C]"
+                            >الدفع غير مُفعّل</span
+                          ><a
+                            class="font-body-sm text-body-sm text-[#B91C1C] underline font-medium"
+                            href="#"
+                            >راجع العربة</a
+                          >
+                        </div>
+                        <div class="pt-2">
+                          <button
+                            class="w-full h-[44px] rounded-[8px] bg-[#C2410C] hover:bg-[#9B2F00] text-[#FFFFFF] font-body-md text-body-md font-semibold transition-colors flex items-center justify-center cursor-pointer"
+                            type="button"
+                          >
+                            الدفع
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-3">
+                  <span class="font-label-data-sm text-label-data-sm font-medium text-[#8D7168]"
+                    >(d) حساب المشاهدة (VIEWER ACCOUNT)</span
+                  >
+                  <div
+                    class="bg-[#FFFFFF] rounded-[8px] p-6 text-center flex items-center justify-center min-h-[160px]"
+                    style="border: 1px solid #e6dcd1"
+                  >
+                    <p class="font-body-md text-body-md text-[#1C1612] leading-relaxed">
+                      حساب المشاهدة للاستعراض فقط ولا يمكنه إتمام الشراء. سجّل دخول بحساب عميل أو
+                      أنشئ حساب جديد.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-3">
+                  <span class="font-label-data-sm text-label-data-sm font-medium text-[#8D7168]"
+                    >(e) العربة فارغة (EMPTY CART)</span
+                  >
+                  <div
+                    class="bg-[#FFFFFF] rounded-[12px] p-8 text-center flex flex-col items-center justify-center"
+                    style="border: 1px dashed #e6dcd1"
+                  >
+                    <div class="w-16 h-16 flex items-center justify-center mb-3">
+                      <svg
+                        class="text-[#9B2F00]"
+                        fill="none"
+                        height="64"
+                        viewBox="0 0 64 64"
+                        width="64"
+                      >
+                        <g transform="rotate(18 32 32)">
+                          <ellipse cx="32" cy="32" fill="currentColor" rx="22" ry="29"></ellipse>
+                          <path
+                            d="M32 6C30 18 23 26 32 32C41 38 34 46 32 58"
+                            stroke="#FAF6F1"
+                            stroke-linecap="round"
+                            stroke-width="3"
+                          ></path>
+                        </g>
+                      </svg>
+                    </div>
+                    <p class="font-headline-sm text-headline-sm font-bold text-[#1C1612] mb-5">
+                      العربة فاضية.
+                    </p>
+                    <button
+                      class="px-6 h-[44px] rounded-[8px] bg-[#C2410C] text-[#FFFFFF] font-body-md text-body-md font-semibold"
+                      type="button"
+                    >
+                      ابدأ التسوق
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-3 mt-8">
+                <span class="font-label-data-sm text-label-data-sm font-medium text-[#8D7168]"
+                  >(f) جاري التحميل (LOADING SKELETON)</span
+                >
+                <div class="flex flex-col lg:flex-row gap-6 animate-pulse">
+                  <div
+                    class="flex-1 bg-[#FFFFFF] rounded-[12px] p-6"
+                    style="border: 1px solid #e6dcd1"
+                  >
+                    <div class="h-6 w-36 bg-[#EADBCC] rounded mb-6"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div class="flex flex-col gap-2">
+                        <div class="h-3.5 w-20 bg-[#EADBCC] rounded"></div>
+                        <div class="h-[40px] bg-[#EADBCC] rounded-[8px] opacity-70"></div>
+                      </div>
+                      <div class="flex flex-col gap-2">
+                        <div class="h-3.5 w-16 bg-[#EADBCC] rounded"></div>
+                        <div class="h-[40px] bg-[#EADBCC] rounded-[8px] opacity-70"></div>
+                      </div>
+                      <div class="flex flex-col gap-2 md:col-span-2">
+                        <div class="h-3.5 w-24 bg-[#EADBCC] rounded"></div>
+                        <div class="h-[40px] bg-[#EADBCC] rounded-[8px] opacity-70"></div>
+                      </div>
+                      <div class="flex flex-col gap-2">
+                        <div class="h-3.5 w-28 bg-[#EADBCC] rounded"></div>
+                        <div class="h-[40px] bg-[#EADBCC] rounded-[8px] opacity-70"></div>
+                      </div>
+                      <div class="flex flex-col gap-2">
+                        <div class="h-3.5 w-16 bg-[#EADBCC] rounded"></div>
+                        <div class="h-[40px] bg-[#EADBCC] rounded-[8px] opacity-70"></div>
+                      </div>
+                    </div>
+                    <div class="mt-6">
+                      <div class="h-[44px] w-full bg-[#EADBCC] rounded-[8px]"></div>
+                    </div>
+                  </div>
+                  <div
+                    class="w-full lg:w-[340px] shrink-0 bg-[#FFFFFF] rounded-[12px] p-6"
+                    style="border: 1px solid #e6dcd1"
+                  >
+                    <div class="h-5 w-28 bg-[#EADBCC] rounded mb-5"></div>
+                    <div class="flex flex-col gap-4">
+                      <div class="flex justify-between items-center">
+                        <div class="h-3.5 w-40 bg-[#EADBCC] rounded"></div>
+                        <div class="h-3.5 w-12 bg-[#EADBCC] rounded"></div>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <div class="h-3.5 w-48 bg-[#EADBCC] rounded"></div>
+                        <div class="h-3.5 w-12 bg-[#EADBCC] rounded"></div>
+                      </div>
+                      <div class="flex justify-between items-center">
+                        <div class="h-3.5 w-32 bg-[#EADBCC] rounded"></div>
+                        <div class="h-3.5 w-12 bg-[#EADBCC] rounded"></div>
+                      </div>
+                    </div>
+                    <div class="my-4 h-[1px] w-full bg-[#EADBCC]"></div>
+                    <div class="flex justify-between items-center mb-3">
+                      <div class="h-3.5 w-16 bg-[#EADBCC] rounded"></div>
+                      <div class="h-3.5 w-12 bg-[#EADBCC] rounded"></div>
+                    </div>
+                    <div class="flex justify-between items-center mb-5">
+                      <div class="h-4 w-20 bg-[#EADBCC] rounded"></div>
+                      <div class="h-4 w-16 bg-[#EADBCC] rounded"></div>
+                    </div>
+                    <div class="h-16 bg-[#EADBCC] rounded-[8px] opacity-60"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer
+      class="w-full bg-surface-container-low border-t border-outline-variant py-space-xl"
+      style="background-color: rgb(250, 246, 241)"
+    >
+      <div
+        class="max-w-[1440px] mx-auto px-margin flex flex-col items-center justify-center text-center gap-space-lg"
+      >
+        <div class="flex items-center gap-space-sm">
+          <span class="material-symbols-outlined text-primary text-[20px]">coffee</span>
+          <div class="flex items-baseline gap-1.5">
+            <span
+              class="font-display-hero-mobile text-headline-sm font-bold tracking-tight lowercase text-on-surface"
+              >ember</span
+            ><span class="font-label-data-sm text-[10px] tracking-[0.2em] uppercase text-outline"
+              >ROASTERY</span
+            >
+          </div>
+        </div>
+        <div
+          class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant font-label-data-sm text-label-data-sm"
+        >
+          <span class="w-2 h-2 rounded-full bg-secondary"></span
+          ><span class="">Stripe Test Mode Activated • بيئة دفع تجريبية</span>
+        </div>
+        <nav
+          class="flex flex-wrap items-center justify-center gap-space-lg text-on-surface-variant"
+          data-active-classes="text-primary font-bold"
+        >
+          <a
+            class="font-body-sm text-body-sm hover:text-on-surface transition-colors"
+            data-path="products-catalog"
+            href="#"
+            >المتجر</a
+          ><a
+            class="font-body-sm text-body-sm hover:text-on-surface transition-colors"
+            data-path="origins-story"
+            href="#"
+            >عن إمبر</a
+          ><a
+            class="font-body-sm text-body-sm hover:text-on-surface transition-colors"
+            data-path="shipping-policy"
+            href="#"
+            >الشحن والتوصيل</a
+          ><a
+            class="font-body-sm text-body-sm hover:text-on-surface transition-colors"
+            data-path="privacy-terms"
+            href="#"
+            >الشروط والخصوصية</a
+          >
+        </nav>
+        <div class="font-label-data-sm text-label-data-sm text-outline">
+          © 2025 Ember Roastery. جميع الحقوق محفوظة لمحمصـة إمبـر.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

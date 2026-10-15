@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":semanticCommitTypeAll(chore)"],
+  "schedule": ["before 6am on monday"],
+  "timezone": "Africa/Cairo",
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "groupName": "minor and patch updates"
+    },
+    {
+      "matchPackageNames": [
+        "next",
+        "react",
+        "react-dom",
+        "prisma",
+        "@prisma/client",
+        "@prisma/adapter-pg"
+      ],
+      "groupName": "framework core",
+      "dependencyDashboardApproval": true
+    }
+  ]
+}

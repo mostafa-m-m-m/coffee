@@ -1,0 +1,1346 @@
+<!doctype html>
+
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Dashboard Shell — Arabic Light Desktop</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              crema: "#FAF6F1",
+              accent: "#C2410C",
+              "accent-hover": "#9A3412",
+              border: "#E6DCD1",
+              espresso: "#1C1612",
+              muted: "#6B5748",
+            },
+            fontFamily: {
+              sans: ['"IBM Plex Sans Arabic"', "sans-serif"],
+              display: ['"Bricolage Grotesque"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #faf6f1;
+        font-family: "IBM Plex Sans Arabic", sans-serif;
+        color: #1c1612;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+      }
+      .brand-heading {
+        font-family: "Bricolage Grotesque", "IBM Plex Sans Arabic", sans-serif;
+        letter-spacing: -0.02em;
+      }
+      .badge-viewer {
+        border: 1px solid #b45309;
+        color: #b45309;
+        background-color: #fffbeb;
+      }
+    </style>
+    <meta content="web_dashboard" name="shell-type" />
+  </head>
+  <body class="bg-crema text-espresso">
+    <!-- FRAME 1: DEFAULT ADMIN ROLE (Overview active, no viewer pill) -->
+    <section class="border-b-4 border-dashed border-[#E6DCD1] pb-12 mb-12">
+      <div
+        class="px-8 py-3 bg-[#E6DCD1]/40 border-b border-[#E6DCD1] text-xs font-semibold text-muted flex items-center justify-between"
+      >
+        <span
+          >إطار لوحة التحكم (ADMIN DASHBOARD SHELL) — الحالة 1: دور المدير (ADMIN) — "نظرة عامة"
+          نشطة</span
+        >
+        <span class="font-mono text-[11px]">1360 × 900 · Arabic RTL Light</span>
+      </div>
+      <div class="w-[1360px] h-[900px] mx-auto bg-crema flex overflow-hidden shadow-sm relative">
+        <!-- FIXED SIDEBAR (224px at START edge / Right in RTL) -->
+        <aside
+          class="w-[224px] h-full bg-white border-l border-border flex flex-col justify-between shrink-0 z-20"
+        >
+          <!-- Top Section: Logo & Nav -->
+          <div>
+            <!-- Logo Header -->
+            <div class="h-14 px-5 flex items-center border-b border-border">
+              <a class="flex items-center gap-2.5" href="/">
+                <!-- Flat Bean Vector -->
+                <svg class="shrink-0" fill="none" height="24" viewbox="0 0 24 24" width="24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                    fill="#C2410C"
+                  ></path>
+                  <path
+                    d="M12 4c-1.8 3.5-1.8 12.5 0 16 1.8-3.5 1.8-12.5 0-16z"
+                    fill="#C2410C"
+                  ></path>
+                </svg>
+                <div class="flex flex-col">
+                  <span
+                    class="text-base font-bold leading-tight tracking-tight text-espresso font-display lowercase"
+                    >ember</span
+                  >
+                  <span class="text-[8px] tracking-[0.2em] font-bold text-muted -mt-0.5"
+                    >ROASTERY</span
+                  >
+                </div>
+              </a>
+            </div>
+            <!-- Navigation Items -->
+            <nav class="p-3 space-y-1">
+              <!-- نظرة عامة (Active) -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg bg-accent text-white font-medium text-sm transition-colors"
+                href="#overview"
+              >
+                <span class="text-base leading-none">📊</span>
+                <span>نظرة عامة</span>
+              </a>
+              <!-- الأوردرات -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#orders"
+              >
+                <span class="text-base leading-none">🧾</span>
+                <span>الأوردرات</span>
+              </a>
+              <!-- المنتجات -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#products"
+              >
+                <span class="text-base leading-none">☕</span>
+                <span>المنتجات</span>
+              </a>
+              <!-- العملاء -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#customers"
+              >
+                <span class="text-base leading-none">👥</span>
+                <span>العملاء</span>
+              </a>
+              <!-- التحليلات -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#analytics"
+              >
+                <span class="text-base leading-none">📈</span>
+                <span>التحليلات</span>
+              </a>
+            </nav>
+          </div>
+          <!-- Bottom Section: Back to Store Link -->
+          <div class="p-4 border-t border-border">
+            <a
+              class="flex items-center gap-2 text-xs font-medium text-muted hover:text-espresso transition-colors"
+              href="/"
+            >
+              <span>←</span>
+              <span>العودة للمتجر</span>
+            </a>
+          </div>
+        </aside>
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden">
+          <!-- TOP BAR (56px high, white, 1px bottom border) -->
+          <header
+            class="h-14 bg-white border-b border-border px-8 flex items-center justify-between shrink-0"
+          >
+            <!-- Start side (Visually Right): empty for Admin -->
+            <div class="flex items-center">
+              <!-- No viewer pill for Admin -->
+            </div>
+            <!-- End side (Visually Left in RTL): user name, theme toggle, AR|EN, خروج -->
+            <div class="flex items-center gap-5 text-sm">
+              <span class="font-medium text-espresso">Demo Viewer</span>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <!-- Theme toggle -->
+              <button
+                class="text-muted hover:text-espresso text-sm p-1 transition-colors"
+                title="تبديل المظهر"
+                type="button"
+              >
+                ☾
+              </button>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <!-- AR|EN switch -->
+              <div class="flex items-center text-xs font-semibold">
+                <span class="text-espresso">AR</span>
+                <span class="mx-1 text-border">|</span>
+                <span class="text-muted hover:text-espresso cursor-pointer">EN</span>
+              </div>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <!-- Logout link -->
+              <a
+                class="text-xs font-medium text-muted hover:text-accent transition-colors"
+                href="/logout"
+                >خروج</a
+              >
+            </div>
+          </header>
+          <!-- CONTENT AREA (Crema background, 24-32px padding) -->
+          <main class="flex-1 overflow-y-auto p-8 bg-crema">
+            <div class="flex flex-col w-full">
+              <!-- View Mode Switcher for Showcase States -->
+              <div
+                class="mb-6 flex items-center justify-between bg-surface-container-low px-4 py-3 rounded-lg"
+              >
+                <div class="flex items-center gap-2">
+                  <span class="font-label-data-sm text-label-data-sm text-on-surface-variant"
+                    >حالات العرض للعينة:</span
+                  >
+                  <div class="inline-flex rounded-lg bg-surface p-1 shadow-sm gap-1">
+                    <button
+                      class="px-3 py-1 text-xs font-semibold rounded bg-primary-container text-on-primary transition-colors"
+                      id="btn-state-loaded"
+                      onclick="switchState('loaded')"
+                      type="button"
+                    >
+                      الجدول الممتلئ (15 عميل + عميل دون شراء)
+                    </button>
+                    <button
+                      class="px-3 py-1 text-xs font-medium text-on-surface-variant hover:text-on-surface transition-colors"
+                      id="btn-state-loading"
+                      onclick="switchState('loading')"
+                      type="button"
+                    >
+                      (a) قيد التحميل (Skeleton)
+                    </button>
+                    <button
+                      class="px-3 py-1 text-xs font-medium text-on-surface-variant hover:text-on-surface transition-colors"
+                      id="btn-state-empty"
+                      onclick="switchState('empty')"
+                      type="button"
+                    >
+                      (b) لا توجد نتائج (Empty Search)
+                    </button>
+                    <button
+                      class="px-3 py-1 text-xs font-medium text-on-surface-variant hover:text-on-surface transition-colors"
+                      id="btn-state-error"
+                      onclick="switchState('error')"
+                      type="button"
+                    >
+                      (c) خطأ في التحميل (Error)
+                    </button>
+                  </div>
+                </div>
+                <div class="text-xs text-on-surface-variant font-label-data-sm">
+                  1360px · العربية (RTL)
+                </div>
+              </div>
+              <!-- Page Header -->
+              <div class="flex items-center justify-between mb-6">
+                <h1 class="font-headline-lg text-headline-lg text-on-background">العملاء</h1>
+              </div>
+              <!-- Filter Bar Card -->
+              <div class="bg-surface-container-lowest rounded-lg p-4 mb-6 shadow-sm">
+                <div class="flex items-center gap-3">
+                  <div class="relative flex-1">
+                    <input
+                      class="w-full h-11 pr-4 pl-10 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-colors"
+                      id="customer-search-input"
+                      placeholder="بحث (اسم أو إيميل)"
+                      type="text"
+                    />
+                    <div
+                      class="absolute left-3.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-sm"
+                    >
+                      ⌕
+                    </div>
+                  </div>
+                  <button
+                    class="h-11 px-6 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md font-medium hover:bg-surface-container transition-colors"
+                    id="btn-clear-search"
+                    type="button"
+                  >
+                    مسح
+                  </button>
+                </div>
+              </div>
+              <!-- MAIN CUSTOMERS DATA CONTAINER -->
+              <!-- STATE: ERROR (c) -->
+              <div
+                class="hidden mb-6 bg-error-container text-on-error-container rounded-lg p-6 shadow-sm"
+                id="state-error"
+              >
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <span class="text-xl leading-none">⚠</span>
+                    <div>
+                      <p class="font-headline-sm text-headline-sm">تعذّر تحميل العملاء.</p>
+                      <p class="font-body-sm text-body-sm opacity-90 mt-0.5">
+                        حدث خطأ أثناء محاولة الاتصال بخادم بيانات المتجر والمحمص.
+                      </p>
+                    </div>
+                  </div>
+                  <button
+                    class="h-11 px-6 rounded-lg bg-primary-container text-on-primary font-body-md text-body-md font-semibold hover:bg-primary transition-colors"
+                    onclick="switchState('loaded')"
+                    type="button"
+                  >
+                    حاول تاني
+                  </button>
+                </div>
+              </div>
+              <!-- Customers Table Card -->
+              <div
+                class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden flex flex-col"
+                id="table-wrapper-card"
+              >
+                <!-- Table Header (Visible for loaded and loading skeletons) -->
+                <div
+                  class="grid grid-cols-12 bg-surface-container-low px-6 py-3.5 text-xs font-semibold text-on-surface-variant font-body-sm select-none"
+                  id="table-head-row"
+                >
+                  <div
+                    class="col-span-4 flex items-center gap-1.5 cursor-pointer hover:text-on-surface"
+                  >
+                    <span>العميل</span>
+                    <span class="text-[11px] text-outline">↕</span>
+                  </div>
+                  <div
+                    class="col-span-2 flex items-center justify-center gap-1.5 cursor-pointer hover:text-on-surface"
+                  >
+                    <span>الأوردرات</span>
+                    <span class="text-[11px] text-outline">↕</span>
+                  </div>
+                  <div
+                    class="col-span-2 flex items-center justify-end gap-1.5 cursor-pointer text-primary-container font-bold"
+                  >
+                    <span>إجمالي الإنفاق</span>
+                    <span class="text-[10px]">▼</span>
+                  </div>
+                  <div
+                    class="col-span-2 flex items-center justify-center gap-1.5 cursor-pointer hover:text-on-surface"
+                  >
+                    <span>آخر شراء</span>
+                    <span class="text-[11px] text-outline">↕</span>
+                  </div>
+                  <div
+                    class="col-span-2 flex items-center justify-end gap-1.5 cursor-pointer hover:text-on-surface"
+                  >
+                    <span>انضم في</span>
+                    <span class="text-[11px] text-outline">↕</span>
+                  </div>
+                </div>
+                <!-- STATE: EMPTY SEARCH STATE (b) -->
+                <div
+                  class="hidden py-24 px-6 flex flex-col items-center justify-center text-center"
+                  id="state-empty"
+                >
+                  <div
+                    class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant text-xl mb-4"
+                  >
+                    🔍
+                  </div>
+                  <p class="font-headline-sm text-headline-sm text-on-surface mb-1">
+                    مفيش عملاء مطابقين.
+                  </p>
+                  <p class="font-body-sm text-body-sm text-outline max-w-sm mb-6">
+                    تأكد من كتابة الاسم أو البريد الإلكتروني بالشكل الصحيح أو امسح الفلتر الحالي.
+                  </p>
+                  <button
+                    class="h-11 px-8 rounded-lg bg-primary-container text-on-primary font-body-md text-body-md font-semibold hover:bg-primary transition-colors"
+                    onclick="clearAndShowLoaded()"
+                    type="button"
+                  >
+                    مسح البحث
+                  </button>
+                </div>
+                <!-- STATE: LOADING SKELETON (a) -->
+                <div class="hidden flex flex-col" id="state-loading">
+                  <!-- 7 Pulsing skeleton rows -->
+                  <div
+                    class="px-6 py-4 grid grid-cols-12 items-center bg-surface-container-lowest animate-pulse"
+                  >
+                    <div class="col-span-4 space-y-2">
+                      <div class="h-4 bg-surface-container-high rounded w-36"></div>
+                      <div class="h-3 bg-surface-container rounded w-48"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-center">
+                      <div class="h-4 bg-surface-container rounded w-8"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-end">
+                      <div class="h-4 bg-surface-container-high rounded w-20"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-center">
+                      <div class="h-4 bg-surface-container rounded w-24"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-end">
+                      <div class="h-4 bg-surface-container rounded w-24"></div>
+                    </div>
+                  </div>
+                  <div
+                    class="px-6 py-4 grid grid-cols-12 items-center bg-surface-container-low/40 animate-pulse"
+                  >
+                    <div class="col-span-4 space-y-2">
+                      <div class="h-4 bg-surface-container-high rounded w-40"></div>
+                      <div class="h-3 bg-surface-container rounded w-52"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-center">
+                      <div class="h-4 bg-surface-container rounded w-8"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-end">
+                      <div class="h-4 bg-surface-container-high rounded w-24"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-center">
+                      <div class="h-4 bg-surface-container rounded w-20"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-end">
+                      <div class="h-4 bg-surface-container rounded w-20"></div>
+                    </div>
+                  </div>
+                  <div
+                    class="px-6 py-4 grid grid-cols-12 items-center bg-surface-container-lowest animate-pulse"
+                  >
+                    <div class="col-span-4 space-y-2">
+                      <div class="h-4 bg-surface-container-high rounded w-32"></div>
+                      <div class="h-3 bg-surface-container rounded w-44"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-center">
+                      <div class="h-4 bg-surface-container rounded w-6"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-end">
+                      <div class="h-4 bg-surface-container-high rounded w-16"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-center">
+                      <div class="h-4 bg-surface-container rounded w-24"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-end">
+                      <div class="h-4 bg-surface-container rounded w-24"></div>
+                    </div>
+                  </div>
+                  <div
+                    class="px-6 py-4 grid grid-cols-12 items-center bg-surface-container-low/40 animate-pulse"
+                  >
+                    <div class="col-span-4 space-y-2">
+                      <div class="h-4 bg-surface-container-high rounded w-44"></div>
+                      <div class="h-3 bg-surface-container rounded w-56"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-center">
+                      <div class="h-4 bg-surface-container rounded w-8"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-end">
+                      <div class="h-4 bg-surface-container-high rounded w-20"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-center">
+                      <div class="h-4 bg-surface-container rounded w-20"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-end">
+                      <div class="h-4 bg-surface-container rounded w-24"></div>
+                    </div>
+                  </div>
+                  <div
+                    class="px-6 py-4 grid grid-cols-12 items-center bg-surface-container-lowest animate-pulse"
+                  >
+                    <div class="col-span-4 space-y-2">
+                      <div class="h-4 bg-surface-container-high rounded w-36"></div>
+                      <div class="h-3 bg-surface-container rounded w-48"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-center">
+                      <div class="h-4 bg-surface-container rounded w-8"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-end">
+                      <div class="h-4 bg-surface-container-high rounded w-24"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-center">
+                      <div class="h-4 bg-surface-container rounded w-24"></div>
+                    </div>
+                    <div class="col-span-2 flex justify-end">
+                      <div class="h-4 bg-surface-container rounded w-20"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- STATE: LOADED CUSTOMERS DATA (Default: 15 rows) -->
+                <div class="flex flex-col" id="state-loaded">
+                  <!-- Row 1 (High Value) -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >سارة أحمد</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >sarah.ahmed@example.com</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      28
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $1,420.00
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      14 أكتوبر 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      12 يناير 2023
+                    </div>
+                  </div>
+                  <!-- Row 2 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-low/20"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >كريم عبد العزيز</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >kareem.azeez@mail.com</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      19
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $980.50
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      12 أكتوبر 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      04 مارس 2023
+                    </div>
+                  </div>
+                  <!-- Row 3 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >منى الشريف</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >mona.sherif@outlook.com</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      15
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $820.00
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      09 أكتوبر 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      21 مايو 2023
+                    </div>
+                  </div>
+                  <!-- Row 4 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-low/20"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >طارق منصور</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >tarek.mansour@domain.sa</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      12
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $675.00
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      05 أكتوبر 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      11 أغسطس 2023
+                    </div>
+                  </div>
+                  <!-- Row 5 (Frame d: Customer who NEVER bought) -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >عمر العتيبي</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >omar.otb@fastmail.com</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-outline"
+                    >
+                      0
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-outline"
+                      dir="ltr"
+                    >
+                      $0.00
+                    </div>
+                    <div class="col-span-2 text-center font-body-sm text-body-sm text-outline">
+                      —
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      01 أكتوبر 2024
+                    </div>
+                  </div>
+                  <!-- Row 6 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-low/20"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >ياسمين فهد</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >yasmeen.f@gmail.com</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      9
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $540.25
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      28 سبتمبر 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      19 سبتمبر 2023
+                    </div>
+                  </div>
+                  <!-- Row 7 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >زياد إبراهيم</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >ziad.ibrahim@work.net</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      8
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $480.00
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      24 سبتمبر 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      08 أكتوبر 2023
+                    </div>
+                  </div>
+                  <!-- Row 8 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-low/20"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >نورة الصالح</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >noura.saleh@icloud.com</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      7
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $415.50
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      20 سبتمبر 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      03 نوفمبر 2023
+                    </div>
+                  </div>
+                  <!-- Row 9 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >ماجد الدوسري</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >m.dossary@corp.com</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      6
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $390.00
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      18 سبتمبر 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      14 ديسمبر 2023
+                    </div>
+                  </div>
+                  <!-- Row 10 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-low/20"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >هدى الغامدي</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >houda.g@gmail.com</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      5
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $310.00
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      10 سبتمبر 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      29 يناير 2024
+                    </div>
+                  </div>
+                  <!-- Row 11 (Frame d variation: New registered account, zero spend) -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >ريناد القحطاني</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >renad.q@proton.me</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-outline"
+                    >
+                      0
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-outline"
+                      dir="ltr"
+                    >
+                      $0.00
+                    </div>
+                    <div class="col-span-2 text-center font-body-sm text-body-sm text-outline">
+                      —
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      12 أكتوبر 2024
+                    </div>
+                  </div>
+                  <!-- Row 12 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-low/20"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >فيصل الحربي</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >faisal.harbi@studio.sa</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      4
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $260.00
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      02 سبتمبر 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      17 فبراير 2024
+                    </div>
+                  </div>
+                  <!-- Row 13 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >ليلى يوسف</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >laila.yousef@consult.org</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      3
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $195.00
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      25 أغسطس 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      09 مايو 2024
+                    </div>
+                  </div>
+                  <!-- Row 14 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-low/20"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >أحمد باوزير</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >ahmed.bawazir@me.com</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      2
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $132.00
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      19 أغسطس 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      22 يونيو 2024
+                    </div>
+                  </div>
+                  <!-- Row 15 -->
+                  <div
+                    class="grid grid-cols-12 px-6 py-3.5 items-center hover:bg-surface-container-low/50 transition-colors bg-surface-container-lowest"
+                  >
+                    <div class="col-span-4 flex flex-col">
+                      <span class="font-body-md text-body-md font-semibold text-on-surface"
+                        >دلال الزهراني</span
+                      >
+                      <span class="font-body-sm text-body-sm text-outline mt-0.5"
+                        >dalal.zahrani@gmail.com</span
+                      >
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-label-data-md text-label-data-md text-on-surface"
+                    >
+                      1
+                    </div>
+                    <div
+                      class="col-span-2 text-left font-label-data-lg text-label-data-lg font-bold text-on-surface"
+                      dir="ltr"
+                    >
+                      $68.00
+                    </div>
+                    <div
+                      class="col-span-2 text-center font-body-sm text-body-sm text-on-surface-variant"
+                    >
+                      11 أغسطس 2024
+                    </div>
+                    <div class="col-span-2 text-left font-body-sm text-body-sm text-outline">
+                      11 أغسطس 2024
+                    </div>
+                  </div>
+                </div>
+                <!-- Table Card Footer / Pagination Bar -->
+                <div
+                  class="bg-surface-container-lowest px-6 py-4 flex items-center justify-between"
+                  id="table-footer-pagination"
+                >
+                  <div class="font-body-sm text-body-sm text-outline">500 عميل — صفحة 1 من 20</div>
+                  <div class="flex items-center gap-2">
+                    <button
+                      class="h-9 px-4 rounded-lg bg-surface-container-low text-outline opacity-50 cursor-not-allowed font-body-sm text-body-sm font-medium transition-colors"
+                      disabled=""
+                      type="button"
+                    >
+                      السابق
+                    </button>
+                    <button
+                      class="h-9 px-4 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-body-sm text-body-sm font-medium transition-colors"
+                      type="button"
+                    >
+                      التالي
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <script>
+                function switchState(stateName) {
+                  const stateLoaded = document.getElementById("state-loaded");
+                  const stateLoading = document.getElementById("state-loading");
+                  const stateEmpty = document.getElementById("state-empty");
+                  const stateError = document.getElementById("state-error");
+                  const tableHead = document.getElementById("table-head-row");
+                  const tablePagination = document.getElementById("table-footer-pagination");
+                  const searchInput = document.getElementById("customer-search-input");
+
+                  // Reset all buttons
+                  const buttons = ["loaded", "loading", "empty", "error"];
+                  buttons.forEach((btn) => {
+                    const el = document.getElementById("btn-state-" + btn);
+                    if (el) {
+                      el.className =
+                        "px-3 py-1 text-xs font-medium text-on-surface-variant hover:text-on-surface transition-colors";
+                    }
+                  });
+
+                  const activeBtn = document.getElementById("btn-state-" + stateName);
+                  if (activeBtn) {
+                    activeBtn.className =
+                      "px-3 py-1 text-xs font-semibold rounded bg-primary-container text-on-primary transition-colors";
+                  }
+
+                  // Hide all states
+                  stateLoaded.classList.add("hidden");
+                  stateLoading.classList.add("hidden");
+                  stateEmpty.classList.add("hidden");
+                  stateError.classList.add("hidden");
+                  tableHead.classList.remove("hidden");
+                  tablePagination.classList.remove("hidden");
+
+                  if (stateName === "loaded") {
+                    stateLoaded.classList.remove("hidden");
+                  } else if (stateName === "loading") {
+                    stateLoading.classList.remove("hidden");
+                  } else if (stateName === "empty") {
+                    searchInput.value = "محمد بن سلمان الخالدي";
+                    stateEmpty.classList.remove("hidden");
+                    tableHead.classList.add("hidden");
+                    tablePagination.classList.add("hidden");
+                  } else if (stateName === "error") {
+                    stateLoaded.classList.remove("hidden");
+                    stateError.classList.remove("hidden");
+                  }
+                }
+
+                function clearAndShowLoaded() {
+                  const searchInput = document.getElementById("customer-search-input");
+                  if (searchInput) searchInput.value = "";
+                  switchState("loaded");
+                }
+
+                document.getElementById("btn-clear-search")?.addEventListener("click", function () {
+                  const searchInput = document.getElementById("customer-search-input");
+                  if (searchInput) searchInput.value = "";
+                  switchState("loaded");
+                });
+              </script>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+    <!-- FRAME 2: VIEWER ROLE (With amber-outlined viewer pill) -->
+    <section class="border-b-4 border-dashed border-[#E6DCD1] pb-12 mb-12">
+      <div
+        class="px-8 py-3 bg-[#E6DCD1]/40 border-b border-[#E6DCD1] text-xs font-semibold text-muted flex items-center justify-between"
+      >
+        <span
+          >إطار لوحة التحكم (ADMIN DASHBOARD SHELL) — الحالة 2: دور المشاهد (VIEWER) — شارة "وضع
+          المشاهدة — التعديل غير متاح"</span
+        >
+        <span class="font-mono text-[11px]">1360 × 900 · Arabic RTL Light</span>
+      </div>
+      <div class="w-[1360px] h-[900px] mx-auto bg-crema flex overflow-hidden shadow-sm relative">
+        <!-- FIXED SIDEBAR (224px at START edge / Right in RTL) -->
+        <aside
+          class="w-[224px] h-full bg-white border-l border-border flex flex-col justify-between shrink-0 z-20"
+        >
+          <div>
+            <!-- Logo Header -->
+            <div class="h-14 px-5 flex items-center border-b border-border">
+              <a class="flex items-center gap-2.5" href="/">
+                <svg class="shrink-0" fill="none" height="24" viewbox="0 0 24 24" width="24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                    fill="#C2410C"
+                  ></path>
+                  <path
+                    d="M12 4c-1.8 3.5-1.8 12.5 0 16 1.8-3.5 1.8-12.5 0-16z"
+                    fill="#C2410C"
+                  ></path>
+                </svg>
+                <div class="flex flex-col">
+                  <span
+                    class="text-base font-bold leading-tight tracking-tight text-espresso font-display lowercase"
+                    >ember</span
+                  >
+                  <span class="text-[8px] tracking-[0.2em] font-bold text-muted -mt-0.5"
+                    >ROASTERY</span
+                  >
+                </div>
+              </a>
+            </div>
+            <!-- Navigation Items -->
+            <nav class="p-3 space-y-1">
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg bg-accent text-white font-medium text-sm transition-colors"
+                href="#overview"
+              >
+                <span class="text-base leading-none">📊</span>
+                <span>نظرة عامة</span>
+              </a>
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#orders"
+              >
+                <span class="text-base leading-none">🧾</span>
+                <span>الأوردرات</span>
+              </a>
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#products"
+              >
+                <span class="text-base leading-none">☕</span>
+                <span>المنتجات</span>
+              </a>
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#customers"
+              >
+                <span class="text-base leading-none">👥</span>
+                <span>العملاء</span>
+              </a>
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#analytics"
+              >
+                <span class="text-base leading-none">📈</span>
+                <span>التحليلات</span>
+              </a>
+            </nav>
+          </div>
+          <div class="p-4 border-t border-border">
+            <a
+              class="flex items-center gap-2 text-xs font-medium text-muted hover:text-espresso transition-colors"
+              href="/"
+            >
+              <span>←</span>
+              <span>العودة للمتجر</span>
+            </a>
+          </div>
+        </aside>
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden">
+          <!-- TOP BAR (56px high, white, 1px bottom border) -->
+          <header
+            class="h-14 bg-white border-b border-border px-8 flex items-center justify-between shrink-0"
+          >
+            <!-- Start side (Visually Right): VIEWER PILL -->
+            <div class="flex items-center">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium badge-viewer"
+              >
+                وضع المشاهدة — التعديل غير متاح
+              </span>
+            </div>
+            <!-- End side (Visually Left in RTL): user name, theme toggle, AR|EN, خروج -->
+            <div class="flex items-center gap-5 text-sm">
+              <span class="font-medium text-espresso">Demo Viewer</span>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <button
+                class="text-muted hover:text-espresso text-sm p-1 transition-colors"
+                title="تبديل المظهر"
+                type="button"
+              >
+                ☾
+              </button>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <div class="flex items-center text-xs font-semibold">
+                <span class="text-espresso">AR</span>
+                <span class="mx-1 text-border">|</span>
+                <span class="text-muted hover:text-espresso cursor-pointer">EN</span>
+              </div>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <a
+                class="text-xs font-medium text-muted hover:text-accent transition-colors"
+                href="/logout"
+                >خروج</a
+              >
+            </div>
+          </header>
+          <!-- CONTENT AREA -->
+          <main class="flex-1 overflow-y-auto p-8 bg-crema">
+            <div class="max-w-[1080px] mx-auto space-y-6">
+              <h1 class="text-2xl font-bold brand-heading text-espresso">نظرة عامة</h1>
+              <div
+                class="bg-white border border-border rounded-xl p-8 min-h-[360px] flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-crema flex items-center justify-center text-xl mb-3 text-accent border border-border"
+                >
+                  📊
+                </div>
+                <p class="text-sm font-medium text-espresso mb-1">مساحة محتوى نظرة عامة</p>
+                <p class="text-xs text-muted max-w-sm">
+                  سيتم عرض مؤشرات الأداء، الأوردرات الحديثة، وموجز العمليات هنا.
+                </p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+    <!-- FRAME 3: ACTIVE ITEM = ORDERS (Showing active state styling on S2) -->
+    <section class="pb-12">
+      <div
+        class="px-8 py-3 bg-[#E6DCD1]/40 border-b border-[#E6DCD1] text-xs font-semibold text-muted flex items-center justify-between"
+      >
+        <span
+          >إطار لوحة التحكم (ADMIN DASHBOARD SHELL) — الحالة 3: التحديد النشط = الأوردرات (Active =
+          Orders)</span
+        >
+        <span class="font-mono text-[11px]">1360 × 900 · Arabic RTL Light</span>
+      </div>
+      <div class="w-[1360px] h-[900px] mx-auto bg-crema flex overflow-hidden shadow-sm relative">
+        <!-- FIXED SIDEBAR (224px at START edge / Right in RTL) -->
+        <aside
+          class="w-[224px] h-full bg-white border-l border-border flex flex-col justify-between shrink-0 z-20"
+        >
+          <div>
+            <!-- Logo Header -->
+            <div class="h-14 px-5 flex items-center border-b border-border">
+              <a class="flex items-center gap-2.5" href="/">
+                <svg class="shrink-0" fill="none" height="24" viewbox="0 0 24 24" width="24">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                    fill="#C2410C"
+                  ></path>
+                  <path
+                    d="M12 4c-1.8 3.5-1.8 12.5 0 16 1.8-3.5 1.8-12.5 0-16z"
+                    fill="#C2410C"
+                  ></path>
+                </svg>
+                <div class="flex flex-col">
+                  <span
+                    class="text-base font-bold leading-tight tracking-tight text-espresso font-display lowercase"
+                    >ember</span
+                  >
+                  <span class="text-[8px] tracking-[0.2em] font-bold text-muted -mt-0.5"
+                    >ROASTERY</span
+                  >
+                </div>
+              </a>
+            </div>
+            <!-- Navigation Items: Orders Active -->
+            <nav class="p-3 space-y-1">
+              <!-- نظرة عامة (Inactive) -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#overview"
+              >
+                <span class="text-base leading-none">📊</span>
+                <span>نظرة عامة</span>
+              </a>
+              <!-- الأوردرات (Active) -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg bg-accent text-white font-medium text-sm transition-colors"
+                href="#orders"
+              >
+                <span class="text-base leading-none">🧾</span>
+                <span>الأوردرات</span>
+              </a>
+              <!-- المنتجات -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#products"
+              >
+                <span class="text-base leading-none">☕</span>
+                <span>المنتجات</span>
+              </a>
+              <!-- العملاء -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#customers"
+              >
+                <span class="text-base leading-none">👥</span>
+                <span>العملاء</span>
+              </a>
+              <!-- التحليلات -->
+              <a
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+                href="#analytics"
+              >
+                <span class="text-base leading-none">📈</span>
+                <span>التحليلات</span>
+              </a>
+            </nav>
+          </div>
+          <div class="p-4 border-t border-border">
+            <a
+              class="flex items-center gap-2 text-xs font-medium text-muted hover:text-espresso transition-colors"
+              href="/"
+            >
+              <span>←</span>
+              <span>العودة للمتجر</span>
+            </a>
+          </div>
+        </aside>
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden">
+          <!-- TOP BAR (56px high, white, 1px bottom border) -->
+          <header
+            class="h-14 bg-white border-b border-border px-8 flex items-center justify-between shrink-0"
+          >
+            <!-- Start side (Visually Right): VIEWER PILL -->
+            <div class="flex items-center">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium badge-viewer"
+              >
+                وضع المشاهدة — التعديل غير متاح
+              </span>
+            </div>
+            <!-- End side (Visually Left in RTL): user name, theme toggle, AR|EN, خروج -->
+            <div class="flex items-center gap-5 text-sm">
+              <span class="font-medium text-espresso">Demo Viewer</span>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <button
+                class="text-muted hover:text-espresso text-sm p-1 transition-colors"
+                title="تبديل المظهر"
+                type="button"
+              >
+                ☾
+              </button>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <div class="flex items-center text-xs font-semibold">
+                <span class="text-espresso">AR</span>
+                <span class="mx-1 text-border">|</span>
+                <span class="text-muted hover:text-espresso cursor-pointer">EN</span>
+              </div>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <a
+                class="text-xs font-medium text-muted hover:text-accent transition-colors"
+                href="/logout"
+                >خروج</a
+              >
+            </div>
+          </header>
+          <!-- CONTENT AREA -->
+          <main class="flex-1 overflow-y-auto p-8 bg-crema">
+            <div class="max-w-[1080px] mx-auto space-y-6">
+              <h1 class="text-2xl font-bold brand-heading text-espresso">الأوردرات</h1>
+              <div
+                class="bg-white border border-border rounded-xl p-8 min-h-[360px] flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-crema flex items-center justify-center text-xl mb-3 text-accent border border-border"
+                >
+                  🧾
+                </div>
+                <p class="text-sm font-medium text-espresso mb-1">مساحة محتوى الأوردرات</p>
+                <p class="text-xs text-muted max-w-sm">
+                  سيتم عرض قائمة طلبات العملاء وحالات الدفع والشحن هنا.
+                </p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

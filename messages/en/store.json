@@ -1,0 +1,410 @@
+{
+  "nav": {
+    "primary": "Main navigation",
+    "products": "Products",
+    "cart": "Cart",
+    "cartLabel": "{count, plural, =0 {Cart, empty} one {Cart, 1 item} other {Cart, {count, number, integer} items}}",
+    "account": "My account",
+    "login": "Sign in",
+    "logout": "Sign out",
+    "dashboard": "Dashboard",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menu": "Menu",
+    "homeAria": "{brand} — Home",
+    "subscriptions": "Subscriptions",
+    "about": "About",
+    "search": "Search products",
+    "searchPlaceholder": "Search by name or origin…"
+  },
+  "layout": {
+    "skip": "Skip to content",
+    "testMode": "Demo store: payments use test cards and no real money is charged",
+    "demoBar": {
+      "text": "This is a demo store.",
+      "link": "Try the admin dashboard"
+    }
+  },
+  "home": {
+    "heroTitle": "Specialty coffee, roasted with care",
+    "heroSubtitle": "Beans from the best farms, brewing gear and subscriptions delivered to your door.",
+    "browse": "Browse products",
+    "categories": "Categories",
+    "bestSellers": "Best sellers",
+    "newArrivals": "New arrivals",
+    "viewAll": "View all →",
+    "trust": {
+      "label": "Store benefits",
+      "freeShipping": "Free shipping over <amount></amount>",
+      "fresh": "Roasted within {days, number, integer} days",
+      "delivery": "Delivered in {min, number, integer}–{max, number, integer} days, by governorate",
+      "payment": "Card or cash on delivery"
+    },
+    "heroSecondary": "How it works",
+    "how": {
+      "title": "How it works",
+      "steps": {
+        "source": {
+          "title": "We pick the beans",
+          "text": "Single-origin lots and blends chosen for their flavor."
+        },
+        "roast": {
+          "title": "We roast for your order",
+          "text": "Roasted in small batches, then packed the same week."
+        },
+        "deliver": {
+          "title": "Fresh at your door",
+          "text": "Shipped to your governorate, with card or cash on delivery."
+        }
+      }
+    },
+    "taste": {
+      "title": "Shop by taste",
+      "fruity": {
+        "title": "Fruity and bright",
+        "text": "Light roasts with lively acidity and floral notes."
+      },
+      "chocolatey": {
+        "title": "Chocolatey and smooth",
+        "text": "Medium roasts: balanced, sweet and easy to drink."
+      },
+      "bold": {
+        "title": "Bold and strong",
+        "text": "Dark roasts with a deep body for milk drinks and espresso."
+      },
+      "cta": "Shop {roast}"
+    },
+    "subscription": {
+      "title": "Coffee on repeat, every 2 weeks",
+      "text": "Subscriptions are coming soon. Leave your email and you'll hear from us first.",
+      "cta": "Tell me when it's ready"
+    },
+    "reviews": {
+      "title": "What customers say",
+      "demoNote": "Sample reviews, shown as demo data.",
+      "rating": "{count, number, integer} out of {max, number, integer} stars",
+      "items": {
+        "one": {
+          "name": "Sara M.",
+          "text": "The Ethiopian beans smell amazing when the bag opens. Tastes exactly as described."
+        },
+        "two": {
+          "name": "Omar K.",
+          "text": "Ordered Sunday, got it Tuesday in Cairo. The cold brew kit is great value."
+        },
+        "three": {
+          "name": "Nour A.",
+          "text": "Finally a store that lists the roast level and tasting notes for every coffee."
+        }
+      }
+    },
+    "finalCta": {
+      "title": "Fresh coffee, straight to your door",
+      "text": "Join the newsletter for new arrivals and brewing tips."
+    }
+  },
+  "product": {
+    "soldOut": "Sold out",
+    "priceFrom": "From <price></price>",
+    "notFound": "Product not found",
+    "chooseVariant": "Choose an option",
+    "outOfStock": "Out of stock",
+    "onlyLeft": "Only {count, number, integer} left",
+    "inStock": "In stock",
+    "add": "Add to cart",
+    "maxReached": "Maximum available reached",
+    "added": "Added to cart ✓",
+    "addedToast": "Added to your cart",
+    "tastingNotes": "Tasting notes",
+    "vatIncluded": "VAT included",
+    "gallery": "Product images",
+    "showImage": "Show image {n}",
+    "breadcrumb": "Breadcrumb",
+    "home": "Home",
+    "quantity": "Quantity",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "shipsTo": "Delivered to Cairo in {days, plural, one {# day} other {# days}}",
+    "freeShipping": "Free shipping over <amount></amount>",
+    "tabs": {
+      "description": "Description",
+      "brewing": "Brewing guide",
+      "shipping": "Shipping"
+    },
+    "brewing": {
+      "intro": "Start with these ratios and adjust to taste.",
+      "espresso": "Espresso: fine grind, 1 g of coffee to 2 g of espresso, 25 to 30 seconds.",
+      "filter": "Filter (V60, drip): medium grind, 1 g to 16 g of water at 94 °C, about 3 minutes.",
+      "press": "French press: coarse grind, 1 g to 12 g of water, 4 minutes, then press slowly.",
+      "tip": "Grind just before brewing and use the beans within a month of the roast date."
+    },
+    "shippingTab": {
+      "intro": "We deliver across Egypt. The fee depends on your governorate and is calculated at checkout.",
+      "row": "{zone}: <fee></fee>, {days, plural, one {# day} other {# days}}",
+      "free": "Orders over <amount></amount> ship free.",
+      "cod": "Pay by card or cash on delivery."
+    },
+    "related": "You may also like",
+    "notify": "Notify me",
+    "origin": "Origin",
+    "from": "from"
+  },
+  "catalog": {
+    "title": "Products",
+    "showFilters": "Show filters",
+    "filtersToggle": "⚙ Filters and sorting",
+    "search": "Search",
+    "searchPlaceholder": "Product name...",
+    "category": "Category",
+    "all": "All",
+    "minPrice": "Min price (EGP)",
+    "maxPrice": "Max price (EGP)",
+    "inStockOnly": "In stock only",
+    "sort": "Sort by",
+    "apply": "Apply",
+    "clear": "Clear",
+    "empty": "No products match your search.",
+    "clearFilters": "Clear filters",
+    "count": "{count, plural, =0 {No products} one {1 product} other {{count, number, integer} products}}",
+    "pages": "Pages",
+    "results": "Search results",
+    "sorts": {
+      "newest": "Newest",
+      "price-asc": "Price: low to high",
+      "price-desc": "Price: high to low",
+      "name": "Name",
+      "best-selling": "Best selling"
+    },
+    "roast": "Roast level",
+    "taste": "Taste",
+    "priceRange": "Price (EGP)",
+    "activeFilters": "Active filters",
+    "removeFilter": "Remove filter {name}",
+    "chipMin": "From EGP {value}",
+    "chipMax": "Up to EGP {value}",
+    "showingFor": "Showing results for {term}",
+    "clearAll": "Clear all"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty.",
+    "startShopping": "Start shopping",
+    "loadError": "We couldn't load your cart.",
+    "retry": "Try again",
+    "unavailable": "This item is no longer available",
+    "remove": "Remove",
+    "soldOut": "Out of stock",
+    "onlyAvailable": "Only {count, number, integer} available",
+    "quantity": "Quantity",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "summary": "Order summary",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "total": "Total",
+    "freeShippingHint": "Add <amount></amount> more for free shipping",
+    "fixProblems": "Adjust quantities or remove unavailable items before continuing.",
+    "checkout": "Checkout",
+    "shippingAtCheckout": "Calculated at checkout",
+    "totalExShipping": "Total (before shipping)"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "viewerNotice": "The view-only account can't place orders. Sign in with a customer account or create a new one.",
+    "shippingAddress": "Shipping address",
+    "fields": {
+      "fullName": "Full name",
+      "phone": "Mobile number",
+      "governorate": "Governorate",
+      "area": "Area",
+      "street": "Street",
+      "building": "Building and apartment",
+      "notes": "Delivery notes (optional)"
+    },
+    "reviewCart": "Review cart",
+    "selectGovernorate": "Choose a governorate",
+    "chooseGovernorate": "Choose a governorate",
+    "payment": "Payment method",
+    "methodHint": {
+      "CARD": "You're taken to a test payment page: no real money is charged.",
+      "COD": "Pay the courier when your order arrives."
+    },
+    "shippingEstimate": "{zone}: shipping <fee></fee>, arrives in {days, number, integer} days",
+    "vatIncluded": "Includes 14% VAT",
+    "placing": "Placing your order...",
+    "placeOrder": "Place order",
+    "continueToPayment": "Continue to payment"
+  },
+  "success": {
+    "pageTitle": "Order confirmation",
+    "failedTitle": "We couldn't complete your order",
+    "confirmedTitle": "Thank you! Your order is confirmed ✓",
+    "pendingTitle": "Waiting for payment",
+    "failedHint": "Unfortunately an item sold out during payment, and you've been fully refunded.",
+    "orderLine": "Order <strong>#{number}</strong> — Status: {status}",
+    "myOrders": "My orders",
+    "expiredHint": "The payment session ended, so the order was cancelled. You can place a new one.",
+    "payNow": "Complete payment",
+    "vatIncluded": "VAT (included)",
+    "estimatedDelivery": "Estimated delivery: {date}",
+    "continueShopping": "Continue shopping"
+  },
+  "account": {
+    "title": "My account",
+    "profile": "My details",
+    "orders": "My orders",
+    "noOrders": "No orders yet.",
+    "addresses": "My addresses",
+    "default": "default",
+    "listSeparator": ", ",
+    "save": "Save",
+    "saved": "Saved ✓",
+    "addAddress": "Add address",
+    "delete": "Delete",
+    "fields": {
+      "name": "Name",
+      "phone": "Mobile number",
+      "fullName": "Full name",
+      "governorate": "Governorate",
+      "area": "Area",
+      "street": "Street",
+      "building": "Building and apartment",
+      "notes": "Delivery notes (optional)"
+    },
+    "selectGovernorate": "Choose a governorate",
+    "itemsCount": "{count, plural, one {# item} other {# items}}",
+    "progress": "Order progress",
+    "menu": {
+      "label": "Account sections",
+      "orders": "Orders",
+      "addresses": "Addresses",
+      "profile": "Profile",
+      "language": "Language",
+      "logout": "Sign out"
+    }
+  },
+  "pay": {
+    "title": "Payment",
+    "testBanner": "Test payment: no real money is charged.",
+    "orderNumber": "Order {number}",
+    "expiresIn": "Session expires in",
+    "cardNumber": "Card number",
+    "expiry": "Expiry",
+    "nameOnCard": "Name on card",
+    "pay": "Pay <amount></amount>",
+    "paying": "Paying...",
+    "declined": "The card was declined.",
+    "insufficient": "Insufficient funds.",
+    "tryAgain": "Try another card.",
+    "expiredTitle": "This payment session has expired",
+    "expiredHint": "The order was cancelled and nothing was charged. You can place a new one.",
+    "outOfStockTitle": "An item sold out while you were paying",
+    "outOfStockHint": "The order was cancelled and you were fully refunded. Sorry about that.",
+    "backToStore": "Back to the store",
+    "testCardsTitle": "Test cards",
+    "testCards": {
+      "succeeds": "succeeds",
+      "declined": "is declined",
+      "insufficient": "insufficient funds"
+    },
+    "testCardsHint": "Any future expiry date and any CVC."
+  },
+  "subscribe": {
+    "email": "Email address",
+    "placeholder": "you@example.com",
+    "button": {
+      "newsletter": "Subscribe",
+      "subscription-interest": "Notify me",
+      "back-in-stock": "Notify me when it's back"
+    },
+    "done": {
+      "newsletter": "You're on the list. Thank you!",
+      "subscription-interest": "Done. We'll email you when subscriptions open.",
+      "back-in-stock": "We'll email you as soon as it's back in stock."
+    },
+    "backInStockTitle": "Get an email when it's back"
+  },
+  "footer": {
+    "shop": "Shop",
+    "company": "Company",
+    "legal": "Legal",
+    "products": "All products",
+    "subscriptions": "Subscriptions",
+    "about": "About",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "rights": "© {brand}"
+  },
+  "pages": {
+    "about": {
+      "title": "About {brand}",
+      "lead": "A specialty coffee store, built as a complete demo of an online shop and its admin dashboard.",
+      "sections": {
+        "store": {
+          "title": "The store",
+          "text": "{brand} sells single-origin coffee, blends, brewing gear and gift sets. Every product lists its origin, roast level and tasting notes, in Arabic and English."
+        },
+        "demo": {
+          "title": "What is real and what is a demo",
+          "text": "The code, the checkout, the stock handling, the orders and the dashboard all work end to end. Products, customers, orders and reviews are sample data, payments use test cards and no money is ever charged, and nothing is shipped."
+        },
+        "dashboard": {
+          "title": "See the other side",
+          "text": "Sign in with the view-only account to explore the dashboard: sales, orders, stock, customers and analytics.",
+          "cta": "Try the admin dashboard"
+        }
+      }
+    },
+    "subscriptions": {
+      "title": "Subscriptions",
+      "lead": "Fresh coffee on repeat, delivered every 2 weeks.",
+      "soon": "Coming soon",
+      "text": "Subscriptions aren't open yet. Leave your email and we'll let you know the day they are."
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "updated": "This is a demo store; this page describes what the demo actually stores.",
+      "sections": {
+        "data": {
+          "title": "What we store",
+          "text": "Your name, email and password (the password is stored hashed, never as typed), your phone number and delivery addresses if you add them, your orders, and your cart."
+        },
+        "payments": {
+          "title": "Payments",
+          "text": "Card payments use a built-in test gateway. Card numbers you type on the test payment page are not stored."
+        },
+        "usage": {
+          "title": "Visits and cookies",
+          "text": "We use a sign-in cookie, your language choice, and your theme and cart saved in your browser. Anonymous page events (no name, no email) help the dashboard show how visitors move through the store. There are no third-party advertising trackers."
+        },
+        "email": {
+          "title": "Email",
+          "text": "If you join the newsletter or the subscriptions list we store your email and language only to contact you about that."
+        }
+      }
+    },
+    "terms": {
+      "title": "Terms of use",
+      "updated": "This is a demo store. Nothing here is a real offer to sell.",
+      "sections": {
+        "demo": {
+          "title": "Demo store",
+          "text": "Orders placed here are for demonstration. No goods are shipped and no money is charged."
+        },
+        "prices": {
+          "title": "Prices and VAT",
+          "text": "Prices are in Egyptian pounds and include {vat, number, integer}% VAT. The total at checkout is the final amount."
+        },
+        "shipping": {
+          "title": "Shipping",
+          "text": "The fee and delivery time depend on your governorate. Orders over the free-shipping amount ship free."
+        },
+        "orders": {
+          "title": "Orders and payment",
+          "text": "Card orders are held for {minutes, number, integer} minutes while you pay; after that they are cancelled automatically. Cash-on-delivery orders are confirmed immediately. A cancelled paid order is refunded."
+        }
+      }
+    }
+  }
+}

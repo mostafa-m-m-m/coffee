@@ -1,0 +1,902 @@
+<!doctype html>
+
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+      name="viewport"
+    />
+    <meta content="mobile_tab" name="shell-type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@100..900&family=IBM+Plex+Mono:wght@100..900&family=IBM+Plex+Sans:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          width: 100vw;
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        .pb-safe {
+          padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+        .pt-safe {
+          padding-top: env(safe-area-inset-top, 0px);
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      #menu-drawer.open {
+        transform: translateX(0);
+        visibility: visible;
+      }
+      #menu-backdrop.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#d8e2ff",
+              "on-surface-variant": "#59413a",
+              "inverse-on-surface": "#ffede6",
+              primary: "#9b2f00",
+              tertiary: "#0051af",
+              "secondary-fixed-dim": "#f0bd8b",
+              secondary: "#7d562d",
+              "secondary-fixed": "#ffdcbd",
+              "primary-container": "#c2410c",
+              "on-primary": "#ffffff",
+              "outline-variant": "#e1bfb5",
+              "error-container": "#ffdad6",
+              "surface-bright": "#fff8f6",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#ecf0ff",
+              "primary-fixed": "#ffdbd0",
+              surface: "#fff8f6",
+              "tertiary-fixed-dim": "#adc6ff",
+              "primary-fixed-dim": "#ffb59d",
+              "surface-dim": "#e8d6cf",
+              "secondary-container": "#ffca98",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#623f18",
+              error: "#ba1a1a",
+              "inverse-primary": "#ffb59d",
+              "inverse-surface": "#392e2a",
+              "surface-variant": "#f1dfd8",
+              "surface-tint": "#ac3400",
+              "on-primary-fixed-variant": "#832600",
+              "on-secondary-fixed": "#2c1600",
+              "on-primary-container": "#ffece7",
+              "on-secondary-container": "#7a532a",
+              "on-error": "#ffffff",
+              "surface-container": "#fdeae3",
+              "on-error-container": "#93000a",
+              background: "#fff8f6",
+              "surface-container-highest": "#f1dfd8",
+              "surface-container-low": "#fff1eb",
+              "on-tertiary-fixed-variant": "#004494",
+              "on-background": "#231a15",
+              "on-primary-fixed": "#390c00",
+              "on-surface": "#231a15",
+              "surface-container-high": "#f7e4dd",
+              "on-tertiary-fixed": "#001a41",
+              outline: "#8d7168",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#0069de",
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+            spacing: {
+              gutter: "1.5rem",
+              "gutter-mobile": "1rem",
+              "margin-mobile": "1.25rem",
+              "space-md": "1rem",
+              margin: "3rem",
+              "space-lg": "1.5rem",
+              "space-xl": "2.5rem",
+              "space-sm": "0.5rem",
+              "space-xs": "0.25rem",
+            },
+            fontFamily: {
+              "display-hero": ["Bricolage Grotesque"],
+              "headline-md": ["Bricolage Grotesque"],
+              "body-lg": ["IBM Plex Sans"],
+              "label-data-md": ["IBM Plex Mono"],
+              "display-hero-mobile": ["Bricolage Grotesque"],
+              "label-data-sm": ["IBM Plex Mono"],
+              "headline-lg-mobile": ["Bricolage Grotesque"],
+              "headline-sm": ["Bricolage Grotesque"],
+              "label-data-lg": ["IBM Plex Mono"],
+              "headline-lg": ["Bricolage Grotesque"],
+              "body-md": ["IBM Plex Sans"],
+              "body-sm": ["IBM Plex Sans"],
+            },
+            fontSize: {
+              "display-hero": [
+                "56px",
+                { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "700" },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "400" }],
+              "label-data-md": [
+                "14px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" },
+              ],
+              "display-hero-mobile": [
+                "36px",
+                { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" },
+              ],
+              "label-data-sm": [
+                "12px",
+                { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "label-data-lg": [
+                "16px",
+                { lineHeight: "24px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "headline-lg": [
+                "40px",
+                { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600" },
+              ],
+              "body-md": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+              "body-sm": [
+                "13px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "400" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+    <header
+      class="fixed top-0 w-full z-50 pt-safe bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+    >
+      <div class="h-16 px-margin-mobile flex items-center justify-between">
+        <a
+          class="flex items-center gap-space-xs text-on-surface min-h-[44px] min-w-[44px] focus:outline-none"
+          data-path="store-front"
+          href="#"
+          ><span class="material-symbols-outlined text-primary-container text-[24px]"
+            >local_fire_department</span
+          >
+          <div class="flex flex-col leading-none">
+            <span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface"
+              >EMBER</span
+            ><span
+              class="font-label-data-sm text-label-data-sm tracking-widest text-on-surface-variant font-medium"
+              >ROASTERY</span
+            >
+          </div></a
+        >
+        <div class="flex items-center gap-space-xs">
+          <a
+            aria-label="Cart"
+            class="relative w-11 h-11 flex items-center justify-center text-on-surface focus:outline-none"
+            data-path="cart-review"
+            href="#"
+            ><span class="material-symbols-outlined text-[24px]">shopping_bag</span
+            ><span
+              class="absolute top-1.5 left-1.5 min-w-[18px] h-[18px] px-1 rounded-full bg-primary-container text-on-primary font-label-data-sm text-label-data-sm leading-none flex items-center justify-center font-bold"
+              >2</span
+            ></a
+          >
+          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+          </div>
+          <button
+            aria-label="Menu"
+            class="w-11 h-11 flex items-center justify-center text-on-surface focus:outline-none"
+            id="menu-open-btn"
+            onclick="
+              document.getElementById('menu-drawer').classList.add('open');
+              document.getElementById('menu-backdrop').classList.add('open');
+            "
+          >
+            <span class="material-symbols-outlined text-[26px]">menu</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <div
+      class="fixed inset-0 z-50 bg-inverse-surface/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
+      id="menu-backdrop"
+      onclick="
+        document.getElementById('menu-drawer').classList.remove('open');
+        document.getElementById('menu-backdrop').classList.remove('open');
+      "
+    ></div>
+    <aside
+      class="fixed top-0 bottom-0 left-0 z-50 w-[290px] bg-surface-container-lowest p-space-lg flex flex-col justify-between -translate-x-full transition-transform duration-300 ease-in-out"
+      id="menu-drawer"
+    >
+      <div class="flex flex-col gap-space-lg">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-primary-container text-[22px]"
+              >local_fire_department</span
+            ><span class="font-headline-sm text-headline-sm font-bold text-on-surface">EMBER</span>
+          </div>
+          <button
+            aria-label="Close"
+            class="w-11 h-11 flex items-center justify-center text-on-surface-variant focus:outline-none"
+            onclick="
+              document.getElementById('menu-drawer').classList.remove('open');
+              document.getElementById('menu-backdrop').classList.remove('open');
+            "
+          >
+            <span class="material-symbols-outlined text-[24px]">close</span>
+          </button>
+        </div>
+        <nav class="flex flex-col gap-space-xs">
+          <a
+            class="flex items-center justify-between h-12 px-space-sm rounded-lg text-on-surface hover:bg-surface-container transition-colors font-body-md text-body-md font-medium"
+            data-path="product-catalog"
+            href="#"
+            ><span>المنتجات / Products</span
+            ><span class="material-symbols-outlined text-[18px] text-outline"
+              >arrow_back_ios</span
+            ></a
+          ><a
+            class="flex items-center justify-between h-12 px-space-sm rounded-lg text-on-surface hover:bg-surface-container transition-colors font-body-md text-body-md font-medium"
+            data-path="auth-login"
+            href="#"
+            ><span>دخول / Log in</span
+            ><span class="material-symbols-outlined text-[18px] text-outline"
+              >arrow_back_ios</span
+            ></a
+          >
+        </nav>
+      </div>
+      <div class="flex flex-col gap-space-md pt-space-lg">
+        <div class="flex items-center justify-between p-space-xs rounded-xl bg-surface-container">
+          <span class="font-body-sm text-body-sm text-on-surface-variant font-medium px-space-xs"
+            >اللغة / Lang</span
+          >
+          <div class="flex gap-space-xs">
+            <button
+              class="h-8 px-space-sm rounded-lg bg-surface-container-lowest font-label-data-sm text-label-data-sm font-semibold text-primary-container shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
+            >
+              AR</button
+            ><button
+              class="h-8 px-space-sm rounded-lg font-label-data-sm text-label-data-sm text-on-surface-variant"
+            >
+              EN
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center justify-between p-space-xs rounded-xl bg-surface-container">
+          <span class="font-body-sm text-body-sm text-on-surface-variant font-medium px-space-xs"
+            >المظهر / Theme</span
+          >
+          <div class="flex gap-space-xs">
+            <button
+              class="w-8 h-8 rounded-lg bg-surface-container-lowest text-primary-container flex items-center justify-center shadow-[0_1px_4px_rgba(0,0,0,0.06)]"
+            >
+              <span class="material-symbols-outlined text-[18px]">light_mode</span></button
+            ><button
+              class="w-8 h-8 rounded-lg text-on-surface-variant flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined text-[18px]">dark_mode</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <main class="flex-1 flex flex-col relative w-full pt-16 pb-28 bg-surface">
+      <div class="flex flex-col w-full px-margin-mobile gap-space-lg select-none">
+        <!-- Hero Section -->
+        <section
+          class="relative w-full rounded-2xl bg-[#1C1612] text-on-primary p-space-lg overflow-hidden shadow-sm"
+        >
+          <!-- Ambient Ember Glow -->
+          <div
+            class="absolute -top-12 -left-12 w-48 h-48 rounded-full bg-primary-container/25 blur-3xl pointer-events-none"
+          ></div>
+          <div
+            class="absolute -bottom-10 -right-10 w-44 h-44 rounded-full bg-secondary-container/20 blur-2xl pointer-events-none"
+          ></div>
+          <div class="relative z-10 flex flex-col items-start text-right">
+            <!-- 28-degree Tilted Crema Bean Emblem with Glowing Ember S-crease -->
+            <div
+              class="mb-space-md flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 backdrop-blur-sm"
+            >
+              <svg
+                class="w-7 h-7 transform -rotate-[28deg]"
+                fill="none"
+                viewbox="0 0 32 32"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Bean Outer Body -->
+                <ellipse cx="16" cy="16" fill="#FAF6F1" rx="13" ry="10"></ellipse>
+                <!-- Glowing Ember S-Crease -->
+                <path
+                  d="M7 16C11 11 15 21 19 16C21 13.5 24 16 25 16"
+                  stroke="#C2410C"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.2"
+                ></path>
+              </svg>
+            </div>
+            <!-- Hero Headline -->
+            <h1
+              class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-[#FAF6F1] leading-tight mb-space-xs"
+            >
+              قهوة مختصة، محمصة بعناية
+            </h1>
+            <!-- Hero Subtext -->
+            <p class="font-body-md text-body-md text-[#FAF6F1]/80 mb-space-lg max-w-[280px]">
+              بن من أفضل المزارع، وأدوات تحضير، واشتراكات توصلك لحد البيت.
+            </p>
+            <!-- Full-Width Primary CTA Button -->
+            <a
+              class="w-full min-h-[44px] h-12 rounded-lg bg-primary-container text-on-primary font-body-md text-body-md font-semibold flex items-center justify-center gap-space-xs active:scale-[0.98] transition-transform"
+              data-path="product-catalog"
+              href="#"
+            >
+              <span>تصفح المنتجات</span>
+              <span class="material-symbols-outlined text-[18px] transform rotate-180"
+                >arrow_back</span
+              >
+            </a>
+          </div>
+        </section>
+        <!-- Trust Strip -->
+        <section
+          class="w-full bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex items-center justify-between text-on-surface"
+        >
+          <div class="flex-1 flex items-center justify-center gap-1.5 min-h-[44px] px-1">
+            <span class="material-symbols-outlined text-primary-container text-[20px]"
+              >local_shipping</span
+            >
+            <span class="font-body-sm text-body-sm font-medium">شحن مجاني فوق $50</span>
+          </div>
+          <span class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"></span>
+          <div class="flex-1 flex items-center justify-center gap-1.5 min-h-[44px] px-1">
+            <span class="material-symbols-outlined text-primary-container text-[20px]"
+              >local_fire_department</span
+            >
+            <span class="font-body-sm text-body-sm font-medium">محمّص طازج</span>
+          </div>
+          <span class="w-1.5 h-1.5 rounded-full bg-surface-container-highest"></span>
+          <div class="flex-1 flex items-center justify-center gap-1.5 min-h-[44px] px-1">
+            <span class="material-symbols-outlined text-primary-container text-[20px]"
+              >verified_user</span
+            >
+            <span class="font-body-sm text-body-sm font-medium">دفع آمن</span>
+          </div>
+        </section>
+        <!-- Categories Section -->
+        <section class="flex flex-col gap-space-sm w-full">
+          <div class="flex flex-col">
+            <h2 class="font-headline-sm text-headline-sm font-bold text-[#1C1612]">التصنيفات</h2>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">
+              اختر طريقتك المفضلة لتناول القهوة
+            </p>
+          </div>
+          <!-- Scrollable Pills Row -->
+          <div
+            class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-margin-mobile px-margin-mobile scroll-smooth"
+          >
+            <a
+              class="flex-shrink-0 min-h-[44px] px-space-md rounded-full bg-surface-container-lowest text-on-surface flex items-center gap-2 shadow-sm active:bg-surface-container transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[18px] text-primary-container"
+                >grain</span
+              >
+              <span class="font-label-data-sm text-label-data-sm font-semibold dir-ltr text-left"
+                >Whole Bean Coffee</span
+              >
+            </a>
+            <a
+              class="flex-shrink-0 min-h-[44px] px-space-md rounded-full bg-surface-container-lowest text-on-surface flex items-center gap-2 shadow-sm active:bg-surface-container transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[18px] text-primary-container"
+                >filter_alt</span
+              >
+              <span class="font-label-data-sm text-label-data-sm font-semibold dir-ltr text-left"
+                >Ground Coffee</span
+              >
+            </a>
+            <a
+              class="flex-shrink-0 min-h-[44px] px-space-md rounded-full bg-surface-container-lowest text-on-surface flex items-center gap-2 shadow-sm active:bg-surface-container transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[18px] text-primary-container"
+                >coffee_maker</span
+              >
+              <span class="font-label-data-sm text-label-data-sm font-semibold dir-ltr text-left"
+                >Brewing Equipment</span
+              >
+            </a>
+            <a
+              class="flex-shrink-0 min-h-[44px] px-space-md rounded-full bg-surface-container-lowest text-on-surface flex items-center gap-2 shadow-sm active:bg-surface-container transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-[18px] text-primary-container"
+                >card_membership</span
+              >
+              <span class="font-label-data-sm text-label-data-sm font-semibold dir-ltr text-left"
+                >Subscriptions</span
+              >
+            </a>
+          </div>
+        </section>
+        <!-- Best Sellers Section -->
+        <section class="flex flex-col gap-space-sm w-full">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col">
+              <h2 class="font-headline-sm text-headline-sm font-bold text-[#1C1612]">
+                الأكثر مبيعًا
+              </h2>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                خيارات عملاء Ember الأكثر طلباً
+              </p>
+            </div>
+            <a
+              class="min-h-[44px] flex items-center font-body-sm text-body-sm font-semibold text-primary-container gap-0.5 active:opacity-75"
+              data-path="product-catalog"
+              href="#"
+            >
+              <span>عرض الكل</span>
+              <span class="text-[16px] leading-none">←</span>
+            </a>
+          </div>
+          <!-- 2-Column Grid -->
+          <div class="grid grid-cols-2 gap-3 w-full">
+            <!-- Item 1: Ethiopia Yirgacheffe -->
+            <a
+              class="w-full flex flex-col rounded-2xl bg-surface-container-lowest p-space-sm shadow-sm active:scale-[0.98] transition-transform"
+              data-path="product-catalog"
+              href="#"
+            >
+              <div
+                class="relative w-full aspect-square rounded-xl bg-[#2B1F18] overflow-hidden flex items-center justify-center mb-space-sm"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-radial from-primary-container/25 via-transparent to-transparent"
+                ></div>
+                <svg
+                  class="w-12 h-12 transform -rotate-[28deg] relative z-10"
+                  fill="none"
+                  viewbox="0 0 32 32"
+                >
+                  <ellipse cx="16" cy="16" fill="#FAF6F1" rx="13" ry="10"></ellipse>
+                  <path
+                    d="M7 16C11 11 15 21 19 16C21 13.5 24 16 25 16"
+                    stroke="#C2410C"
+                    stroke-linecap="round"
+                    stroke-width="2.2"
+                  ></path>
+                </svg>
+              </div>
+              <span class="font-label-data-sm text-[12px] text-[#6B5748] mb-0.5 dir-ltr text-left"
+                >Whole Bean Coffee</span
+              >
+              <h3
+                class="font-headline-sm text-[15px] font-semibold text-[#1C1612] leading-tight line-clamp-2 dir-ltr text-left"
+              >
+                Ethiopia Yirgacheffe – Light Roast
+              </h3>
+              <span
+                class="mt-2 font-label-data-md text-label-data-md font-semibold text-primary-container dir-ltr text-left"
+                >$18.00</span
+              >
+            </a>
+            <!-- Item 2: Colombia Huila -->
+            <a
+              class="w-full flex flex-col rounded-2xl bg-surface-container-lowest p-space-sm shadow-sm active:scale-[0.98] transition-transform"
+              data-path="product-catalog"
+              href="#"
+            >
+              <div
+                class="relative w-full aspect-square rounded-xl bg-[#2B1F18] overflow-hidden flex items-center justify-center mb-space-sm"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-radial from-primary-container/25 via-transparent to-transparent"
+                ></div>
+                <svg
+                  class="w-12 h-12 transform -rotate-[28deg] relative z-10"
+                  fill="none"
+                  viewbox="0 0 32 32"
+                >
+                  <ellipse cx="16" cy="16" fill="#FAF6F1" rx="13" ry="10"></ellipse>
+                  <path
+                    d="M7 16C11 11 15 21 19 16C21 13.5 24 16 25 16"
+                    stroke="#C2410C"
+                    stroke-linecap="round"
+                    stroke-width="2.2"
+                  ></path>
+                </svg>
+              </div>
+              <span class="font-label-data-sm text-[12px] text-[#6B5748] mb-0.5 dir-ltr text-left"
+                >Whole Bean Coffee</span
+              >
+              <h3
+                class="font-headline-sm text-[15px] font-semibold text-[#1C1612] leading-tight line-clamp-2 dir-ltr text-left"
+              >
+                Colombia Huila – Medium Roast
+              </h3>
+              <span
+                class="mt-2 font-label-data-md text-label-data-md font-semibold text-primary-container dir-ltr text-left"
+                >$19.50</span
+              >
+            </a>
+            <!-- Item 3: Kenya AA -->
+            <a
+              class="w-full flex flex-col rounded-2xl bg-surface-container-lowest p-space-sm shadow-sm active:scale-[0.98] transition-transform"
+              data-path="product-catalog"
+              href="#"
+            >
+              <div
+                class="relative w-full aspect-square rounded-xl bg-[#2B1F18] overflow-hidden flex items-center justify-center mb-space-sm"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-radial from-primary-container/25 via-transparent to-transparent"
+                ></div>
+                <svg
+                  class="w-12 h-12 transform -rotate-[28deg] relative z-10"
+                  fill="none"
+                  viewbox="0 0 32 32"
+                >
+                  <ellipse cx="16" cy="16" fill="#FAF6F1" rx="13" ry="10"></ellipse>
+                  <path
+                    d="M7 16C11 11 15 21 19 16C21 13.5 24 16 25 16"
+                    stroke="#C2410C"
+                    stroke-linecap="round"
+                    stroke-width="2.2"
+                  ></path>
+                </svg>
+              </div>
+              <span class="font-label-data-sm text-[12px] text-[#6B5748] mb-0.5 dir-ltr text-left"
+                >Whole Bean Coffee</span
+              >
+              <h3
+                class="font-headline-sm text-[15px] font-semibold text-[#1C1612] leading-tight line-clamp-2 dir-ltr text-left"
+              >
+                Kenya AA – Light Roast
+              </h3>
+              <span
+                class="mt-2 font-label-data-md text-label-data-md font-semibold text-primary-container dir-ltr text-left"
+                >$21.00</span
+              >
+            </a>
+            <!-- Item 4: Brazil Cerrado -->
+            <a
+              class="w-full flex flex-col rounded-2xl bg-surface-container-lowest p-space-sm shadow-sm active:scale-[0.98] transition-transform"
+              data-path="product-catalog"
+              href="#"
+            >
+              <div
+                class="relative w-full aspect-square rounded-xl bg-[#2B1F18] overflow-hidden flex items-center justify-center mb-space-sm"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-radial from-primary-container/25 via-transparent to-transparent"
+                ></div>
+                <svg
+                  class="w-12 h-12 transform -rotate-[28deg] relative z-10"
+                  fill="none"
+                  viewbox="0 0 32 32"
+                >
+                  <ellipse cx="16" cy="16" fill="#FAF6F1" rx="13" ry="10"></ellipse>
+                  <path
+                    d="M7 16C11 11 15 21 19 16C21 13.5 24 16 25 16"
+                    stroke="#C2410C"
+                    stroke-linecap="round"
+                    stroke-width="2.2"
+                  ></path>
+                </svg>
+              </div>
+              <span class="font-label-data-sm text-[12px] text-[#6B5748] mb-0.5 dir-ltr text-left"
+                >Whole Bean Coffee</span
+              >
+              <h3
+                class="font-headline-sm text-[15px] font-semibold text-[#1C1612] leading-tight line-clamp-2 dir-ltr text-left"
+              >
+                Brazil Cerrado – Medium Roast
+              </h3>
+              <span
+                class="mt-2 font-label-data-md text-label-data-md font-semibold text-primary-container dir-ltr text-left"
+                >$17.50</span
+              >
+            </a>
+          </div>
+        </section>
+        <!-- New Arrivals Section -->
+        <section class="flex flex-col gap-space-sm w-full">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col">
+              <h2 class="font-headline-sm text-headline-sm font-bold text-[#1C1612]">وصل حديثًا</h2>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                محاصيل جديدة وصلت إلى معمل التحميص
+              </p>
+            </div>
+            <a
+              class="min-h-[44px] flex items-center font-body-sm text-body-sm font-semibold text-primary-container gap-0.5 active:opacity-75"
+              data-path="product-catalog"
+              href="#"
+            >
+              <span>عرض الكل</span>
+              <span class="text-[16px] leading-none">←</span>
+            </a>
+          </div>
+          <!-- 2-Column Grid -->
+          <div class="grid grid-cols-2 gap-3 w-full">
+            <!-- Item 1: Guatemala Antigua -->
+            <a
+              class="w-full flex flex-col rounded-2xl bg-surface-container-lowest p-space-sm shadow-sm active:scale-[0.98] transition-transform"
+              data-path="product-catalog"
+              href="#"
+            >
+              <div
+                class="relative w-full aspect-square rounded-xl bg-[#2B1F18] overflow-hidden flex items-center justify-center mb-space-sm"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-radial from-primary-container/25 via-transparent to-transparent"
+                ></div>
+                <svg
+                  class="w-12 h-12 transform -rotate-[28deg] relative z-10"
+                  fill="none"
+                  viewbox="0 0 32 32"
+                >
+                  <ellipse cx="16" cy="16" fill="#FAF6F1" rx="13" ry="10"></ellipse>
+                  <path
+                    d="M7 16C11 11 15 21 19 16C21 13.5 24 16 25 16"
+                    stroke="#C2410C"
+                    stroke-linecap="round"
+                    stroke-width="2.2"
+                  ></path>
+                </svg>
+              </div>
+              <span class="font-label-data-sm text-[12px] text-[#6B5748] mb-0.5 dir-ltr text-left"
+                >Whole Bean Coffee</span
+              >
+              <h3
+                class="font-headline-sm text-[15px] font-semibold text-[#1C1612] leading-tight line-clamp-2 dir-ltr text-left"
+              >
+                Guatemala Antigua – Light Roast
+              </h3>
+              <span
+                class="mt-2 font-label-data-md text-label-data-md font-semibold text-primary-container dir-ltr text-left"
+                >$19.00</span
+              >
+            </a>
+            <!-- Item 2: Rwanda Nyamasheke -->
+            <a
+              class="w-full flex flex-col rounded-2xl bg-surface-container-lowest p-space-sm shadow-sm active:scale-[0.98] transition-transform"
+              data-path="product-catalog"
+              href="#"
+            >
+              <div
+                class="relative w-full aspect-square rounded-xl bg-[#2B1F18] overflow-hidden flex items-center justify-center mb-space-sm"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-radial from-primary-container/25 via-transparent to-transparent"
+                ></div>
+                <svg
+                  class="w-12 h-12 transform -rotate-[28deg] relative z-10"
+                  fill="none"
+                  viewbox="0 0 32 32"
+                >
+                  <ellipse cx="16" cy="16" fill="#FAF6F1" rx="13" ry="10"></ellipse>
+                  <path
+                    d="M7 16C11 11 15 21 19 16C21 13.5 24 16 25 16"
+                    stroke="#C2410C"
+                    stroke-linecap="round"
+                    stroke-width="2.2"
+                  ></path>
+                </svg>
+              </div>
+              <span class="font-label-data-sm text-[12px] text-[#6B5748] mb-0.5 dir-ltr text-left"
+                >Whole Bean Coffee</span
+              >
+              <h3
+                class="font-headline-sm text-[15px] font-semibold text-[#1C1612] leading-tight line-clamp-2 dir-ltr text-left"
+              >
+                Rwanda Nyamasheke – Light Roast
+              </h3>
+              <span
+                class="mt-2 font-label-data-md text-label-data-md font-semibold text-primary-container dir-ltr text-left"
+                >$20.00</span
+              >
+            </a>
+            <!-- Item 3: Honduras Marcala -->
+            <a
+              class="w-full flex flex-col rounded-2xl bg-surface-container-lowest p-space-sm shadow-sm active:scale-[0.98] transition-transform"
+              data-path="product-catalog"
+              href="#"
+            >
+              <div
+                class="relative w-full aspect-square rounded-xl bg-[#2B1F18] overflow-hidden flex items-center justify-center mb-space-sm"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-radial from-primary-container/25 via-transparent to-transparent"
+                ></div>
+                <svg
+                  class="w-12 h-12 transform -rotate-[28deg] relative z-10"
+                  fill="none"
+                  viewbox="0 0 32 32"
+                >
+                  <ellipse cx="16" cy="16" fill="#FAF6F1" rx="13" ry="10"></ellipse>
+                  <path
+                    d="M7 16C11 11 15 21 19 16C21 13.5 24 16 25 16"
+                    stroke="#C2410C"
+                    stroke-linecap="round"
+                    stroke-width="2.2"
+                  ></path>
+                </svg>
+              </div>
+              <span class="font-label-data-sm text-[12px] text-[#6B5748] mb-0.5 dir-ltr text-left"
+                >Whole Bean Coffee</span
+              >
+              <h3
+                class="font-headline-sm text-[15px] font-semibold text-[#1C1612] leading-tight line-clamp-2 dir-ltr text-left"
+              >
+                Honduras Marcala – Light Roast
+              </h3>
+              <span
+                class="mt-2 font-label-data-md text-label-data-md font-semibold text-primary-container dir-ltr text-left"
+                >$18.50</span
+              >
+            </a>
+            <!-- Item 4: Sumatra Mandheling -->
+            <a
+              class="w-full flex flex-col rounded-2xl bg-surface-container-lowest p-space-sm shadow-sm active:scale-[0.98] transition-transform"
+              data-path="product-catalog"
+              href="#"
+            >
+              <div
+                class="relative w-full aspect-square rounded-xl bg-[#2B1F18] overflow-hidden flex items-center justify-center mb-space-sm"
+              >
+                <div
+                  class="absolute inset-0 bg-gradient-radial from-primary-container/25 via-transparent to-transparent"
+                ></div>
+                <svg
+                  class="w-12 h-12 transform -rotate-[28deg] relative z-10"
+                  fill="none"
+                  viewbox="0 0 32 32"
+                >
+                  <ellipse cx="16" cy="16" fill="#FAF6F1" rx="13" ry="10"></ellipse>
+                  <path
+                    d="M7 16C11 11 15 21 19 16C21 13.5 24 16 25 16"
+                    stroke="#C2410C"
+                    stroke-linecap="round"
+                    stroke-width="2.2"
+                  ></path>
+                </svg>
+              </div>
+              <span class="font-label-data-sm text-[12px] text-[#6B5748] mb-0.5 dir-ltr text-left"
+                >Whole Bean Coffee</span
+              >
+              <h3
+                class="font-headline-sm text-[15px] font-semibold text-[#1C1612] leading-tight line-clamp-2 dir-ltr text-left"
+              >
+                Sumatra Mandheling – Medium Roast
+              </h3>
+              <span
+                class="mt-2 font-label-data-md text-label-data-md font-semibold text-primary-container dir-ltr text-left"
+                >$18.00</span
+              >
+            </a>
+          </div>
+        </section>
+      </div>
+      <footer
+        class="mt-space-xl px-margin-mobile py-space-xl bg-surface-container-low text-center flex flex-col items-center gap-space-md"
+      >
+        <div class="flex items-center justify-center gap-space-xs">
+          <span class="material-symbols-outlined text-primary-container text-[20px]"
+            >local_fire_department</span
+          ><span class="font-headline-sm text-headline-sm font-bold text-on-surface"
+            >EMBER ROASTERY</span
+          >
+        </div>
+        <div
+          class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-data-sm text-label-data-sm"
+        >
+          <span class="w-2 h-2 rounded-full bg-primary-container"></span
+          ><span>الدفع في هذا المتجر تجريبي (Stripe test mode)</span>
+        </div>
+        <div
+          class="flex items-center justify-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant"
+        >
+          <a
+            class="hover:text-primary min-h-[44px] flex items-center px-space-xs"
+            data-path="product-catalog"
+            href="#"
+            >المنتجات</a
+          ><span>·</span
+          ><a
+            class="hover:text-primary min-h-[44px] flex items-center px-space-xs"
+            data-path="cart-review"
+            href="#"
+            >العربة</a
+          ><span>·</span
+          ><a
+            class="hover:text-primary min-h-[44px] flex items-center px-space-xs"
+            data-path="user-account"
+            href="#"
+            >حسابي</a
+          >
+        </div>
+        <p class="font-label-data-sm text-label-data-sm text-outline">
+          © 2025 Ember Roastery. جميع الحقوق محفوظة.
+        </p>
+      </footer>
+    </main>
+    <nav
+      class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]"
+      data-active-classes="text-primary-container font-semibold"
+    >
+      <div class="flex justify-around items-center h-16 px-space-xs">
+        <a
+          aria-current="page"
+          class="flex flex-col items-center justify-center gap-0.5 min-w-[44px] min-h-[44px] px-2 transition-colors text-primary-container font-semibold"
+          data-path="store-front"
+          href="#"
+          ><span class="material-symbols-outlined text-[22px]">storefront</span
+          ><span class="font-label-data-sm text-label-data-sm">الرئيسية</span></a
+        ><a
+          class="flex flex-col items-center justify-center gap-0.5 min-w-[44px] min-h-[44px] px-2 text-on-surface-variant transition-colors"
+          data-path="product-catalog"
+          href="#"
+          ><span class="material-symbols-outlined text-[22px]">coffee</span
+          ><span class="font-label-data-sm text-label-data-sm">المحاصيل</span></a
+        ><a
+          class="flex flex-col items-center justify-center gap-0.5 min-w-[44px] min-h-[44px] px-2 text-on-surface-variant transition-colors"
+          data-path="cart-review"
+          href="#"
+          ><span class="material-symbols-outlined text-[22px]">shopping_bag</span
+          ><span class="font-label-data-sm text-label-data-sm">العربة</span></a
+        ><a
+          class="flex flex-col items-center justify-center gap-0.5 min-w-[44px] min-h-[44px] px-2 text-on-surface-variant transition-colors"
+          data-path="user-account"
+          href="#"
+          ><span class="material-symbols-outlined text-[22px]">account_circle</span
+          ><span class="font-label-data-sm text-label-data-sm">حسابي</span></a
+        >
+      </div>
+    </nav>
+  </body>
+</html>

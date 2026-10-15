@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80" fill="none">
+  <!-- Symbol: Tilted Coffee Bean (Warm Crema with Ember Crease for Dark Mode) -->
+  <g transform="translate(42, 40) rotate(28)">
+    <!-- Crema Bean Body -->
+    <ellipse cx="0" cy="0" rx="20" ry="33" fill="#FAF6F1" />
+    <!-- Glowing Ember Crease -->
+    <path d="M 0 -27 C 10 -13 -10 13 0 27" stroke="#E4572E" stroke-width="5" stroke-linecap="round" />
+    <!-- Inner Heat Core -->
+    <path d="M 0 -19 C 7 -9 -7 9 0 19" stroke="#FF8A4C" stroke-width="1.8" stroke-linecap="round" />
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(86, 0)">
+    <text x="0" y="47" font-family="'Bricolage Grotesque', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="900" font-size="40" letter-spacing="-0.04em" fill="#FAF6F1">ember</text>
+    <text x="1.5" y="66" font-family="'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.45em" fill="#E4572E">ROASTERY</text>
+  </g>
+</svg>

@@ -1,0 +1,518 @@
+{
+  "shell": {
+    "navLabel": "Dashboard navigation",
+    "nav": {
+      "overview": "Overview",
+      "orders": "Orders",
+      "products": "Products",
+      "customers": "Customers",
+      "analytics": "Analytics",
+      "emails": "Emails",
+      "shipping": "Shipping",
+      "inventory": "Inventory",
+      "activity": "Activity"
+    },
+    "backToStore": "← Back to store",
+    "skip": "Skip to content",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "viewerMode": "View-only mode — editing is disabled",
+    "logout": "Sign out",
+    "roleAdmin": "Admin",
+    "roleViewer": "Viewer"
+  },
+  "overview": {
+    "metaTitle": "Dashboard",
+    "title": "Overview",
+    "period": "Period",
+    "ranges": {
+      "7d": "Last 7 days",
+      "30d": "Last 30 days",
+      "90d": "Last 3 months"
+    },
+    "kpiLabel": "Key metrics",
+    "kpi": {
+      "sales": "Sales",
+      "orders": "Orders",
+      "aov": "Average order value",
+      "newCustomers": "New customers",
+      "noPrevious": "No data for the previous period",
+      "percent": "{value}%",
+      "vsPrevious": "vs previous period",
+      "increase": "increase",
+      "decrease": "decrease"
+    },
+    "dailySales": "Daily sales",
+    "recentOrders": "Recent orders",
+    "viewAll": "View all",
+    "stockAlerts": "Stock alerts",
+    "stockOk": "All items are sufficiently stocked ✓",
+    "soldOut": "✕ Sold out",
+    "left": "⚠ {count, number, integer} left",
+    "codOutstanding": "Cash on delivery still to collect: <amount></amount> ({orders, number, integer} orders)"
+  },
+  "orders": {
+    "title": "Orders",
+    "columns": {
+      "orderNumber": "No.",
+      "createdAt": "Date",
+      "customer": "Customer",
+      "items": "Items",
+      "status": "Status",
+      "totalCents": "Total",
+      "payment": "Payment",
+      "governorate": "Governorate"
+    },
+    "presets": {
+      "last7": "Last 7 days",
+      "thisMonth": "This month",
+      "last90": "Last 3 months"
+    },
+    "filters": {
+      "show": "Show filters",
+      "toggle": "⚙ Filters",
+      "active": "(active)",
+      "label": "Order filters",
+      "search": "Search (number, name, email)",
+      "from": "From",
+      "to": "To",
+      "presets": "Quick ranges",
+      "minTotal": "Total from (EGP)",
+      "maxTotal": "To (EGP)",
+      "clear": "Clear filters",
+      "activeLabel": "Active filters",
+      "category": "Category",
+      "product": "Product",
+      "payment": "Payment status",
+      "method": "Payment method",
+      "governorate": "Governorate",
+      "removeChip": "Remove filter {name}",
+      "clearAll": "Clear all"
+    },
+    "bulk": {
+      "confirmTitle": "Change order status",
+      "confirmMessage": "{count, plural, one {Change the status of 1 order to “{status}”?} other {Change the status of {count, number, integer} orders to “{status}”?}}",
+      "apply": "Apply",
+      "updated": "{count, plural, one {1 order updated} other {{count, number, integer} orders updated}}",
+      "noneUpdated": "No orders were updated",
+      "label": "Bulk actions",
+      "selected": "{count, number, integer} selected",
+      "newStatus": "New status",
+      "applying": "Applying...",
+      "applySelected": "Apply to selected",
+      "clearSelection": "Clear selection",
+      "result": "{count, number, integer} updated",
+      "skipped": "{count, number, integer} skipped: {reasons}"
+    },
+    "lastUpdated": "Last updated {time}",
+    "columnsMenu": "Columns",
+    "exportCsv": "⬇ Export CSV",
+    "caption": "Orders list",
+    "selectAll": "Select all orders on this page",
+    "selectOne": "Select order {number}",
+    "loadError": "We couldn't load the orders.",
+    "empty": "No matching orders.",
+    "pagination": {
+      "summary": "Showing {from, number, integer}–{to, number, integer} of {total, number, integer} orders",
+      "rows": "Rows",
+      "prev": "Previous",
+      "next": "Next"
+    }
+  },
+  "orderDetail": {
+    "title": "Order details",
+    "heading": "Order #{number}",
+    "timeline": "Order progress",
+    "items": "Items",
+    "status": "Status",
+    "viewerNotice": "View-only mode: editing is disabled.",
+    "customer": "Customer",
+    "shippingAddress": "Shipping address",
+    "back": "← All orders",
+    "noTransitions": "No further changes are available for this status ({status}).",
+    "confirmTitle": "Confirm status change",
+    "confirmMessage": "Change the status to “{status}”? Stock will be returned.",
+    "confirmLabel": "Confirm",
+    "updated": "Status updated ✓",
+    "updatedToast": "Order status changed to “{status}”",
+    "changeTo": "Change status to",
+    "saving": "Saving...",
+    "apply": "Apply",
+    "vatIncluded": "VAT (included)",
+    "history": "Order history",
+    "system": "System",
+    "payment": "Payment",
+    "events": {
+      "created": "Order created",
+      "status_changed": "Status changed from “{from}” to “{to}”",
+      "payment_succeeded": "Payment received",
+      "payment_failed": "Payment attempt failed",
+      "refunded": "Payment refunded",
+      "expired": "Payment session expired, order cancelled"
+    },
+    "eventNotes": {
+      "CARD": "Card",
+      "COD": "Cash on delivery",
+      "cod_collected": "Cash collected on delivery",
+      "out_of_stock": "Sold out during payment"
+    },
+    "refund": {
+      "button": "Refund payment",
+      "working": "Refunding...",
+      "done": "Payment refunded",
+      "confirmTitle": "Refund payment",
+      "confirmMessage": "The customer will be refunded. If the order has not shipped it is cancelled and its stock returns; once shipped the stock does not return. This can't be undone.",
+      "confirmLabel": "Refund"
+    }
+  },
+  "analytics": {
+    "title": "Analytics",
+    "loadError": "We couldn't load the data.",
+    "retry": "Try again",
+    "empty": "No data for this period.",
+    "filtersLabel": "Analytics filters",
+    "from": "From",
+    "to": "To",
+    "presetsLabel": "Quick ranges",
+    "presets": {
+      "d7": "7 days",
+      "d30": "30 days",
+      "m3": "3 months",
+      "m12": "12 months"
+    },
+    "granularity": "Group by",
+    "granularities": {
+      "auto": "Auto",
+      "day": "Daily",
+      "week": "Weekly",
+      "month": "Monthly"
+    },
+    "exportCsv": "⬇ Period orders CSV",
+    "exportPdf": "⬇ PDF report",
+    "kpiLabel": "Key metrics",
+    "kpi": {
+      "sales": "Sales",
+      "orders": "Orders",
+      "aov": "Average order value",
+      "newCustomers": "New customers"
+    },
+    "sales": {
+      "title": "Sales over time",
+      "hint": "Click a point to see that period's orders",
+      "chartLabel": "Line chart of sales compared with the previous period",
+      "dailyChartLabel": "Chart of daily sales",
+      "current": "Current period",
+      "previous": "Previous period"
+    },
+    "tooltip": {
+      "sales": "Sales",
+      "orders": "Orders",
+      "units": "Units",
+      "previous": "Previous period ({date})"
+    },
+    "categories": {
+      "title": "Sales by category",
+      "hint": "Click a bar to see the category's orders",
+      "chartLabel": "Bar chart of sales by category"
+    },
+    "top": {
+      "title": "Best sellers (top 10)",
+      "hint": "Click a bar to see the product's orders",
+      "chartLabel": "Horizontal bars of the top-selling products"
+    },
+    "statuses": {
+      "title": "Weekly order status distribution",
+      "hint": "Click a segment to see that status's orders for that week",
+      "chartLabel": "Stacked bars of order statuses per week",
+      "week": "Week of {date}"
+    },
+    "asTable": "View as table",
+    "tableDate": "Date",
+    "funnel": {
+      "title": "Shopping funnel",
+      "hint": "Visits that reached each step in this period (each visit counted once).",
+      "stages": {
+        "PRODUCT_VIEW": "Viewed a product",
+        "ADD_TO_CART": "Added to cart",
+        "CHECKOUT_START": "Started checkout",
+        "ORDER_PLACED": "Placed an order"
+      },
+      "ofPrevious": "{value} of the previous step",
+      "overall": "{value} of visits ended in an order",
+      "visits": "{count, plural, one {# visit} other {# visits}}"
+    },
+    "abandoned": {
+      "title": "Abandoned carts",
+      "hint": "Carts with items nobody touched for {minutes, number, integer} minutes.",
+      "carts": "Carts",
+      "value": "Value left behind"
+    },
+    "governorates": {
+      "title": "Sales by governorate",
+      "hint": "Where the orders were delivered.",
+      "orders": "{count, plural, one {# order} other {# orders}}",
+      "unknown": "Not recorded"
+    },
+    "payments": {
+      "title": "Card or cash on delivery",
+      "hint": "How customers paid in this period.",
+      "share": "{value} of sales"
+    },
+    "compare": "Compare to previous period"
+  },
+  "products": {
+    "title": "Products",
+    "empty": "No products yet.",
+    "addFirst": "Add your first product",
+    "columns": {
+      "product": "Product",
+      "category": "Category",
+      "price": "Price",
+      "stock": "Stock",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "variantCount": "{count, plural, one {1 variant} other {{count, number, integer} variants}}",
+    "low": "⚠ Low",
+    "visible": "Visible",
+    "hidden": "Hidden",
+    "edit": "Edit",
+    "view": "View",
+    "new": "+ New product",
+    "filterLabel": "Show",
+    "filters": {
+      "all": "All",
+      "visible": "Visible",
+      "hidden": "Hidden"
+    },
+    "noMatch": "No products in this view.",
+    "lowStock": "Low stock",
+    "visibilityOf": "Show {name} in the store",
+    "shownToast": "Product is visible in the store",
+    "hiddenToast": "Product is hidden from the store"
+  },
+  "productForm": {
+    "newTitle": "New product",
+    "editTitle": "Edit product",
+    "inventoryTitle": "Adjust inventory",
+    "inventoryHint": "Every adjustment is recorded in the inventory log with its reason.",
+    "name": "Product name",
+    "slug": "URL slug",
+    "description": "Description",
+    "category": "Category",
+    "visible": "Visible in the store",
+    "images": "Image URLs (one per line)",
+    "variants": "Variants",
+    "addVariant": "+ Add variant",
+    "variantName": "Name",
+    "variantNamePlaceholder": "250g - Espresso grind",
+    "price": "Price (EGP)",
+    "stockReadOnly": "Stock (read-only)",
+    "stockInitial": "Opening stock",
+    "threshold": "Alert threshold",
+    "removeVariant": "Remove variant {number}",
+    "saving": "Saving...",
+    "saveChanges": "Save changes",
+    "create": "Create product",
+    "hide": "Hide product",
+    "saved": "Saved ✓",
+    "savedToast": "Changes saved",
+    "createdToast": "Product created",
+    "hideTitle": "Hide product",
+    "hideMessage": "Hide this product from the store? Past orders stay as they are.",
+    "hideConfirm": "Hide",
+    "hiddenToast": "Product hidden from the store",
+    "hideFailed": "We couldn't hide the product",
+    "languages": "Content language",
+    "tabHasErrors": "This language has errors",
+    "origin": "Origin",
+    "roast": "Roast level",
+    "roastNone": "Not set",
+    "tastingNotes": "Tasting notes",
+    "archived": "Archived",
+    "uploadImages": "Upload images",
+    "uploading": "Uploading…",
+    "removeImage": "Remove image {n}",
+    "imagesCount": "{count} of {max} images",
+    "imageTooLarge": "{name} is larger than {mb} MB",
+    "imageType": "{name} must be a JPG, PNG or WebP image",
+    "maxImages": "A product can have at most {max} images",
+    "uploadFailed": "The upload failed. Try again.",
+    "uploadsOff": "Uploads need a Cloudinary account (see .env.example). Paste image URLs below instead.",
+    "imageUrls": "Image URLs (one per line)"
+  },
+  "inventory": {
+    "current": "Current: {stock, number, integer}",
+    "newStock": "New stock",
+    "reason": "Reason",
+    "reasonPlaceholder": "e.g. stock count, damaged",
+    "save": "Save",
+    "noChange": "No change",
+    "recorded": "Recorded {delta} ✓"
+  },
+  "customers": {
+    "title": "Customers",
+    "search": "Search (name or email)",
+    "clear": "Clear",
+    "columns": {
+      "name": "Customer",
+      "orders": "Orders",
+      "spent": "Total spent",
+      "last": "Last purchase",
+      "joined": "Joined",
+      "governorate": "Governorate"
+    },
+    "loadError": "We couldn't load the customers.",
+    "empty": "No matching customers.",
+    "clearSearch": "Clear search",
+    "pagination": {
+      "summary": "{total, number, integer} customers — page {page, number, integer} of {pages, number, integer}",
+      "prev": "Previous",
+      "next": "Next"
+    },
+    "panel": {
+      "title": "Customer details",
+      "loadError": "We couldn't load this customer.",
+      "email": "Email",
+      "unverified": "not verified",
+      "phone": "Mobile",
+      "joined": "Joined",
+      "orders": "Orders",
+      "spent": "Total spent",
+      "addresses": "Addresses",
+      "noAddresses": "No saved addresses.",
+      "default": "default",
+      "history": "Order history",
+      "noOrders": "No orders yet."
+    }
+  },
+  "emails": {
+    "title": "Emails",
+    "intro": "Every email the store sends or would send. Without a mail service configured they are only recorded here.",
+    "columns": {
+      "time": "Time",
+      "type": "Type",
+      "to": "To",
+      "status": "Status",
+      "order": "Order"
+    },
+    "types": {
+      "verify": "Email confirmation",
+      "reset": "Password reset",
+      "order_confirmed": "Order confirmed",
+      "shipped": "Order shipped",
+      "apology": "Out-of-stock apology",
+      "back_in_stock": "Back in stock"
+    },
+    "statuses": {
+      "sent": "Sent",
+      "failed": "Failed",
+      "logged_only": "Recorded only"
+    },
+    "empty": "No emails yet.",
+    "summary": "{total, number, integer} emails — page {page, number, integer} of {pages, number, integer}",
+    "preview": "Preview",
+    "previewTitle": "Email preview",
+    "back": "← All emails",
+    "previous": "Previous",
+    "next": "Next",
+    "frameLabel": "The email as the customer sees it",
+    "previewPane": "Email preview"
+  },
+  "shipping": {
+    "title": "Shipping zones",
+    "intro": "Fee and delivery time per area. The fee is added to an order at checkout; orders over the free-shipping amount ship free.",
+    "columns": {
+      "zone": "Zone",
+      "fee": "Fee",
+      "eta": "Delivery",
+      "governorates": "Governorates",
+      "actions": "Actions"
+    },
+    "eta": "{days, plural, one {# day} other {# days}}",
+    "empty": "No shipping zones yet.",
+    "freeNote": "Free shipping on orders over {amount}.",
+    "edit": "Edit",
+    "editZone": "Edit shipping zone {name}",
+    "feeLabel": "Shipping fee (EGP)",
+    "daysLabel": "Delivery time (days)",
+    "governoratesLabel": "Governorates",
+    "governoratesHint": "A governorate belongs to one zone. Ticking one here moves it from its current zone.",
+    "save": "Save",
+    "saved": "Shipping zone updated"
+  },
+  "inventoryHistory": {
+    "title": "Inventory history",
+    "intro": "Every stock movement: sales, cancellations, restocks and manual corrections, newest first.",
+    "columns": {
+      "time": "Time",
+      "product": "Product",
+      "change": "Change",
+      "reason": "Reason",
+      "order": "Order",
+      "note": "Note"
+    },
+    "reasons": {
+      "SALE": "Sale",
+      "CANCELLATION": "Cancellation",
+      "MANUAL_ADJUSTMENT": "Manual correction",
+      "RESTOCK": "Restock"
+    },
+    "allReasons": "All reasons",
+    "filterLabel": "Filter by reason",
+    "empty": "No stock movements yet.",
+    "openingStock": "Opening stock",
+    "summary": "Page {page} of {pages} · {total} movements",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "activity": {
+    "title": "Activity log",
+    "intro": "Everything that changed in the store: order status, stock, products, prices and shipping.",
+    "system": "System",
+    "filters": {
+      "actor": "Who",
+      "allActors": "Everyone",
+      "kind": "Type",
+      "allKinds": "All types",
+      "from": "From",
+      "to": "To",
+      "apply": "Apply",
+      "clear": "Clear"
+    },
+    "kinds": {
+      "order": "Orders",
+      "stock": "Stock",
+      "product": "Products",
+      "shipping": "Shipping"
+    },
+    "columns": {
+      "time": "Time",
+      "who": "Who",
+      "what": "What",
+      "link": "Item"
+    },
+    "view": "View",
+    "empty": "No activity matches these filters.",
+    "summary": "Page {page} of {pages} · {total} entries",
+    "previous": "Previous",
+    "next": "Next",
+    "actions": {
+      "status_changed": "changed order #{order} from {from} to {to}",
+      "refunded": "refunded order #{order}",
+      "payment_succeeded": "recorded a payment for order #{order}",
+      "payment_failed": "recorded a failed payment for order #{order}",
+      "expired": "order #{order} expired without payment",
+      "MANUAL_ADJUSTMENT": "adjusted stock of {product} by {change}",
+      "RESTOCK": "restocked {product} by {change}",
+      "product_created": "created the product {label}",
+      "product_updated": "updated the product {label}",
+      "product_archived": "hid the product {label}",
+      "product_restored": "restored the product {label}",
+      "price_changed": "changed the price of {label} from {from} to {to}",
+      "shipping_zone_updated": "updated shipping for {label}: fee {feeFrom} to {feeTo}, {etaTo, plural, one {# day} other {# days}}",
+      "unknown": "made a change"
+    }
+  }
+}

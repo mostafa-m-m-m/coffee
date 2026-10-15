@@ -1,0 +1,522 @@
+<!doctype html>
+
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <title>Ember Roastery</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#ffdbd0",
+              "on-secondary-fixed": "#2c1600",
+              "secondary-container": "#ffca98",
+              "outline-variant": "#e1bfb5",
+              "surface-dim": "#e8d6cf",
+              surface: "#fff8f6",
+              "on-tertiary-container": "#ecf0ff",
+              "primary-fixed-dim": "#ffb59d",
+              tertiary: "#0051af",
+              "on-secondary-fixed-variant": "#623f18",
+              "surface-tint": "#ac3400",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-secondary-container": "#7a532a",
+              background: "#fff8f6",
+              "secondary-fixed-dim": "#f0bd8b",
+              "on-primary-fixed": "#390c00",
+              "on-tertiary-fixed-variant": "#004494",
+              "inverse-primary": "#ffb59d",
+              "surface-bright": "#fff8f6",
+              "on-tertiary-fixed": "#001a41",
+              "on-primary-fixed-variant": "#832600",
+              "inverse-on-surface": "#ffede6",
+              "surface-container-low": "#fff1eb",
+              "secondary-fixed": "#ffdcbd",
+              outline: "#8d7168",
+              "on-primary-container": "#ffece7",
+              primary: "#9b2f00",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#392e2a",
+              "tertiary-fixed": "#d8e2ff",
+              secondary: "#7d562d",
+              "error-container": "#ffdad6",
+              "on-background": "#231a15",
+              "primary-container": "#c2410c",
+              "surface-container": "#fdeae3",
+              "surface-variant": "#f1dfd8",
+              "surface-container-highest": "#f1dfd8",
+              "tertiary-fixed-dim": "#adc6ff",
+              "surface-container-high": "#f7e4dd",
+              "on-surface": "#231a15",
+              error: "#ba1a1a",
+              "on-error-container": "#93000a",
+              "on-primary": "#ffffff",
+              "tertiary-container": "#0069de",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#59413a",
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+            spacing: {
+              "space-xl": "2.5rem",
+              "space-md": "1rem",
+              "gutter-mobile": "1rem",
+              "margin-mobile": "1.25rem",
+              margin: "3rem",
+              "space-xs": "0.25rem",
+              "space-sm": "0.5rem",
+              gutter: "1.5rem",
+              "space-lg": "1.5rem",
+            },
+            fontFamily: {
+              "body-sm": ["IBM Plex Sans"],
+              "headline-lg": ["Bricolage Grotesque"],
+              "body-md": ["IBM Plex Sans"],
+              "label-data-lg": ["IBM Plex Mono"],
+              "label-data-sm": ["IBM Plex Mono"],
+              "headline-md": ["Bricolage Grotesque"],
+              "display-hero": ["Bricolage Grotesque"],
+              "headline-sm": ["Bricolage Grotesque"],
+              "label-data-md": ["IBM Plex Mono"],
+              "headline-lg-mobile": ["Bricolage Grotesque"],
+              "body-lg": ["IBM Plex Sans"],
+              "display-hero-mobile": ["Bricolage Grotesque"],
+            },
+            fontSize: {
+              "body-sm": [
+                "13px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "400" },
+              ],
+              "headline-lg": [
+                "40px",
+                { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600" },
+              ],
+              "body-md": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+              "label-data-lg": [
+                "16px",
+                { lineHeight: "24px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "label-data-sm": [
+                "12px",
+                { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "display-hero": [
+                "56px",
+                { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "700" },
+              ],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "label-data-md": [
+                "14px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "400" }],
+              "display-hero-mobile": [
+                "36px",
+                { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-background font-body-md text-on-surface antialiased">
+    <header
+      class="fixed top-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant"
+    >
+      <div class="h-20 max-w-[1360px] mx-auto px-margin flex items-center justify-between">
+        <div class="flex items-center gap-space-xl">
+          <a
+            class="flex items-center gap-space-sm group text-decoration-none"
+            data-path="home"
+            href="#"
+            ><div
+              class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary"
+            >
+              <span class="material-symbols-outlined text-[20px]">coffee</span>
+            </div>
+            <div class="flex flex-col text-right">
+              <span
+                class="font-headline-md text-headline-md tracking-tight leading-none text-on-surface lowercase"
+                >ember</span
+              ><span
+                class="font-label-data-sm text-label-data-sm tracking-[0.2em] text-primary uppercase leading-tight"
+                >roastery</span
+              >
+            </div></a
+          >
+          <nav
+            class="flex items-center gap-space-lg"
+            data-active-classes="text-primary font-body-md font-semibold border-b-2 border-primary pb-space-xs"
+          >
+            <a
+              class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors"
+              data-path="products"
+              href="#"
+              >المنتجات</a
+            ><a
+              class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors"
+              data-path="origins"
+              href="#"
+              >محاصيلنا</a
+            ><a
+              class="font-body-md text-body-md text-on-surface-variant hover:text-on-surface transition-colors"
+              data-path="subscriptions"
+              href="#"
+              >الاشتراكات</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-space-lg">
+          <div class="flex items-center gap-space-md">
+            <a
+              class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+              data-path="account"
+              href="#"
+              >حسابي</a
+            ><span class="text-outline-variant select-none">|</span
+            ><a
+              class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+              data-path="logout"
+              href="#"
+              >خروج</a
+            >
+          </div>
+          <div
+            class="flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container border border-outline-variant"
+          >
+            <button
+              class="font-label-data-sm text-label-data-sm font-semibold text-primary px-space-xs"
+              type="button"
+            >
+              AR</button
+            ><span class="text-outline-variant text-[11px]">|</span
+            ><button
+              class="font-label-data-sm text-label-data-sm text-on-surface-variant hover:text-on-surface px-space-xs"
+              type="button"
+            >
+              EN
+            </button>
+          </div>
+          <button
+            aria-label="Theme toggle"
+            class="h-9 px-space-sm rounded-lg border border-outline-variant bg-surface-container flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface transition-colors"
+            type="button"
+          >
+            <span class="text-[13px] leading-none">☾</span
+            ><span class="text-outline-variant text-[11px]">/</span
+            ><span class="text-[13px] leading-none">☀</span></button
+          ><a
+            class="relative flex items-center justify-center p-space-sm rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all"
+            data-path="cart"
+            href="#"
+            ><span class="material-symbols-outlined text-[22px]">shopping_bag</span
+            ><span
+              class="absolute -top-1 -left-1 min-w-[18px] h-[18px] px-1 rounded-full bg-primary text-on-primary font-label-data-sm text-[10px] leading-[18px] text-center"
+              >0</span
+            ></a
+          >
+        </div>
+      </div>
+    </header>
+    <main class="w-full pt-20 bg-background">
+      <div class="flex flex-col w-full bg-[#FAF6F1] py-12 px-4 sm:px-6">
+        <div class="w-full max-w-[560px] mx-auto flex flex-col gap-12">
+          <!-- STATE 1: CONFIRMED (تم التأكيد) -->
+          <section
+            class="w-full bg-[#FFFFFF] border border-[#E6DCD1] rounded-[12px] p-8 shadow-none text-right"
+          >
+            <div
+              class="w-14 h-14 rounded-full bg-emerald-50 text-[#15803D] flex items-center justify-center mx-auto mb-4"
+            >
+              <span
+                class="material-symbols-outlined text-[32px] leading-none"
+                style="font-variation-settings: &quot;wght&quot; 600"
+                >check</span
+              >
+            </div>
+            <h1 class="text-2xl font-bold text-center text-[#1C1612] mb-3">
+              شكرًا! تم تأكيد أوردرك ✓
+            </h1>
+            <div class="flex items-center justify-center gap-2 text-sm text-[#4A3E36] mb-6">
+              <span>رقم الأوردر: #52600 — الحالة:</span>
+              <span
+                class="bg-blue-50 text-blue-700 border border-blue-200 px-2.5 py-0.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-600 inline-block"></span>
+                مدفوع
+              </span>
+            </div>
+            <div class="border border-[#E6DCD1] rounded-lg p-4 bg-white mb-6 text-sm">
+              <div class="flex items-center justify-between py-2 border-b border-[#F0E8DF] gap-4">
+                <div class="flex flex-col text-right">
+                  <span class="font-medium text-[#1C1612]">Ethiopia Yirgacheffe – Light Roast</span>
+                  <span class="text-xs text-[#7D562D]">250g – Whole bean ×2</span>
+                </div>
+                <span class="font-mono font-medium text-[#1C1612] whitespace-nowrap">$36.00</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-[#F0E8DF] gap-4">
+                <div class="flex flex-col text-right">
+                  <span class="font-medium text-[#1C1612]">Colombia Huila – Medium Roast</span>
+                  <span class="text-xs text-[#7D562D]">500g – Medium grind ×1</span>
+                </div>
+                <span class="font-mono font-medium text-[#1C1612] whitespace-nowrap">$33.00</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-[#F0E8DF] gap-4">
+                <div class="flex flex-col text-right">
+                  <span class="font-medium text-[#1C1612]">V60 Dripper</span>
+                  <span class="text-xs text-[#7D562D]">Standard ×1</span>
+                </div>
+                <span class="font-mono font-medium text-[#1C1612] whitespace-nowrap">$28.00</span>
+              </div>
+              <div class="flex items-center justify-between py-2 text-[#1C1612]">
+                <span class="text-sm">الشحن</span>
+                <span class="font-medium">مجاني</span>
+              </div>
+              <div
+                class="flex items-center justify-between py-2 border-t border-[#E6DCD1] text-base font-bold text-[#1C1612]"
+              >
+                <span>الإجمالي</span>
+                <span class="font-mono">$97.00</span>
+              </div>
+            </div>
+            <a
+              class="block w-full py-3 bg-[#C2410C] hover:bg-[#9B2F00] text-white text-center rounded-lg font-medium transition-colors"
+              data-path="orders"
+              href="#"
+            >
+              أوردراتي
+            </a>
+          </section>
+          <!-- Visual separator for states preview -->
+          <div class="flex items-center gap-3 my-2 opacity-60">
+            <div class="h-[1px] bg-[#E6DCD1] flex-1"></div>
+            <span class="text-xs uppercase tracking-wider text-[#4A3E36] font-mono select-none"
+              >حالات الطلب الأخرى (STATE SPECIFICATIONS)</span
+            >
+            <div class="h-[1px] bg-[#E6DCD1] flex-1"></div>
+          </div>
+          <!-- STATE 2: CONFIRMING (جاري التأكيد) -->
+          <section
+            class="w-full bg-[#FFFFFF] border border-[#E6DCD1] rounded-[12px] p-8 shadow-none text-right"
+          >
+            <div
+              class="w-12 h-12 border-[3px] border-[#C2410C]/20 border-t-[#C2410C] rounded-full animate-spin mx-auto mb-4"
+            ></div>
+            <h1 class="text-2xl font-bold text-center text-[#1C1612] mb-3">جاري تأكيد الدفع…</h1>
+            <div class="flex items-center justify-center gap-2 text-sm text-[#4A3E36] mb-6">
+              <span>رقم الأوردر: #52600 — الحالة:</span>
+              <span
+                class="bg-amber-50 text-amber-700 border border-amber-200 px-2.5 py-0.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5"
+              >
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500 inline-block"></span>
+                قيد المراجعة
+              </span>
+            </div>
+            <div class="border border-[#E6DCD1] rounded-lg p-4 bg-white text-sm">
+              <div class="flex items-center justify-between py-2 border-b border-[#F0E8DF] gap-4">
+                <div class="flex flex-col text-right">
+                  <span class="font-medium text-[#1C1612]">Ethiopia Yirgacheffe – Light Roast</span>
+                  <span class="text-xs text-[#7D562D]">250g – Whole bean ×2</span>
+                </div>
+                <span class="font-mono font-medium text-[#1C1612] whitespace-nowrap">$36.00</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-[#F0E8DF] gap-4">
+                <div class="flex flex-col text-right">
+                  <span class="font-medium text-[#1C1612]">Colombia Huila – Medium Roast</span>
+                  <span class="text-xs text-[#7D562D]">500g – Medium grind ×1</span>
+                </div>
+                <span class="font-mono font-medium text-[#1C1612] whitespace-nowrap">$33.00</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-[#F0E8DF] gap-4">
+                <div class="flex flex-col text-right">
+                  <span class="font-medium text-[#1C1612]">V60 Dripper</span>
+                  <span class="text-xs text-[#7D562D]">Standard ×1</span>
+                </div>
+                <span class="font-mono font-medium text-[#1C1612] whitespace-nowrap">$28.00</span>
+              </div>
+              <div class="flex items-center justify-between py-2 text-[#1C1612]">
+                <span class="text-sm">الشحن</span>
+                <span class="font-medium">مجاني</span>
+              </div>
+              <div
+                class="flex items-center justify-between py-2 border-t border-[#E6DCD1] text-base font-bold text-[#1C1612]"
+              >
+                <span>الإجمالي</span>
+                <span class="font-mono">$97.00</span>
+              </div>
+            </div>
+          </section>
+          <!-- STATE 3: FAILED (تعذّر إتمام الأوردر) -->
+          <section
+            class="w-full bg-[#FFFFFF] border border-[#E6DCD1] rounded-[12px] p-8 shadow-none text-right"
+          >
+            <div class="border border-[#B91C1C] bg-red-50/50 rounded-lg p-4 text-center mb-6">
+              <h2 class="text-[#B91C1C] font-bold text-lg mb-1">تعذّر إتمام الأوردر</h2>
+              <p class="text-sm text-[#7F1D1D] m-0">
+                للأسف المنتج نفذ أثناء الدفع، وتم رد المبلغ كاملًا.
+              </p>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-sm text-[#4A3E36] mb-6">
+              <span>رقم الأوردر: #52600 — الحالة:</span>
+              <span
+                class="bg-red-50 text-red-700 border border-red-200 px-2.5 py-0.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5"
+              >
+                <span class="text-xs font-bold leading-none">✕</span>
+                ملغي
+              </span>
+            </div>
+            <div class="border border-[#E6DCD1] rounded-lg p-4 bg-white mb-6 text-sm">
+              <div class="flex items-center justify-between py-2 border-b border-[#F0E8DF] gap-4">
+                <div class="flex flex-col text-right">
+                  <span class="font-medium text-[#1C1612]">Ethiopia Yirgacheffe – Light Roast</span>
+                  <span class="text-xs text-[#7D562D]">250g – Whole bean ×2</span>
+                </div>
+                <span class="font-mono font-medium text-[#1C1612] whitespace-nowrap">$36.00</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-[#F0E8DF] gap-4">
+                <div class="flex flex-col text-right">
+                  <span class="font-medium text-[#1C1612]">Colombia Huila – Medium Roast</span>
+                  <span class="text-xs text-[#7D562D]">500g – Medium grind ×1</span>
+                </div>
+                <span class="font-mono font-medium text-[#1C1612] whitespace-nowrap">$33.00</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-[#F0E8DF] gap-4">
+                <div class="flex flex-col text-right">
+                  <span class="font-medium text-[#1C1612]">V60 Dripper</span>
+                  <span class="text-xs text-[#7D562D]">Standard ×1</span>
+                </div>
+                <span class="font-mono font-medium text-[#1C1612] whitespace-nowrap">$28.00</span>
+              </div>
+              <div class="flex items-center justify-between py-2 text-[#1C1612]">
+                <span class="text-sm">الشحن</span>
+                <span class="font-medium">مجاني</span>
+              </div>
+              <div
+                class="flex items-center justify-between py-2 border-t border-[#E6DCD1] text-base font-bold text-[#1C1612]"
+              >
+                <span>الإجمالي</span>
+                <span class="font-mono">$97.00</span>
+              </div>
+            </div>
+            <a
+              class="block w-full py-3 bg-[#C2410C] hover:bg-[#9B2F00] text-white text-center rounded-lg font-medium transition-colors"
+              data-path="products"
+              href="#"
+            >
+              تصفح المنتجات
+            </a>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="w-full bg-background border-t border-outline-variant py-space-xl">
+      <div
+        class="max-w-[1360px] mx-auto px-margin flex flex-col items-center gap-space-lg text-center"
+      >
+        <div class="flex flex-col items-center gap-space-xs">
+          <div
+            class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary mb-space-xs"
+          >
+            <span class="material-symbols-outlined text-[24px]">coffee</span>
+          </div>
+          <span
+            class="font-headline-md text-headline-md tracking-tight leading-none text-on-surface lowercase"
+            >ember</span
+          ><span
+            class="font-label-data-sm text-label-data-sm tracking-[0.25em] text-primary uppercase"
+            >roastery</span
+          >
+        </div>
+        <div
+          class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full border border-outline-variant bg-surface-container-high"
+        >
+          <span class="w-2 h-2 rounded-full bg-secondary-container"></span
+          ><span class="font-label-data-sm text-label-data-sm text-on-surface-variant"
+            >Stripe Test Mode</span
+          >
+        </div>
+        <nav
+          class="flex items-center justify-center flex-wrap gap-space-lg"
+          data-active-classes="text-primary font-semibold"
+        >
+          <a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="products"
+            href="#"
+            >المتجر</a
+          ><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="about"
+            href="#"
+            >عن إمبر</a
+          ><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="shipping"
+            href="#"
+            >الشحن والتوصيل</a
+          ><a
+            class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+            data-path="terms-and-privacy"
+            href="#"
+            >الشروط والخصوصية</a
+          >
+        </nav>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          © 2025 Ember Roastery جميع الحقوق محفوظة.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

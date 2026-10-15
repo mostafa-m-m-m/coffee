@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard Shell — Arabic Light Desktop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              crema: "#FAF6F1",
+              accent: "#C2410C",
+              "accent-hover": "#9A3412",
+              border: "#E6DCD1",
+              espresso: "#1C1612",
+              muted: "#6B5748",
+            },
+            fontFamily: {
+              sans: ['"IBM Plex Sans Arabic"', "sans-serif"],
+              display: ['"Bricolage Grotesque"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #faf6f1;
+        font-family: "IBM Plex Sans Arabic", sans-serif;
+        color: #1c1612;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+      }
+      .brand-heading {
+        font-family: "Bricolage Grotesque", "IBM Plex Sans Arabic", sans-serif;
+        letter-spacing: -0.02em;
+      }
+      .badge-viewer {
+        border: 1px solid #b45309;
+        color: #b45309;
+        background-color: #fffbeb;
+      }
+    </style>
+  </head>
+  <body class="bg-crema text-espresso">
+    <!-- FRAME 1: DEFAULT ADMIN ROLE (Overview active, no viewer pill) -->
+    <section class="border-b-4 border-dashed border-[#E6DCD1] pb-12 mb-12">
+      <div
+        class="px-8 py-3 bg-[#E6DCD1]/40 border-b border-[#E6DCD1] text-xs font-semibold text-muted flex items-center justify-between"
+      >
+        <span
+          >إطار لوحة التحكم (ADMIN DASHBOARD SHELL) — الحالة 1: دور المدير (ADMIN) — "نظرة عامة"
+          نشطة</span
+        >
+        <span class="font-mono text-[11px]">1360 × 900 · Arabic RTL Light</span>
+      </div>
+
+      <div class="w-[1360px] h-[900px] mx-auto bg-crema flex overflow-hidden shadow-sm relative">
+        <!-- FIXED SIDEBAR (224px at START edge / Right in RTL) -->
+        <aside
+          class="w-[224px] h-full bg-white border-l border-border flex flex-col justify-between shrink-0 z-20"
+        >
+          <!-- Top Section: Logo & Nav -->
+          <div>
+            <!-- Logo Header -->
+            <div class="h-14 px-5 flex items-center border-b border-border">
+              <a href="/" class="flex items-center gap-2.5">
+                <!-- Flat Bean Vector -->
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="shrink-0">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                    fill="#C2410C"
+                  />
+                  <path d="M12 4c-1.8 3.5-1.8 12.5 0 16 1.8-3.5 1.8-12.5 0-16z" fill="#C2410C" />
+                </svg>
+                <div class="flex flex-col">
+                  <span
+                    class="text-base font-bold leading-tight tracking-tight text-espresso font-display lowercase"
+                    >ember</span
+                  >
+                  <span class="text-[8px] tracking-[0.2em] font-bold text-muted -mt-0.5"
+                    >ROASTERY</span
+                  >
+                </div>
+              </a>
+            </div>
+
+            <!-- Navigation Items -->
+            <nav class="p-3 space-y-1">
+              <!-- نظرة عامة (Active) -->
+              <a
+                href="#overview"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg bg-accent text-white font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">📊</span>
+                <span>نظرة عامة</span>
+              </a>
+
+              <!-- الأوردرات -->
+              <a
+                href="#orders"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">🧾</span>
+                <span>الأوردرات</span>
+              </a>
+
+              <!-- المنتجات -->
+              <a
+                href="#products"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">☕</span>
+                <span>المنتجات</span>
+              </a>
+
+              <!-- العملاء -->
+              <a
+                href="#customers"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">👥</span>
+                <span>العملاء</span>
+              </a>
+
+              <!-- التحليلات -->
+              <a
+                href="#analytics"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">📈</span>
+                <span>التحليلات</span>
+              </a>
+            </nav>
+          </div>
+
+          <!-- Bottom Section: Back to Store Link -->
+          <div class="p-4 border-t border-border">
+            <a
+              href="/"
+              class="flex items-center gap-2 text-xs font-medium text-muted hover:text-espresso transition-colors"
+            >
+              <span>←</span>
+              <span>العودة للمتجر</span>
+            </a>
+          </div>
+        </aside>
+
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden">
+          <!-- TOP BAR (56px high, white, 1px bottom border) -->
+          <header
+            class="h-14 bg-white border-b border-border px-8 flex items-center justify-between shrink-0"
+          >
+            <!-- Start side (Visually Right): empty for Admin -->
+            <div class="flex items-center">
+              <!-- No viewer pill for Admin -->
+            </div>
+
+            <!-- End side (Visually Left in RTL): user name, theme toggle, AR|EN, خروج -->
+            <div class="flex items-center gap-5 text-sm">
+              <span class="font-medium text-espresso">Demo Viewer</span>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <!-- Theme toggle -->
+              <button
+                type="button"
+                class="text-muted hover:text-espresso text-sm p-1 transition-colors"
+                title="تبديل المظهر"
+              >
+                ☾
+              </button>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <!-- AR|EN switch -->
+              <div class="flex items-center text-xs font-semibold">
+                <span class="text-espresso">AR</span>
+                <span class="mx-1 text-border">|</span>
+                <span class="text-muted hover:text-espresso cursor-pointer">EN</span>
+              </div>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <!-- Logout link -->
+              <a
+                href="/logout"
+                class="text-xs font-medium text-muted hover:text-accent transition-colors"
+                >خروج</a
+              >
+            </div>
+          </header>
+
+          <!-- CONTENT AREA (Crema background, 24-32px padding) -->
+          <main class="flex-1 overflow-y-auto p-8 bg-crema">
+            <div class="max-w-[1080px] mx-auto space-y-6">
+              <!-- Page Title -->
+              <h1 class="text-2xl font-bold brand-heading text-espresso">نظرة عامة</h1>
+
+              <!-- Placeholder Card -->
+              <div
+                class="bg-white border border-border rounded-xl p-8 min-h-[360px] flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-crema flex items-center justify-center text-xl mb-3 text-accent border border-border"
+                >
+                  📊
+                </div>
+                <p class="text-sm font-medium text-espresso mb-1">مساحة محتوى نظرة عامة</p>
+                <p class="text-xs text-muted max-w-sm">
+                  سيتم عرض مؤشرات الأداء، الأوردرات الحديثة، وموجز العمليات هنا.
+                </p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRAME 2: VIEWER ROLE (With amber-outlined viewer pill) -->
+    <section class="border-b-4 border-dashed border-[#E6DCD1] pb-12 mb-12">
+      <div
+        class="px-8 py-3 bg-[#E6DCD1]/40 border-b border-[#E6DCD1] text-xs font-semibold text-muted flex items-center justify-between"
+      >
+        <span
+          >إطار لوحة التحكم (ADMIN DASHBOARD SHELL) — الحالة 2: دور المشاهد (VIEWER) — شارة "وضع
+          المشاهدة — التعديل غير متاح"</span
+        >
+        <span class="font-mono text-[11px]">1360 × 900 · Arabic RTL Light</span>
+      </div>
+
+      <div class="w-[1360px] h-[900px] mx-auto bg-crema flex overflow-hidden shadow-sm relative">
+        <!-- FIXED SIDEBAR (224px at START edge / Right in RTL) -->
+        <aside
+          class="w-[224px] h-full bg-white border-l border-border flex flex-col justify-between shrink-0 z-20"
+        >
+          <div>
+            <!-- Logo Header -->
+            <div class="h-14 px-5 flex items-center border-b border-border">
+              <a href="/" class="flex items-center gap-2.5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="shrink-0">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                    fill="#C2410C"
+                  />
+                  <path d="M12 4c-1.8 3.5-1.8 12.5 0 16 1.8-3.5 1.8-12.5 0-16z" fill="#C2410C" />
+                </svg>
+                <div class="flex flex-col">
+                  <span
+                    class="text-base font-bold leading-tight tracking-tight text-espresso font-display lowercase"
+                    >ember</span
+                  >
+                  <span class="text-[8px] tracking-[0.2em] font-bold text-muted -mt-0.5"
+                    >ROASTERY</span
+                  >
+                </div>
+              </a>
+            </div>
+
+            <!-- Navigation Items -->
+            <nav class="p-3 space-y-1">
+              <a
+                href="#overview"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg bg-accent text-white font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">📊</span>
+                <span>نظرة عامة</span>
+              </a>
+              <a
+                href="#orders"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">🧾</span>
+                <span>الأوردرات</span>
+              </a>
+              <a
+                href="#products"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">☕</span>
+                <span>المنتجات</span>
+              </a>
+              <a
+                href="#customers"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">👥</span>
+                <span>العملاء</span>
+              </a>
+              <a
+                href="#analytics"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">📈</span>
+                <span>التحليلات</span>
+              </a>
+            </nav>
+          </div>
+
+          <div class="p-4 border-t border-border">
+            <a
+              href="/"
+              class="flex items-center gap-2 text-xs font-medium text-muted hover:text-espresso transition-colors"
+            >
+              <span>←</span>
+              <span>العودة للمتجر</span>
+            </a>
+          </div>
+        </aside>
+
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden">
+          <!-- TOP BAR (56px high, white, 1px bottom border) -->
+          <header
+            class="h-14 bg-white border-b border-border px-8 flex items-center justify-between shrink-0"
+          >
+            <!-- Start side (Visually Right): VIEWER PILL -->
+            <div class="flex items-center">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium badge-viewer"
+              >
+                وضع المشاهدة — التعديل غير متاح
+              </span>
+            </div>
+
+            <!-- End side (Visually Left in RTL): user name, theme toggle, AR|EN, خروج -->
+            <div class="flex items-center gap-5 text-sm">
+              <span class="font-medium text-espresso">Demo Viewer</span>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <button
+                type="button"
+                class="text-muted hover:text-espresso text-sm p-1 transition-colors"
+                title="تبديل المظهر"
+              >
+                ☾
+              </button>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <div class="flex items-center text-xs font-semibold">
+                <span class="text-espresso">AR</span>
+                <span class="mx-1 text-border">|</span>
+                <span class="text-muted hover:text-espresso cursor-pointer">EN</span>
+              </div>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <a
+                href="/logout"
+                class="text-xs font-medium text-muted hover:text-accent transition-colors"
+                >خروج</a
+              >
+            </div>
+          </header>
+
+          <!-- CONTENT AREA -->
+          <main class="flex-1 overflow-y-auto p-8 bg-crema">
+            <div class="max-w-[1080px] mx-auto space-y-6">
+              <h1 class="text-2xl font-bold brand-heading text-espresso">نظرة عامة</h1>
+              <div
+                class="bg-white border border-border rounded-xl p-8 min-h-[360px] flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-crema flex items-center justify-center text-xl mb-3 text-accent border border-border"
+                >
+                  📊
+                </div>
+                <p class="text-sm font-medium text-espresso mb-1">مساحة محتوى نظرة عامة</p>
+                <p class="text-xs text-muted max-w-sm">
+                  سيتم عرض مؤشرات الأداء، الأوردرات الحديثة، وموجز العمليات هنا.
+                </p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+
+    <!-- FRAME 3: ACTIVE ITEM = ORDERS (Showing active state styling on S2) -->
+    <section class="pb-12">
+      <div
+        class="px-8 py-3 bg-[#E6DCD1]/40 border-b border-[#E6DCD1] text-xs font-semibold text-muted flex items-center justify-between"
+      >
+        <span
+          >إطار لوحة التحكم (ADMIN DASHBOARD SHELL) — الحالة 3: التحديد النشط = الأوردرات (Active =
+          Orders)</span
+        >
+        <span class="font-mono text-[11px]">1360 × 900 · Arabic RTL Light</span>
+      </div>
+
+      <div class="w-[1360px] h-[900px] mx-auto bg-crema flex overflow-hidden shadow-sm relative">
+        <!-- FIXED SIDEBAR (224px at START edge / Right in RTL) -->
+        <aside
+          class="w-[224px] h-full bg-white border-l border-border flex flex-col justify-between shrink-0 z-20"
+        >
+          <div>
+            <!-- Logo Header -->
+            <div class="h-14 px-5 flex items-center border-b border-border">
+              <a href="/" class="flex items-center gap-2.5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="shrink-0">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+                    fill="#C2410C"
+                  />
+                  <path d="M12 4c-1.8 3.5-1.8 12.5 0 16 1.8-3.5 1.8-12.5 0-16z" fill="#C2410C" />
+                </svg>
+                <div class="flex flex-col">
+                  <span
+                    class="text-base font-bold leading-tight tracking-tight text-espresso font-display lowercase"
+                    >ember</span
+                  >
+                  <span class="text-[8px] tracking-[0.2em] font-bold text-muted -mt-0.5"
+                    >ROASTERY</span
+                  >
+                </div>
+              </a>
+            </div>
+
+            <!-- Navigation Items: Orders Active -->
+            <nav class="p-3 space-y-1">
+              <!-- نظرة عامة (Inactive) -->
+              <a
+                href="#overview"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">📊</span>
+                <span>نظرة عامة</span>
+              </a>
+
+              <!-- الأوردرات (Active) -->
+              <a
+                href="#orders"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg bg-accent text-white font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">🧾</span>
+                <span>الأوردرات</span>
+              </a>
+
+              <!-- المنتجات -->
+              <a
+                href="#products"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">☕</span>
+                <span>المنتجات</span>
+              </a>
+
+              <!-- العملاء -->
+              <a
+                href="#customers"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">👥</span>
+                <span>العملاء</span>
+              </a>
+
+              <!-- التحليلات -->
+              <a
+                href="#analytics"
+                class="flex items-center gap-2.5 px-3 h-10 rounded-lg text-espresso hover:bg-crema font-medium text-sm transition-colors"
+              >
+                <span class="text-base leading-none">📈</span>
+                <span>التحليلات</span>
+              </a>
+            </nav>
+          </div>
+
+          <div class="p-4 border-t border-border">
+            <a
+              href="/"
+              class="flex items-center gap-2 text-xs font-medium text-muted hover:text-espresso transition-colors"
+            >
+              <span>←</span>
+              <span>العودة للمتجر</span>
+            </a>
+          </div>
+        </aside>
+
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden">
+          <!-- TOP BAR (56px high, white, 1px bottom border) -->
+          <header
+            class="h-14 bg-white border-b border-border px-8 flex items-center justify-between shrink-0"
+          >
+            <!-- Start side (Visually Right): VIEWER PILL -->
+            <div class="flex items-center">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium badge-viewer"
+              >
+                وضع المشاهدة — التعديل غير متاح
+              </span>
+            </div>
+
+            <!-- End side (Visually Left in RTL): user name, theme toggle, AR|EN, خروج -->
+            <div class="flex items-center gap-5 text-sm">
+              <span class="font-medium text-espresso">Demo Viewer</span>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <button
+                type="button"
+                class="text-muted hover:text-espresso text-sm p-1 transition-colors"
+                title="تبديل المظهر"
+              >
+                ☾
+              </button>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <div class="flex items-center text-xs font-semibold">
+                <span class="text-espresso">AR</span>
+                <span class="mx-1 text-border">|</span>
+                <span class="text-muted hover:text-espresso cursor-pointer">EN</span>
+              </div>
+              <div class="h-4 w-[1px] bg-border"></div>
+              <a
+                href="/logout"
+                class="text-xs font-medium text-muted hover:text-accent transition-colors"
+                >خروج</a
+              >
+            </div>
+          </header>
+
+          <!-- CONTENT AREA -->
+          <main class="flex-1 overflow-y-auto p-8 bg-crema">
+            <div class="max-w-[1080px] mx-auto space-y-6">
+              <h1 class="text-2xl font-bold brand-heading text-espresso">الأوردرات</h1>
+              <div
+                class="bg-white border border-border rounded-xl p-8 min-h-[360px] flex flex-col items-center justify-center text-center"
+              >
+                <div
+                  class="w-12 h-12 rounded-full bg-crema flex items-center justify-center text-xl mb-3 text-accent border border-border"
+                >
+                  🧾
+                </div>
+                <p class="text-sm font-medium text-espresso mb-1">مساحة محتوى الأوردرات</p>
+                <p class="text-xs text-muted max-w-sm">
+                  سيتم عرض قائمة طلبات العملاء وحالات الدفع والشحن هنا.
+                </p>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

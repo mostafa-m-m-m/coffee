@@ -1,0 +1,841 @@
+<!doctype html>
+
+<html dir="rtl" lang="ar">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+      name="viewport"
+    />
+    <meta content="mobile_stack" name="shell-type" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#ac3400",
+              "on-secondary-container": "#7a532a",
+              "surface-container-lowest": "#ffffff",
+              error: "#ba1a1a",
+              "on-primary": "#ffffff",
+              "on-error": "#ffffff",
+              outline: "#8d7168",
+              "surface-variant": "#f1dfd8",
+              "tertiary-fixed-dim": "#adc6ff",
+              "surface-container-low": "#fff1eb",
+              "outline-variant": "#e1bfb5",
+              "primary-fixed": "#ffdbd0",
+              "on-primary-fixed": "#390c00",
+              "surface-container-high": "#f7e4dd",
+              "inverse-surface": "#392e2a",
+              "on-primary-fixed-variant": "#832600",
+              "on-surface": "#231a15",
+              "secondary-fixed-dim": "#f0bd8b",
+              "primary-container": "#c2410c",
+              "surface-dim": "#e8d6cf",
+              primary: "#9b2f00",
+              "surface-container": "#fdeae3",
+              "inverse-primary": "#ffb59d",
+              surface: "#fff8f6",
+              "error-container": "#ffdad6",
+              "secondary-container": "#ffca98",
+              "inverse-on-surface": "#ffede6",
+              "on-surface-variant": "#59413a",
+              "on-secondary-fixed-variant": "#623f18",
+              "primary-fixed-dim": "#ffb59d",
+              "surface-bright": "#fff8f6",
+              "tertiary-fixed": "#d8e2ff",
+              "on-tertiary": "#ffffff",
+              background: "#fff8f6",
+              "on-primary-container": "#ffece7",
+              "on-secondary-fixed": "#2c1600",
+              tertiary: "#0051af",
+              "surface-container-highest": "#f1dfd8",
+              "secondary-fixed": "#ffdcbd",
+              "on-background": "#231a15",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#ecf0ff",
+              "on-tertiary-fixed-variant": "#004494",
+              "tertiary-container": "#0069de",
+              "on-tertiary-fixed": "#001a41",
+              "on-error-container": "#93000a",
+              secondary: "#7d562d",
+            },
+            borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+            spacing: {
+              "space-xs": "0.25rem",
+              "margin-mobile": "1.25rem",
+              "space-md": "1rem",
+              "gutter-mobile": "1rem",
+              "space-sm": "0.5rem",
+              gutter: "1.5rem",
+              "space-xl": "2.5rem",
+              "space-lg": "1.5rem",
+              margin: "3rem",
+            },
+            fontFamily: {
+              "body-md": ["IBM Plex Sans Arabic", "IBM Plex Sans"],
+              "headline-lg-mobile": ["Bricolage Grotesque", "IBM Plex Sans Arabic"],
+              "headline-lg": ["Bricolage Grotesque", "IBM Plex Sans Arabic"],
+              "headline-md": ["Bricolage Grotesque", "IBM Plex Sans Arabic"],
+              "label-data-sm": ["IBM Plex Mono"],
+              "display-hero-mobile": ["Bricolage Grotesque", "IBM Plex Sans Arabic"],
+              "display-hero": ["Bricolage Grotesque", "IBM Plex Sans Arabic"],
+              "body-sm": ["IBM Plex Sans Arabic", "IBM Plex Sans"],
+              "body-lg": ["IBM Plex Sans Arabic", "IBM Plex Sans"],
+              "label-data-lg": ["IBM Plex Mono"],
+              "headline-sm": ["Bricolage Grotesque", "IBM Plex Sans Arabic"],
+              "label-data-md": ["IBM Plex Mono"],
+            },
+            fontSize: {
+              "body-md": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+              "headline-lg-mobile": [
+                "28px",
+                { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "headline-lg": [
+                "40px",
+                { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "600" },
+              ],
+              "headline-md": [
+                "24px",
+                { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600" },
+              ],
+              "label-data-sm": [
+                "12px",
+                { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" },
+              ],
+              "display-hero-mobile": [
+                "36px",
+                { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" },
+              ],
+              "display-hero": [
+                "56px",
+                { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "700" },
+              ],
+              "body-sm": [
+                "13px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "400" },
+              ],
+              "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "0em", fontWeight: "400" }],
+              "label-data-lg": [
+                "16px",
+                { lineHeight: "24px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "headline-sm": [
+                "20px",
+                { lineHeight: "28px", letterSpacing: "0em", fontWeight: "600" },
+              ],
+              "label-data-md": [
+                "14px",
+                { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior-y: none;
+        }
+        .pb-safe {
+          padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+        .pt-safe {
+          padding-top: env(safe-area-inset-top, 0px);
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface font-body-md text-body-md antialiased flex flex-col min-h-screen"
+  >
+    <header
+      class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"
+    >
+      <div class="h-16 px-gutter-mobile flex items-center justify-between">
+        <div class="flex items-center gap-space-sm">
+          <div
+            class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary"
+          >
+            <span class="material-symbols-outlined text-[20px]">local_fire_department</span>
+          </div>
+          <div class="flex flex-col text-right leading-none">
+            <span
+              class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight lowercase font-['Bricolage_Grotesque']"
+              >ember</span
+            ><span
+              class="font-label-data-sm text-[10px] text-primary tracking-widest uppercase font-semibold font-['Bricolage_Grotesque']"
+              >ROASTERY</span
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-space-xs">
+          <a
+            class="relative w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"
+            data-path="cart"
+            href="#"
+            ><span class="material-symbols-outlined text-[24px]">shopping_bag</span
+            ><span
+              class="absolute top-1.5 start-1.5 min-w-[18px] h-[18px] px-1 bg-primary text-on-primary rounded-full font-label-data-sm text-[11px] font-bold flex items-center justify-center leading-none"
+              >2</span
+            ></a
+          ><button
+            aria-label="قائمة التصفح"
+            class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-[26px]">menu</span>
+          </button>
+          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ms-space-xs">
+            <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="flex-1 flex flex-col relative w-full pt-16 bg-surface">
+      <div
+        class="flex flex-col w-full text-[#1C1612] bg-[#FAF6F1] font-['Bricolage_Grotesque','IBM_Plex_Sans_Arabic']"
+        dir="rtl"
+      >
+        <!-- PRIMARY LIVE INTERACTIVE CART VIEW -->
+        <div class="w-full max-w-[390px] mx-auto px-4 pt-4 pb-28 relative">
+          <!-- Screen Header -->
+          <h1 class="text-2xl font-bold mb-4 tracking-tight text-[#1C1612]">العربة</h1>
+          <!-- Subtotal & Shipping Summary Box -->
+          <div
+            class="bg-white rounded-xl border border-[#E6DCD1] p-3 mb-4 space-y-2"
+            id="cart-summary-box"
+          >
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-[#6B5748]">المجموع</span>
+              <span class="font-semibold text-[#1C1612]" id="summary-subtotal">$97.00</span>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-[#6B5748]">الشحن</span>
+              <span class="font-semibold text-[#1C1612]" id="summary-shipping">مجاني</span>
+            </div>
+          </div>
+          <!-- Line-Items List -->
+          <div class="space-y-3" id="items-container">
+            <!-- Item 1 -->
+            <div
+              class="cart-card bg-white rounded-xl border border-[#E6DCD1] p-3"
+              data-price="18.00"
+              id="item-row-1"
+            >
+              <div class="flex items-center gap-3">
+                <!-- Bean Art Tile -->
+                <div
+                  class="w-[72px] h-[72px] rounded-lg shrink-0 relative overflow-hidden bg-gradient-to-br from-[#4A2E1F] to-[#2B1F18] flex flex-col items-center justify-between p-1.5 shadow-sm"
+                >
+                  <div
+                    class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(194,65,12,0.35)_0%,transparent_70%)] pointer-events-none"
+                  ></div>
+                  <div
+                    class="relative w-8 h-8 mt-1 transform rotate-[28deg] flex items-center justify-center"
+                  >
+                    <svg class="w-full h-full drop-shadow" viewbox="0 0 40 40">
+                      <ellipse cx="20" cy="20" fill="#FAF6F1" rx="14" ry="19"></ellipse>
+                      <path
+                        d="M 20,4 C 23,12 17,28 20,36"
+                        fill="none"
+                        stroke="#C2410C"
+                        stroke-linecap="round"
+                        stroke-width="2.5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span
+                    class="relative text-[8px] leading-tight text-[#FAF6F1] font-serif tracking-tight truncate w-full text-center"
+                    >Ethiopia</span
+                  >
+                </div>
+                <!-- Info -->
+                <div class="flex flex-col flex-1 min-w-0">
+                  <a
+                    class="font-semibold text-sm leading-snug text-[#1C1612] truncate hover:text-[#C2410C] transition-colors"
+                    href="#"
+                    >Ethiopia Yirgacheffe – Light Roast</a
+                  >
+                  <span class="text-[12px] text-[#6B5748] mt-0.5">250g – Whole bean</span>
+                  <span class="text-xs text-[#1C1612] font-semibold mt-1">$18.00</span>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between border-t border-[#E6DCD1]/60 pt-2.5 mt-2.5"
+              >
+                <!-- Stepper -->
+                <div class="flex items-center gap-1">
+                  <button
+                    aria-label="Decrease quantity"
+                    class="w-9 h-9 min-h-[44px] min-w-[36px] flex items-center justify-center bg-[#FAF6F1] border border-[#E6DCD1] rounded text-[#1C1612] font-semibold active:bg-[#E6DCD1] transition-colors"
+                    onclick="updateQty(1, -1)"
+                  >
+                    −
+                  </button>
+                  <span class="w-7 text-center font-semibold text-sm text-[#1C1612]" id="qty-1"
+                    >2</span
+                  >
+                  <button
+                    aria-label="Increase quantity"
+                    class="w-9 h-9 min-h-[44px] min-w-[36px] flex items-center justify-center bg-[#FAF6F1] border border-[#E6DCD1] rounded text-[#1C1612] font-semibold active:bg-[#E6DCD1] transition-colors"
+                    onclick="updateQty(1, 1)"
+                  >
+                    +
+                  </button>
+                </div>
+                <!-- Total & Remove -->
+                <div class="flex items-center gap-3">
+                  <span class="font-semibold text-sm text-[#1C1612]" id="total-1">$36.00</span>
+                  <button
+                    class="text-xs font-semibold text-[#B91C1C] hover:opacity-80 transition-opacity"
+                    onclick="removeItem(1)"
+                  >
+                    حذف
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Item 2 -->
+            <div
+              class="cart-card bg-white rounded-xl border border-[#E6DCD1] p-3"
+              data-price="33.00"
+              id="item-row-2"
+            >
+              <div class="flex items-center gap-3">
+                <!-- Bean Art Tile -->
+                <div
+                  class="w-[72px] h-[72px] rounded-lg shrink-0 relative overflow-hidden bg-gradient-to-br from-[#4A2E1F] to-[#2B1F18] flex flex-col items-center justify-between p-1.5 shadow-sm"
+                >
+                  <div
+                    class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(194,65,12,0.35)_0%,transparent_70%)] pointer-events-none"
+                  ></div>
+                  <div
+                    class="relative w-8 h-8 mt-1 transform rotate-[28deg] flex items-center justify-center"
+                  >
+                    <svg class="w-full h-full drop-shadow" viewbox="0 0 40 40">
+                      <ellipse cx="20" cy="20" fill="#FAF6F1" rx="14" ry="19"></ellipse>
+                      <path
+                        d="M 20,4 C 23,12 17,28 20,36"
+                        fill="none"
+                        stroke="#C2410C"
+                        stroke-linecap="round"
+                        stroke-width="2.5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span
+                    class="relative text-[8px] leading-tight text-[#FAF6F1] font-serif tracking-tight truncate w-full text-center"
+                    >Colombia</span
+                  >
+                </div>
+                <!-- Info -->
+                <div class="flex flex-col flex-1 min-w-0">
+                  <a
+                    class="font-semibold text-sm leading-snug text-[#1C1612] truncate hover:text-[#C2410C] transition-colors"
+                    href="#"
+                    >Colombia Huila – Medium Roast</a
+                  >
+                  <span class="text-[12px] text-[#6B5748] mt-0.5">500g – Medium grind</span>
+                  <span class="text-xs text-[#1C1612] font-semibold mt-1">$33.00</span>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between border-t border-[#E6DCD1]/60 pt-2.5 mt-2.5"
+              >
+                <!-- Stepper -->
+                <div class="flex items-center gap-1">
+                  <button
+                    aria-label="Decrease quantity"
+                    class="w-9 h-9 min-h-[44px] min-w-[36px] flex items-center justify-center bg-[#FAF6F1] border border-[#E6DCD1] rounded text-[#1C1612] font-semibold active:bg-[#E6DCD1] transition-colors"
+                    onclick="updateQty(2, -1)"
+                  >
+                    −
+                  </button>
+                  <span class="w-7 text-center font-semibold text-sm text-[#1C1612]" id="qty-2"
+                    >1</span
+                  >
+                  <button
+                    aria-label="Increase quantity"
+                    class="w-9 h-9 min-h-[44px] min-w-[36px] flex items-center justify-center bg-[#FAF6F1] border border-[#E6DCD1] rounded text-[#1C1612] font-semibold active:bg-[#E6DCD1] transition-colors"
+                    onclick="updateQty(2, 1)"
+                  >
+                    +
+                  </button>
+                </div>
+                <!-- Total & Remove -->
+                <div class="flex items-center gap-3">
+                  <span class="font-semibold text-sm text-[#1C1612]" id="total-2">$33.00</span>
+                  <button
+                    class="text-xs font-semibold text-[#B91C1C] hover:opacity-80 transition-opacity"
+                    onclick="removeItem(2)"
+                  >
+                    حذف
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Item 3 -->
+            <div
+              class="cart-card bg-white rounded-xl border border-[#E6DCD1] p-3"
+              data-price="28.00"
+              id="item-row-3"
+            >
+              <div class="flex items-center gap-3">
+                <!-- Bean Art Tile -->
+                <div
+                  class="w-[72px] h-[72px] rounded-lg shrink-0 relative overflow-hidden bg-gradient-to-br from-[#4A2E1F] to-[#2B1F18] flex flex-col items-center justify-between p-1.5 shadow-sm"
+                >
+                  <div
+                    class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(194,65,12,0.35)_0%,transparent_70%)] pointer-events-none"
+                  ></div>
+                  <div
+                    class="relative w-8 h-8 mt-1 transform rotate-[28deg] flex items-center justify-center"
+                  >
+                    <svg class="w-full h-full drop-shadow" viewbox="0 0 40 40">
+                      <ellipse cx="20" cy="20" fill="#FAF6F1" rx="14" ry="19"></ellipse>
+                      <path
+                        d="M 20,4 C 23,12 17,28 20,36"
+                        fill="none"
+                        stroke="#C2410C"
+                        stroke-linecap="round"
+                        stroke-width="2.5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span
+                    class="relative text-[8px] leading-tight text-[#FAF6F1] font-serif tracking-tight truncate w-full text-center"
+                    >V60 Dripper</span
+                  >
+                </div>
+                <!-- Info -->
+                <div class="flex flex-col flex-1 min-w-0">
+                  <a
+                    class="font-semibold text-sm leading-snug text-[#1C1612] truncate hover:text-[#C2410C] transition-colors"
+                    href="#"
+                    >V60 Dripper</a
+                  >
+                  <span class="text-[12px] text-[#6B5748] mt-0.5">Standard</span>
+                  <span class="text-xs text-[#1C1612] font-semibold mt-1">$28.00</span>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between border-t border-[#E6DCD1]/60 pt-2.5 mt-2.5"
+              >
+                <!-- Stepper -->
+                <div class="flex items-center gap-1">
+                  <button
+                    aria-label="Decrease quantity"
+                    class="w-9 h-9 min-h-[44px] min-w-[36px] flex items-center justify-center bg-[#FAF6F1] border border-[#E6DCD1] rounded text-[#1C1612] font-semibold active:bg-[#E6DCD1] transition-colors"
+                    onclick="updateQty(3, -1)"
+                  >
+                    −
+                  </button>
+                  <span class="w-7 text-center font-semibold text-sm text-[#1C1612]" id="qty-3"
+                    >1</span
+                  >
+                  <button
+                    aria-label="Increase quantity"
+                    class="w-9 h-9 min-h-[44px] min-w-[36px] flex items-center justify-center bg-[#FAF6F1] border border-[#E6DCD1] rounded text-[#1C1612] font-semibold active:bg-[#E6DCD1] transition-colors"
+                    onclick="updateQty(3, 1)"
+                  >
+                    +
+                  </button>
+                </div>
+                <!-- Total & Remove -->
+                <div class="flex items-center gap-3">
+                  <span class="font-semibold text-sm text-[#1C1612]" id="total-3">$28.00</span>
+                  <button
+                    class="text-xs font-semibold text-[#B91C1C] hover:opacity-80 transition-opacity"
+                    onclick="removeItem(3)"
+                  >
+                    حذف
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Sticky Bottom Bar for Mobile -->
+          <div
+            class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto bg-white border-t border-[#E6DCD1] p-3.5 flex items-center justify-between z-40"
+          >
+            <div class="flex flex-col">
+              <span class="text-[12px] text-[#6B5748] leading-none">الإجمالي</span>
+              <span
+                class="font-semibold text-lg text-[#1C1612] mt-1 leading-none"
+                id="sticky-grand-total"
+                >$97.00</span
+              >
+            </div>
+            <button
+              class="bg-[#C2410C] hover:bg-[#a33609] active:bg-[#832b07] text-white font-bold min-h-[44px] px-6 rounded-lg text-sm transition-colors flex items-center justify-center"
+            >
+              إتمام الشراء
+            </button>
+          </div>
+        </div>
+        <!-- SEPARATOR -->
+        <div class="w-full max-w-[390px] mx-auto px-4 my-8">
+          <div class="h-[1px] bg-[#E6DCD1] w-full"></div>
+          <p class="text-center text-xs font-semibold text-[#6B5748] mt-2">
+            معاينة الحالات الوظيفية المختلفة
+          </p>
+        </div>
+        <!-- DEDICATED STATE FRAMES CONTAINER -->
+        <div class="w-full max-w-[390px] mx-auto px-4 pb-16 space-y-10">
+          <!-- UNDER $50 SHIPPING CASE DEMO -->
+          <section class="space-y-2">
+            <span class="text-xs font-semibold text-[#6B5748] block"
+              >حالة: طلب أقل من $50 (شحن بقيمة $5.00)</span
+            >
+            <div class="bg-white rounded-xl border border-[#E6DCD1] p-3 space-y-2">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-[#6B5748]">المجموع</span>
+                <span class="font-semibold text-[#1C1612]">$36.00</span>
+              </div>
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-[#6B5748]">الشحن</span>
+                <span class="font-semibold text-[#1C1612]">$5.00</span>
+              </div>
+              <div class="border-t border-[#E6DCD1] pt-2 flex items-center justify-between text-sm">
+                <span class="text-[#1C1612] font-semibold">الإجمالي النهائي</span>
+                <span class="font-semibold text-[#1C1612]">$41.00</span>
+              </div>
+            </div>
+          </section>
+          <!-- STATE FRAME (A): STOCK PROBLEM -->
+          <section class="space-y-2">
+            <span class="text-xs font-semibold text-[#6B5748] block">حالة: مشكلة في المخزون</span>
+            <div class="bg-white rounded-xl border border-[#E6DCD1] p-3">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-[72px] h-[72px] rounded-lg shrink-0 relative overflow-hidden bg-gradient-to-br from-[#4A2E1F] to-[#2B1F18] flex flex-col items-center justify-between p-1.5 shadow-sm"
+                >
+                  <div
+                    class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(194,65,12,0.35)_0%,transparent_70%)] pointer-events-none"
+                  ></div>
+                  <div
+                    class="relative w-8 h-8 mt-1 transform rotate-[28deg] flex items-center justify-center"
+                  >
+                    <svg class="w-full h-full drop-shadow" viewbox="0 0 40 40">
+                      <ellipse cx="20" cy="20" fill="#FAF6F1" rx="14" ry="19"></ellipse>
+                      <path
+                        d="M 20,4 C 23,12 17,28 20,36"
+                        fill="none"
+                        stroke="#C2410C"
+                        stroke-linecap="round"
+                        stroke-width="2.5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <span
+                    class="relative text-[8px] leading-tight text-[#FAF6F1] font-serif tracking-tight truncate w-full text-center"
+                    >Ethiopia</span
+                  >
+                </div>
+                <div class="flex flex-col flex-1 min-w-0">
+                  <span class="font-semibold text-sm leading-snug text-[#1C1612] truncate"
+                    >Ethiopia Yirgacheffe – Light Roast</span
+                  >
+                  <span class="text-[12px] text-[#6B5748] mt-0.5">250g – Whole bean</span>
+                  <span class="text-[12px] text-[#B91C1C] font-semibold mt-0.5">المتاح 2 فقط</span>
+                  <span class="text-xs text-[#1C1612] font-semibold mt-1">$18.00</span>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between border-t border-[#E6DCD1]/60 pt-2.5 mt-2.5"
+              >
+                <div class="flex items-center gap-1">
+                  <button
+                    class="w-9 h-9 min-h-[44px] min-w-[36px] flex items-center justify-center bg-[#FAF6F1] border border-[#E6DCD1] rounded text-[#1C1612] font-semibold"
+                  >
+                    −
+                  </button>
+                  <span class="w-7 text-center font-semibold text-sm text-[#1C1612]">2</span>
+                  <button
+                    class="w-9 h-9 min-h-[44px] min-w-[36px] flex items-center justify-center bg-[#FAF6F1] border border-[#E6DCD1] rounded text-[#1C1612] font-semibold opacity-50 cursor-not-allowed"
+                    disabled=""
+                  >
+                    +
+                  </button>
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="font-semibold text-sm text-[#1C1612]">$36.00</span>
+                  <button class="text-xs font-semibold text-[#B91C1C]">حذف</button>
+                </div>
+              </div>
+            </div>
+            <!-- Summary Bar Disabled State with Notice -->
+            <div class="bg-white rounded-xl border border-[#E6DCD1] p-3.5 space-y-2">
+              <p class="text-[12px] text-[#B91C1C] leading-snug">
+                عدّل الكميات أو احذف المنتجات غير المتاحة قبل المتابعة.
+              </p>
+              <div class="flex items-center justify-between pt-1 border-t border-[#E6DCD1]/60">
+                <div class="flex flex-col">
+                  <span class="text-[12px] text-[#6B5748]">الإجمالي</span>
+                  <span class="font-semibold text-base text-[#1C1612]">$36.00</span>
+                </div>
+                <button
+                  class="bg-[#E6DCD1] text-[#6B5748] font-bold min-h-[44px] px-6 rounded-lg text-sm cursor-not-allowed opacity-60"
+                  disabled=""
+                >
+                  إتمام الشراء
+                </button>
+              </div>
+            </div>
+          </section>
+          <!-- STATE FRAME (B): UNAVAILABLE PRODUCT -->
+          <section class="space-y-2">
+            <span class="text-xs font-semibold text-[#6B5748] block">حالة: منتج غير متاح</span>
+            <div
+              class="bg-white rounded-xl border border-[#E6DCD1] p-3 flex items-center justify-between"
+            >
+              <span class="text-sm font-medium text-[#6B5748]">منتج لم يعد متاحًا</span>
+              <button class="text-xs font-semibold text-[#B91C1C] py-2 px-1">حذف</button>
+            </div>
+          </section>
+          <!-- STATE FRAME (C): EMPTY CART -->
+          <section class="space-y-2">
+            <span class="text-xs font-semibold text-[#6B5748] block">حالة: العربة فاضية</span>
+            <div
+              class="bg-white rounded-xl border border-dashed border-[#E6DCD1] p-8 text-center flex flex-col items-center justify-center space-y-4"
+            >
+              <!-- Centered Bean Mark -->
+              <div
+                class="w-16 h-16 rounded-full bg-[#FAF6F1] border border-[#E6DCD1] flex items-center justify-center"
+              >
+                <div class="w-10 h-10 transform rotate-[28deg] flex items-center justify-center">
+                  <svg class="w-full h-full drop-shadow" viewbox="0 0 40 40">
+                    <ellipse
+                      cx="20"
+                      cy="20"
+                      fill="#FAF6F1"
+                      rx="14"
+                      ry="19"
+                      stroke="#E6DCD1"
+                      stroke-width="1"
+                    ></ellipse>
+                    <path
+                      d="M 20,4 C 23,12 17,28 20,36"
+                      fill="none"
+                      stroke="#C2410C"
+                      stroke-linecap="round"
+                      stroke-width="2.5"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <h2 class="text-lg font-bold text-[#1C1612]">العربة فاضية.</h2>
+              <button
+                class="bg-[#C2410C] hover:bg-[#a33609] text-white font-bold min-h-[44px] px-6 rounded-lg text-sm transition-colors"
+              >
+                ابدأ التسوق
+              </button>
+            </div>
+          </section>
+          <!-- STATE FRAME (D): LOADING (SKELETON) -->
+          <section class="space-y-2">
+            <span class="text-xs font-semibold text-[#6B5748] block"
+              >حالة: جاري التحميل - Skeleton</span
+            >
+            <div class="space-y-3 animate-pulse">
+              <!-- Skeleton Summary Box -->
+              <div class="bg-white rounded-xl border border-[#E6DCD1] p-3 space-y-2.5">
+                <div class="flex justify-between items-center">
+                  <div class="h-3.5 w-16 bg-[#E6DCD1]/60 rounded"></div>
+                  <div class="h-3.5 w-14 bg-[#E6DCD1]/60 rounded"></div>
+                </div>
+                <div class="flex justify-between items-center">
+                  <div class="h-3.5 w-12 bg-[#E6DCD1]/60 rounded"></div>
+                  <div class="h-3.5 w-10 bg-[#E6DCD1]/60 rounded"></div>
+                </div>
+              </div>
+              <!-- Skeleton Item Card 1 -->
+              <div class="bg-white rounded-xl border border-[#E6DCD1] p-3 space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-[72px] h-[72px] bg-[#E6DCD1]/60 rounded-lg shrink-0"></div>
+                  <div class="flex-1 space-y-2">
+                    <div class="h-4 w-3/4 bg-[#E6DCD1]/60 rounded"></div>
+                    <div class="h-3 w-1/2 bg-[#E6DCD1]/40 rounded"></div>
+                    <div class="h-3.5 w-12 bg-[#E6DCD1]/60 rounded"></div>
+                  </div>
+                </div>
+                <div class="border-t border-[#E6DCD1]/60 pt-2.5 flex items-center justify-between">
+                  <div class="h-8 w-24 bg-[#E6DCD1]/50 rounded"></div>
+                  <div class="h-4 w-12 bg-[#E6DCD1]/50 rounded"></div>
+                </div>
+              </div>
+              <!-- Skeleton Item Card 2 -->
+              <div class="bg-white rounded-xl border border-[#E6DCD1] p-3 space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-[72px] h-[72px] bg-[#E6DCD1]/60 rounded-lg shrink-0"></div>
+                  <div class="flex-1 space-y-2">
+                    <div class="h-4 w-2/3 bg-[#E6DCD1]/60 rounded"></div>
+                    <div class="h-3 w-1/3 bg-[#E6DCD1]/40 rounded"></div>
+                    <div class="h-3.5 w-12 bg-[#E6DCD1]/60 rounded"></div>
+                  </div>
+                </div>
+                <div class="border-t border-[#E6DCD1]/60 pt-2.5 flex items-center justify-between">
+                  <div class="h-8 w-24 bg-[#E6DCD1]/50 rounded"></div>
+                  <div class="h-4 w-12 bg-[#E6DCD1]/50 rounded"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- STATE FRAME (E): ERROR -->
+          <section class="space-y-2">
+            <span class="text-xs font-semibold text-[#6B5748] block">حالة: خطأ في التحميل</span>
+            <div class="bg-white rounded-xl border border-[#E6DCD1] p-6 text-center space-y-4">
+              <p class="text-sm font-semibold text-[#1C1612]">حصل خطأ في تحميل العربة.</p>
+              <button
+                class="bg-[#C2410C] hover:bg-[#a33609] text-white font-bold min-h-[44px] px-6 rounded-lg text-sm transition-colors"
+              >
+                حاول تاني
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+      <script>
+        // Simple interactive client recalculation for live interactive top cart
+        const items = {
+          1: { price: 18.0, qty: 2 },
+          2: { price: 33.0, qty: 1 },
+          3: { price: 28.0, qty: 1 },
+        };
+
+        function updateQty(id, delta) {
+          if (!items[id]) return;
+          const nextQty = items[id].qty + delta;
+          if (nextQty <= 0) {
+            removeItem(id);
+            return;
+          }
+          items[id].qty = nextQty;
+          document.getElementById(`qty-${id}`).innerText = items[id].qty;
+          const itemTotal = (items[id].qty * items[id].price).toFixed(2);
+          document.getElementById(`total-${id}`).innerText = `$${itemTotal}`;
+          recalc();
+        }
+
+        function removeItem(id) {
+          const row = document.getElementById(`item-row-${id}`);
+          if (row) {
+            row.remove();
+            delete items[id];
+            recalc();
+          }
+        }
+
+        function recalc() {
+          let subtotal = 0;
+          for (const id in items) {
+            subtotal += items[id].qty * items[id].price;
+          }
+
+          const subtotalEl = document.getElementById("summary-subtotal");
+          const shippingEl = document.getElementById("summary-shipping");
+          const grandTotalEl = document.getElementById("sticky-grand-total");
+
+          if (Object.keys(items).length === 0) {
+            subtotalEl.innerText = "$0.00";
+            shippingEl.innerText = "$0.00";
+            grandTotalEl.innerText = "$0.00";
+            return;
+          }
+
+          subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+
+          let shippingCost = 0;
+          if (subtotal >= 50) {
+            shippingEl.innerText = "مجاني";
+            shippingCost = 0;
+          } else {
+            shippingCost = 5.0;
+            shippingEl.innerText = "$5.00";
+          }
+
+          const grandTotal = subtotal + shippingCost;
+          grandTotalEl.innerText = `$${grandTotal.toFixed(2)}`;
+        }
+      </script>
+      <footer
+        class="w-full px-gutter-mobile pt-space-xl pb-safe flex flex-col items-center text-center mt-auto bg-surface"
+      >
+        <div class="flex flex-col items-center gap-space-xs mb-space-md">
+          <div
+            class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary"
+          >
+            <span class="material-symbols-outlined text-[24px]">local_fire_department</span>
+          </div>
+          <span class="font-headline-sm text-headline-sm text-on-surface font-bold lowercase"
+            >ember</span
+          ><span
+            class="font-label-data-sm text-[10px] text-primary tracking-widest uppercase font-semibold"
+            >ROASTERY</span
+          >
+        </div>
+        <div
+          class="flex flex-wrap items-center justify-center gap-space-md text-on-surface-variant font-body-sm text-body-sm mb-space-md"
+        >
+          <a class="hover:text-primary transition-colors" data-path="coffee-catalog" href="#"
+            >المحصولات</a
+          ><span class="text-outline-variant">•</span
+          ><a class="hover:text-primary transition-colors" data-path="brew-guides" href="#"
+            >طرق التحضير</a
+          ><span class="text-outline-variant">•</span
+          ><a class="hover:text-primary transition-colors" data-path="about-roastery" href="#"
+            >قصتنا</a
+          ><span class="text-outline-variant">•</span
+          ><a class="hover:text-primary transition-colors" data-path="privacy-terms" href="#"
+            >الشروط والخصوصية</a
+          >
+        </div>
+        <div
+          class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-data-sm text-label-data-sm mb-space-lg"
+        >
+          <span class="material-symbols-outlined text-[16px] text-tertiary">shield</span
+          ><span>وضع الاختبار لـ Stripe مفعّل</span>
+        </div>
+        <p
+          class="font-label-data-sm text-[12px] text-on-surface-variant tracking-normal pb-space-lg"
+        >
+          © Ember Roastery 2025. جميع الحقوق محفوظة.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

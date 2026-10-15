@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Menu — Arabic Light Mobile (390×844)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-crema: #faf6f1;
+        --card-white: #ffffff;
+        --border-subtle: #e6dcd1;
+        --text-espresso: #1c1612;
+        --text-muted: #7e7469;
+        --accent-ember: #c2410c;
+        --accent-soft: #f9ebe6;
+        --scrim: rgba(28, 22, 18, 0.5);
+        --font-brand: "Bricolage Grotesque", sans-serif;
+        --font-body: "IBM Plex Sans Arabic", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #ede5dc;
+        font-family: var(--font-body);
+        color: var(--text-espresso);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        padding: 2.5rem 1rem;
+      }
+
+      .section-label {
+        font-family: var(--font-brand);
+        font-weight: 700;
+        font-size: 0.875rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 0.75rem;
+        text-align: center;
+      }
+
+      /* Mobile Device Canvas Frame (390x844) */
+      .mobile-frame {
+        width: 390px;
+        height: 844px;
+        background-color: var(--bg-crema);
+        position: relative;
+        overflow: hidden;
+        box-shadow:
+          0 16px 36px -10px rgba(28, 22, 18, 0.18),
+          0 0 0 1px rgba(28, 22, 18, 0.08);
+        border-radius: 28px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Underlying Store Home Screen Simulation */
+      .store-bg-content {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-crema);
+        filter: blur(0.5px);
+      }
+
+      .store-header-mock {
+        height: 60px;
+        background: var(--card-white);
+        border-bottom: 1px solid var(--border-subtle);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+      }
+
+      .store-body-mock {
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .hero-banner-mock {
+        background: #efe7dc;
+        border: 1px solid var(--border-subtle);
+        border-radius: 12px;
+        height: 140px;
+        padding: 16px;
+      }
+
+      .products-mock-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .mock-card {
+        background: var(--card-white);
+        border: 1px solid var(--border-subtle);
+        border-radius: 8px;
+        height: 150px;
+        padding: 10px;
+      }
+
+      /* Scrim layer */
+      .scrim-overlay {
+        position: absolute;
+        inset: 0;
+        background-color: var(--scrim);
+        z-index: 20;
+      }
+
+      /* Sliding Drawer Sheet (300px wide, from right / START edge in RTL) */
+      .drawer-sheet {
+        position: absolute;
+        top: 0;
+        right: 0; /* start edge in RTL */
+        width: 300px;
+        height: 100%;
+        background-color: var(--card-white);
+        border-left: 1px solid var(--border-subtle); /* inner edge */
+        z-index: 30;
+        display: flex;
+        flex-direction: column;
+        box-shadow: -6px 0 24px rgba(28, 22, 18, 0.12);
+      }
+
+      /* Drawer Header */
+      .drawer-header {
+        height: 64px;
+        padding: 0 16px 0 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .brand-lockup {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .bean-icon {
+        width: 22px;
+        height: 22px;
+        color: var(--accent-ember);
+        flex-shrink: 0;
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+      }
+
+      .brand-roastery {
+        font-family: var(--font-brand);
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        color: var(--text-espresso);
+        text-transform: uppercase;
+        margin-bottom: 1px;
+      }
+
+      .brand-name {
+        font-family: var(--font-brand);
+        font-size: 19px;
+        font-weight: 800;
+        color: var(--text-espresso);
+        letter-spacing: -0.02em;
+      }
+
+      .close-button {
+        width: 44px;
+        height: 44px;
+        border: none;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--text-espresso);
+        border-radius: 8px;
+        outline: none;
+      }
+
+      .close-button:hover {
+        background-color: var(--bg-crema);
+      }
+
+      .close-button svg {
+        width: 20px;
+        height: 20px;
+        stroke-width: 2;
+      }
+
+      /* Navigation list */
+      .drawer-body {
+        flex: 1;
+        padding: 12px 0;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-item {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px 0 16px;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text-espresso);
+        text-decoration: none;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+
+      .nav-item:hover {
+        background-color: var(--bg-crema);
+      }
+
+      /* Active Highlight State */
+      .nav-item.active {
+        color: var(--accent-ember);
+        font-weight: 700;
+        background-color: var(--accent-soft);
+      }
+
+      .nav-item.active::before {
+        content: "";
+        position: absolute;
+        right: 0; /* start edge bar in RTL */
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background-color: var(--accent-ember);
+      }
+
+      .item-label-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .cart-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 20px;
+        height: 20px;
+        padding: 0 6px;
+        border-radius: 10px;
+        background-color: var(--accent-ember);
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 700;
+        font-family: var(--font-brand);
+        line-height: 1;
+      }
+
+      /* Divider */
+      .drawer-divider {
+        height: 1px;
+        background-color: var(--border-subtle);
+        margin: 16px 16px 18px 16px;
+      }
+
+      /* Preferences section */
+      .prefs-section {
+        padding: 0 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .pref-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 44px;
+      }
+
+      .pref-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-muted);
+      }
+
+      /* Segmented Control */
+      .segmented-control {
+        display: flex;
+        background: var(--bg-crema);
+        border: 1px solid var(--border-subtle);
+        border-radius: 8px;
+        padding: 3px;
+        width: 124px;
+        height: 36px;
+      }
+
+      .segment-btn {
+        flex: 1;
+        border: none;
+        background: transparent;
+        border-radius: 6px;
+        font-family: var(--font-body);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-muted);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.15s ease;
+      }
+
+      .segment-btn.active {
+        background: var(--card-white);
+        color: var(--text-espresso);
+        box-shadow: 0 1px 3px rgba(28, 22, 18, 0.08);
+        font-weight: 700;
+      }
+
+      .frames-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+        max-width: 1320px;
+      }
+
+      .frame-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .frame-title-tag {
+        font-family: var(--font-brand);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        background: #ffffff;
+        border: 1px solid var(--border-subtle);
+        padding: 6px 14px;
+        border-radius: 20px;
+        margin-bottom: 14px;
+        color: var(--text-espresso);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frames-wrapper">
+      <!-- ==============================================
+         FRAME A: GUEST (زائر)
+         المنتجات، العربة، دخول
+         ============================================== -->
+      <div class="frame-container">
+        <div class="frame-title-tag">FRAME (A) — زائر (GUEST)</div>
+        <div class="mobile-frame">
+          <!-- Underlying Store Page Mock -->
+          <div class="store-bg-content">
+            <div class="store-header-mock">
+              <div style="font-family: var(--font-brand); font-weight: 800; font-size: 16px">
+                ember
+              </div>
+              <div style="font-size: 18px">☰</div>
+            </div>
+            <div class="store-body-mock">
+              <div class="hero-banner-mock">
+                <div style="font-weight: 700; font-size: 16px; margin-bottom: 6px">
+                  قهوة مختصة، محمصة بعناية.
+                </div>
+                <div style="font-size: 12px; color: var(--text-muted)">
+                  محاصيل فردية المصدر ومعالجة دقيقة.
+                </div>
+              </div>
+              <div class="products-mock-grid">
+                <div class="mock-card"></div>
+                <div class="mock-card"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 50% Espresso Scrim -->
+          <div class="scrim-overlay"></div>
+
+          <!-- Sheet Drawer -->
+          <div class="drawer-sheet">
+            <!-- Top Row: Logo + 44px Close Button -->
+            <div class="drawer-header">
+              <a href="/" class="brand-lockup">
+                <svg
+                  class="bean-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <ellipse
+                    cx="12"
+                    cy="12"
+                    rx="7"
+                    ry="10"
+                    transform="rotate(15 12 12)"
+                    stroke="currentColor"
+                    fill="none"
+                  />
+                  <path d="M11 4C13 8 11 16 13 20" stroke="currentColor" stroke-linecap="round" />
+                </svg>
+                <div class="brand-text">
+                  <span class="brand-roastery">ROASTERY</span>
+                  <span class="brand-name">ember</span>
+                </div>
+              </a>
+              <button class="close-button" aria-label="إغلاق القائمة">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Vertical list: 44px+ rows -->
+            <div class="drawer-body">
+              <nav>
+                <ul class="nav-list">
+                  <!-- Highlighted active item: "المنتجات" with 3px accent bar on start edge -->
+                  <li>
+                    <a href="/products" class="nav-item active">
+                      <span class="item-label">المنتجات</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/cart" class="nav-item">
+                      <span class="item-label-group">
+                        <span class="item-label">العربة</span>
+                        <span class="cart-badge">2</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/login" class="nav-item">
+                      <span class="item-label">دخول</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+              <div class="drawer-divider"></div>
+
+              <div class="prefs-section">
+                <!-- Row: اللغة with segmented control AR | EN -->
+                <div class="pref-row">
+                  <span class="pref-label">اللغة</span>
+                  <div class="segmented-control">
+                    <button class="segment-btn active">AR</button>
+                    <button class="segment-btn">EN</button>
+                  </div>
+                </div>
+
+                <!-- Row: المظهر with segmented control ☀ | ☾ -->
+                <div class="pref-row">
+                  <span class="pref-label">المظهر</span>
+                  <div class="segmented-control">
+                    <button class="segment-btn active">☀</button>
+                    <button class="segment-btn">☾</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==============================================
+         FRAME B: CUSTOMER (عميل)
+         المنتجات، العربة، حسابي، خروج
+         ============================================== -->
+      <div class="frame-container">
+        <div class="frame-title-tag">FRAME (B) — عميل (CUSTOMER)</div>
+        <div class="mobile-frame">
+          <!-- Underlying Store Page Mock -->
+          <div class="store-bg-content">
+            <div class="store-header-mock">
+              <div style="font-family: var(--font-brand); font-weight: 800; font-size: 16px">
+                ember
+              </div>
+              <div style="font-size: 18px">☰</div>
+            </div>
+            <div class="store-body-mock">
+              <div class="hero-banner-mock">
+                <div style="font-weight: 700; font-size: 16px; margin-bottom: 6px">
+                  قهوة مختصة، محمصة بعناية.
+                </div>
+                <div style="font-size: 12px; color: var(--text-muted)">
+                  محاصيل فردية المصدر ومعالجة دقيقة.
+                </div>
+              </div>
+              <div class="products-mock-grid">
+                <div class="mock-card"></div>
+                <div class="mock-card"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 50% Espresso Scrim -->
+          <div class="scrim-overlay"></div>
+
+          <!-- Sheet Drawer -->
+          <div class="drawer-sheet">
+            <!-- Top Row: Logo + Close -->
+            <div class="drawer-header">
+              <a href="/" class="brand-lockup">
+                <svg
+                  class="bean-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <ellipse
+                    cx="12"
+                    cy="12"
+                    rx="7"
+                    ry="10"
+                    transform="rotate(15 12 12)"
+                    stroke="currentColor"
+                    fill="none"
+                  />
+                  <path d="M11 4C13 8 11 16 13 20" stroke="currentColor" stroke-linecap="round" />
+                </svg>
+                <div class="brand-text">
+                  <span class="brand-roastery">ROASTERY</span>
+                  <span class="brand-name">ember</span>
+                </div>
+              </a>
+              <button class="close-button" aria-label="إغلاق القائمة">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Vertical list: 44px+ rows -->
+            <div class="drawer-body">
+              <nav>
+                <ul class="nav-list">
+                  <li>
+                    <a href="/products" class="nav-item">
+                      <span class="item-label">المنتجات</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/cart" class="nav-item">
+                      <span class="item-label-group">
+                        <span class="item-label">العربة</span>
+                        <span class="cart-badge">2</span>
+                      </span>
+                    </a>
+                  </li>
+                  <!-- Highlighted active item: "حسابي" with 3px accent bar on start edge -->
+                  <li>
+                    <a href="/account" class="nav-item active">
+                      <span class="item-label">حسابي</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/logout" class="nav-item">
+                      <span class="item-label">خروج</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+              <div class="drawer-divider"></div>
+
+              <div class="prefs-section">
+                <!-- Row: اللغة with segmented control AR | EN -->
+                <div class="pref-row">
+                  <span class="pref-label">اللغة</span>
+                  <div class="segmented-control">
+                    <button class="segment-btn active">AR</button>
+                    <button class="segment-btn">EN</button>
+                  </div>
+                </div>
+
+                <!-- Row: المظهر with segmented control ☀ | ☾ -->
+                <div class="pref-row">
+                  <span class="pref-label">المظهر</span>
+                  <div class="segmented-control">
+                    <button class="segment-btn active">☀</button>
+                    <button class="segment-btn">☾</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==============================================
+         FRAME C: STAFF (إدارة / فريق العمل)
+         المنتجات، العربة، حسابي، لوحة التحكم، خروج
+         ============================================== -->
+      <div class="frame-container">
+        <div class="frame-title-tag">FRAME (C) — إدارة (STAFF)</div>
+        <div class="mobile-frame">
+          <!-- Underlying Store Page Mock -->
+          <div class="store-bg-content">
+            <div class="store-header-mock">
+              <div style="font-family: var(--font-brand); font-weight: 800; font-size: 16px">
+                ember
+              </div>
+              <div style="font-size: 18px">☰</div>
+            </div>
+            <div class="store-body-mock">
+              <div class="hero-banner-mock">
+                <div style="font-weight: 700; font-size: 16px; margin-bottom: 6px">
+                  قهوة مختصة، محمصة بعناية.
+                </div>
+                <div style="font-size: 12px; color: var(--text-muted)">
+                  محاصيل فردية المصدر ومعالجة دقيقة.
+                </div>
+              </div>
+              <div class="products-mock-grid">
+                <div class="mock-card"></div>
+                <div class="mock-card"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 50% Espresso Scrim -->
+          <div class="scrim-overlay"></div>
+
+          <!-- Sheet Drawer -->
+          <div class="drawer-sheet">
+            <!-- Top Row: Logo + Close -->
+            <div class="drawer-header">
+              <a href="/" class="brand-lockup">
+                <svg
+                  class="bean-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <ellipse
+                    cx="12"
+                    cy="12"
+                    rx="7"
+                    ry="10"
+                    transform="rotate(15 12 12)"
+                    stroke="currentColor"
+                    fill="none"
+                  />
+                  <path d="M11 4C13 8 11 16 13 20" stroke="currentColor" stroke-linecap="round" />
+                </svg>
+                <div class="brand-text">
+                  <span class="brand-roastery">ROASTERY</span>
+                  <span class="brand-name">ember</span>
+                </div>
+              </a>
+              <button class="close-button" aria-label="إغلاق القائمة">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Vertical list: 44px+ rows -->
+            <div class="drawer-body">
+              <nav>
+                <ul class="nav-list">
+                  <li>
+                    <a href="/products" class="nav-item">
+                      <span class="item-label">المنتجات</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/cart" class="nav-item">
+                      <span class="item-label-group">
+                        <span class="item-label">العربة</span>
+                        <span class="cart-badge">2</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/account" class="nav-item">
+                      <span class="item-label">حسابي</span>
+                    </a>
+                  </li>
+                  <!-- Highlighted active item: "لوحة التحكم" with 3px accent bar on start edge -->
+                  <li>
+                    <a href="/admin" class="nav-item active">
+                      <span class="item-label">لوحة التحكم</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/logout" class="nav-item">
+                      <span class="item-label">خروج</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+
+              <div class="drawer-divider"></div>
+
+              <div class="prefs-section">
+                <!-- Row: اللغة with segmented control AR | EN -->
+                <div class="pref-row">
+                  <span class="pref-label">اللغة</span>
+                  <div class="segmented-control">
+                    <button class="segment-btn active">AR</button>
+                    <button class="segment-btn">EN</button>
+                  </div>
+                </div>
+
+                <!-- Row: المظهر with segmented control ☀ | ☾ -->
+                <div class="pref-row">
+                  <span class="pref-label">المظهر</span>
+                  <div class="segmented-control">
+                    <button class="segment-btn active">☀</button>
+                    <button class="segment-btn">☾</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

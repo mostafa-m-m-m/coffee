@@ -1,0 +1,48 @@
+{
+  "greeting": "Hi {name},",
+  "footer": "This is a demo store: no real orders are shipped and no money is charged.",
+  "ignore": "If you didn't ask for this, you can ignore this email.",
+  "verify": {
+    "subject": "Confirm your email",
+    "heading": "Confirm your email",
+    "text": "Thanks for creating an account. Confirm your email address to finish setting it up.",
+    "button": "Confirm email"
+  },
+  "reset": {
+    "subject": "Reset your password",
+    "heading": "Reset your password",
+    "text": "We got a request to reset the password of your account. The link works for {hours, number, integer} hour and can be used once.",
+    "button": "Choose a new password"
+  },
+  "orderConfirmed": {
+    "subject": "Order #{number} confirmed",
+    "heading": "Your order is confirmed",
+    "text": "Thank you! We're getting order #{number} ready.",
+    "items": "Items",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "freeShipping": "Free",
+    "vat": "Includes {rate, number, percent} VAT",
+    "total": "Total",
+    "deliverTo": "Delivering to",
+    "paidByCard": "Paid by card (test payment).",
+    "payCourier": "Pay the courier {amount} when your order arrives.",
+    "view": "View your order"
+  },
+  "shipped": {
+    "subject": "Order #{number} is on its way",
+    "heading": "Your order has shipped",
+    "text": "Order #{number} left our roastery and is on its way to you."
+  },
+  "apology": {
+    "subject": "About your order #{number}",
+    "heading": "We're sorry, an item ran out",
+    "text": "While your payment was going through, an item in order #{number} sold out. We cancelled the order and refunded your payment in full."
+  },
+  "backInStock": {
+    "subject": "Back in stock: {name}",
+    "heading": "It's back in stock",
+    "text": "{name} ({variant}) is available again. Stock is limited, so don't wait too long.",
+    "button": "View the product"
+  }
+}

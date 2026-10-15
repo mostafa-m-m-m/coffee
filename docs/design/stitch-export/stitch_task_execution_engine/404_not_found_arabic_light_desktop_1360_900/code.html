@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الصفحة غير موجودة (404) | Ember Roastery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              crema: "#FAF6F1",
+              accent: "#C2410C",
+              "accent-hover": "#9A3412",
+              border: "#E6DCD1",
+              dark: "#1C1917",
+              muted: "#78716C",
+            },
+            fontFamily: {
+              heading: ['"Bricolage Grotesque"', '"IBM Plex Sans Arabic"', "sans-serif"],
+              body: ['"IBM Plex Sans Arabic"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #faf6f1;
+        color: #1c1917;
+        font-family: "IBM Plex Sans Arabic", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      .font-heading {
+        font-family: "Bricolage Grotesque", "IBM Plex Sans Arabic", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen flex flex-col bg-[#FAF6F1] text-[#1C1917] antialiased">
+    <!-- STORE HEADER (Desktop 1360px) -->
+    <header class="sticky top-0 z-40 bg-white border-b border-[#E6DCD1]">
+      <div class="max-w-[1360px] mx-auto px-8 h-20 flex items-center justify-between">
+        <!-- Start: Logo Lockup -->
+        <a href="/home" class="flex items-center gap-3 group">
+          <svg
+            class="w-8 h-8 text-[#C2410C]"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <ellipse
+              cx="20"
+              cy="20"
+              rx="14"
+              ry="18"
+              fill="#F2EAE0"
+              stroke="#C2410C"
+              stroke-width="2.5"
+            />
+            <path
+              d="M20 5C20 14 26 18 20 25C14 32 20 35 20 35"
+              stroke="#C2410C"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              fill="none"
+            />
+          </svg>
+          <div class="flex flex-col">
+            <span
+              class="text-xs tracking-widest text-[#78716C] uppercase font-bold leading-none mb-1"
+              >ROASTERY</span
+            >
+            <span
+              class="font-heading font-extrabold text-2xl lowercase tracking-tight leading-none text-[#1C1917]"
+              >ember</span
+            >
+          </div>
+        </a>
+
+        <!-- Center: Navigation Links -->
+        <nav class="flex items-center gap-8 text-[15px] font-medium text-[#1C1917]">
+          <a href="/home" class="hover:text-[#C2410C] transition-colors">الرئيسية</a>
+          <a href="/products" class="hover:text-[#C2410C] transition-colors">المنتجات</a>
+          <a href="/about" class="hover:text-[#C2410C] transition-colors">عن إمبر</a>
+          <a href="/subscriptions" class="hover:text-[#C2410C] transition-colors">الاشتراكات</a>
+        </nav>
+
+        <!-- End: Customer links, AR/EN, Theme, Cart -->
+        <div class="flex items-center gap-6">
+          <a href="/account" class="text-sm font-medium hover:text-[#C2410C] transition-colors"
+            >حسابي</a
+          >
+          <a
+            href="/logout"
+            class="text-sm font-medium text-[#78716C] hover:text-[#1C1917] transition-colors"
+            >خروج</a
+          >
+          <span class="text-[#E6DCD1]">|</span>
+          <div class="text-xs font-semibold tracking-wider text-[#78716C]">
+            <span class="text-[#1C1917]">AR</span> <span class="text-[#E6DCD1]">|</span>
+            <a href="#en" class="hover:text-[#1C1917]">EN</a>
+          </div>
+          <button
+            class="text-base text-[#78716C] hover:text-[#1C1917] transition-colors"
+            title="تبديل السمة"
+          >
+            ☾
+          </button>
+          <a
+            href="/cart"
+            class="relative flex items-center p-2 rounded-lg hover:bg-[#FAF6F1] transition-colors"
+            title="العربة"
+          >
+            <svg
+              class="w-5 h-5 text-[#1C1917]"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+              />
+            </svg>
+            <span
+              class="absolute -top-1 -left-1 bg-[#C2410C] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center"
+              >2</span
+            >
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN ERROR / 404 CONTENT -->
+    <main class="flex-1 flex items-center justify-center py-20 px-4">
+      <div class="w-full max-w-[560px] text-center flex flex-col items-center">
+        <!-- 80px Bean Mark -->
+        <div class="w-20 h-20 mb-8 flex items-center justify-center">
+          <svg
+            class="w-20 h-20 text-[#C2410C]"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <ellipse
+              cx="20"
+              cy="20"
+              rx="14"
+              ry="18"
+              fill="#F2EAE0"
+              stroke="#C2410C"
+              stroke-width="2.2"
+            />
+            <path
+              d="M20 5C20 14 26 18 20 25C14 32 20 35 20 35"
+              stroke="#C2410C"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+        <!-- H1 -->
+        <h1
+          class="font-heading font-extrabold text-3xl sm:text-4xl text-[#1C1917] tracking-tight mb-4"
+        >
+          الصفحة دي مش موجودة
+        </h1>
+
+        <!-- One Muted Sentence -->
+        <p class="text-[#78716C] text-base leading-relaxed mb-8 max-w-[420px]">
+          ممكن يكون الرابط اتغير أو المنتج اتشال من المتجر.
+        </p>
+
+        <!-- Two Buttons: Primary "تصفح المنتجات" + Secondary "الرئيسية" -->
+        <div class="flex items-center justify-center gap-4 w-full sm:w-auto">
+          <a
+            href="/products"
+            class="h-11 px-8 rounded-lg bg-[#C2410C] hover:bg-[#9A3412] text-white font-medium text-sm flex items-center justify-center transition-colors shadow-sm"
+          >
+            تصفح المنتجات
+          </a>
+          <a
+            href="/home"
+            class="h-11 px-8 rounded-lg bg-white border border-[#E6DCD1] hover:bg-[#FAF6F1] text-[#1C1917] font-medium text-sm flex items-center justify-center transition-colors"
+          >
+            الرئيسية
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- STORE FOOTER -->
+    <footer class="bg-[#FAF6F1] border-t border-[#E6DCD1] py-12 mt-auto">
+      <div class="max-w-[1360px] mx-auto px-8 flex flex-col items-center text-center">
+        <!-- Stacked Logo Lockup -->
+        <div class="flex flex-col items-center mb-4">
+          <svg
+            class="w-7 h-7 text-[#C2410C] mb-2"
+            viewBox="0 0 40 40"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <ellipse
+              cx="20"
+              cy="20"
+              rx="14"
+              ry="18"
+              fill="#F2EAE0"
+              stroke="#C2410C"
+              stroke-width="2.5"
+            />
+            <path
+              d="M20 5C20 14 26 18 20 25C14 32 20 35 20 35"
+              stroke="#C2410C"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              fill="none"
+            />
+          </svg>
+          <span
+            class="text-[10px] tracking-widest text-[#78716C] uppercase font-bold leading-none mb-1"
+            >ROASTERY</span
+          >
+          <span
+            class="font-heading font-extrabold text-xl lowercase tracking-tight leading-none text-[#1C1917]"
+            >ember</span
+          >
+        </div>
+
+        <!-- Stripe Test Mode pill -->
+        <div
+          class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#E6DCD1] bg-white text-xs text-[#78716C] mb-6"
+        >
+          <span>Stripe Test Mode</span>
+          <span class="w-2 h-2 rounded-full bg-[#C2410C]"></span>
+        </div>
+
+        <!-- Links -->
+        <div class="flex items-center gap-6 text-xs text-[#78716C] mb-4 font-medium">
+          <a href="/products" class="hover:text-[#1C1917] transition-colors">المحصولات</a>
+          <a href="/methods" class="hover:text-[#1C1917] transition-colors">طرق التحضير</a>
+          <a href="/about" class="hover:text-[#1C1917] transition-colors">قصتنا</a>
+          <a href="/privacy" class="hover:text-[#1C1917] transition-colors">الشروط والخصوصية</a>
+        </div>
+
+        <!-- Copyright -->
+        <p class="text-[11px] text-[#A8A29E]">© 2025 Ember Roastery. جميع الحقوق محفوظة.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1360" />
+    <title>Dashboard Overview — Ember Roastery Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              crema: "#FAF6F1",
+              accent: "#C2410C",
+              "accent-hover": "#9A3412",
+              espresso: "#1C1612",
+              bordercol: "#E6DCD1",
+              muted: "#786F66",
+              surface: "#FFFFFF",
+              viewer: "#B45309",
+              "delta-up": "#15803D",
+              "delta-down": "#B91C1C",
+            },
+            fontFamily: {
+              brico: ['"Bricolage Grotesque"', "sans-serif"],
+              arabic: ['"IBM Plex Sans Arabic"', "sans-serif"],
+              mono: ['"JetBrains Mono"', "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "IBM Plex Sans Arabic", sans-serif;
+        background-color: #faf6f1;
+        color: #1c1612;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+      }
+      .heading-font {
+        font-family: "Bricolage Grotesque", "IBM Plex Sans Arabic", sans-serif;
+      }
+      .num-tabular {
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: "tnum";
+      }
+      @keyframes pulse-subtle {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.45;
+        }
+      }
+      .animate-pulse-subtle {
+        animation: pulse-subtle 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-[#FAF6F1] text-[#1C1612] antialiased min-h-screen">
+    <div class="flex min-h-screen w-[1360px] mx-auto overflow-hidden">
+      <!-- ==================== SIDEBAR (224px, START Edge - Right in RTL) ==================== -->
+      <aside
+        class="w-[224px] shrink-0 bg-white border-l border-[#E6DCD1] flex flex-col justify-between py-6 px-4 z-20"
+      >
+        <div class="space-y-6">
+          <!-- Logo Lockup: Bean + lowercase "ember" + ROASTERY -->
+          <div class="flex items-center gap-2.5 px-2">
+            <svg
+              class="w-7 h-7 text-[#C2410C] shrink-0"
+              viewBox="0 0 40 40"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <ellipse cx="20" cy="20" rx="14" ry="17" />
+              <path d="M20 3 C14 12, 26 28, 20 37" stroke-linecap="round" />
+            </svg>
+            <div class="flex flex-col">
+              <span
+                class="text-xl font-bold tracking-tight text-[#1C1612] leading-none heading-font"
+                >ember</span
+              >
+              <span
+                class="text-[9px] tracking-[0.22em] text-[#786F66] font-semibold mt-0.5 heading-font"
+                >ROASTERY</span
+              >
+            </div>
+          </div>
+
+          <!-- Navigation Items -->
+          <nav class="space-y-1">
+            <!-- Item 1: نظرة عامة (Active) -->
+            <a
+              href="#"
+              class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#C2410C] text-white font-medium text-sm transition"
+            >
+              <span class="text-base leading-none">📊</span>
+              <span>نظرة عامة</span>
+            </a>
+
+            <!-- Item 2: الأوردرات -->
+            <a
+              href="#"
+              class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#1C1612] hover:bg-[#FAF6F1] text-sm transition"
+            >
+              <span class="text-base leading-none">🧾</span>
+              <span>الأوردرات</span>
+            </a>
+
+            <!-- Item 3: المنتجات -->
+            <a
+              href="#"
+              class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#1C1612] hover:bg-[#FAF6F1] text-sm transition"
+            >
+              <span class="text-base leading-none">☕</span>
+              <span>المنتجات</span>
+            </a>
+
+            <!-- Item 4: العملاء -->
+            <a
+              href="#"
+              class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#1C1612] hover:bg-[#FAF6F1] text-sm transition"
+            >
+              <span class="text-base leading-none">👥</span>
+              <span>العملاء</span>
+            </a>
+
+            <!-- Item 5: التحليلات -->
+            <a
+              href="#"
+              class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-[#1C1612] hover:bg-[#FAF6F1] text-sm transition"
+            >
+              <span class="text-base leading-none">📈</span>
+              <span>التحليلات</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Bottom link: العودة للمتجر -->
+        <div class="px-2 pt-4 border-t border-[#E6DCD1]">
+          <a
+            href="#"
+            class="text-xs text-[#786F66] hover:text-[#C2410C] flex items-center gap-1.5 transition"
+          >
+            <span>←</span>
+            <span>العودة للمتجر</span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- ==================== MAIN CONTENT AREA ==================== -->
+      <div class="flex-1 flex flex-col min-w-0 bg-[#FAF6F1]">
+        <!-- Top Bar (56px high, white, 1px bottom border) -->
+        <header
+          class="h-[56px] shrink-0 bg-white border-b border-[#E6DCD1] px-8 flex items-center justify-between z-10"
+        >
+          <!-- Start side (Right in RTL): VIEWER role pill -->
+          <div>
+            <span
+              class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border border-[#B45309] text-[#B45309] bg-[#FFFBEB]"
+            >
+              وضع المشاهدة — التعديل غير متاح
+            </span>
+          </div>
+
+          <!-- End side (Left in RTL): Demo Viewer + Theme Toggle + AR|EN + خروج -->
+          <div class="flex items-center gap-5 text-sm">
+            <span class="text-[#1C1612] font-medium">Demo Viewer</span>
+            <div class="h-4 w-[1px] bg-[#E6DCD1]"></div>
+
+            <!-- Theme toggle -->
+            <button class="text-[#786F66] hover:text-[#1C1612] text-sm transition" title="المظهر">
+              ☀ / ☾
+            </button>
+
+            <div class="h-4 w-[1px] bg-[#E6DCD1]"></div>
+
+            <!-- AR|EN language switch -->
+            <div class="flex items-center gap-1 text-xs font-semibold heading-font">
+              <span class="text-[#C2410C]">AR</span>
+              <span class="text-[#786F66]">|</span>
+              <span class="text-[#786F66] hover:text-[#1C1612] cursor-pointer">EN</span>
+            </div>
+
+            <div class="h-4 w-[1px] bg-[#E6DCD1]"></div>
+
+            <!-- خروج -->
+            <a href="#" class="text-xs text-[#786F66] hover:text-[#C2410C] transition">خروج</a>
+          </div>
+        </header>
+
+        <!-- Scrollable Main Content -->
+        <main class="p-8 space-y-6 overflow-y-auto">
+          <!-- Title & Period Selector Header Row -->
+          <div class="flex items-center justify-between">
+            <h1 class="text-2xl font-bold tracking-tight text-[#1C1612] heading-font">نظرة عامة</h1>
+
+            <!-- Segmented period selector -->
+            <div class="inline-flex bg-white border border-[#E6DCD1] rounded-lg p-1 text-xs">
+              <button
+                class="px-3 py-1.5 rounded-md text-[#786F66] hover:text-[#1C1612] transition font-medium"
+              >
+                آخر 7 أيام
+              </button>
+              <button
+                class="px-3 py-1.5 rounded-md bg-[#C2410C] text-white font-medium shadow-sm transition"
+              >
+                آخر 30 يوم
+              </button>
+              <button
+                class="px-3 py-1.5 rounded-md text-[#786F66] hover:text-[#1C1612] transition font-medium"
+              >
+                آخر 3 شهور
+              </button>
+            </div>
+          </div>
+
+          <!-- ROW 1: Four KPI Cards in 4 equal columns -->
+          <div class="grid grid-cols-4 gap-4">
+            <!-- KPI 1: المبيعات -->
+            <div
+              class="bg-white rounded-xl border border-[#E6DCD1] p-4 flex flex-col justify-between"
+            >
+              <span class="text-sm text-[#786F66] font-medium">المبيعات</span>
+              <div class="my-2">
+                <span class="text-[28px] font-semibold text-[#1C1612] num-tabular heading-font"
+                  >$1,300,420.28</span
+                >
+              </div>
+              <div class="text-xs text-[#786F66] flex items-center gap-1">
+                <span class="text-[#15803D] font-bold">▲ 48.9%</span>
+                <span>عن الفترة السابقة</span>
+              </div>
+            </div>
+
+            <!-- KPI 2: الأوردرات -->
+            <div
+              class="bg-white rounded-xl border border-[#E6DCD1] p-4 flex flex-col justify-between"
+            >
+              <span class="text-sm text-[#786F66] font-medium">الأوردرات</span>
+              <div class="my-2">
+                <span class="text-[28px] font-semibold text-[#1C1612] num-tabular heading-font"
+                  >6,920</span
+                >
+              </div>
+              <div class="text-xs text-[#786F66] flex items-center gap-1">
+                <span class="text-[#15803D] font-bold">▲ 47.9%</span>
+                <span>عن الفترة السابقة</span>
+              </div>
+            </div>
+
+            <!-- KPI 3: متوسط قيمة الأوردر -->
+            <div
+              class="bg-white rounded-xl border border-[#E6DCD1] p-4 flex flex-col justify-between"
+            >
+              <span class="text-sm text-[#786F66] font-medium">متوسط قيمة الأوردر</span>
+              <div class="my-2">
+                <span class="text-[28px] font-semibold text-[#1C1612] num-tabular heading-font"
+                  >$187.92</span
+                >
+              </div>
+              <div class="text-xs text-[#786F66] flex items-center gap-1">
+                <span class="text-[#15803D] font-bold">▲ 0.7%</span>
+                <span>عن الفترة السابقة</span>
+              </div>
+            </div>
+
+            <!-- KPI 4: عملاء جدد -->
+            <div
+              class="bg-white rounded-xl border border-[#E6DCD1] p-4 flex flex-col justify-between"
+            >
+              <span class="text-sm text-[#786F66] font-medium">عملاء جدد</span>
+              <div class="my-2">
+                <span class="text-[28px] font-semibold text-[#1C1612] num-tabular heading-font"
+                  >43</span
+                >
+              </div>
+              <div class="text-xs text-[#786F66] flex items-center gap-1">
+                <span class="text-[#15803D] font-bold">▲ 38.7%</span>
+                <span>عن الفترة السابقة</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROW 2: Full-width Card "المبيعات اليومية" -->
+          <div class="bg-white rounded-xl border border-[#E6DCD1] p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h2 class="text-base font-bold text-[#1C1612] heading-font">المبيعات اليومية</h2>
+            </div>
+
+            <!-- Line Chart Container -->
+            <div class="w-full h-64 pt-2 pb-1 relative">
+              <!-- SVG Line Chart with dashed gridlines and smooth curve (time flowing left -> right) -->
+              <svg
+                class="w-full h-full overflow-visible"
+                viewBox="0 0 1000 220"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#C2410C" stop-opacity="0.12" />
+                    <stop offset="100%" stop-color="#C2410C" stop-opacity="0.0" />
+                  </linearGradient>
+                </defs>
+
+                <!-- Horizontal dashed gridlines (#E6DCD1) -->
+                <!-- 80k line (y=20) -->
+                <line
+                  x1="60"
+                  y1="20"
+                  x2="980"
+                  y2="20"
+                  stroke="#E6DCD1"
+                  stroke-dasharray="4 4"
+                  stroke-width="1"
+                />
+                <!-- 60k line (y=67.5) -->
+                <line
+                  x1="60"
+                  y1="67.5"
+                  x2="980"
+                  y2="67.5"
+                  stroke="#E6DCD1"
+                  stroke-dasharray="4 4"
+                  stroke-width="1"
+                />
+                <!-- 40k line (y=115) -->
+                <line
+                  x1="60"
+                  y1="115"
+                  x2="980"
+                  y2="115"
+                  stroke="#E6DCD1"
+                  stroke-dasharray="4 4"
+                  stroke-width="1"
+                />
+                <!-- 20k line (y=162.5) -->
+                <line
+                  x1="60"
+                  y1="162.5"
+                  x2="980"
+                  y2="162.5"
+                  stroke="#E6DCD1"
+                  stroke-dasharray="4 4"
+                  stroke-width="1"
+                />
+                <!-- 0 line (y=210) -->
+                <line x1="60" y1="210" x2="980" y2="210" stroke="#E6DCD1" stroke-width="1" />
+
+                <!-- Y-Axis Labels ($0 … $80k) placed at the start edge / right edge of chart area -->
+                <text
+                  x="45"
+                  y="24"
+                  text-anchor="end"
+                  fill="#786F66"
+                  font-size="11"
+                  class="num-tabular font-sans"
+                >
+                  $80k
+                </text>
+                <text
+                  x="45"
+                  y="71"
+                  text-anchor="end"
+                  fill="#786F66"
+                  font-size="11"
+                  class="num-tabular font-sans"
+                >
+                  $60k
+                </text>
+                <text
+                  x="45"
+                  y="119"
+                  text-anchor="end"
+                  fill="#786F66"
+                  font-size="11"
+                  class="num-tabular font-sans"
+                >
+                  $40k
+                </text>
+                <text
+                  x="45"
+                  y="166"
+                  text-anchor="end"
+                  fill="#786F66"
+                  font-size="11"
+                  class="num-tabular font-sans"
+                >
+                  $20k
+                </text>
+                <text
+                  x="45"
+                  y="213"
+                  text-anchor="end"
+                  fill="#786F66"
+                  font-size="11"
+                  class="num-tabular font-sans"
+                >
+                  $0
+                </text>
+
+                <!-- Gradient Fill under curve -->
+                <path
+                  d="M 60,120 
+                       C 130,118 190,125 250,110 
+                       C 320,95 380,105 450,85 
+                       C 520,70 590,80 660,65 
+                       C 730,50 800,58 870,40 
+                       C 920,28 950,22 980,20 
+                       L 980,210 L 60,210 Z"
+                  fill="url(#chartGradient)"
+                />
+
+                <!-- Smooth 2px line in accent #C2410C (no dots) rising from $40k (y~115) to $80k (y~20) -->
+                <path
+                  d="M 60,120 
+                       C 130,118 190,125 250,110 
+                       C 320,95 380,105 450,85 
+                       C 520,70 590,80 660,65 
+                       C 730,50 800,58 870,40 
+                       C 920,28 950,22 980,20"
+                  fill="none"
+                  stroke="#C2410C"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+
+              <!-- X-Axis Dates (September 14 → October 12) flowing left to right -->
+              <div
+                class="flex justify-between items-center text-[11px] text-[#786F66] pt-2 px-12 num-tabular"
+              >
+                <span>14 سبتمبر</span>
+                <span>21 سبتمبر</span>
+                <span>28 سبتمبر</span>
+                <span>5 أكتوبر</span>
+                <span>12 أكتوبر</span>
+              </div>
+            </div>
+
+            <!-- Below chart text disclosure: عرض البيانات كجدول ◂ -->
+            <div class="pt-1">
+              <button
+                class="text-xs text-[#786F66] hover:text-[#C2410C] font-medium transition flex items-center gap-1"
+              >
+                <span>عرض البيانات كجدول</span>
+                <span class="text-[10px]">◂</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ROW 3: Two cards side by side (Wide: آخر الأوردرات + Narrow: تنبيهات المخزون) -->
+          <div class="grid grid-cols-12 gap-6">
+            <!-- Wide Card (8 cols): آخر الأوردرات -->
+            <div class="col-span-8 bg-white rounded-xl border border-[#E6DCD1] p-6 space-y-4">
+              <div class="flex items-center justify-between border-b border-[#E6DCD1] pb-3">
+                <h2 class="text-base font-bold text-[#1C1612] heading-font">آخر الأوردرات</h2>
+                <a
+                  href="#"
+                  class="text-xs font-medium text-[#C2410C] hover:text-[#9A3412] transition"
+                  >عرض الكل</a
+                >
+              </div>
+
+              <!-- Table of 8 rows -->
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm text-right">
+                  <thead>
+                    <tr class="text-xs text-[#786F66] border-b border-[#E6DCD1]">
+                      <th class="pb-2 font-medium">رقم الأوردر</th>
+                      <th class="pb-2 font-medium">العميل</th>
+                      <th class="pb-2 font-medium">الحالة</th>
+                      <th class="pb-2 font-medium">التاريخ</th>
+                      <th class="pb-2 font-medium text-left">الإجمالي</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-[#E6DCD1]">
+                    <!-- Row 1 -->
+                    <tr class="hover:bg-[#FAF6F1] transition">
+                      <td class="py-2.5">
+                        <a
+                          href="#"
+                          class="font-semibold text-[#C2410C] hover:underline num-tabular heading-font"
+                          >#52600</a
+                        >
+                      </td>
+                      <td class="py-2.5 text-[#1C1612] font-medium">طارق المنشاوي</td>
+                      <td class="py-2.5">
+                        <span
+                          class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-[#ECFDF5] text-[#15803D]"
+                        >
+                          <span>✓</span>
+                          <span>مكتمل</span>
+                        </span>
+                      </td>
+                      <td class="py-2.5 text-xs text-[#786F66] num-tabular">منذ ساعتين</td>
+                      <td
+                        class="py-2.5 text-left font-semibold text-[#1C1612] num-tabular heading-font"
+                      >
+                        $84.00
+                      </td>
+                    </tr>
+
+                    <!-- Row 2 -->
+                    <tr class="hover:bg-[#FAF6F1] transition">
+                      <td class="py-2.5">
+                        <a
+                          href="#"
+                          class="font-semibold text-[#C2410C] hover:underline num-tabular heading-font"
+                          >#52599</a
+                        >
+                      </td>
+                      <td class="py-2.5 text-[#1C1612] font-medium">سلمى عبد الرحمن</td>
+                      <td class="py-2.5">
+                        <span
+                          class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-[#EFF6FF] text-[#1D4ED8]"
+                        >
+                          <span>⏳</span>
+                          <span>قيد التحضير</span>
+                        </span>
+                      </td>
+                      <td class="py-2.5 text-xs text-[#786F66] num-tabular">منذ 3 ساعات</td>
+                      <td
+                        class="py-2.5 text-left font-semibold text-[#1C1612] num-tabular heading-font"
+                      >
+                        $126.00
+                      </td>
+                    </tr>
+
+                    <!-- Row 3 -->
+                    <tr class="hover:bg-[#FAF6F1] transition">
+                      <td class="py-2.5">
+                        <a
+                          href="#"
+                          class="font-semibold text-[#C2410C] hover:underline num-tabular heading-font"
+                          >#52598</a
+                        >
+                      </td>
+                      <td class="py-2.5 text-[#1C1612] font-medium">عمر الدسوقي</td>
+                      <td class="py-2.5">
+                        <span
+                          class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-[#ECFDF5] text-[#15803D]"
+                        >
+                          <span>✓</span>
+                          <span>مكتمل</span>
+                        </span>
+                      </td>
+                      <td class="py-2.5 text-xs text-[#786F66] num-tabular">منذ 5 ساعات</td>
+                      <td
+                        class="py-2.5 text-left font-semibold text-[#1C1612] num-tabular heading-font"
+                      >
+                        $42.00
+                      </td>
+                    </tr>
+
+                    <!-- Row 4 -->
+                    <tr class="hover:bg-[#FAF6F1] transition">
+                      <td class="py-2.5">
+                        <a
+                          href="#"
+                          class="font-semibold text-[#C2410C] hover:underline num-tabular heading-font"
+                          >#52597</a
+                        >
+                      </td>
+                      <td class="py-2.5 text-[#1C1612] font-medium">نورا الشناوي</td>
+                      <td class="py-2.5">
+                        <span
+                          class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-[#FFFBEB] text-[#B45309]"
+                        >
+                          <span>🚚</span>
+                          <span>في الطريق</span>
+                        </span>
+                      </td>
+                      <td class="py-2.5 text-xs text-[#786F66] num-tabular">منذ 6 ساعات</td>
+                      <td
+                        class="py-2.5 text-left font-semibold text-[#1C1612] num-tabular heading-font"
+                      >
+                        $210.00
+                      </td>
+                    </tr>
+
+                    <!-- Row 5 -->
+                    <tr class="hover:bg-[#FAF6F1] transition">
+                      <td class="py-2.5">
+                        <a
+                          href="#"
+                          class="font-semibold text-[#C2410C] hover:underline num-tabular heading-font"
+                          >#52596</a
+                        >
+                      </td>
+                      <td class="py-2.5 text-[#1C1612] font-medium">محمد إبراهيم</td>
+                      <td class="py-2.5">
+                        <span
+                          class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-[#ECFDF5] text-[#15803D]"
+                        >
+                          <span>✓</span>
+                          <span>مكتمل</span>
+                        </span>
+                      </td>
+                      <td class="py-2.5 text-xs text-[#786F66] num-tabular">منذ 8 ساعات</td>
+                      <td
+                        class="py-2.5 text-left font-semibold text-[#1C1612] num-tabular heading-font"
+                      >
+                        $63.00
+                      </td>
+                    </tr>
+
+                    <!-- Row 6 -->
+                    <tr class="hover:bg-[#FAF6F1] transition">
+                      <td class="py-2.5">
+                        <a
+                          href="#"
+                          class="font-semibold text-[#C2410C] hover:underline num-tabular heading-font"
+                          >#52595</a
+                        >
+                      </td>
+                      <td class="py-2.5 text-[#1C1612] font-medium">ياسين الفقي</td>
+                      <td class="py-2.5">
+                        <span
+                          class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-[#FEF2F2] text-[#B91C1C]"
+                        >
+                          <span>✕</span>
+                          <span>ملغي</span>
+                        </span>
+                      </td>
+                      <td class="py-2.5 text-xs text-[#786F66] num-tabular">أمس</td>
+                      <td
+                        class="py-2.5 text-left font-semibold text-[#1C1612] num-tabular heading-font"
+                      >
+                        $38.50
+                      </td>
+                    </tr>
+
+                    <!-- Row 7 -->
+                    <tr class="hover:bg-[#FAF6F1] transition">
+                      <td class="py-2.5">
+                        <a
+                          href="#"
+                          class="font-semibold text-[#C2410C] hover:underline num-tabular heading-font"
+                          >#52594</a
+                        >
+                      </td>
+                      <td class="py-2.5 text-[#1C1612] font-medium">ميادة كمال</td>
+                      <td class="py-2.5">
+                        <span
+                          class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-[#ECFDF5] text-[#15803D]"
+                        >
+                          <span>✓</span>
+                          <span>مكتمل</span>
+                        </span>
+                      </td>
+                      <td class="py-2.5 text-xs text-[#786F66] num-tabular">أمس</td>
+                      <td
+                        class="py-2.5 text-left font-semibold text-[#1C1612] num-tabular heading-font"
+                      >
+                        $105.00
+                      </td>
+                    </tr>
+
+                    <!-- Row 8 -->
+                    <tr class="hover:bg-[#FAF6F1] transition">
+                      <td class="py-2.5">
+                        <a
+                          href="#"
+                          class="font-semibold text-[#C2410C] hover:underline num-tabular heading-font"
+                          >#52593</a
+                        >
+                      </td>
+                      <td class="py-2.5 text-[#1C1612] font-medium">كريم الصاوي</td>
+                      <td class="py-2.5">
+                        <span
+                          class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-[#ECFDF5] text-[#15803D]"
+                        >
+                          <span>✓</span>
+                          <span>مكتمل</span>
+                        </span>
+                      </td>
+                      <td class="py-2.5 text-xs text-[#786F66] num-tabular">أمس</td>
+                      <td
+                        class="py-2.5 text-left font-semibold text-[#1C1612] num-tabular heading-font"
+                      >
+                        $147.00
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Narrow Card (4 cols): تنبيهات المخزون -->
+            <div class="col-span-4 bg-white rounded-xl border border-[#E6DCD1] p-6 space-y-4">
+              <div class="border-b border-[#E6DCD1] pb-3">
+                <h2 class="text-base font-bold text-[#1C1612] heading-font">تنبيهات المخزون</h2>
+              </div>
+
+              <!-- 5 rows "Product — variant" and pill -->
+              <div class="divide-y divide-[#E6DCD1]">
+                <!-- Item 1 -->
+                <div class="py-3 flex items-center justify-between text-sm">
+                  <span class="text-[#1C1612] font-medium truncate max-w-[190px]"
+                    >Ethiopia Yirgacheffe — 250g</span
+                  >
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[#FEF2F2] text-[#B91C1C] border border-[#FCA5A5] shrink-0"
+                  >
+                    ✕ نفذ
+                  </span>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="py-3 flex items-center justify-between text-sm">
+                  <span class="text-[#1C1612] font-medium truncate max-w-[190px]"
+                    >Colombia Huila — 1kg</span
+                  >
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[#FFFBEB] text-[#B45309] border border-[#FDE68A] shrink-0"
+                  >
+                    ⚠ باقي 3
+                  </span>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="py-3 flex items-center justify-between text-sm">
+                  <span class="text-[#1C1612] font-medium truncate max-w-[190px]"
+                    >Guatemala Antigua — 250g</span
+                  >
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[#FEF2F2] text-[#B91C1C] border border-[#FCA5A5] shrink-0"
+                  >
+                    ✕ نفذ
+                  </span>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="py-3 flex items-center justify-between text-sm">
+                  <span class="text-[#1C1612] font-medium truncate max-w-[190px]"
+                    >Kenya Nyeri AA — 500g</span
+                  >
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[#FFFBEB] text-[#B45309] border border-[#FDE68A] shrink-0"
+                  >
+                    ⚠ باقي 3
+                  </span>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="py-3 flex items-center justify-between text-sm">
+                  <span class="text-[#1C1612] font-medium truncate max-w-[190px]"
+                    >Ember House Blend — 1kg</span
+                  >
+                  <span
+                    class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-[#FFFBEB] text-[#B45309] border border-[#FDE68A] shrink-0"
+                  >
+                    ⚠ باقي 3
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== STATE FRAMES SHOWCASE ==================== -->
+          <!-- Frames after the main one: (a), (b), (c), (d), (e) -->
+          <div class="pt-8 border-t border-[#E6DCD1] space-y-6">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#786F66] heading-font"
+                >إطارات الحالات الإضافية (State Frames)</span
+              >
+              <div class="h-px bg-[#E6DCD1] flex-1"></div>
+            </div>
+
+            <!-- (a) & (b) KPI Alternative Variants -->
+            <div class="grid grid-cols-2 gap-4">
+              <!-- (a) KPI card with negative delta -->
+              <div
+                class="bg-white rounded-xl border border-[#E6DCD1] p-4 flex flex-col justify-between"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-[#786F66] font-medium"
+                    >المبيعات — حالة انخفاض (Frame a)</span
+                  >
+                  <span class="text-[10px] text-[#786F66] font-mono">Negative Delta</span>
+                </div>
+                <div class="my-2">
+                  <span class="text-[28px] font-semibold text-[#1C1612] num-tabular heading-font"
+                    >$920,110.00</span
+                  >
+                </div>
+                <div class="text-xs text-[#786F66] flex items-center gap-1">
+                  <span class="text-[#B91C1C] font-bold">▼ 12.3%</span>
+                  <span>عن الفترة السابقة</span>
+                </div>
+              </div>
+
+              <!-- (b) KPI card with no previous period data -->
+              <div
+                class="bg-white rounded-xl border border-[#E6DCD1] p-4 flex flex-col justify-between"
+              >
+                <div class="flex items-center justify-between">
+                  <span class="text-sm text-[#786F66] font-medium">مبيعات صنف جديد (Frame b)</span>
+                  <span class="text-[10px] text-[#786F66] font-mono">No Baseline Data</span>
+                </div>
+                <div class="my-2">
+                  <span class="text-[28px] font-semibold text-[#1C1612] num-tabular heading-font"
+                    >$14,250.00</span
+                  >
+                </div>
+                <div class="text-xs text-[#786F66]">لا توجد بيانات للفترة السابقة</div>
+              </div>
+            </div>
+
+            <!-- (e) Stock Alerts EMPTY -->
+            <div class="bg-white rounded-xl border border-[#E6DCD1] p-6">
+              <div class="flex items-center justify-between border-b border-[#E6DCD1] pb-3 mb-4">
+                <h3 class="text-base font-bold text-[#1C1612] heading-font">
+                  تنبيهات المخزون — حالة المخزون المكتمل (Frame e)
+                </h3>
+              </div>
+              <div
+                class="py-8 text-center text-sm font-medium text-[#15803D] bg-[#F7F3EE] rounded-lg border border-dashed border-[#E6DCD1]"
+              >
+                كل الأصناف مخزونها كافٍ ✓
+              </div>
+            </div>
+
+            <!-- (c) LOADING SKELETON (4 pulsing KPI blocks + large chart block) -->
+            <div class="bg-white rounded-xl border border-[#E6DCD1] p-6 space-y-6">
+              <div class="flex items-center justify-between border-b border-[#E6DCD1] pb-3">
+                <span class="text-sm font-bold text-[#1C1612] heading-font"
+                  >حالة التحميل — Loading Skeleton (Frame c)</span
+                >
+                <span class="text-xs text-[#786F66]">Pulsing Skeleton</span>
+              </div>
+
+              <!-- 4 Pulsing KPI Blocks -->
+              <div class="grid grid-cols-4 gap-4 animate-pulse-subtle">
+                <div
+                  class="bg-[#FAF6F1] rounded-xl border border-[#E6DCD1] p-4 h-28 flex flex-col justify-between"
+                >
+                  <div class="h-3.5 bg-[#E6DCD1] rounded w-20"></div>
+                  <div class="h-7 bg-[#E6DCD1] rounded w-36"></div>
+                  <div class="h-3 bg-[#E6DCD1] rounded w-24"></div>
+                </div>
+                <div
+                  class="bg-[#FAF6F1] rounded-xl border border-[#E6DCD1] p-4 h-28 flex flex-col justify-between"
+                >
+                  <div class="h-3.5 bg-[#E6DCD1] rounded w-20"></div>
+                  <div class="h-7 bg-[#E6DCD1] rounded w-24"></div>
+                  <div class="h-3 bg-[#E6DCD1] rounded w-24"></div>
+                </div>
+                <div
+                  class="bg-[#FAF6F1] rounded-xl border border-[#E6DCD1] p-4 h-28 flex flex-col justify-between"
+                >
+                  <div class="h-3.5 bg-[#E6DCD1] rounded w-24"></div>
+                  <div class="h-7 bg-[#E6DCD1] rounded w-28"></div>
+                  <div class="h-3 bg-[#E6DCD1] rounded w-24"></div>
+                </div>
+                <div
+                  class="bg-[#FAF6F1] rounded-xl border border-[#E6DCD1] p-4 h-28 flex flex-col justify-between"
+                >
+                  <div class="h-3.5 bg-[#E6DCD1] rounded w-16"></div>
+                  <div class="h-7 bg-[#E6DCD1] rounded w-16"></div>
+                  <div class="h-3 bg-[#E6DCD1] rounded w-24"></div>
+                </div>
+              </div>
+
+              <!-- Large Chart Block Skeleton -->
+              <div
+                class="bg-[#FAF6F1] rounded-xl border border-[#E6DCD1] p-6 h-60 animate-pulse-subtle flex flex-col justify-between"
+              >
+                <div class="h-4 bg-[#E6DCD1] rounded w-32"></div>
+                <div class="space-y-4">
+                  <div class="h-px bg-[#E6DCD1] w-full border-dashed border-b"></div>
+                  <div class="h-px bg-[#E6DCD1] w-full border-dashed border-b"></div>
+                  <div class="h-px bg-[#E6DCD1] w-full border-dashed border-b"></div>
+                </div>
+                <div class="h-3 bg-[#E6DCD1] rounded w-28"></div>
+              </div>
+            </div>
+
+            <!-- (d) ERROR CARD -->
+            <div class="bg-white rounded-xl border border-[#E6DCD1] p-8 text-center space-y-4">
+              <span class="text-xs font-bold text-[#786F66] uppercase heading-font block mb-1"
+                >حالة الخطأ — Error State (Frame d)</span
+              >
+              <div
+                class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#FEF2F2] text-[#B91C1C] text-xl mb-1"
+              >
+                ✕
+              </div>
+              <p class="text-base font-semibold text-[#1C1612]">تعذّر تحميل البيانات.</p>
+              <div>
+                <button
+                  class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-[#C2410C] hover:bg-[#9A3412] text-white text-sm font-medium transition shadow-sm"
+                >
+                  حاول تاني
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Rounded Squircle Base for High Contrast on both Dark & Light Browser Tabs -->
+  <rect width="32" height="32" rx="7" fill="#1C1612" />
+  
+  <!-- Tilted Coffee Bean -->
+  <g transform="translate(16, 16) rotate(28)">
+    <ellipse cx="0" cy="0" rx="7.5" ry="12.5" fill="#2E231C" stroke="#453429" stroke-width="0.75" />
+    <!-- Bright Glowing Ember Crease -->
+    <path d="M 0 -10.5 C 4 -5.2 -4 5.2 0 10.5" fill="none" stroke="#E4572E" stroke-width="2.3" stroke-linecap="round" />
+    <path d="M 0 -7 C 2.5 -3.5 -2.5 3.5 0 7" fill="none" stroke="#FFA15C" stroke-width="0.9" stroke-linecap="round" />
+  </g>
+</svg>

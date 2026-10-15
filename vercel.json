@@ -1,0 +1,7 @@
+{
+  "crons": [
+    { "path": "/api/cron/expire-payments", "schedule": "0 3 * * *" },
+    { "path": "/api/cron/simulate-day", "schedule": "30 3 * * *" },
+    { "path": "/api/cron/reset-demo", "schedule": "0 4 * * 0" }
+  ]
+}

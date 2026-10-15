@@ -1,5 +1,7 @@
 # Ember Roastery: storefront + admin dashboard
 
+**Live demo: https://coffee-ten-khaki.vercel.app** ([store](https://coffee-ten-khaki.vercel.app/en) · [dashboard login](https://coffee-ten-khaki.vercel.app/en/login) · [API docs](https://coffee-ten-khaki.vercel.app/api/docs))
+
 <img src="public/logo-primary.svg" alt="Ember Roastery logo" width="320" />
 
 A full-stack specialty-coffee shop for Egypt: a customer **storefront** and a live **admin dashboard** on one Next.js app and one Postgres database. An order placed in the store shows up in the dashboard; an edit in the dashboard shows up in the store. Arabic (right to left) and English, light and dark, phone first.

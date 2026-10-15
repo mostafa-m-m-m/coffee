@@ -172,7 +172,7 @@ function HomeContent() {
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <Link
               href="/products"
-              className={cn(buttonVariants({ variant: "primary", size: "md" }), "inline-block")}
+              className={cn(buttonVariants({ variant: "primary", size: "md" }))}
             >
               {t("browse")}
             </Link>

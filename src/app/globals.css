@@ -80,6 +80,11 @@ html {
 html[lang="ar"] {
   --font-body: var(--font-arabic);
 }
+/* Plex Mono has no Arabic glyphs, so digits and the currency sign would come from two different faces on different baselines */
+html[lang="ar"] .font-mono {
+  font-family: var(--font-arabic), system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
 
 /* English headings use the wordmark's typeface; Arabic has no Bricolage, so it takes Plex Arabic in bold */
 html:not([lang="ar"]) :is(h1, h2, h3) {

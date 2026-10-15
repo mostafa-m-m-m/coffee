@@ -57,10 +57,7 @@ async function Pay({ params }: { params: PageProps<"/[locale]/pay/[ref]">["param
       >
         <h1 className="text-xl font-bold">{t("expiredTitle")}</h1>
         <p className="text-muted">{t("expiredHint")}</p>
-        <Link
-          href="/"
-          className={cn(buttonVariants({ variant: "primary", size: "md" }), "inline-block")}
-        >
+        <Link href="/" className={cn(buttonVariants({ variant: "primary", size: "md" }))}>
           {t("backToStore")}
         </Link>
       </div>

@@ -123,7 +123,7 @@ export function VariantPicker({
         type="button"
         disabled={out || maxReached}
         onClick={addToCart}
-        className={cn(buttonVariants({ variant: "primary", size: "md" }), "hidden md:inline-block")}
+        className={cn(buttonVariants({ variant: "primary", size: "md" }), "hidden md:inline-flex")}
       >
         {label}
       </button>

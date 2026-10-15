@@ -76,7 +76,7 @@ async function Success({
       {awaiting && order.paymentRef && (
         <Link
           href={`/pay/${order.paymentRef}`}
-          className={cn(buttonVariants({ variant: "primary", size: "md" }), "inline-block")}
+          className={cn(buttonVariants({ variant: "primary", size: "md" }))}
         >
           {t("payNow")}
         </Link>

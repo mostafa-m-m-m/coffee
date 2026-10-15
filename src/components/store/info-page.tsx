@@ -46,10 +46,7 @@ export function InfoPage({
           {cta?.section === s && (
             <Link
               href={cta.href}
-              className={cn(
-                buttonVariants({ variant: "primary", size: "md" }),
-                "mt-4 inline-block",
-              )}
+              className={cn(buttonVariants({ variant: "primary", size: "md" }), "mt-4")}
             >
               {text(`sections.${s}.cta`)}
             </Link>

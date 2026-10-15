@@ -116,10 +116,7 @@ export function PayForm({
         <p className="text-muted">
           {failure === "expired" ? t("expiredHint") : t("outOfStockHint")}
         </p>
-        <Link
-          href="/"
-          className={cn(buttonVariants({ variant: "primary", size: "md" }), "inline-block")}
-        >
+        <Link href="/" className={cn(buttonVariants({ variant: "primary", size: "md" }))}>
           {t("backToStore")}
         </Link>
       </div>

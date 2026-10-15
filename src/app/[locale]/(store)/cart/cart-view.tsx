@@ -159,17 +159,17 @@ export function CartView() {
       <aside className="h-fit space-y-3 rounded-lg border border-border bg-card p-4">
         <h2 className="font-semibold">{t("summary")}</h2>
         <dl className="space-y-1 text-sm">
-          <div className="flex justify-between">
+          <div className="flex items-baseline justify-between">
             <dt>{t("subtotal")}</dt>
             <dd>
               <Price cents={subtotal} />
             </dd>
           </div>
-          <div className="flex justify-between">
+          <div className="flex items-baseline justify-between">
             <dt>{t("shipping")}</dt>
             <dd>{free ? t("free") : t("shippingAtCheckout")}</dd>
           </div>
-          <div className="flex justify-between border-t border-border pt-2 text-base font-semibold">
+          <div className="flex items-baseline justify-between border-t border-border pt-2 text-base font-semibold">
             <dt>{free ? t("total") : t("totalExShipping")}</dt>
             <dd>
               <Price cents={subtotal} />
@@ -198,7 +198,7 @@ export function CartView() {
         ) : (
           <Link
             href="/checkout"
-            className={cn(buttonVariants({ variant: "primary", size: "md" }), "block text-center")}
+            className={cn(buttonVariants({ variant: "primary", size: "md" }), "w-full")}
           >
             {t("checkout")}
           </Link>
@@ -223,10 +223,7 @@ export function CartView() {
         ) : (
           <Link
             href="/checkout"
-            className={cn(
-              buttonVariants({ variant: "primary", size: "md" }),
-              "grid flex-1 place-items-center",
-            )}
+            className={cn(buttonVariants({ variant: "primary", size: "md" }), "flex-1")}
           >
             {t("checkout")}
           </Link>

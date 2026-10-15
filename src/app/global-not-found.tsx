@@ -42,7 +42,7 @@ export default function GlobalNotFound() {
                 <p className="text-muted">{t.hint}</p>
                 <a
                   href={`/${l}`}
-                  className={cn(buttonVariants({ variant: "primary", size: "md" }), "inline-block")}
+                  className={cn(buttonVariants({ variant: "primary", size: "md" }))}
                 >
                   {t.home} · {localeNames[l]}
                 </a>
